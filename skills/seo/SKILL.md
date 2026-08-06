@@ -1,19 +1,19 @@
 ---
 name: seo
-description: Route and coordinate SEO, AEO, GEO, AI-search research, visibility measurement, action planning, technical SEO, content, schema, sitemap, image, hreflang, page, audit, strategy, and programmatic requests to the smallest correct specialist workflow. Use when a request says SEO broadly, spans multiple disciplines, needs sequencing, or is ambiguous about audit, approved implementation, or measurement. Do not use as a substitute for a named specialist or to create a universal score, unsupported AI-search control, causal uplift claim, or placement guarantee.
+description: The default entry point for any SEO, AEO, GEO, or AI-search request. Route and coordinate research, audits, measurement, action planning, and approved implementation to the smallest correct specialist workflow; direct specialist invocation remains available for users who deliberately need one lane. Do not create a universal score, unsupported AI-search control, causal uplift claim, or placement guarantee.
 ---
 
 # SEO Router
 
-Select the smallest specialist set, preserve artifact boundaries, and reconcile the final handoff. This router does not invent findings, implement specialist work itself, or merge unlike metrics into one score.
+Use `$seo` as the default front door for every request in this suite: a narrow technical question, a content review, an AI-search investigation, a multi-team plan, or a scoped authorized change. Select the smallest specialist set, preserve artifact boundaries, and reconcile the final handoff. This router does not invent findings, implement specialist work itself, or merge unlike metrics into one score.
 
-Read [routing-matrix.md](references/routing-matrix.md) before routing a broad or mixed request.
+Read [routing-matrix.md](references/routing-matrix.md) before routing a request through the suite.
 
 ## Routing procedure
 
 1. Identify the requested outcome: research, audit, implementation, strategy, or measurement.
 2. Identify the surface and scope: site, page, content set, locale, engine/surface, technical system, or recurring run.
-3. Route a single-lane request directly to one specialist. Do not launch a full audit when a narrow skill owns the work.
+3. Route a single-lane request directly to one specialist. Do not launch a full audit when a narrow skill owns the work; the caller can still begin with `$seo` rather than choosing that specialist themselves.
 4. For compound optimize-and-track work, use this phase order: `research -> audit -> baseline measurement -> action planning -> approved implementation -> comparison measurement`.
 5. Require each phase's real artifact or explicit limitation before starting a dependent phase. AEO/GEO work hands off a validated `optimization-brief.json`; conventional SEO lanes hand off a validated `seo-findings.json` bundle. Do not let a downstream specialist silently repair missing upstream evidence or self-approve a change.
 6. Parallelize only independent lanes. Keep the final synthesis with the orchestrator and preserve disagreements instead of averaging them away.
@@ -43,6 +43,7 @@ Do not treat AEO and GEO as synonyms. Do not send live research to an audit skil
 - Template-driven or large-scale landing-page systems -> `seo-programmatic`.
 - Competitor comparison or alternative pages -> `seo-competitor-pages`.
 - Long-form query and evidence discovery -> `seo-research` when AI-search Research Pack provenance is not required.
+- Optional `llms.txt` suitability, source ownership, publishing, or maintenance -> `seo-technical`; treat it as a maintained publisher guide, not a universal crawler or visibility control.
 - Broad implementation optimization after a validated, approved action plan -> `optimise-seo`.
 
 ## Compound-work rules
@@ -55,6 +56,6 @@ Do not treat AEO and GEO as synonyms. Do not send live research to an audit skil
 
 ## Guardrails
 
-Do not create a universal SEO score or blend technical, content, AEO, GEO, and visibility metrics into a false precision number. Decline mandatory `llms.txt`, fixed passage or word-count formulas, blanket crawler instructions, invented ranking factors, unsupported source percentages, guaranteed rankings, guaranteed mentions, guaranteed citations, or any guarantee of AI placement. A bot request is not evidence of retrieval, citation, referral, or conversion.
+Do not create a universal SEO score or blend technical, content, AEO, GEO, and visibility metrics into a false precision number. Decline mandatory `llms.txt`, fixed passage or word-count formulas, blanket crawler instructions, invented ranking factors, unsupported source percentages, guaranteed rankings, guaranteed mentions, guaranteed citations, or any guarantee of AI placement. Treat `llms.txt` as an optional, evidence-scoped technical decision only when there is a documented consuming system, a trustworthy source of truth, a defined content scope, and a maintenance owner. A bot request is not evidence of retrieval, citation, referral, or conversion.
 
-When an existing specialist already owns the request, route to it without duplicating its instructions.
+When an existing specialist owns the next step, route to it without duplicating its instructions. Directly invoking that specialist remains available, but `$seo` is the recommended entry point when the user wants the suite to choose the right path.

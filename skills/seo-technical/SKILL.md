@@ -1,6 +1,6 @@
 ---
 name: seo-technical
-description: Use when investigating crawlability, indexability, canonicalization, rendering, performance, redirects, directives, sitemaps, or crawler controls from supplied technical evidence; return safe, testable implementation recommendations rather than a generic technical score.
+description: Use when investigating crawlability, indexability, canonicalization, rendering, performance, redirects, directives, sitemaps, crawler controls, or an evidence-scoped llms.txt decision from supplied technical evidence; return safe, testable implementation recommendations rather than a generic technical score.
 ---
 
 # Technical SEO
@@ -8,6 +8,8 @@ description: Use when investigating crawlability, indexability, canonicalization
 ## Purpose
 
 Diagnose concrete technical behavior from headers, raw and rendered pages, robots files, sitemap inventories, application configuration, field data, logs, and platform documentation. Create scoped implementation recommendations; do not deploy code, alter production directives, or claim an indexing/ranking outcome.
+
+For an optional `llms.txt` request, evaluate it as a maintained publisher guide—not as a crawler directive or a promised visibility control. Require a documented consuming system, a truthful source of content, a defined scope, and an owner who can keep it current before recommending publication.
 
 Read `references/technical-evidence-protocol.md` before a formal technical audit.
 
@@ -34,6 +36,7 @@ If evidence is unavailable, give a safe collection plan—not a guessed fix. Nev
 - **Experience:** responsive layout, interaction and rendering diagnostics, and field data where available. Core Web Vitals and tests guide improvement; they do not guarantee a ranking result.
 - **International:** send locale clusters and annotations to `$seo-hreflang`; do not repair language targeting from a single URL.
 - **Structured data:** send truthful markup changes to `$seo-schema`; validate the visible page and eligible documentation first.
+- **Optional machine-readable guide:** for `llms.txt`, assess the documented target consumer, source-of-truth coverage, inclusion/exclusion policy, freshness, owner, and release path. Keep it separate from robots, access controls, and promises of ranking, retrieval, or citation. If that evidence is absent, record the gap rather than creating the file by default.
 
 ## Crawler-control policy
 

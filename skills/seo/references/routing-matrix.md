@@ -1,5 +1,9 @@
 # SEO routing matrix
 
+## Universal entry point
+
+Use `$seo` as the recommended first call for any SEO, AEO, GEO, or AI-search request. It accepts a narrow task as well as a cross-functional brief, then selects the smallest correct specialist lane and preserves the handoff. A user may still call a known specialist directly, but they never need to know the internal map to get started.
+
 | User intent | Primary owner | Required upstream | Downstream |
 |---|---|---|---|
 | Build current AI-search evidence | `ai-search-research` | Authorized inputs | AEO, GEO, monitor |
@@ -18,6 +22,7 @@
 | International SEO | `seo-hreflang` | Locale/URL map | Technical implementation |
 | Strategy/roadmap | `seo-plan` | Validated findings | Sequenced execution |
 | Large-scale page systems | `seo-programmatic` | Template/data rules | Implementation + QA |
+| Optional `llms.txt` suitability, publishing, or maintenance | `seo-technical` | Documented consuming system, source of truth, content scope, and maintenance owner | Bounded technical action or a documented decision not to publish |
 
 ## Ambiguity resolution
 
@@ -25,6 +30,7 @@
 - "Audit this answer" routes to `seo-aeo` when the supplied target is a direct-answer surface.
 - "Optimize this answer" is ambiguous: audit with `seo-aeo` if no validated AEO finding exists; otherwise create an `seo-action-plan` and route rewrite or implementation to its exact approved owner. Canonical owners are `seo-content`, `seo-schema`, `seo-technical`, `seo-hreflang`, and `optimise-seo`. `seo-aeo` does not rewrite or approve implementation.
 - "Track whether it worked" routes to the monitor and must not imply causation.
+- "Should we publish an llms.txt?" routes to `seo-technical` to evaluate the documented consumer, truthful source material, ownership, and maintenance burden. It is never a universal visibility prescription.
 - "Fix everything" begins with scope and evidence, then bounded specialist lanes; it is not permission for unrelated changes.
 
 ## Artifact discipline

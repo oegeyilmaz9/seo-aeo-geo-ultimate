@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 SKILL = ROOT / "skills" / "seo"
+MANIFEST = ROOT / "manifests" / "suite.json"
 
 
 class SeoRouterSkillContractTests(unittest.TestCase):
@@ -19,15 +20,23 @@ class SeoRouterSkillContractTests(unittest.TestCase):
         self.assertIn("route", match.group(1).lower())
         self.assertNotIn("TODO", text)
 
-    def test_routes_new_ai_search_lanes_and_existing_seo_lanes(self):
+    def test_routes_every_declared_specialist_skill(self):
         text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
-        for name in (
-            "ai-search-research", "seo-aeo", "seo-geo", "ai-visibility-monitor",
-            "seo-action-plan",
-            "seo-audit", "seo-page", "seo-technical", "seo-content", "seo-schema",
-            "seo-images", "seo-sitemap", "seo-hreflang", "seo-plan", "seo-programmatic",
-        ):
+        manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        specialists = set(manifest["skills"]) - {"seo"}
+        self.assertTrue(specialists)
+        for name in sorted(specialists):
             self.assertIn(name, text)
+
+    def test_router_is_the_default_entry_point_without_hiding_specialists(self):
+        text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
+        interface = (SKILL / "agents" / "openai.yaml").read_text(encoding="utf-8")
+        matrix = (SKILL / "references" / "routing-matrix.md").read_text(encoding="utf-8")
+        self.assertIn("default front door for every request", text)
+        self.assertIn("Directly invoking that specialist remains available", text)
+        self.assertIn("default entry point", interface)
+        self.assertIn("recommended first call for any SEO, AEO, GEO, or AI-search request", matrix)
+        self.assertIn("Optional `llms.txt` suitability", matrix)
 
     def test_mixed_work_is_phased_and_myths_are_not_router_defaults(self):
         text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
