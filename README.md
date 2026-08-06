@@ -137,6 +137,10 @@ That distinction makes the work more useful. A recommendation carries its eviden
 
 Primary source discipline and safety checks are built into the suite. See the [source registry](docs/research/2026-08-06-source-registry.json), the [platform and market review](docs/research/2026-08-06-platform-and-market-review.md), and the [release checklist](docs/RELEASE-CHECKLIST.md).
 
+## Community
+
+Use [GitHub Discussions](https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/discussions) for setup questions, workflow ideas, and routing feedback. Use the issue forms for reproducible bugs or scoped improvements. Read [SUPPORT.md](SUPPORT.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [SECURITY.md](SECURITY.md) before opening a contribution or security report.
+
 ## Verify a checkout
 
 Every pull request and push to `main` runs:
@@ -154,3 +158,5 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing the suite. Security guid
 ## License
 
 Released under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for attribution and repository identity.
+
+If you reference this project in a report, article, or implementation, GitHub can generate a citation from [CITATION.cff](CITATION.cff).

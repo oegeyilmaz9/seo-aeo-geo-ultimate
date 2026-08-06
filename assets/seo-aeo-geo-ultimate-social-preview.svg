@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">SEO-AEO-GEO Ultimate social preview</title>
+  <desc id="desc">A dark technical banner with an evidence signal mark and the message One SEO Router for Codex.</desc>
+  <defs>
+    <linearGradient id="background" x1="72" y1="44" x2="1208" y2="604" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f2940"/>
+      <stop offset=".52" stop-color="#071923"/>
+      <stop offset="1" stop-color="#040d15"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="88" y1="70" x2="1155" y2="561" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6ee7b7"/>
+      <stop offset=".5" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1280" height="640" fill="url(#background)"/>
+  <path d="M670 0H1280V640H1037C951 543 880 438 826 319 775 208 725 103 670 0Z" fill="#0a2538" opacity=".5"/>
+  <path d="M700 0C871 142 963 322 1280 462" fill="none" stroke="#38bdf8" stroke-opacity=".11" stroke-width="2"/>
+  <path d="M778 0C943 168 1045 333 1280 420" fill="none" stroke="#6ee7b7" stroke-opacity=".12" stroke-width="2"/>
+  <g transform="translate(82 88)">
+    <rect width="144" height="144" rx="34" fill="#06131f" stroke="#1d4964" stroke-width="2"/>
+    <circle cx="72" cy="57" r="35" fill="none" stroke="url(#signal)" stroke-width="9"/>
+    <path d="M43 80c-9 16-4 37 12 46s37 4 46-12" fill="none" stroke="#6ee7b7" stroke-width="9" stroke-linecap="round"/>
+    <path d="M101 80c9 16 4 37-12 46s-37 4-46-12" fill="none" stroke="#818cf8" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="72" cy="57" r="16" fill="#06131f" stroke="#d1fae5" stroke-width="3"/>
+    <path d="m64 57 5 5 11-12" fill="none" stroke="#6ee7b7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="82" y="292" fill="#9fc8dc" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="5">CODEX SKILL SUITE</text>
+  <text x="82" y="366" fill="#f0fdf4" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800" letter-spacing="-2">SEO · AEO · GEO</text>
+  <text x="82" y="425" fill="#c9e5f1" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500">One <tspan fill="#6ee7b7" font-family="Consolas, monospace" font-weight="700">$seo</tspan> router. The next right move.</text>
+  <g transform="translate(755 132)">
+    <path d="M70 95H123M213 95H264M334 95H385" stroke="url(#signal)" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+    <g fill="#071923" stroke="#6ee7b7" stroke-width="3"><rect x="0" y="50" width="70" height="90" rx="22"/><rect x="123" y="50" width="90" height="90" rx="22"/></g>
+    <g fill="#071923" stroke="#38bdf8" stroke-width="3"><rect x="264" y="50" width="70" height="90" rx="22"/></g>
+    <g fill="#071923" stroke="#818cf8" stroke-width="3"><rect x="385" y="50" width="88" height="90" rx="22"/></g>
+    <text x="35" y="87" text-anchor="middle" fill="#d1fae5" font-family="Consolas, monospace" font-size="18" font-weight="700">$seo</text>
+    <text x="35" y="113" text-anchor="middle" fill="#9fc8dc" font-family="Arial, Helvetica, sans-serif" font-size="12">ROUTE</text>
+    <text x="168" y="87" text-anchor="middle" fill="#d1fae5" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">RESEARCH</text>
+    <text x="168" y="113" text-anchor="middle" fill="#9fc8dc" font-family="Arial, Helvetica, sans-serif" font-size="11">EVIDENCE</text>
+    <text x="299" y="87" text-anchor="middle" fill="#c8edff" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">AUDIT</text>
+    <text x="299" y="113" text-anchor="middle" fill="#9fc8dc" font-family="Arial, Helvetica, sans-serif" font-size="11">SCOPE</text>
+    <text x="429" y="87" text-anchor="middle" fill="#e0e7ff" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">CHANGE</text>
+    <text x="429" y="113" text-anchor="middle" fill="#9fc8dc" font-family="Arial, Helvetica, sans-serif" font-size="11">VERIFY</text>
+  </g>
+  <text x="755" y="402" fill="#e2f7ff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Evidence-first AI-search work.</text>
+  <text x="755" y="446" fill="#8db7ca" font-family="Arial, Helvetica, sans-serif" font-size="20">Research, audit, plan, and approved implementation.</text>
+  <rect x="82" y="548" width="1116" height="1" fill="#5eead4" opacity=".25"/>
+  <text x="82" y="588" fill="#79a8bd" font-family="Arial, Helvetica, sans-serif" font-size="18">github.com/oegeyilmaz9/seo-aeo-geo-ultimate</text>
+</svg>

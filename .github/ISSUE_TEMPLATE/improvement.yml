@@ -1,0 +1,44 @@
+name: Improvement proposal
+description: Propose a focused, evidence-aware improvement to the suite.
+title: "[Improve]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Useful proposals start with a concrete workflow problem, not a universal ranking or citation claim.
+  - type: input
+    id: workflow
+    attributes:
+      label: Workflow or skill
+      description: Which user workflow would improve?
+      placeholder: "$seo routing, seo-aeo audit, installer safety"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the observed friction or missing capability.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Keep the change specific, reversible where possible, and within the suite's evidence boundaries.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or source (optional)
+      description: Link current primary documentation or describe the observed evidence. Do not paste protected content.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Guardrails
+      options:
+        - label: This proposal does not rely on a guaranteed ranking, citation, traffic, or conversion result.
+          required: true

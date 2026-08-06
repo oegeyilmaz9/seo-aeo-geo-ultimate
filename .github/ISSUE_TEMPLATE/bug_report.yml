@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a reproducible problem in the suite, validator, or installer.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to improve SEO-AEO-GEO Ultimate. Please remove secrets, private URLs, customer data, and copied protected content before submitting.
+  - type: input
+    id: version
+    attributes:
+      label: Suite version or commit
+      description: Share the release version, commit hash, or installed manifest version.
+      placeholder: "v2.2.0 or abc1234"
+    validations:
+      required: true
+  - type: input
+    id: skill
+    attributes:
+      label: Skill or command
+      description: Which skill, script, or command produced the problem?
+      placeholder: "$seo, seo-technical, scripts/install_runtime.py"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead? Include a minimal, safe error excerpt if helpful.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: List the smallest safe steps that reproduce the issue.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed secrets, private URLs, customer data, and copied protected content.
+          required: true

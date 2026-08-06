@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and workflow ideas
+    url: https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/discussions
+    about: Use GitHub Discussions for setup questions, routing ideas, and non-reproducible feedback.
+  - name: Security vulnerability
+    url: https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/security/policy
+    about: Do not open a public issue for a suspected vulnerability.

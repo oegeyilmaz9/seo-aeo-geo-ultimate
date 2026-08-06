@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use SEO-AEO-GEO Ultimate in your work, please cite it using this metadata."
+title: "SEO-AEO-GEO Ultimate"
+abstract: "Evidence-first SEO, AEO, GEO, and AI-search workflows for Codex."
+authors:
+  - name: "Oegeyilmaz9"
+version: "2.2.0"
+date-released: "2026-08-07"
+license: "Apache-2.0"
+repository-code: "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate"
+keywords:
+  - "SEO"
+  - "AEO"
+  - "GEO"
+  - "AI search"
+  - "Codex"
+  - "agent skills"
+type: software
