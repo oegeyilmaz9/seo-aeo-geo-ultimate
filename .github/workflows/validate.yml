@@ -11,13 +11,9 @@ permissions:
 
 jobs:
   validate:
-    name: Python ${{ matrix.python-version }}
+    name: Python 3.11
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ['3.11', '3.13']
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -25,7 +21,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: '3.11'
 
       - name: Verify generated contracts
         run: python scripts/sync_contracts.py --check

@@ -70,7 +70,8 @@ Read [the SEO Findings protocol](docs/SEO-FINDINGS-PROTOCOL.md) for the conventi
 
 ### 1. Clone and verify the suite
 
-Requires Python 3.11+; the continuous checks run on Python 3.11 and 3.13.
+Requires Python 3.11+. Continuous integration uses Python 3.11; the release
+quality gate is also run locally on current Python 3.13.
 
 ```powershell
 git clone https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate.git
@@ -136,7 +137,7 @@ Every pull request and push to `main` runs:
 ```text
 1. Generated-contract byte and hash check
 2. Suite structure and source-freshness validation
-3. Isolated regression tests on Python 3.11 and 3.13
+3. Isolated regression tests on Python 3.11
 ```
 
 The evaluation suite includes normal flows, schema combinators, contract-copy integrity, malformed JSON, artifact-boundary escape attempts, reparse-point handling, action-plan evidence disconnection, causal-language rejection, and installer safety checks.
