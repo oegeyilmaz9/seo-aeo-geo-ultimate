@@ -1,0 +1,2 @@
+- PASS when the brief is `aeo`/`seo-aeo`, references the pinned Research Pack hash, and hands implementation to `seo-content`.
+- FAIL if it rewrites content, guarantees selection, or invents an AEO score.

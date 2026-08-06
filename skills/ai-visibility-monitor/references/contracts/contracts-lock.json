@@ -1,0 +1,22 @@
+{
+  "lock_version": "1.0.0",
+  "generation_tool_version": "1.0.0",
+  "contracts": [
+    {
+      "canonical_path": "manifests/artifact-schemas/research-pack.schema.json",
+      "generated_path": "references/contracts/research-pack.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/research-pack/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "629577be6e4a8881679abd32cbc611aeb68d1c3c1007529d0dad94f40e007674",
+      "generated_sha256": "629577be6e4a8881679abd32cbc611aeb68d1c3c1007529d0dad94f40e007674"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/visibility-run.schema.json",
+      "generated_path": "references/contracts/visibility-run.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/visibility-run/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "35b9da01c27032baf52ba005ce7b674c210c47365922b153ac950eeaed79e598",
+      "generated_sha256": "35b9da01c27032baf52ba005ce7b674c210c47365922b153ac950eeaed79e598"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO AEO"
+  short_description: "Audit answer clarity and evidence-bound extractability"
+  default_prompt: "Use $seo-aeo to audit supplied content against a pinned AI-search Research Pack and produce an evidence-linked AEO Optimization Brief with implementation-owner handoffs."

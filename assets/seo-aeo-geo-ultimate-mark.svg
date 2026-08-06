@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">SEO-AEO-GEO Ultimate mark</title>
+  <desc id="desc">Three evidence rings joined by a verified centre point.</desc>
+  <defs>
+    <linearGradient id="surface" x1="24" y1="20" x2="232" y2="236" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102a43"/>
+      <stop offset="1" stop-color="#06131f"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="54" y1="44" x2="201" y2="205" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6ee7b7"/>
+      <stop offset=".55" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="52" fill="url(#surface)"/>
+  <path d="M128 43c32.6 0 59 26.4 59 59s-26.4 59-59 59-59-26.4-59-59 26.4-59 59-59Z" fill="none" stroke="url(#signal)" stroke-width="13"/>
+  <path d="M77 139c-16.3 28.2-6.6 64.3 21.6 80.6s64.3 6.6 80.6-21.6" fill="none" stroke="#6ee7b7" stroke-width="13" stroke-linecap="round"/>
+  <path d="M179 139c16.3 28.2 6.6 64.3-21.6 80.6s-64.3 6.6-80.6-21.6" fill="none" stroke="#818cf8" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="128" cy="102" r="29" fill="#06131f" stroke="#d1fae5" stroke-width="5"/>
+  <path d="m114 102 9 9 20-22" fill="none" stroke="#6ee7b7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M82 190h92" stroke="#38bdf8" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+</svg>

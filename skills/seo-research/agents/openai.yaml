@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Research"
+  short_description: "Research search intent, content gaps, and source evidence"
+  default_prompt: "Use $seo-research to assess the supplied SEO evidence and propose safe next actions."

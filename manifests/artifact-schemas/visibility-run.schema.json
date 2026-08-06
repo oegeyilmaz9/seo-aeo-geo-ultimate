@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/visibility-run/1.0.0",
+  "title": "Visibility Run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "research_id", "research_ref", "research_sha256", "created_at", "mode", "interpretation_type", "causal_claim", "corpus_ref", "corpus_sha256", "prior_run_id", "prior_run_ref", "prior_run_sha256", "referral_data_ref", "referral_data_sha256", "observations", "scores", "accuracy_checks", "drift", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "run_id": {"$ref": "#/$defs/id"},
+    "research_id": {"$ref": "#/$defs/id"},
+    "research_ref": {"$ref": "#/$defs/relativePath"},
+    "research_sha256": {"$ref": "#/$defs/sha"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "mode": {"enum": ["baseline", "comparison"]},
+    "interpretation_type": {"const": "observational_association"},
+    "causal_claim": {"const": false},
+    "corpus_ref": {"$ref": "#/$defs/relativePath"},
+    "corpus_sha256": {"$ref": "#/$defs/sha"},
+    "prior_run_id": {"type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "prior_run_ref": {"type": ["string", "null"], "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+    "prior_run_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "referral_data_ref": {"type": ["string", "null"], "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+    "referral_data_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "observations": {"type": "array", "items": {"$ref": "#/$defs/observation"}},
+    "scores": {"type": "array", "items": {"$ref": "#/$defs/score"}},
+    "accuracy_checks": {"type": "array", "items": {"$ref": "#/$defs/accuracy"}},
+    "drift": {"type": "array", "items": {"$ref": "#/$defs/drift"}},
+    "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "relativePath": {"type": "string", "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+    "observation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["observation_id", "query_id", "engine", "surface", "locale", "observed_at", "access_status", "raw_answer_ref", "raw_answer_sha256", "access_attempt_ref", "access_attempt_sha256", "mentioned_entities", "raw_cited_urls", "canonical_cited_urls", "disclosed_model", "collection_method"],
+      "properties": {
+        "observation_id": {"$ref": "#/$defs/id"}, "query_id": {"$ref": "#/$defs/id"},
+        "engine": {"type": "string", "minLength": 1}, "surface": {"type": "string", "minLength": 1},
+        "locale": {"type": "string", "pattern": "^[a-z]{2}-[A-Z]{2}$"}, "observed_at": {"type": "string", "format": "date-time"},
+        "access_status": {"enum": ["observed", "inaccessible", "blocked", "unavailable", "error"]},
+        "raw_answer_ref": {"type": ["string", "null"], "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+        "raw_answer_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "access_attempt_ref": {"type": ["string", "null"], "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+        "access_attempt_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "mentioned_entities": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "raw_cited_urls": {"type": "array", "items": {"type": "string", "pattern": "^https://"}},
+        "canonical_cited_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^https://"}},
+        "disclosed_model": {"type": ["string", "null"]}, "collection_method": {"type": "string", "minLength": 1}
+      }
+    },
+    "score": {
+      "type": "object", "additionalProperties": false,
+      "required": ["score_id", "metric", "definition_id", "entity_id", "source_url", "definition", "numerator", "denominator", "excluded_observation_ids", "result", "uncertainty_note"],
+      "properties": {
+        "score_id": {"$ref": "#/$defs/id"}, "metric": {"enum": ["mention_rate", "citation_rate", "cited_source_share", "answer_accuracy", "referral_rate"]},
+        "definition_id": {"enum": ["mention-rate-observed-v1", "citation-rate-observed-v1", "cited-source-share-distinct-v1", "answer-accuracy-declared-v1", "referral-rate-events-v1"]},
+        "entity_id": {"type": ["string", "null"]}, "source_url": {"type": ["string", "null"], "pattern": "^https://"},
+        "definition": {"type": "string", "minLength": 1}, "numerator": {"type": "integer"}, "denominator": {"type": "integer"},
+        "excluded_observation_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "result": {"type": ["number", "null"]}, "uncertainty_note": {"type": "string", "minLength": 1}
+      }
+    },
+    "accuracy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["check_id", "fact_id", "observation_id", "observed_claim", "verdict", "review_method", "evidence", "review_ref", "review_sha256"],
+      "properties": {
+        "check_id": {"$ref": "#/$defs/id"}, "fact_id": {"$ref": "#/$defs/id"}, "observation_id": {"$ref": "#/$defs/id"},
+        "observed_claim": {"type": "string", "minLength": 1}, "verdict": {"enum": ["correct", "incorrect", "partial", "unverifiable"]},
+        "review_method": {"type": "string", "minLength": 1}, "evidence": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "review_ref": {"type": ["string", "null"], "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+        "review_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "drift": {
+      "type": "object", "additionalProperties": false,
+      "required": ["drift_id", "metric", "prior_score_id", "current_score_id", "comparable_cohort", "prior_value", "current_value", "delta", "comparable", "comparability_warning"],
+      "properties": {
+        "drift_id": {"$ref": "#/$defs/id"}, "metric": {"type": "string", "minLength": 1},
+        "prior_score_id": {"$ref": "#/$defs/id"}, "current_score_id": {"$ref": "#/$defs/id"},
+        "comparable_cohort": {"type": "string", "minLength": 1},
+        "prior_value": {"type": ["number", "null"]}, "current_value": {"type": ["number", "null"]}, "delta": {"type": ["number", "null"]},
+        "comparable": {"type": "boolean"}, "comparability_warning": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

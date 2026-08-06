@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/action-plan/1.1.0",
+  "title": "SEO Action Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "plan_id",
+    "created_at",
+    "producer_skill",
+    "scope",
+    "actions",
+    "declined_actions",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {"enum": ["1.0.0", "1.1.0"]},
+    "plan_id": {"$ref": "#/$defs/id"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "producer_skill": {"const": "seo-action-plan"},
+    "input_briefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/inputBrief"}
+    },
+    "input_findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/inputFindings"}
+    },
+    "scope": {"$ref": "#/$defs/scope"},
+    "actions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/action"}
+    },
+    "declined_actions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/declinedAction"}
+    },
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "allOf": [
+    {
+      "anyOf": [
+        {"required": ["input_briefs"]},
+        {"required": ["input_findings"]}
+      ]
+    },
+    {
+      "if": {"required": ["input_findings"]},
+      "then": {"properties": {"schema_version": {"const": "1.1.0"}}}
+    }
+  ],
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "relativePath": {
+      "type": "string",
+      "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"
+    },
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "locale": {"type": "string", "pattern": "^(not_applicable|[a-z]{2}-[A-Z]{2})$"},
+    "inputBrief": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "brief_id",
+        "schema_version",
+        "producer_skill",
+        "optimization_domain",
+        "bundle_ref",
+        "artifact_ref",
+        "artifact_sha256"
+      ],
+      "properties": {
+        "brief_id": {"$ref": "#/$defs/id"},
+        "schema_version": {"const": "1.0.0"},
+        "producer_skill": {"enum": ["seo-aeo", "seo-geo"]},
+        "optimization_domain": {"enum": ["aeo", "geo"]},
+        "bundle_ref": {"$ref": "#/$defs/relativePath"},
+        "artifact_ref": {"$ref": "#/$defs/relativePath"},
+        "artifact_sha256": {"$ref": "#/$defs/sha"}
+      }
+    },
+    "inputFindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_set_id",
+        "schema_version",
+        "producer_skill",
+        "bundle_ref",
+        "artifact_ref",
+        "artifact_sha256"
+      ],
+      "properties": {
+        "finding_set_id": {"$ref": "#/$defs/id"},
+        "schema_version": {"const": "1.0.0"},
+        "producer_skill": {
+          "enum": [
+            "seo-audit",
+            "seo-competitor-pages",
+            "seo-content",
+            "seo-hreflang",
+            "seo-images",
+            "seo-page",
+            "seo-programmatic",
+            "seo-research",
+            "seo-schema",
+            "seo-sitemap",
+            "seo-technical"
+          ]
+        },
+        "bundle_ref": {"$ref": "#/$defs/relativePath"},
+        "artifact_ref": {"$ref": "#/$defs/relativePath"},
+        "artifact_sha256": {"$ref": "#/$defs/sha"}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["objective", "target_ids", "locales"],
+      "properties": {
+        "objective": {"type": "string", "minLength": 1},
+        "target_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/id"}
+        },
+        "locales": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/locale"}
+        }
+      }
+    },
+    "findingRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["finding_id"],
+      "properties": {
+        "brief_id": {"$ref": "#/$defs/id"},
+        "finding_set_id": {"$ref": "#/$defs/id"},
+        "finding_id": {"$ref": "#/$defs/id"}
+      },
+      "oneOf": [
+        {"required": ["brief_id"], "not": {"required": ["finding_set_id"]}},
+        {"required": ["finding_set_id"], "not": {"required": ["brief_id"]}}
+      ]
+    },
+    "evidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_type", "collection", "record_id"],
+      "properties": {
+        "brief_id": {"$ref": "#/$defs/id"},
+        "finding_set_id": {"$ref": "#/$defs/id"},
+        "artifact_type": {"enum": ["optimization-brief", "research-pack", "seo-findings"]},
+        "collection": {"enum": ["audit_evidence", "evidence"]},
+        "record_id": {"$ref": "#/$defs/id"}
+      },
+      "oneOf": [
+        {"required": ["brief_id"], "not": {"required": ["finding_set_id"]}},
+        {"required": ["finding_set_id"], "not": {"required": ["brief_id"]}}
+      ]
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["team", "role", "approval_role"],
+      "properties": {
+        "team": {"type": "string", "minLength": 1},
+        "role": {"type": "string", "minLength": 1},
+        "approval_role": {"type": "string", "minLength": 1}
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "status"],
+      "properties": {
+        "required": {"const": true},
+        "status": {"const": "pending"}
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "metric_type", "success_condition", "guardrail"],
+      "properties": {
+        "method": {"type": "string", "minLength": 1},
+        "metric_type": {
+          "enum": ["recrawl", "manual-review", "search-console", "analytics", "visibility-run", "log-review"]
+        },
+        "success_condition": {"type": "string", "minLength": 1},
+        "guardrail": {"type": "string", "minLength": 1}
+      }
+    },
+    "rollback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "method"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "method": {"type": "string", "minLength": 1}
+      }
+    },
+    "claimBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statement", "no_guarantee"],
+      "properties": {
+        "statement": {"type": "string", "minLength": 1},
+        "no_guarantee": {"const": true}
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action_id",
+        "title",
+        "finding_refs",
+        "evidence_refs",
+        "change_type",
+        "owner",
+        "approval",
+        "priority",
+        "risk",
+        "effort",
+        "confidence",
+        "rationale",
+        "execution_outline",
+        "acceptance_criteria",
+        "verification",
+        "rollback",
+        "dependencies",
+        "claim_boundary"
+      ],
+      "properties": {
+        "action_id": {"$ref": "#/$defs/id"},
+        "title": {"type": "string", "minLength": 1},
+        "finding_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/findingRef"}
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/evidenceRef"}
+        },
+        "change_type": {
+          "enum": ["content", "technical", "structured-data", "international", "sitemap", "media", "programmatic", "comparison", "measurement", "analytics", "accessibility", "policy"]
+        },
+        "owner": {"$ref": "#/$defs/owner"},
+        "approval": {"$ref": "#/$defs/approval"},
+        "priority": {"enum": ["now", "next", "later"]},
+        "risk": {"enum": ["low", "medium", "high"]},
+        "effort": {"enum": ["small", "medium", "large"]},
+        "confidence": {"enum": ["high", "medium", "low"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "execution_outline": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "acceptance_criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "verification": {"$ref": "#/$defs/verification"},
+        "rollback": {"$ref": "#/$defs/rollback"},
+        "dependencies": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/id"}
+        },
+        "claim_boundary": {"$ref": "#/$defs/claimBoundary"}
+      }
+    },
+    "declinedAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["declined_id", "request", "reason", "revisit_when"],
+      "properties": {
+        "declined_id": {"$ref": "#/$defs/id"},
+        "request": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 1},
+        "revisit_when": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

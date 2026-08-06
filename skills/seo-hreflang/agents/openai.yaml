@@ -1,0 +1,4 @@
+interface:
+  display_name: "International SEO"
+  short_description: "Plan safe multilingual and hreflang improvements"
+  default_prompt: "Use $seo-hreflang to assess the supplied SEO evidence and propose safe next actions."

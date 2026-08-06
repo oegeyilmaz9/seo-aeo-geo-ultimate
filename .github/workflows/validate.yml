@@ -1,0 +1,37 @@
+name: Validate suite
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.13']
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Verify generated contracts
+        run: python scripts/sync_contracts.py --check
+
+      - name: Validate suite and source freshness
+        run: python scripts/validate_suite.py --as-of "$(date -u +%F)"
+
+      - name: Run isolated evaluation suite
+        run: python scripts/run_tests.py

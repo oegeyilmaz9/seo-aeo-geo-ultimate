@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Router"
+  short_description: "Route SEO, AEO, GEO, research, and measurement work"
+  default_prompt: "Use $seo to route this request to the smallest correct specialist workflow, phase optimize-and-track work as research -> audit -> baseline measurement -> implementation -> comparison measurement, and preserve evidence and ownership boundaries."

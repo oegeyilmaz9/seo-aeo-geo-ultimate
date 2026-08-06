@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/optimization-brief/1.0.0",
+  "title": "Optimization Brief",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "brief_id", "created_at", "research_id", "optimization_domain", "producer_skill", "targets", "audit_evidence", "findings", "recommendations", "experiments", "declined_claims", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "brief_id": {"$ref": "#/$defs/id"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "research_id": {"$ref": "#/$defs/id"},
+    "optimization_domain": {"enum": ["aeo", "geo"]},
+    "producer_skill": {"enum": ["seo-aeo", "seo-geo"]},
+    "targets": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/target"}},
+    "audit_evidence": {"type": "array", "items": {"$ref": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/evidence-record/1.0.0"}},
+    "findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "recommendations": {"type": "array", "items": {"$ref": "#/$defs/recommendation"}},
+    "experiments": {"type": "array", "items": {"$ref": "#/$defs/experiment"}},
+    "declined_claims": {"type": "array", "items": {"$ref": "#/$defs/declinedClaim"}},
+    "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  },
+  "oneOf": [
+    {"properties": {"optimization_domain": {"const": "aeo"}, "producer_skill": {"const": "seo-aeo"}}},
+    {"properties": {"optimization_domain": {"const": "geo"}, "producer_skill": {"const": "seo-geo"}}}
+  ],
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "relativePath": {"type": "string", "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+    "shaOrSelf": {"type": "string", "pattern": "^(?:[0-9a-f]{64}|SELF)$"},
+    "target": {
+      "type": "object", "additionalProperties": false,
+      "required": ["target_id", "target_type", "locale", "source_url", "capture_ref", "capture_sha256", "captured_at", "metadata_ref", "metadata_sha256"],
+      "properties": {
+        "target_id": {"$ref": "#/$defs/id"},
+        "target_type": {"enum": ["web_page", "document", "content_set"]},
+        "locale": {"type": "string", "pattern": "^[a-z]{2}-[A-Z]{2}$"},
+        "source_url": {"type": ["string", "null"], "pattern": "^https://"},
+        "capture_ref": {"$ref": "#/$defs/relativePath"},
+        "capture_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "captured_at": {"type": "string", "format": "date-time"},
+        "metadata_ref": {"$ref": "#/$defs/relativePath"},
+        "metadata_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "evidenceRef": {
+      "type": "object", "additionalProperties": false,
+      "required": ["artifact_type", "artifact_id", "schema_version", "artifact_sha256", "collection", "record_id"],
+      "properties": {
+        "artifact_type": {"enum": ["research-pack", "optimization-brief"]},
+        "artifact_id": {"$ref": "#/$defs/id"},
+        "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "artifact_sha256": {"$ref": "#/$defs/shaOrSelf"},
+        "collection": {"enum": ["evidence", "audit_evidence"]},
+        "record_id": {"$ref": "#/$defs/id"}
+      }
+    },
+    "finding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["finding_id", "target_id", "query_ids", "observation", "severity", "evidence_refs", "classification", "engines", "surfaces", "locales", "dimension"],
+      "properties": {
+        "finding_id": {"$ref": "#/$defs/id"}, "target_id": {"$ref": "#/$defs/id"},
+        "query_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "observation": {"type": "string", "minLength": 1},
+        "severity": {"enum": ["critical", "important", "minor"]},
+        "evidence_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidenceRef"}},
+        "classification": {"enum": ["confirmed", "vendor-recommended", "experimental", "speculative"]},
+        "engines": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "surfaces": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "locales": {"type": "array", "items": {"type": "string", "pattern": "^[a-z]{2}-[A-Z]{2}$"}},
+        "dimension": {"type": "string", "minLength": 1}
+      }
+    },
+    "recommendation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["recommendation_id", "finding_ids", "evidence_refs", "desired_outcome", "owner_skill", "confidence", "verification_method"],
+      "properties": {
+        "recommendation_id": {"$ref": "#/$defs/id"},
+        "finding_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}},
+        "evidence_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidenceRef"}},
+        "desired_outcome": {"type": "string", "minLength": 1},
+        "owner_skill": {"enum": ["seo-technical", "seo-content", "seo-schema", "seo-hreflang", "optimise-seo"]},
+        "confidence": {"enum": ["high", "medium", "low"]},
+        "verification_method": {"type": "string", "minLength": 1}
+      }
+    },
+    "experiment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["experiment_id", "hypothesis", "control", "change", "metric", "sample_rule", "stop_rule", "interpretation_constraint"],
+      "properties": {
+        "experiment_id": {"$ref": "#/$defs/id"}, "hypothesis": {"type": "string", "minLength": 1},
+        "control": {"type": "string", "minLength": 1}, "change": {"type": "string", "minLength": 1},
+        "metric": {"type": "string", "minLength": 1}, "sample_rule": {"type": "string", "minLength": 1},
+        "stop_rule": {"type": "string", "minLength": 1}, "interpretation_constraint": {"type": "string", "minLength": 1}
+      }
+    },
+    "declinedClaim": {
+      "type": "object", "additionalProperties": false,
+      "required": ["claim", "reason"],
+      "properties": {"claim": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1}}
+    }
+  }
+}

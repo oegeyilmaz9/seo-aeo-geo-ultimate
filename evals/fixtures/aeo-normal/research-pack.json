@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0.0",
+  "research_id": "example-ai-search-research",
+  "created_at": "2026-07-10T00:00:00Z",
+  "scope": "Bilingual AI-search research fixture for Example",
+  "locales": [
+    "tr-TR",
+    "en-US"
+  ],
+  "engines": [
+    {
+      "engine": "google",
+      "surfaces": [
+        "ai-overview",
+        "ai-mode"
+      ],
+      "locales": [
+        "tr-TR",
+        "en-US"
+      ]
+    },
+    {
+      "engine": "anthropic",
+      "surfaces": [
+        "claude-web-search"
+      ],
+      "locales": [
+        "tr-TR"
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "example-platform",
+      "name": "Example",
+      "entity_type": "software_platform",
+      "aliases": [
+        "Example Platform"
+      ],
+      "ambiguities": []
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "example-turkiye",
+      "text": "Example Türkiye'de kullanılabilir mi?",
+      "locale": "tr-TR",
+      "intent": "Markanın Türkiye'deki kullanılabilirliğini doğrulama",
+      "audience": "brand",
+      "journey_stage": "trust",
+      "target_entities": [
+        "example-platform"
+      ],
+      "applicability": [
+        {
+          "engine": "google",
+          "surface": "ai-overview"
+        }
+      ]
+    },
+    {
+      "query_id": "example-for-creators",
+      "text": "Is Example available for creators in Turkey?",
+      "locale": "en-US",
+      "intent": "Evaluate Example availability for creators",
+      "audience": "creator",
+      "journey_stage": "consideration",
+      "target_entities": [
+        "example-platform"
+      ],
+      "applicability": [
+        {
+          "engine": "google",
+          "surface": "ai-mode"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "example-turkey-availability",
+      "claim": "Example is available in Turkey.",
+      "classification": "confirmed",
+      "source_kind": "vendor_documentation",
+      "engine": "google",
+      "surface": "ai-overview",
+      "locale": "tr-TR",
+      "source_title": "Example platform documentation",
+      "source_url": "https://example.com/platform-doc",
+      "source_published_or_updated_at": "2026-07-10T00:00:00Z",
+      "accessed_at": "2026-07-10T00:00:00Z",
+      "raw_evidence_ref": "raw/evidence.json",
+      "observation_method": "Reviewed current first-party platform documentation",
+      "limitations": []
+    }
+  ],
+  "competitor_observations": [
+    {
+      "observation_id": "example-google-ai-mode",
+      "raw_observation_ref": "raw/observation.json",
+      "engine": "google",
+      "surface": "ai-mode",
+      "locale": "en-US",
+      "observed_at": "2026-07-10T00:00:00Z",
+      "mentioned_entities": [
+        "example-platform"
+      ],
+      "cited_urls": [
+        "https://example.com/platform-doc"
+      ]
+    }
+  ],
+  "ground_truth": [
+    {
+      "fact_id": "example-turkey-availability",
+      "accepted_value": "Example is available in Turkey",
+      "provenance_ref": "raw/ground-truth.json",
+      "valid_from": "2026-07-10T00:00:00Z",
+      "valid_until": null
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "claude-tr-access",
+      "gap_type": "inaccessible_surface",
+      "engine": "anthropic",
+      "surface": "claude-web-search",
+      "locale": "tr-TR",
+      "description": "Claude Web Search was inaccessible for the tr-TR research cell.",
+      "limitations": [
+        "No authenticated Claude Web Search access was available."
+      ],
+      "related_claim_ids": []
+    }
+  ]
+}

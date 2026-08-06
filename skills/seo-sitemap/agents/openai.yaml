@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Sitemaps"
+  short_description: "Review XML sitemap coverage and safe sitemap changes"
+  default_prompt: "Use $seo-sitemap to assess the supplied SEO evidence and propose safe next actions."

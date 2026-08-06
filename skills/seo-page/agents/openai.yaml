@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Page Review"
+  short_description: "Audit one page and route evidence-led improvements"
+  default_prompt: "Use $seo-page to assess the supplied SEO evidence and propose safe next actions."

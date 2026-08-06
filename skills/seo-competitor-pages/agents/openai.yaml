@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competitor Pages"
+  short_description: "Plan fair evidence-led comparison and alternative pages"
+  default_prompt: "Use $seo-competitor-pages to assess the supplied SEO evidence and propose safe next actions."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Images"
+  short_description: "Review image discoverability, accessibility, and performance"
+  default_prompt: "Use $seo-images to assess the supplied SEO evidence and propose safe next actions."

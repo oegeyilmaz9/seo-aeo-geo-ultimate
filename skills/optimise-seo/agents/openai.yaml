@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Implementation"
+  short_description: "Coordinate approved SEO implementation and verification"
+  default_prompt: "Use $optimise-seo to assess the supplied SEO evidence and propose safe next actions."

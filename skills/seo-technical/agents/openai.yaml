@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technical SEO"
+  short_description: "Assess technical SEO and safe implementation actions"
+  default_prompt: "Use $seo-technical to assess the supplied SEO evidence and propose safe next actions."

@@ -1,0 +1,97 @@
+{
+  "suite_version": "2.2.0",
+  "contract_generation_tool_version": "1.0.0",
+  "canonical_schema_root": "manifests/artifact-schemas",
+  "schemas": {
+    "evidence-record": "evidence-record.schema.json",
+    "research-pack": "research-pack.schema.json",
+    "optimization-brief": "optimization-brief.schema.json",
+    "visibility-run": "visibility-run.schema.json",
+    "seo-findings": "seo-findings.schema.json",
+    "action-plan": "action-plan.schema.json"
+  },
+  "skills": {
+    "ai-search-research": {
+      "produces": ["research-pack"],
+      "consumes": ["evidence-record"],
+      "generated_contract_root": "skills/ai-search-research/references/contracts"
+    },
+    "seo-aeo": {
+      "produces": ["optimization-brief"],
+      "consumes": ["research-pack", "evidence-record"],
+      "generated_contract_root": "skills/seo-aeo/references/contracts"
+    },
+    "seo-geo": {
+      "produces": ["optimization-brief"],
+      "consumes": ["research-pack", "evidence-record"],
+      "generated_contract_root": "skills/seo-geo/references/contracts"
+    },
+    "ai-visibility-monitor": {
+      "produces": ["visibility-run"],
+      "consumes": ["research-pack"],
+      "generated_contract_root": "skills/ai-visibility-monitor/references/contracts"
+    },
+    "seo": {
+      "produces": [],
+      "consumes": ["research-pack"],
+      "generated_contract_root": "skills/seo/references/contracts"
+    },
+    "seo-action-plan": {
+      "produces": ["action-plan"],
+      "consumes": ["optimization-brief", "research-pack", "evidence-record", "seo-findings"],
+      "generated_contract_root": "skills/seo-action-plan/references/contracts"
+    },
+    "seo-audit": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "seo-competitor-pages": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "seo-content": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "seo-hreflang": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "seo-images": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "seo-page": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "seo-plan": {
+      "produces": [],
+      "consumes": []
+    },
+    "seo-programmatic": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "seo-research": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "seo-schema": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "seo-sitemap": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "seo-technical": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record"]
+    },
+    "optimise-seo": {
+      "produces": [],
+      "consumes": []
+    }
+  }
+}

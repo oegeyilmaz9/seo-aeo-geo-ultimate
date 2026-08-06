@@ -1,0 +1,4 @@
+interface:
+  display_name: "Structured Data"
+  short_description: "Validate truthful structured data and implementation plans"
+  default_prompt: "Use $seo-schema to assess the supplied SEO evidence and propose safe next actions."

@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "brief_id": "example-aeo-normal",
+  "created_at": "2026-07-10T23:30:00Z",
+  "research_id": "example-ai-search-research",
+  "optimization_domain": "aeo",
+  "producer_skill": "seo-aeo",
+  "targets": [{"target_id": "homepage-tr", "target_type": "web_page", "locale": "tr-TR", "source_url": "https://example.com/tr", "capture_ref": "raw/targets/homepage-tr.html", "capture_sha256": "59cec1b9e0bb516463f4d30944aa7d8a3aafd3d576bde198c85f934babc642f4", "captured_at": "2026-07-10T23:00:00Z", "metadata_ref": "raw/targets/target-metadata.json", "metadata_sha256": "ce00dd0a477950b3beaf9661f321df2bb1ce8609266aee03508d8f70fe555bb6"}],
+  "audit_evidence": [{"claim_id": "homepage-tr-answer-observation", "claim": "The supplied capture does not directly answer whether Example is available in Turkey.", "classification": "confirmed", "source_kind": "direct_observation", "engine": "google", "surface": "ai-overview", "locale": "tr-TR", "source_title": "Example homepage tr-TR capture", "source_url": "https://example.com/tr", "source_published_or_updated_at": null, "accessed_at": "2026-07-10T23:00:00Z", "raw_evidence_ref": "raw/targets/homepage-tr.html", "observation_method": "Reviewed the immutable visible-content capture.", "limitations": []}],
+  "findings": [{"finding_id": "availability-answer-missing", "target_id": "homepage-tr", "query_ids": ["example-turkiye"], "observation": "The capture does not answer the researched availability question.", "severity": "important", "evidence_refs": [{"artifact_type": "optimization-brief", "artifact_id": "example-aeo-normal", "schema_version": "1.0.0", "artifact_sha256": "SELF", "collection": "audit_evidence", "record_id": "homepage-tr-answer-observation"}, {"artifact_type": "research-pack", "artifact_id": "example-ai-search-research", "schema_version": "1.0.0", "artifact_sha256": "2dc0dc888d779663dec6c63b4b03ea9709e75055e25b51a6df540687ad765ddf", "collection": "evidence", "record_id": "example-turkey-availability"}], "classification": "confirmed", "engines": ["google"], "surfaces": ["ai-overview"], "locales": ["tr-TR"], "dimension": "direct_answer_completeness"}],
+  "recommendations": [{"recommendation_id": "add-supported-availability-answer", "finding_ids": ["availability-answer-missing"], "evidence_refs": [{"artifact_type": "optimization-brief", "artifact_id": "example-aeo-normal", "schema_version": "1.0.0", "artifact_sha256": "SELF", "collection": "audit_evidence", "record_id": "homepage-tr-answer-observation"}, {"artifact_type": "research-pack", "artifact_id": "example-ai-search-research", "schema_version": "1.0.0", "artifact_sha256": "2dc0dc888d779663dec6c63b4b03ea9709e75055e25b51a6df540687ad765ddf", "collection": "evidence", "record_id": "example-turkey-availability"}], "desired_outcome": "The visible page directly answers availability with the supported fact and appropriate scope.", "owner_skill": "seo-content", "confidence": "high", "verification_method": "Recapture the page and compare the visible answer with the pinned fact."}],
+  "experiments": [],
+  "declined_claims": [],
+  "limitations": []
+}

@@ -1,0 +1,22 @@
+{
+  "lock_version": "1.0.0",
+  "generation_tool_version": "1.0.0",
+  "contracts": [
+    {
+      "canonical_path": "manifests/artifact-schemas/evidence-record.schema.json",
+      "generated_path": "references/contracts/evidence-record.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/evidence-record/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "420d8a7b4cb24b8613f4ffa6e4b4d308bd7763fa7369a56f496a2d5b7f9d118a",
+      "generated_sha256": "420d8a7b4cb24b8613f4ffa6e4b4d308bd7763fa7369a56f496a2d5b7f9d118a"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/research-pack.schema.json",
+      "generated_path": "references/contracts/research-pack.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/research-pack/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "629577be6e4a8881679abd32cbc611aeb68d1c3c1007529d0dad94f40e007674",
+      "generated_sha256": "629577be6e4a8881679abd32cbc611aeb68d1c3c1007529d0dad94f40e007674"
+    }
+  ]
+}

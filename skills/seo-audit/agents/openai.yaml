@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Audit"
+  short_description: "Run bounded multi-lane SEO audits with evidence"
+  default_prompt: "Use $seo-audit to assess the supplied SEO evidence and propose safe next actions."

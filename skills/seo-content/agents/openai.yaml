@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Content"
+  short_description: "Create evidence-led content briefs and reviewable drafts"
+  default_prompt: "Use $seo-content to assess the supplied SEO evidence and propose safe next actions."

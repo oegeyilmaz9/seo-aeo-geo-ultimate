@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Visibility Monitor"
+  short_description: "Measure repeatable AI mention and citation visibility"
+  default_prompt: "Use $ai-visibility-monitor to run or compare a frozen AI-search query corpus and produce a hash-pinned Visibility Run with explicit access gaps, denominators, uncertainty, and non-causal drift."

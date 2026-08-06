@@ -1,0 +1,4 @@
+interface:
+  display_name: "Programmatic SEO"
+  short_description: "Assess scaled page systems for quality and safety"
+  default_prompt: "Use $seo-programmatic to assess the supplied SEO evidence and propose safe next actions."

@@ -1,0 +1,46 @@
+{
+  "lock_version": "1.0.0",
+  "generation_tool_version": "1.0.0",
+  "contracts": [
+    {
+      "canonical_path": "manifests/artifact-schemas/evidence-record.schema.json",
+      "generated_path": "references/contracts/evidence-record.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/evidence-record/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "420d8a7b4cb24b8613f4ffa6e4b4d308bd7763fa7369a56f496a2d5b7f9d118a",
+      "generated_sha256": "420d8a7b4cb24b8613f4ffa6e4b4d308bd7763fa7369a56f496a2d5b7f9d118a"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/research-pack.schema.json",
+      "generated_path": "references/contracts/research-pack.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/research-pack/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "629577be6e4a8881679abd32cbc611aeb68d1c3c1007529d0dad94f40e007674",
+      "generated_sha256": "629577be6e4a8881679abd32cbc611aeb68d1c3c1007529d0dad94f40e007674"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/optimization-brief.schema.json",
+      "generated_path": "references/contracts/optimization-brief.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/optimization-brief/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "6ec106ad52a62f129521a771ec355792b55e55add53aa6c3a3afbeaed43e2397",
+      "generated_sha256": "6ec106ad52a62f129521a771ec355792b55e55add53aa6c3a3afbeaed43e2397"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/seo-findings.schema.json",
+      "generated_path": "references/contracts/seo-findings.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/seo-findings/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "dffd42dd0e599cbb7616543e79d0475fa23e2728f578c55889d7db1eb21cd5ab",
+      "generated_sha256": "dffd42dd0e599cbb7616543e79d0475fa23e2728f578c55889d7db1eb21cd5ab"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/action-plan.schema.json",
+      "generated_path": "references/contracts/action-plan.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/action-plan/1.1.0",
+      "schema_version": "1.1.0",
+      "canonical_sha256": "0933fb68d5f8ef9a1fd570112d33e4cdacd20718a344593a5185420818c497ef",
+      "generated_sha256": "0933fb68d5f8ef9a1fd570112d33e4cdacd20718a344593a5185420818c497ef"
+    }
+  ]
+}

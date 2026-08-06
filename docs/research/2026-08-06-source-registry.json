@@ -1,0 +1,300 @@
+{
+  "registry_version": "1.0.0",
+  "observed_on": "2026-08-06",
+  "purpose": "Primary-source and clearly labeled market-source registry used to design the SEO, AEO, GEO, content-recommendation, crawler-control, and measurement capabilities of this suite.",
+  "freshness_policy": {
+    "vendor_documentation_days": 30,
+    "standards_days": 90,
+    "original_research_days": 365,
+    "direct_observation_days": 14,
+    "collection_or_access_policy": "Verify on the day an automated collection or authenticated integration is proposed."
+  },
+  "sources": [
+    {
+      "id": "google-ai-optimization-guide-2026",
+      "title": "Optimizing your website for generative AI features on Google Search",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2026-07-10",
+      "observed_at": "2026-08-06",
+      "scopes": ["google", "ai-overview", "ai-mode", "seo", "aeo", "geo"],
+      "design_effect": "Treat foundational SEO, original people-first content, crawlability, and page experience as Google-specific prerequisites. Reject llms.txt, fixed chunking, special AI schema, synthetic mentions, and generic AI-only rewrites as mandatory Google requirements. Use Search Console's Generative AI report when available."
+    },
+    {
+      "id": "google-ai-features-website",
+      "title": "AI features and your website",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2025-12-10",
+      "observed_at": "2026-08-06",
+      "scopes": ["google", "ai-overview", "ai-mode", "crawler-controls"],
+      "design_effect": "Keep AI Overviews and AI Mode as separate surfaces. Require an indexed, snippet-eligible page for Google AI-feature eligibility, while never promise serving. Model Googlebot search access and Google-Extended separately."
+    },
+    {
+      "id": "google-search-console-generative-ai-report",
+      "title": "Generative AI performance report (Search)",
+      "publisher": "Google Search Console Help",
+      "url": "https://support.google.com/webmasters/answer/16984139",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["google", "measurement", "first-party"],
+      "design_effect": "Add an optional first-party measurement adapter for eligible verified properties. Preserve its availability state because rollout and low-impression limits can make data unavailable. Do not merge its impressions with observed-answer metrics."
+    },
+    {
+      "id": "google-helpful-content",
+      "title": "Creating helpful, reliable, people-first content",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["google", "content", "seo"],
+      "design_effect": "Content briefs must prioritize demonstrated expertise, original information, satisfying intent, factual accuracy, and useful primary purpose rather than word-count, keyword-density, or automation targets."
+    },
+    {
+      "id": "google-structured-data-guidelines",
+      "title": "General structured data guidelines",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["google", "schema", "seo"],
+      "design_effect": "Schema recommendations must match visible main content, remain technically accessible, and describe rich-result eligibility rather than a ranking or AI-visibility guarantee."
+    },
+    {
+      "id": "google-javascript-seo-basics",
+      "title": "Understand JavaScript SEO basics",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["google", "technical-seo", "rendering"],
+      "design_effect": "Technical recommendations must distinguish raw HTML, rendered HTML, crawlable links, HTTP behavior, and JavaScript rendering evidence instead of making unsupported server-rendering absolutes."
+    },
+    {
+      "id": "google-page-experience",
+      "title": "Understanding page experience in Google Search results",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/page-experience",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2025-12-10",
+      "observed_at": "2026-08-06",
+      "scopes": ["google", "technical-seo", "performance"],
+      "design_effect": "Never emit a universal site or page score. Treat Core Web Vitals and page-experience data as diagnostic inputs with explicit measured evidence and a user-experience rationale."
+    },
+    {
+      "id": "google-sitemaps",
+      "title": "Build and submit a sitemap",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["google", "sitemap", "technical-seo"],
+      "design_effect": "Validate canonical, absolute, indexable URLs and sitemap size constraints. State that sitemap submission is a signal and not a crawling or indexing guarantee."
+    },
+    {
+      "id": "google-hreflang",
+      "title": "Localized versions of your pages",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/specialty/international/localized-versions",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["google", "hreflang", "international-seo"],
+      "design_effect": "Hreflang auditing and generation must validate self-references, reciprocal mappings, locale-specific URLs, and canonical alignment using an explicit URL/locale map."
+    },
+    {
+      "id": "google-crawling-indexing",
+      "title": "Overview of crawling and indexing topics",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2025-12-10",
+      "observed_at": "2026-08-06",
+      "scopes": ["google", "technical-seo", "crawler-controls"],
+      "design_effect": "Route crawl, index, canonical, JavaScript, metadata, and robots decisions to their own evidence-backed technical lane."
+    },
+    {
+      "id": "bing-webmaster-guidelines",
+      "title": "Webmaster Guidelines",
+      "publisher": "Bing Webmaster Tools",
+      "url": "https://www.bing.com/webmasters/help/bing-webmaster-guidelines-30fba23a",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["bing", "copilot", "seo", "geo", "content"],
+      "design_effect": "Treat clear, independently verifiable, entity-consistent content and visible-content-matching structured data as Bing/Microsoft guidance. Keep its grounding and citation claims scoped to Bing/Copilot; do not generalize them to other engines."
+    },
+    {
+      "id": "bing-ai-performance-preview",
+      "title": "Introducing AI Performance in Bing Webmaster Tools Public Preview",
+      "publisher": "Bing Webmaster Blog",
+      "url": "https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2026-02-10",
+      "observed_at": "2026-08-06",
+      "scopes": ["bing", "copilot", "measurement", "first-party"],
+      "design_effect": "Add a separately labeled, optional Bing first-party citation input. Preserve preview and property-access limitations instead of treating it as universally available."
+    },
+    {
+      "id": "microsoft-clarity-citations",
+      "title": "Citation dashboard in AI Visibility",
+      "publisher": "Microsoft Clarity",
+      "url": "https://learn.microsoft.com/en-us/clarity/ai-visibility/ai-citations",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2026-07-02",
+      "observed_at": "2026-08-06",
+      "scopes": ["microsoft", "measurement", "citations", "referrals"],
+      "design_effect": "Model cited-page counts, share-of-authority definitions, grounding queries, and AI referral traffic as platform-reported metrics with vendor definitions intact. Require verified-domain provenance."
+    },
+    {
+      "id": "microsoft-clarity-bot-activity",
+      "title": "Bot Activity",
+      "publisher": "Microsoft Clarity",
+      "url": "https://learn.microsoft.com/en-us/clarity/ai-visibility/bot-activity",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["microsoft", "measurement", "bot-activity"],
+      "design_effect": "Keep bot requests distinct from retrieval, grounding, citations, referrals, and conversions. Never infer downstream visibility from a crawler hit."
+    },
+    {
+      "id": "openai-publisher-faq",
+      "title": "Publishers and Developers - FAQ",
+      "publisher": "OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["openai", "chatgpt-search", "crawler-controls", "referrals", "agentic"],
+      "design_effect": "Separate OAI-SearchBot access from GPTBot training preferences. Treat ChatGPT referral tracking as a reported UTM convention, not a complete attribution system. Use accessibility as an agent-compatibility consideration, not a ranking claim."
+    },
+    {
+      "id": "anthropic-crawlers",
+      "title": "Does Anthropic crawl data from the web, and how can site owners block the crawler?",
+      "publisher": "Anthropic Help Center",
+      "url": "https://support.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["anthropic", "claude", "crawler-controls"],
+      "design_effect": "Separate ClaudeBot training, Claude-User user-directed fetches, and Claude-SearchBot search indexing. Require an explicit business decision per bot and verify current vendor documentation before changing robots or WAF rules."
+    },
+    {
+      "id": "perplexity-crawlers",
+      "title": "Perplexity Crawlers",
+      "publisher": "Perplexity",
+      "url": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["perplexity", "crawler-controls", "security"],
+      "design_effect": "Separate PerplexityBot search indexing from Perplexity-User user-directed fetches. Do not recommend WAF allowlisting without current official IP-range verification and an authorized security owner."
+    },
+    {
+      "id": "ietf-rfc-9309",
+      "title": "RFC 9309: Robots Exclusion Protocol",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc9309.html",
+      "source_kind": "standard",
+      "updated_at": "2022-09-01",
+      "observed_at": "2026-08-06",
+      "scopes": ["robots", "crawler-controls", "technical-seo"],
+      "design_effect": "Describe robots.txt as crawler access guidance rather than access authorization. Validate standard syntax separately from vendor-specific support and behavior."
+    },
+    {
+      "id": "w3c-aria-authoring-practices",
+      "title": "ARIA Authoring Practices Guide",
+      "publisher": "W3C Web Accessibility Initiative",
+      "url": "https://www.w3.org/WAI/ARIA/apg/",
+      "source_kind": "standard",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["accessibility", "agentic", "frontend"],
+      "design_effect": "Offer semantic HTML, accessible names, roles, states, and keyboard behavior as accessibility and agent-compatibility recommendations where an interactive flow is in scope. Do not recast them as universal SEO ranking factors."
+    },
+    {
+      "id": "ai-visibility-uncertainty-paper",
+      "title": "Quantifying Uncertainty in AI Visibility: A Statistical Framework for Generative Search Measurement",
+      "publisher": "arXiv",
+      "url": "https://arxiv.org/abs/2603.08924",
+      "source_kind": "original_research",
+      "updated_at": "2026-03-09",
+      "observed_at": "2026-08-06",
+      "scopes": ["measurement", "uncertainty", "geo"],
+      "design_effect": "Make repeated observations and confidence intervals opt-in but first-class. Treat single-run observations as samples, not fixed rankings or definitive citation shares."
+    },
+    {
+      "id": "ai-visibility-repeat-measurement-paper",
+      "title": "Don't Measure Once: Measuring Visibility in AI Search (GEO)",
+      "publisher": "arXiv",
+      "url": "https://arxiv.org/abs/2604.07585",
+      "source_kind": "original_research",
+      "updated_at": "2026-04-08",
+      "observed_at": "2026-08-06",
+      "scopes": ["measurement", "uncertainty", "geo"],
+      "design_effect": "Require measurement plans to state sampling cadence, repeats, source of variance, and comparability rules before presenting trend or competition conclusions."
+    },
+    {
+      "id": "ahrefs-brand-radar-metrics",
+      "title": "AI Visibility Metrics",
+      "publisher": "Ahrefs",
+      "url": "https://help.ahrefs.com/en/articles/15501968-ai-visibility-metrics",
+      "source_kind": "secondary_context",
+      "updated_at": "2026-06-26",
+      "observed_at": "2026-08-06",
+      "scopes": ["market-pattern", "measurement", "citations"],
+      "design_effect": "Adopt the useful product distinction between mention, citation, and optional retrieved-but-not-cited signals only when the surface exposes them. Do not import vendor weighting or volume proxies as suite truth."
+    },
+    {
+      "id": "ahrefs-custom-prompts",
+      "title": "How to set up custom prompts to track brand visibility in AI assistants",
+      "publisher": "Ahrefs",
+      "url": "https://help.ahrefs.com/en/articles/13192745-how-to-set-up-custom-prompts-to-track-brand-visibility-in-ai-assistants",
+      "source_kind": "secondary_context",
+      "updated_at": "2026-06-26",
+      "observed_at": "2026-08-06",
+      "scopes": ["market-pattern", "prompt-corpus", "measurement"],
+      "design_effect": "Support an auditable blend of search-behavior-backed discovery and explicitly chosen custom prompts. Always preserve query provenance, locale, surface, cadence, and a frozen version of the corpus."
+    },
+    {
+      "id": "otterly-collection-method",
+      "title": "How OtterlyAI collects data",
+      "publisher": "OtterlyAI",
+      "url": "https://help.otterly.ai/how-otterlyai-collects-data",
+      "source_kind": "secondary_context",
+      "updated_at": "2026-07-17",
+      "observed_at": "2026-08-06",
+      "scopes": ["market-pattern", "measurement", "collection"],
+      "design_effect": "Use this as evidence that leading products expose raw answer, citation, country, and per-engine details. Do not copy its browser-automation approach or bypass platform controls; our collection policy remains authorization- and terms-first."
+    },
+    {
+      "id": "peec-ai-visibility",
+      "title": "AI Visibility",
+      "publisher": "Peec AI",
+      "url": "https://peec.ai/product/ai-visibility",
+      "source_kind": "secondary_context",
+      "updated_at": null,
+      "observed_at": "2026-08-06",
+      "scopes": ["market-pattern", "measurement", "recommendations"],
+      "design_effect": "Use prompt intent, competitors, sources, and action recommendations as product-pattern inputs, while retaining fully transparent definitions and no placement claims."
+    },
+    {
+      "id": "scrunch-citations",
+      "title": "Understanding the Citations Tab in Scrunch",
+      "publisher": "Scrunch",
+      "url": "https://helpcenter.scrunchai.com/en/articles/11944877-understanding-the-citations-tab-in-scrunch",
+      "source_kind": "secondary_context",
+      "updated_at": "2026-05-13",
+      "observed_at": "2026-08-06",
+      "scopes": ["market-pattern", "citations", "recommendations"],
+      "design_effect": "Use page- and domain-level cited-source analysis as an actionable content-gap input, but preserve raw cited URLs, canonicalization rules, and engine-specific contexts."
+    }
+  ]
+}

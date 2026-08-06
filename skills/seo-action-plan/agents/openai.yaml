@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Action Plan"
+  short_description: "Turn findings into safe action plans"
+  default_prompt: "Use $seo-action-plan to turn validated SEO findings into an actionable plan."
