@@ -20,7 +20,7 @@
 
 An SEO request can sound small and still hide five different jobs. “Why are we not cited?” might need source research. “Make our documentation ready for AI search” might need a technical review. “Fix our visibility” might need an audit, a baseline, an approved plan, and only then a change.
 
-SEO-AEO-GEO Ultimate gives Codex one place to start: `$seo`. It reads the job, chooses the smallest useful specialist lane, and keeps research, measurement, approval, and implementation connected. You get work your team can review and move forward, not a pile of generic advice.
+SEO-AEO-GEO Ultimate gives Codex one place to start: `$seo`, the SEO Router. It reads the job, chooses the smallest useful specialist lane, and keeps research, measurement, approval, and implementation connected. You get work your team can review and move forward, not a pile of generic advice.
 
 [Install the suite](#install) · [Run your first request](#start-here) · [See what is inside](#what-is-inside)
 
@@ -37,7 +37,7 @@ This suite is for Codex users who want to turn SEO and AI-search work into a rep
 
 ## Start here
 
-Use `$seo` for every request. You do not need to know the internal skill map first.
+Use `$seo`, the SEO Router, for every request. You do not need to know the internal skill map first.
 
 ```text
 $seo Audit our Turkish pricing page and tell us what to fix first.
@@ -45,6 +45,10 @@ $seo Make our documentation ready for AI search.
 $seo Find out why our brand is absent from a specific AI-search surface.
 $seo Turn these validated findings into an approved implementation plan.
 ```
+
+### `$seo` is the SEO Router
+
+`$seo` is the command your team uses; it is not a generic audit that tries to do every job itself. It reads the request, picks the right specialist, and keeps the handoff clear. A straightforward technical issue can go straight to `seo-technical`; a broader AI-search question can begin with research, then move into the right audit and implementation path.
 
 The router handles a narrow request without inflating it into a full audit. When the work crosses lanes, it keeps the sequence straight.
 
@@ -82,7 +86,7 @@ SEO-AEO-GEO Ultimate contains 19 focused Codex skills. They share contracts wher
 
 | Area | Skills | What they help you do |
 | --- | --- | --- |
-| Route and coordinate | `seo`, `seo-audit`, `seo-page`, `seo-plan`, `seo-action-plan`, `optimise-seo` | Start anywhere, scope the work, create an owned plan, and prepare an authorized change. |
+| Route and coordinate | `seo` (the SEO Router), `seo-audit`, `seo-page`, `seo-plan`, `seo-action-plan`, `optimise-seo` | Start anywhere, scope the work, create an owned plan, and prepare an authorized change. |
 | Research and AI search | `seo-research`, `ai-search-research`, `seo-aeo`, `seo-geo`, `ai-visibility-monitor` | Investigate questions, review answers and entities, and measure observed change over time. |
 | Specialist SEO | `seo-content`, `seo-technical`, `seo-schema`, `seo-hreflang`, `seo-sitemap`, `seo-images` | Review and improve the content and technical surfaces that shape discovery. |
 | Scaled and comparison work | `seo-programmatic`, `seo-competitor-pages` | Plan scaled page systems and fair comparison pages with evidence in view. |
