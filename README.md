@@ -18,7 +18,7 @@
 
 ## Stop collecting AI-search tactics. Start with the next right move.
 
-An SEO request can sound small and still hide five different jobs. “Why are we not cited?” might need source research. “Should we add `llms.txt`?” might need a technical decision. “Fix our visibility” might need an audit, a baseline, an approved plan, and only then a change.
+An SEO request can sound small and still hide five different jobs. “Why are we not cited?” might need source research. “Make our documentation ready for AI search” might need a technical review. “Fix our visibility” might need an audit, a baseline, an approved plan, and only then a change.
 
 SEO-AEO-GEO Ultimate gives Codex one place to start: `$seo`. It reads the job, chooses the smallest useful specialist lane, and keeps research, measurement, approval, and implementation connected. You get work your team can review and move forward, not a pile of generic advice.
 
@@ -41,7 +41,7 @@ Use `$seo` for every request. You do not need to know the internal skill map fir
 
 ```text
 $seo Audit our Turkish pricing page and tell us what to fix first.
-$seo Should we publish llms.txt for our documentation site?
+$seo Make our documentation ready for AI search.
 $seo Find out why our brand is absent from a specific AI-search surface.
 $seo Turn these validated findings into an approved implementation plan.
 ```
@@ -59,10 +59,6 @@ The router handles a narrow request without inflating it into a full audit. When
 | A multi-owner plan or a scoped authorized change | `seo-action-plan`, then the exact implementation owner |
 
 Already know the exact lane? Direct specialist calls still work. `$seo` remains the better default when you want the suite to make the call.
-
-### About `llms.txt`
-
-`llms.txt` is available as an optional technical decision, not a checkbox. `$seo` routes it to `seo-technical` to assess the documented consumer, content source, inclusion policy, owner, and maintenance burden. It stays separate from crawler directives and never becomes a promise of ranking, retrieval, or citation.
 
 ## From question to approved change
 
