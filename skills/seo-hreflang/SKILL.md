@@ -29,11 +29,11 @@ Require a URL-to-locale inventory, declared language/region intent, canonical UR
 - `x-default` is purposeful fallback behavior, not a required decoration.
 - A hreflang annotation cannot make an untranslated page appropriate for a market, override legal/product availability, or guarantee geographic ranking.
 - Do not use `hreflang` to solve duplicate, canonical, or automatic-redirect problems without examining those systems separately.
-- Large cluster changes, canonical changes, redirects, and locale gating require an approved `$seo-action-plan` with rollback.
+- Large cluster changes, canonical changes, redirects, and locale gating require an approved `seo-action-plan` with rollback.
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 

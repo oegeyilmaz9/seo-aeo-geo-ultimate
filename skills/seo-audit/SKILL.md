@@ -20,10 +20,10 @@ If an authorized crawler, analytics property, Search Console property, log sourc
 ## Workflow
 
 1. **Design the evidence plan.** Define what capture/report proves each expected condition and which findings need current primary documentation.
-2. **Run bounded lane assessments.** Route work to `$seo-technical`, `$seo-page`, `$seo-content`, `$seo-schema`, `$seo-images`, `$seo-sitemap`, `$seo-hreflang`, `$seo-programmatic`, or the AI-search lanes. Preserve their artifacts and disagreements.
+2. **Run bounded lane assessments.** Route work to `seo-technical`, `seo-page`, `seo-content`, `seo-schema`, `seo-images`, `seo-sitemap`, `seo-hreflang`, `seo-programmatic`, or the AI-search lanes. Preserve their artifacts and disagreements.
 3. **Classify findings.** Mark confirmed defects, supported opportunities, experiments, and unknowns separately. Do not convert incomplete sampling into site-wide certainty.
 4. **Synthesize without false precision.** Prioritize by user/business risk, scope, reversibility, dependency, evidence confidence, and owner readiness—not by one blended SEO number.
-5. **Plan delivery.** Send validated findings to `$seo-action-plan` for owner/approval/verification/rollback, then use `$seo-plan` for cross-team sequencing. Establish a baseline before change only when comparison is requested.
+5. **Plan delivery.** Send validated findings to `seo-action-plan` for owner/approval/verification/rollback, then use `seo-plan` for cross-team sequencing. Establish a baseline before change only when comparison is requested.
 
 ## Guardrails
 
@@ -34,7 +34,7 @@ If an authorized crawler, analytics property, Search Console property, log sourc
 
 ## Formal evidence handoff
 
-When this audit needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this audit needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 

@@ -25,7 +25,7 @@ If evidence is unavailable, give a safe collection plan—not a guessed fix. Nev
 2. **Capture the actual behavior.** Record raw response, directives, canonical, rendered content, redirect chain, linked/sitemap evidence, and relevant device/locale. Keep transient tool errors separate from confirmed defects.
 3. **Find the smallest cause.** Test conflict pairs such as `noindex` vs canonical, raw vs JavaScript-injected metadata, redirect target vs sitemap URL, or locale target vs hreflang cluster. Do not infer a cause from a single score or generic audit rule.
 4. **Classify the change.** Mark each item as confirmed issue, supported implementation opportunity, monitored experiment, or unresolved. Link platform-specific controls to current primary documentation.
-5. **Plan the implementation.** For every recommendation state the affected URLs/templates, owner, precondition, exact desired state, verification capture, risk, approval, and rollback. Route cross-team work through `$seo-action-plan`.
+5. **Plan the implementation.** For every recommendation state the affected URLs/templates, owner, precondition, exact desired state, verification capture, risk, approval, and rollback. Route cross-team work through `seo-action-plan`.
 6. **Verify after change.** Re-capture the relevant response/render, test the intended state, and use the appropriate reporting surface. Discovery, crawling, indexing, performance, and AI visibility are separate outcomes.
 
 ## Technical domains
@@ -34,8 +34,8 @@ If evidence is unavailable, give a safe collection plan—not a guessed fix. Nev
 - **Index/canonical:** canonical/noindex conflicts, duplicate URL handling, status codes, redirects, and content availability.
 - **Rendering:** raw versus rendered title, robots, canonical, meaningful content, and structured data; use actual captures rather than framework assumptions.
 - **Experience:** responsive layout, interaction and rendering diagnostics, and field data where available. Core Web Vitals and tests guide improvement; they do not guarantee a ranking result.
-- **International:** send locale clusters and annotations to `$seo-hreflang`; do not repair language targeting from a single URL.
-- **Structured data:** send truthful markup changes to `$seo-schema`; validate the visible page and eligible documentation first.
+- **International:** send locale clusters and annotations to `seo-hreflang`; do not repair language targeting from a single URL.
+- **Structured data:** send truthful markup changes to `seo-schema`; validate the visible page and eligible documentation first.
 - **Optional machine-readable guide:** for `llms.txt`, assess the documented target consumer, source-of-truth coverage, inclusion/exclusion policy, freshness, owner, and release path. Keep it separate from robots, access controls, and promises of ranking, retrieval, or citation. If that evidence is absent, record the gap rather than creating the file by default.
 
 ## Crawler-control policy
@@ -46,8 +46,8 @@ Do not copy a blanket AI-bot block/allow template, assume a bot token is stable,
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 
-For each finding provide: observed evidence and timestamp; expected state; scope; confidence/limitation; proposed owner/action; verification; risk; and rollback. Group only by priority/owner, never a blended technical score. Route broader page/editorial questions to `$seo-page` or `$seo-content`.
+For each finding provide: observed evidence and timestamp; expected state; scope; confidence/limitation; proposed owner/action; verification; risk; and rollback. Group only by priority/owner, never a blended technical score. Route broader page/editorial questions to `seo-page` or `seo-content`.

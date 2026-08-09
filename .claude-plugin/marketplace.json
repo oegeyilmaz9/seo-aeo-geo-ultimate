@@ -1,0 +1,32 @@
+{
+  "name": "oegeyilmaz9-skills",
+  "owner": {
+    "name": "Oegeyilmaz9"
+  },
+  "description": "Open, evidence-first workflow plugins for Codex and Claude Code.",
+  "plugins": [
+    {
+      "name": "seo-aeo-geo-ultimate",
+      "source": {
+        "source": "github",
+        "repo": "oegeyilmaz9/seo-aeo-geo-ultimate"
+      },
+      "description": "Evidence-first SEO, AEO, GEO, and AI-search workflows for Codex and Claude Code, with one router and 19 specialist skills.",
+      "version": "2.3.0",
+      "author": {
+        "name": "Oegeyilmaz9"
+      },
+      "license": "Apache-2.0",
+      "keywords": [
+        "seo",
+        "aeo",
+        "geo",
+        "ai-search",
+        "agent-skills",
+        "codex",
+        "claude-code",
+        "technical-seo"
+      ]
+    }
+  ]
+}

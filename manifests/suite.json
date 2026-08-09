@@ -1,5 +1,5 @@
 {
-  "suite_version": "2.2.0",
+  "suite_version": "2.3.0",
   "contract_generation_tool_version": "1.0.0",
   "canonical_schema_root": "manifests/artifact-schemas",
   "schemas": {

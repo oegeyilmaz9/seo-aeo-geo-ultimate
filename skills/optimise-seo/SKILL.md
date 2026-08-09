@@ -7,7 +7,7 @@ description: Use when explicitly authorized to implement a bounded, approved SEO
 
 ## Purpose
 
-Apply or prepare a specific, user-authorized SEO change after its evidence, owner, scope, acceptance criteria, verification, and rollback are known. This skill is the bridge from an approved `$seo-action-plan` item to a verifiable local implementation; it is not an audit, an auto-publisher, or a deployment authority.
+Apply or prepare a specific, user-authorized SEO change after its evidence, owner, scope, acceptance criteria, verification, and rollback are known. This skill is the bridge from an approved `seo-action-plan` item to a verifiable local implementation; it is not an audit, an auto-publisher, or a deployment authority.
 
 Read `references/implementation-gate.md` before modifying a workspace.
 
@@ -26,7 +26,7 @@ If any is missing, prepare an implementation plan or patch proposal only. Do not
 ## Implementation workflow
 
 1. **Reconfirm scope.** Quote the action ID/objective, target files/URLs, intended behavior, non-goals, and success/guardrail conditions. Inspect the current state; preserve unrelated work.
-2. **Choose the owning lane.** Content edits follow `$seo-content`; technical changes follow `$seo-technical`; markup follows `$seo-schema`; locale annotations follow `$seo-hreflang`; sitemap changes follow `$seo-sitemap`. Do not silently substitute a different change.
+2. **Choose the owning lane.** Content edits follow `seo-content`; technical changes follow `seo-technical`; markup follows `seo-schema`; locale annotations follow `seo-hreflang`; sitemap changes follow `seo-sitemap`. Do not silently substitute a different change.
 3. **Make the smallest reversible change.** Modify only the approved files/data. Preserve facts, locale, consent/accessibility, analytics, and security behavior. Do not add `llms.txt`, crawler directives, schema, pages, links, or copy merely because they sound SEO-related.
 4. **Verify the implementation.** Run relevant local tests/builds and inspect the rendered/delivered outcome where possible. Check the declared acceptance criteria and guardrail; record what was not verified locally.
 5. **Prepare handoff.** Report changed files, exact behavior, tests/evidence, remaining external checks, rollback, and comparison-measurement prerequisites. Do not deploy, submit URLs, change third-party settings, or claim production success unless separately authorized and actually completed.

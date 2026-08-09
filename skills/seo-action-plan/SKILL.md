@@ -9,7 +9,7 @@ description: Use when turning validated SEO, AEO, GEO, technical, or measurement
 
 Turn evidence-backed findings into a sequenced implementation plan that a content, engineering, analytics, product, or legal owner can approve and execute. This skill plans work; it does not change a site, publish content, modify crawler controls, deploy code, or approve its own recommendations.
 
-Use it after `$seo-aeo` or `$seo-geo` has produced a validated `optimization-brief.json`, or after a conventional SEO specialist has produced a validated `seo-findings.json` bundle. For a normal conversational audit without a validated artifact, provide a clearly labelled **provisional action list** and name the evidence needed before it becomes a formal plan.
+Use it after `seo-aeo` or `seo-geo` has produced a validated `optimization-brief.json`, or after a conventional SEO specialist has produced a validated `seo-findings.json` bundle. For a normal conversational audit without a validated artifact, provide a clearly labelled **provisional action list** and name the evidence needed before it becomes a formal plan.
 
 ## Non-negotiable boundaries
 
@@ -44,7 +44,7 @@ Read `references/action-plan-protocol.md` before creating `action-plan.json`.
 
 2. **Map the evidence.** For every proposed action, link at least one finding and at least one resolving evidence record. Keep locale, engine, surface, target, and claim scope intact. An action may combine findings only when their scopes are compatible.
 
-3. **Choose a real owner and a reversible path.** Assign the responsible team/role, required approver, effort, risk, dependencies, acceptance criteria, verification method, guardrail, and rollback method. `$seo-action-plan` itself cannot be the implementation owner.
+3. **Choose a real owner and a reversible path.** Assign the responsible team/role, required approver, effort, risk, dependencies, acceptance criteria, verification method, guardrail, and rollback method. `seo-action-plan` itself cannot be the implementation owner.
 
 4. **Use confidence honestly.** `high` needs confirmed evidence; `medium` cannot rest on experimental evidence; `low` is an explicitly monitored hypothesis. Decline changes that lack sufficient evidence, conflict with platform documentation, or would create legal/accessibility risk.
 
@@ -54,12 +54,12 @@ Read `references/action-plan-protocol.md` before creating `action-plan.json`.
 
 ## Routing from the plan
 
-- **Content/editorial:** send approved actions to `$seo-content`; preserve the evidence and claim boundaries in the content brief.
-- **Technical implementation:** send approved actions to `$seo-technical`; include rollback and platform-specific crawler/control evidence.
-- **Structured data:** send approved actions to `$seo-schema`; require visible-content alignment and rich-result eligibility checks, never a rich-result promise.
-- **International targeting:** send approved actions to `$seo-hreflang` or `$seo-sitemap` when the action’s locale or discovery scope requires it.
-- **Measurement:** send approved measurement work to `$ai-visibility-monitor`; use repeated, comparable observations and keep bot activity separate from citations/referrals.
-- **Prioritization and coordination:** send cross-team approved work to `$optimise-seo` or `$seo-plan`.
+- **Content/editorial:** send approved actions to `seo-content`; preserve the evidence and claim boundaries in the content brief.
+- **Technical implementation:** send approved actions to `seo-technical`; include rollback and platform-specific crawler/control evidence.
+- **Structured data:** send approved actions to `seo-schema`; require visible-content alignment and rich-result eligibility checks, never a rich-result promise.
+- **International targeting:** send approved actions to `seo-hreflang` or `seo-sitemap` when the action’s locale or discovery scope requires it.
+- **Measurement:** send approved measurement work to `ai-visibility-monitor`; use repeated, comparable observations and keep bot activity separate from citations/referrals.
+- **Prioritization and coordination:** send cross-team approved work to `optimise-seo` or `seo-plan`.
 
 ## Provisional action list
 

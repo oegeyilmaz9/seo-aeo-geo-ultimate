@@ -23,7 +23,7 @@ If a fact is unknown—price, availability, rating source, author, date, image, 
 2. **Map visible truth.** For every proposed property, locate the reader-visible source or an approved authoritative data source. Confirm URLs, dates, locale, entity identity, and nesting match the page.
 3. **Separate three checks.** Validate Schema.org vocabulary/syntax; validate platform-specific feature eligibility; then validate rendered visible-content alignment. Passing one is not proof of the others.
 4. **Draft the smallest truthful graph.** Prefer a coherent entity model over markup volume. Include only supported types/properties and use absolute, canonical URLs where appropriate. Do not add FAQ/HowTo/review/product/organization fields merely as an SEO tactic.
-5. **Plan safe release.** State template/URL scope, owner, test environment, validation method, source-of-truth, rollout, and rollback. Route deployment through `$seo-action-plan` when it changes production templates or data pipelines.
+5. **Plan safe release.** State template/URL scope, owner, test environment, validation method, source-of-truth, rollout, and rollback. Route deployment through `seo-action-plan` when it changes production templates or data pipelines.
 6. **Verify.** Re-render the page, parse the delivered markup, compare it against visible content, and run the relevant current validator. Record warnings and feature ineligibility honestly.
 
 ## Guardrails
@@ -36,7 +36,7 @@ If a fact is unknown—price, availability, rating source, author, date, image, 
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 

@@ -12,9 +12,9 @@
 
 - Keep `SKILL.md` below 500 lines, with correct frontmatter and no scaffold text.
 - Add a narrow reference document only when it materially improves execution; do not add copied vendor documentation.
-- Preserve local links and the `agents/openai.yaml` invocation for the skill.
+- Preserve local links, platform-neutral skill handoffs, and the `agents/openai.yaml` invocation for the skill. Claude Code uses the same `SKILL.md` trees through the plugin package.
 - Update `manifests/suite.json` when adding/removing a skill or formal contract.
-- Use `$seo-action-plan` for evidence-linked multi-owner execution handoffs and `$optimise-seo` only for explicitly authorized implementation.
+- Use `seo-action-plan` for evidence-linked multi-owner execution handoffs and `optimise-seo` only for explicitly authorized implementation.
 - Conventional SEO handoffs use a validated `seo-findings.json` bundle with immutable raw evidence; AEO/GEO handoffs use their validated `optimization-brief.json` bundles. Do not substitute one artifact for the other.
 
 ## Evidence and source changes
@@ -30,6 +30,7 @@ Run the generated-contract check, suite validator, relevant artifact validators,
 ```powershell
 python scripts/sync_contracts.py --check
 python scripts/validate_suite.py --as-of YYYY-MM-DD
+python scripts/validate_claude_plugin.py
 python scripts/run_tests.py
 ```
 
@@ -41,4 +42,4 @@ python scripts/sync_contracts.py
 
 ## Pull requests
 
-Explain the user-facing behavior, evidence basis, compatibility impact, validation run, and any source refresh. Keep unrelated changes out of the same pull request.
+Explain the user-facing behavior, evidence basis, Codex/Claude compatibility impact, validation run, and any source refresh. Keep unrelated changes out of the same pull request.

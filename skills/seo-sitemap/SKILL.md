@@ -21,18 +21,18 @@ Require the current sitemap/index files, expected canonical/indexable URL invent
 2. **Compare with intent.** Check whether each listed URL is expected to be canonical, accessible, indexable, stable, and within the declared locale/host policy. Separately identify important intended URLs that are absent.
 3. **Classify mismatches.** Distinguish sitemap hygiene, canonical/indexability conflict, stale inventory, locale mapping, server delivery, and unresolved access issues.
 4. **Generate only from verified inventory.** Use current official protocol/engine documentation for limits and fields. Include `lastmod` only when it is a truthful, reliable content-change timestamp. Do not fill optional fields with invented values.
-5. **Release safely.** State source system, affected sitemap/index, rollout, test URL, validation, monitoring, and rollback. Coordinate locale URLs with `$seo-hreflang` and technical delivery with `$seo-technical`.
+5. **Release safely.** State source system, affected sitemap/index, rollout, test URL, validation, monitoring, and rollback. Coordinate locale URLs with `seo-hreflang` and technical delivery with `seo-technical`.
 
 ## Guardrails
 
 - Do not list redirecting, error, duplicate, blocked, noindex, session, staging, faceted, or unapproved URLs merely to increase coverage.
 - Do not submit every URL variant, use sitemap timestamps as a freshness hack, or assume sitemap acceptance proves indexing.
 - Keep user-facing availability, crawlability, canonicalization, and actual indexed state as separate measurements.
-- For large/sensitive changes, create an approved `$seo-action-plan`; this skill only prepares the change and validation path.
+- For large/sensitive changes, create an approved `seo-action-plan`; this skill only prepares the change and validation path.
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 

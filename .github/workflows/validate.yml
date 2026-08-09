@@ -29,5 +29,8 @@ jobs:
       - name: Validate suite and source freshness
         run: python scripts/validate_suite.py --as-of "$(date -u +%F)"
 
+      - name: Validate Claude Code package
+        run: python scripts/validate_claude_plugin.py
+
       - name: Run isolated evaluation suite
         run: python scripts/run_tests.py

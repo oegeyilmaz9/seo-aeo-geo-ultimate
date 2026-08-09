@@ -2,6 +2,18 @@
 
 All notable changes to SEO-AEO-GEO Ultimate are documented here.
 
+## [2.3.0] - 2026-08-09
+
+### Added
+
+- A Claude Code plugin manifest and developer marketplace catalog that reuse the same 19 skill trees as Codex.
+- Claude package validation in local checks and GitHub Actions, plus a submission-ready Console guide with listing and security copy.
+
+### Changed
+
+- Reworked the README and contribution/release guidance for one shared Codex and Claude Code distribution.
+- Replaced platform-specific skill-to-skill call syntax inside shared instructions with neutral specialist names.
+
 ## [2.2.0] - 2026-08-07
 
 ### Added

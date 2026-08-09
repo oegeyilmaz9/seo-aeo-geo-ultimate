@@ -21,7 +21,7 @@ body:
     attributes:
       label: Skill or command
       description: Which skill, script, or command produced the problem?
-      placeholder: "$seo, seo-technical, scripts/install_runtime.py"
+      placeholder: "seo router, seo-technical, scripts/install_runtime.py"
     validations:
       required: true
   - type: textarea

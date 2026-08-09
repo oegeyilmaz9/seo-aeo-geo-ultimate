@@ -7,7 +7,7 @@ description: Use when researching conventional search intent, audience questions
 
 ## Purpose
 
-Build a decision-ready research note for traditional/web-search content and site decisions. This skill is for scoped discovery, not for a fabricated keyword spreadsheet, mass scraping, or a substitute for the immutable multi-engine `$ai-search-research` Research Pack.
+Build a decision-ready research note for traditional/web-search content and site decisions. This skill is for scoped discovery, not for a fabricated keyword spreadsheet, mass scraping, or a substitute for the immutable multi-engine `ai-search-research` Research Pack.
 
 Read `references/research-evidence-protocol.md` before presenting research conclusions.
 
@@ -15,7 +15,7 @@ Read `references/research-evidence-protocol.md` before presenting research concl
 
 Clarify audience, market/locale, decision to be made, known site/entity URLs, time horizon, access/permissions, and available first-party data. Decide whether the question is conventional search research or AI-search research:
 
-- Use `$ai-search-research` for engine/surface-specific AI evidence, ground truth, citations, or formal Research Pack provenance.
+- Use `ai-search-research` for engine/surface-specific AI evidence, ground truth, citations, or formal Research Pack provenance.
 - Use this skill for content/search intent, page inventory, query language, competitor/page observations, and source-backed opportunity framing without that formal contract.
 
 ## Workflow
@@ -25,7 +25,7 @@ Clarify audience, market/locale, decision to be made, known site/entity URLs, ti
 3. **Inspect existing coverage.** Map actual pages/assets to the questions they serve, cite rendered/captured evidence, and identify gaps, cannibalization risk, stale claims, or unclear ownership without assuming a missing keyword requires a new page.
 4. **Research external evidence responsibly.** Use primary docs, authoritative sources, and accessible pages. Capture title, URL, access date, source type, claim, and limitations. Respect robots, terms, rate limits, paywalls, authentication, and copyright.
 5. **Synthesize choices.** Recommend research-backed content, technical, measurement, or no-action paths. Separate observed facts, inferred opportunities, experiments, and unknowns.
-6. **Hand off.** Send content work to `$seo-content`, competitor pages to `$seo-competitor-pages`, implementation sequencing to `$seo-action-plan`, and AI-specific formal work to `$ai-search-research`.
+6. **Hand off.** Send content work to `seo-content`, competitor pages to `seo-competitor-pages`, implementation sequencing to `seo-action-plan`, and AI-specific formal work to `ai-search-research`.
 
 ## Guardrails
 
@@ -36,7 +36,7 @@ Clarify audience, market/locale, decision to be made, known site/entity URLs, ti
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 

@@ -13,7 +13,7 @@ VALIDATOR = ROOT / "scripts" / "validate_suite.py"
 class SuiteValidatorTests(unittest.TestCase):
     def test_suite_passes_on_review_date(self) -> None:
         completed = subprocess.run(
-            [sys.executable, str(VALIDATOR), "--as-of", "2026-08-06"],
+            [sys.executable, str(VALIDATOR), "--as-of", "2026-08-09"],
             check=False,
             capture_output=True,
             text=True,

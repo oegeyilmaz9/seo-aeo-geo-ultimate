@@ -19,9 +19,9 @@ Collect the canonical/requested URL, page role, reader task, locale/device, raw 
 
 1. **Declare the page contract.** What audience, task, site role, locale, and intended canonical/indexability state does this URL serve?
 2. **Inspect the rendered experience and delivery.** Separate visible content/links/media from raw response, directives, canonicalization, rendering, and structured data. Keep observations tied to a capture and time.
-3. **Map observations by lane.** Route content usefulness and drafts to `$seo-content`; delivery/crawling/rendering to `$seo-technical`; structured data to `$seo-schema`; media to `$seo-images`; locale cluster issues to `$seo-hreflang`; and sitemap/inventory questions to `$seo-sitemap`.
+3. **Map observations by lane.** Route content usefulness and drafts to `seo-content`; delivery/crawling/rendering to `seo-technical`; structured data to `seo-schema`; media to `seo-images`; locale cluster issues to `seo-hreflang`; and sitemap/inventory questions to `seo-sitemap`.
 4. **Distinguish defects from choices.** A mismatch with an explicit page contract may be a confirmed defect; an apparent opportunity without evidence is a hypothesis. Avoid arbitrary meta-length, heading-count, word-count, keyword-density, or internal-link quotas.
-5. **Create a handoff.** Give each recommendation an evidence pointer, scope, owner, impact/risk statement, acceptance criterion, verification, and rollback if the change could harm users or discovery. Use `$seo-action-plan` for an approved cross-team implementation plan.
+5. **Create a handoff.** Give each recommendation an evidence pointer, scope, owner, impact/risk statement, acceptance criterion, verification, and rollback if the change could harm users or discovery. Use `seo-action-plan` for an approved cross-team implementation plan.
 
 ## Guardrails
 
@@ -32,7 +32,7 @@ Collect the canonical/requested URL, page role, reader task, locale/device, raw 
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 

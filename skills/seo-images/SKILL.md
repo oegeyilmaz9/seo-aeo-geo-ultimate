@@ -22,8 +22,8 @@ Do not infer file format, dimensions, loading behavior, or user impact from a fi
 1. **Inventory by purpose.** Map each material image to the visible topic, page region, adjacent text/caption, owner/license, and delivery URL. Mark decorative images as decorative rather than inventing alt text.
 2. **Review accessibility.** Check meaningful alternative text, captions/nearby explanation, controls, contrast/legibility where text is embedded, and responsive mobile rendering. Alt text explains the image’s purpose in context; it is not a keyword field.
 3. **Review delivery.** Inspect dimensions, responsive candidates, intrinsic width/height or aspect-ratio reservation, loading priority, lazy loading behavior, cache/CDN policy, and actual LCP/CLS/interaction evidence when available. A newer format is not automatically an improvement; evaluate support, source quality, byte savings, and visual fidelity.
-4. **Review discovery/metadata.** Check whether significant images are reachable in rendered content and whether page context, canonical URLs, structured data, and image sitemap use are truthful and relevant. Route structured data to `$seo-schema` and sitemap changes to `$seo-sitemap`.
-5. **Plan safe changes.** For each action name the asset/template scope, owner, accessibility/content review, visual QA, performance test, approval, and rollback. Send systemic delivery changes through `$seo-action-plan`.
+4. **Review discovery/metadata.** Check whether significant images are reachable in rendered content and whether page context, canonical URLs, structured data, and image sitemap use are truthful and relevant. Route structured data to `seo-schema` and sitemap changes to `seo-sitemap`.
+5. **Plan safe changes.** For each action name the asset/template scope, owner, accessibility/content review, visual QA, performance test, approval, and rollback. Send systemic delivery changes through `seo-action-plan`.
 
 ## Guardrails
 
@@ -34,7 +34,7 @@ Do not infer file format, dimensions, loading behavior, or user impact from a fi
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 

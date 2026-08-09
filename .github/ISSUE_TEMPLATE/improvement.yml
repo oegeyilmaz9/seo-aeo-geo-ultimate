@@ -13,7 +13,7 @@ body:
     attributes:
       label: Workflow or skill
       description: Which user workflow would improve?
-      placeholder: "$seo routing, seo-aeo audit, installer safety"
+      placeholder: "seo router, seo-aeo audit, installer safety"
     validations:
       required: true
   - type: textarea

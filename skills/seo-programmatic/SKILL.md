@@ -21,7 +21,7 @@ Require the page-system purpose, target reader/task, data dictionary and provena
 2. **Inspect inputs and template.** Verify data ownership, freshness, null/error handling, sourced claims, locale logic, entity identity, URLs, canonical behavior, structured data eligibility, and rendering.
 3. **Sample for failure modes.** Review representative normal, sparse-data, conflicting-data, locale, outlier, and deprecation cases. Look for thin duplication, made-up combinations, contradictory claims, inaccessible values, or non-functional internal paths.
 4. **Define publication gates.** State required fields, minimum useful differentiation, source freshness policy, human/editorial exceptions, noindex/withhold conditions, QA sample, monitoring, and removal/rollback behavior. Do not use word counts or static “unique-content percentages” as the gate.
-5. **Stage rollout.** Begin with an owned, reversible cohort; verify rendered pages, links, canonicals, analytics/monitoring, and user feedback. Expand only after the declared acceptance criteria pass. Route production implementation through `$seo-action-plan`.
+5. **Stage rollout.** Begin with an owned, reversible cohort; verify rendered pages, links, canonicals, analytics/monitoring, and user feedback. Expand only after the declared acceptance criteria pass. Route production implementation through `seo-action-plan`.
 
 ## Guardrails
 
@@ -32,7 +32,7 @@ Require the page-system purpose, target reader/task, data dictionary and provena
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 

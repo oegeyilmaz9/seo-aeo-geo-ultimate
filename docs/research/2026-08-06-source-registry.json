@@ -1,7 +1,7 @@
 {
   "registry_version": "1.0.0",
   "observed_on": "2026-08-06",
-  "purpose": "Primary-source and clearly labeled market-source registry used to design the SEO, AEO, GEO, content-recommendation, crawler-control, and measurement capabilities of this suite.",
+  "purpose": "Primary-source and clearly labeled market-source registry used to design the SEO, AEO, GEO, content-recommendation, crawler-control, measurement, and agent-runtime distribution capabilities of this suite.",
   "freshness_policy": {
     "vendor_documentation_days": 30,
     "standards_days": 90,
@@ -185,6 +185,28 @@
       "observed_at": "2026-08-06",
       "scopes": ["anthropic", "claude", "crawler-controls"],
       "design_effect": "Separate ClaudeBot training, Claude-User user-directed fetches, and Claude-SearchBot search indexing. Require an explicit business decision per bot and verify current vendor documentation before changing robots or WAF rules."
+    },
+    {
+      "id": "anthropic-claude-code-plugins",
+      "title": "Create plugins",
+      "publisher": "Anthropic Claude Code Docs",
+      "url": "https://code.claude.com/docs/en/plugins",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-09",
+      "scopes": ["anthropic", "claude-code", "plugins", "agent-skills", "distribution"],
+      "design_effect": "Package the shared SKILL.md folders at a Claude Code plugin root, declare a stable plugin namespace, document namespaced invocation, and keep sharing metadata separate from Codex-specific UI metadata. Do not add hooks, MCP servers, or other runtime components unless the package actually needs them."
+    },
+    {
+      "id": "anthropic-plugin-directory-submission",
+      "title": "Submitting your plugin",
+      "publisher": "Anthropic Claude Documentation",
+      "url": "https://claude.com/docs/plugins/submit",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-09",
+      "scopes": ["anthropic", "claude-code", "plugins", "marketplace", "submission"],
+      "design_effect": "Keep the repository public and submission-ready. Direct individual authors to the Console form rather than assuming a personal Claude.ai plan has organization submission access; make no promise of directory approval or listing timing."
     },
     {
       "id": "perplexity-crawlers",

@@ -7,7 +7,7 @@ description: Use when auditing, briefing, rewriting, or reviewing site content f
 
 ## Purpose
 
-Create evidence-led content audits, briefs, and draft improvements that help a real reader complete a task. Use this after an approved `$seo-action-plan` when the request stems from AEO/GEO findings; use it directly for a bounded editorial review with supplied content and facts.
+Create evidence-led content audits, briefs, and draft improvements that help a real reader complete a task. Use this after an approved `seo-action-plan` when the request stems from AEO/GEO findings; use it directly for a bounded editorial review with supplied content and facts.
 
 Read `references/editorial-brief-protocol.md` before preparing a formal brief or draft.
 
@@ -37,11 +37,11 @@ For regulated, health, legal, financial, safety, pricing, availability, or compa
 
 ## AI-search and platform boundaries
 
-Google’s current AI guidance treats standard, crawlable, people-first content as the foundation and does not require special AI markup, chunking, or `llms.txt`. Never add those as defaults. Do not claim that an answer-first section, FAQ, schema, or bot access will make a system cite a page. Route platform-specific research to `$ai-search-research`, direct-answer audits to `$seo-aeo`, citation/entity evidence to `$seo-geo`, and repeatable observations to `$ai-visibility-monitor`.
+Google’s current AI guidance treats standard, crawlable, people-first content as the foundation and does not require special AI markup, chunking, or `llms.txt`. Never add those as defaults. Do not claim that an answer-first section, FAQ, schema, or bot access will make a system cite a page. Route platform-specific research to `ai-search-research`, direct-answer audits to `seo-aeo`, citation/entity evidence to `seo-geo`, and repeatable observations to `ai-visibility-monitor`.
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Outputs
 
@@ -50,6 +50,6 @@ Return only the artifacts the evidence supports:
 - **Editorial audit:** observations, evidence/limitations, prioritized opportunities, and unanswered questions.
 - **Content brief:** reader task, claim ledger, outline, required evidence, locale/accessibility/CTA requirements, review gates, and acceptance criteria.
 - **Draft/rewrite options:** clearly marked copy with source notes and placeholders; never publish or represent it as approved.
-- **Action handoff:** owner, dependencies, verification, rollback for potentially harmful edits, and the matching `$seo-action-plan` action ID when one exists.
+- **Action handoff:** owner, dependencies, verification, rollback for potentially harmful edits, and the matching `seo-action-plan` action ID when one exists.
 
 Do not output a universal content score, minimum word-count mandate, keyword-density target, rigid readability target, or guaranteed AI-citation result.

@@ -23,7 +23,7 @@ class SourceRegistryValidatorTests(unittest.TestCase):
             path = Path(temporary) / "registry.json"
             path.write_text(json.dumps(payload), encoding="utf-8")
             return subprocess.run(
-                [PYTHON, str(VALIDATOR), str(path), "--as-of", "2026-08-06", *extra],
+                [PYTHON, str(VALIDATOR), str(path), "--as-of", "2026-08-09", *extra],
                 check=False,
                 capture_output=True,
                 text=True,
@@ -36,7 +36,7 @@ class SourceRegistryValidatorTests(unittest.TestCase):
                 str(VALIDATOR),
                 str(REGISTRY),
                 "--as-of",
-                "2026-08-06",
+                "2026-08-09",
             ],
             check=False,
             capture_output=True,
@@ -45,7 +45,7 @@ class SourceRegistryValidatorTests(unittest.TestCase):
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
         result = json.loads(completed.stdout)
         self.assertEqual(result["status"], "PASS")
-        self.assertEqual(result["checked_sources"], 26)
+        self.assertEqual(result["checked_sources"], 28)
 
     def test_stale_source_fails_by_default(self) -> None:
         payload = self.load_registry()

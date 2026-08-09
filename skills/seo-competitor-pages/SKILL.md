@@ -23,7 +23,7 @@ If a competitor fact cannot be verified or may have changed, label it unknown, o
 2. **Build a fact matrix.** Separate company facts, competitor facts, common capabilities, meaningful differences, limitations, and subjective fit. Every material row gets a source and “as of” date/scope.
 3. **Choose fair structure.** Use methodology, use-case guidance, eligibility/constraints, and transparent comparison rows. Include alternatives that may genuinely fit the reader; do not hide disqualifying conditions.
 4. **Draft with attribution.** Write factual copy in neutral language, preserve product/brand names correctly, cite sources where readers need them, and distinguish opinion from verified fact. Do not copy a competitor’s copy, table, screenshots, reviews, or trademarks beyond authorized/legally reviewed use.
-5. **Review and release plan.** Require product, legal/brand, factual, localization, and accessibility review as appropriate. Send site implementation through `$seo-content` and `$seo-action-plan`.
+5. **Review and release plan.** Require product, legal/brand, factual, localization, and accessibility review as appropriate. Send site implementation through `seo-content` and `seo-action-plan`.
 
 ## Guardrails
 
@@ -34,7 +34,7 @@ If a competitor fact cannot be verified or may have changed, label it unknown, o
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `$seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 

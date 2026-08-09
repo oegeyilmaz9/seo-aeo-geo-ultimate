@@ -2,7 +2,7 @@
 
 ## Universal entry point
 
-Use `$seo` as the recommended first call for any SEO, AEO, GEO, or AI-search request. It accepts a narrow task as well as a cross-functional brief, then selects the smallest correct specialist lane and preserves the handoff. A user may still call a known specialist directly, but they never need to know the internal map to get started.
+Use `seo` as the recommended first call for any SEO, AEO, GEO, or AI-search request. It accepts a narrow task as well as a cross-functional brief, then selects the smallest correct specialist lane and preserves the handoff. A user may still call a known specialist directly, but they never need to know the internal map to get started.
 
 | User intent | Primary owner | Required upstream | Downstream |
 |---|---|---|---|

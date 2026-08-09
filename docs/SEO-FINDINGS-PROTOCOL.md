@@ -1,6 +1,6 @@
 # SEO Findings Protocol
 
-`seo-findings.json` is the formal evidence handoff for conventional SEO work. It carries a bounded set of technical, content, structured-data, international, sitemap, media, programmatic, comparison, accessibility, measurement, or policy findings into `$seo-action-plan` without treating a recommendation as an approved change.
+`seo-findings.json` is the formal evidence handoff for conventional SEO work. It carries a bounded set of technical, content, structured-data, international, sitemap, media, programmatic, comparison, accessibility, measurement, or policy findings into `seo-action-plan` without treating a recommendation as an approved change.
 
 ## When to use it
 
