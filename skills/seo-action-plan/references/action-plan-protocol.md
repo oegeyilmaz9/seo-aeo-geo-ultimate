@@ -21,7 +21,7 @@ action-plan-bundle/
       raw/...
 ```
 
-`input_briefs[].bundle_ref`, `input_findings[].bundle_ref`, and their `artifact_ref` values are relative to the action-plan bundle. They cannot escape it or traverse a symbolic link/reparse point. The validator hashes each artifact, resolves its input bundle, and reruns its declared upstream validator. A plan using `input_findings` must use schema version `1.1.0`; a brief-only `1.0.0` plan remains supported.
+`input_briefs[].bundle_ref`, `input_findings[].bundle_ref`, and their `artifact_ref` values are relative to the action-plan bundle. They cannot escape it or traverse a symbolic link/reparse point. The validator hashes each artifact, resolves its input bundle, and reruns its declared upstream validator. A plan using SEO Findings `1.1.0`, Optimization Brief `1.1.0`, or expanded action/verification types must use Action Plan `1.2.0`; legacy Findings `1.0.0` may use Action Plan `1.1.0`, and a legacy Optimization Brief `1.0.0`-only plan remains supported.
 
 ## Required action logic
 
@@ -42,9 +42,9 @@ Use `confidence: high` only when all linked finding and evidence classifications
 
 ## Priority and risk
 
-`now` means an approved, evidence-backed action with an owner, acceptance criteria, and rollback. `next` is similarly actionable but sequenced behind `now`. `later` is valid but should name the dependency or missing decision. `do-not-do` belongs in `declined_actions`, not `actions`.
+`now` means an approval-ready, evidence-backed action proposed with an owner, acceptance criteria, and rollback; its formal approval status is still `pending`. `next` is similarly prepared but sequenced behind `now`. `later` is valid but should name the dependency or missing decision. `do-not-do` belongs in `declined_actions`, not `actions`.
 
-Risk is operational risk, not a prediction of search impact. Set `high` for crawler policy, indexing, legal, privacy, accessibility, experiment-wide, or irreversible changes. A high-risk action needs an explicit rollback method and an appropriate approval role.
+Risk is operational risk, not a prediction of search impact. Action Plan `1.2.0` requires an explicit `risk_flags` array; declare every applicable `policy`, `crawler-policy`, `indexing`, `legal`, `privacy`, `accessibility`, `experiment-wide`, or `irreversible` flag. Any declared flag requires `risk: high`, an explicit rollback method, and an appropriate approval role. A linked policy, accessibility, or documented crawler-control finding also requires its matching flag and remains high risk even when the proposed implementation is described as technical or content work. The validator can enforce declared and linked risk, but the reviewer remains responsible for rejecting an omitted semantic risk.
 
 ## Measurement rules
 
@@ -55,7 +55,9 @@ Choose the metric that actually observes the proposed outcome:
 - `search-console` for Google Search reporting;
 - `analytics` for referral or conversion events;
 - `visibility-run` for a frozen prompt/corpus observation run;
-- `log-review` for crawler requests only.
+- `seo-performance-run` for a hash-pinned conventional search comparison;
+- `log-review` for crawler requests only;
+- `merchant-feed`, `business-profile`, `video-indexing`, `task-flow`, or `site-graph` for their matching specialist evidence.
 
 Keep these measures separate. For example, a bot request can support `log-review`, but it cannot establish a citation or referral result. A visibility run is observational and needs comparable repeated samples before describing drift.
 

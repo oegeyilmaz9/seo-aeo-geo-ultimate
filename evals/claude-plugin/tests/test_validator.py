@@ -20,14 +20,14 @@ class ClaudePluginValidatorTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
-        self.assertIn("19 shared skills", completed.stdout)
+        self.assertIn("27 shared skills", completed.stdout)
 
     def test_plugin_is_skills_only_and_keeps_codex_metadata(self) -> None:
         plugin = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
         self.assertEqual(plugin["skills"], "./skills")
         self.assertFalse({"hooks", "mcpServers", "agents", "lspServers"} & set(plugin))
         skill_paths = sorted(path for path in (ROOT / "skills").iterdir() if path.is_dir())
-        self.assertEqual(len(skill_paths), 19)
+        self.assertEqual(len(skill_paths), 27)
         for path in skill_paths:
             self.assertTrue((path / "SKILL.md").is_file())
             self.assertTrue((path / "agents" / "openai.yaml").is_file())

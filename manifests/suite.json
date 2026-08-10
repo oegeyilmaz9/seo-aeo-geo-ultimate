@@ -1,18 +1,52 @@
 {
-  "suite_version": "2.3.0",
+  "suite_version": "3.0.0",
   "contract_generation_tool_version": "1.0.0",
   "canonical_schema_root": "manifests/artifact-schemas",
   "schemas": {
     "evidence-record": "evidence-record.schema.json",
     "research-pack": "research-pack.schema.json",
+    "query-corpus": "query-corpus.schema.json",
     "optimization-brief": "optimization-brief.schema.json",
     "visibility-run": "visibility-run.schema.json",
+    "seo-performance-run": "seo-performance-run.schema.json",
+    "site-graph": "site-graph.schema.json",
+    "platform-controls": "platform-controls.schema.json",
     "seo-findings": "seo-findings.schema.json",
     "action-plan": "action-plan.schema.json"
   },
+  "file_outputs": {
+    "llms-txt": {
+      "filename": "llms.txt",
+      "producer_skill": "seo-technical",
+      "validator": "scripts/validate_llms_txt.py",
+      "template": "skills/seo-technical/assets/llms.txt.template"
+    }
+  },
+  "tools": {
+    "artifact-scaffold": {
+      "path": "scripts/init_artifact.py",
+      "purpose": "Create explicit unvalidated draft artifacts and workflow bundles from the current contracts."
+    },
+    "artifact-migrate": {
+      "path": "scripts/migrate_artifact.py",
+      "purpose": "Create validator-gated current-version copies of supported legacy artifacts without modifying their sources."
+    },
+    "artifact-report": {
+      "path": "scripts/render_artifact_report.py",
+      "purpose": "Render a readable Markdown report only after the owning semantic validator passes."
+    },
+    "data-import": {
+      "path": "scripts/import_seo_exports.py",
+      "purpose": "Normalize supported first-party CSV and server-log exports into provenance-preserving input envelopes."
+    },
+    "runtime-install": {
+      "path": "scripts/install_runtime.py",
+      "purpose": "Install and verify the shared skills plus their immutable validator support package for Codex."
+    }
+  },
   "skills": {
     "ai-search-research": {
-      "produces": ["research-pack"],
+      "produces": ["research-pack", "query-corpus"],
       "consumes": ["evidence-record"],
       "generated_contract_root": "skills/ai-search-research/references/contracts"
     },
@@ -28,12 +62,12 @@
     },
     "ai-visibility-monitor": {
       "produces": ["visibility-run"],
-      "consumes": ["research-pack"],
+      "consumes": ["research-pack", "query-corpus"],
       "generated_contract_root": "skills/ai-visibility-monitor/references/contracts"
     },
     "seo": {
       "produces": [],
-      "consumes": ["research-pack"],
+      "consumes": ["research-pack", "query-corpus", "visibility-run", "seo-performance-run", "site-graph", "platform-controls"],
       "generated_contract_root": "skills/seo/references/contracts"
     },
     "seo-action-plan": {
@@ -41,9 +75,26 @@
       "consumes": ["optimization-brief", "research-pack", "evidence-record", "seo-findings"],
       "generated_contract_root": "skills/seo-action-plan/references/contracts"
     },
+    "seo-agentic": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record", "query-corpus", "platform-controls"]
+    },
+    "seo-architecture": {
+      "produces": ["seo-findings", "site-graph"],
+      "consumes": ["evidence-record", "query-corpus"],
+      "generated_contract_root": "skills/seo-architecture/references/contracts"
+    },
+    "seo-authority": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record", "query-corpus"]
+    },
     "seo-audit": {
       "produces": ["seo-findings"],
       "consumes": ["evidence-record"]
+    },
+    "seo-commerce": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record", "query-corpus", "platform-controls"]
     },
     "seo-competitor-pages": {
       "produces": ["seo-findings"],
@@ -61,6 +112,14 @@
       "produces": ["seo-findings"],
       "consumes": ["evidence-record"]
     },
+    "seo-local": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record", "query-corpus"]
+    },
+    "seo-news-discover": {
+      "produces": ["seo-findings"],
+      "consumes": ["evidence-record", "query-corpus", "platform-controls"]
+    },
     "seo-page": {
       "produces": ["seo-findings"],
       "consumes": ["evidence-record"]
@@ -74,8 +133,14 @@
       "consumes": ["evidence-record"]
     },
     "seo-research": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "produces": ["seo-findings", "query-corpus"],
+      "consumes": ["evidence-record"],
+      "generated_contract_root": "skills/seo-research/references/contracts"
+    },
+    "seo-performance": {
+      "produces": ["seo-performance-run"],
+      "consumes": ["query-corpus"],
+      "generated_contract_root": "skills/seo-performance/references/contracts"
     },
     "seo-schema": {
       "produces": ["seo-findings"],
@@ -86,8 +151,14 @@
       "consumes": ["evidence-record"]
     },
     "seo-technical": {
+      "produces": ["seo-findings", "platform-controls"],
+      "consumes": ["evidence-record"],
+      "produces_files": ["llms-txt"],
+      "generated_contract_root": "skills/seo-technical/references/contracts"
+    },
+    "seo-video": {
       "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "consumes": ["evidence-record", "query-corpus", "platform-controls"]
     },
     "optimise-seo": {
       "produces": [],

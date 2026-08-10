@@ -1,0 +1,4 @@
+interface:
+  display_name: "Local SEO"
+  short_description: "Audit locations, profiles, pages, and local evidence"
+  default_prompt: "Use $seo-local to audit the supplied location, profile, and local-search evidence."

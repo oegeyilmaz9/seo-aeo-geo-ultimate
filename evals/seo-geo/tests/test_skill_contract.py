@@ -21,7 +21,7 @@ class SeoGeoSkillContractTests(unittest.TestCase):
 
     def test_geo_owns_only_declared_dimensions_and_handoffs(self):
         text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
-        for phrase in ("entity_consistency", "evidence_traceability", "citation_suitability", "cited_source_alignment", "documented_engine_control", "seo-aeo", "ai-search-research", "ai-visibility-monitor"):
+        for phrase in ("entity_consistency", "evidence_traceability", "citation_suitability", "source_credibility", "claim_source_entailment", "conflict_resolution", "cited_source_alignment", "documented_engine_control", "seo-aeo", "ai-search-research", "ai-visibility-monitor"):
             self.assertIn(phrase, text)
 
     def test_contract_lock_matches_canonical_and_generated_bytes(self):

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/seo-findings/1.0.0",
+  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/seo-findings/1.1.0",
   "title": "SEO Findings",
   "type": "object",
   "additionalProperties": false,
@@ -16,22 +16,29 @@
     "limitations"
   ],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
+    "schema_version": {"enum": ["1.0.0", "1.1.0"]},
     "finding_set_id": {"$ref": "#/$defs/id"},
     "created_at": {"type": "string", "format": "date-time"},
     "producer_skill": {
       "enum": [
         "seo-audit",
+        "seo-agentic",
+        "seo-architecture",
+        "seo-authority",
+        "seo-commerce",
         "seo-competitor-pages",
         "seo-content",
         "seo-hreflang",
         "seo-images",
+        "seo-local",
+        "seo-news-discover",
         "seo-page",
         "seo-programmatic",
         "seo-research",
         "seo-schema",
         "seo-sitemap",
-        "seo-technical"
+        "seo-technical",
+        "seo-video"
       ]
     },
     "scope": {"$ref": "#/$defs/scope"},
@@ -76,7 +83,7 @@
       "properties": {
         "target_id": {"$ref": "#/$defs/id"},
         "target_type": {
-          "enum": ["site", "web_page", "template", "content_set", "media_set", "sitemap", "locale_cluster"]
+          "enum": ["site", "web_page", "template", "content_set", "media_set", "sitemap", "locale_cluster", "feed", "business_profile", "video", "news_property", "site_graph", "task_flow", "protocol_capability", "backlink_profile"]
         },
         "locale": {"$ref": "#/$defs/locale"},
         "source_url": {"type": ["string", "null"], "pattern": "^https://"}
@@ -116,7 +123,16 @@
             "comparison",
             "measurement",
             "accessibility",
-            "policy"
+            "policy",
+            "commerce",
+            "local",
+            "video",
+            "news-discover",
+            "agentic",
+            "architecture",
+            "authority",
+            "entity",
+            "freshness"
           ]
         },
         "classification": {"enum": ["confirmed", "vendor-recommended", "experimental", "speculative"]},
@@ -130,13 +146,21 @@
         "candidate_owner": {
           "enum": [
             "seo-content",
+            "seo-agentic",
+            "seo-architecture",
+            "seo-authority",
+            "seo-commerce",
             "seo-technical",
             "seo-schema",
             "seo-hreflang",
             "seo-sitemap",
             "seo-images",
+            "seo-local",
+            "seo-news-discover",
+            "seo-performance",
             "seo-programmatic",
             "seo-competitor-pages",
+            "seo-video",
             "optimise-seo"
           ]
         },

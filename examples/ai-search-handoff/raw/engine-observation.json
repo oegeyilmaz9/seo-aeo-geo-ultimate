@@ -1,0 +1,8 @@
+{
+  "query": "Is Example available in Turkey?",
+  "answer": "Example is available in Turkey.",
+  "citations": [
+    "https://example.com/docs/availability"
+  ],
+  "observed_at": "2026-08-09T10:00:00Z"
+}

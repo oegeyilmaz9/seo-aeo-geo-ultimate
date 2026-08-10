@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.1.0",
+  "brief_id": "example-aeo-brief",
+  "created_at": "2026-08-09T12:00:00Z",
+  "research_id": "example-ai-search-research",
+  "optimization_domain": "aeo",
+  "producer_skill": "seo-aeo",
+  "targets": [
+    {
+      "target_id": "availability-page",
+      "target_type": "web_page",
+      "locale": "en-US",
+      "source_url": "https://example.com/docs/availability",
+      "capture_ref": "raw/targets/availability.html",
+      "capture_sha256": "9d93be4f7a34d2db5ba2878475455c7d24c06988ec71ecf5b982a841171e1975",
+      "captured_at": "2026-08-09T11:00:00Z",
+      "metadata_ref": "raw/targets/availability-metadata.json",
+      "metadata_sha256": "812c94fec754368768fd1038929ea90c0f53ac83b7bbd732ea918668328929a3"
+    }
+  ],
+  "audit_evidence": [
+    {
+      "claim_id": "availability-answer-observation",
+      "target_id": "availability-page",
+      "claim": "The supplied page capture answers the availability question in one direct sentence.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "google",
+      "surface": "ai-overview",
+      "locale": "en-US",
+      "source_title": "Sanitized availability page capture",
+      "source_url": "https://example.com/docs/availability",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-08-09T11:00:00Z",
+      "raw_evidence_ref": "raw/targets/availability.html",
+      "raw_evidence_sha256": "9d93be4f7a34d2db5ba2878475455c7d24c06988ec71ecf5b982a841171e1975",
+      "observation_method": "Reviewed the immutable visible-content capture.",
+      "limitations": [
+        "The capture does not establish whether any answer engine will retrieve or cite the page."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "availability-answer-present",
+      "target_id": "availability-page",
+      "query_ids": [
+        "example-turkey-availability-query"
+      ],
+      "observation": "The visible capture contains a concise sentence that directly answers the researched question.",
+      "severity": "minor",
+      "evidence_refs": [
+        {
+          "artifact_type": "optimization-brief",
+          "artifact_id": "example-aeo-brief",
+          "schema_version": "1.1.0",
+          "artifact_sha256": "SELF",
+          "collection": "audit_evidence",
+          "record_id": "availability-answer-observation"
+        },
+        {
+          "artifact_type": "research-pack",
+          "artifact_id": "example-ai-search-research",
+          "schema_version": "1.1.0",
+          "artifact_sha256": "3d00529ee971dc82fa21af0b3e028f930effa9166d0fe988db71556ac01ff703",
+          "collection": "evidence",
+          "record_id": "example-turkey-availability"
+        }
+      ],
+      "classification": "confirmed",
+      "engines": [
+        "google"
+      ],
+      "surfaces": [
+        "ai-overview"
+      ],
+      "locales": [
+        "en-US"
+      ],
+      "dimension": "direct_answer_completeness"
+    }
+  ],
+  "recommendations": [
+    {
+      "recommendation_id": "preserve-supported-answer",
+      "finding_ids": [
+        "availability-answer-present"
+      ],
+      "evidence_refs": [
+        {
+          "artifact_type": "optimization-brief",
+          "artifact_id": "example-aeo-brief",
+          "schema_version": "1.1.0",
+          "artifact_sha256": "SELF",
+          "collection": "audit_evidence",
+          "record_id": "availability-answer-observation"
+        },
+        {
+          "artifact_type": "research-pack",
+          "artifact_id": "example-ai-search-research",
+          "schema_version": "1.1.0",
+          "artifact_sha256": "3d00529ee971dc82fa21af0b3e028f930effa9166d0fe988db71556ac01ff703",
+          "collection": "evidence",
+          "record_id": "example-turkey-availability"
+        }
+      ],
+      "desired_outcome": "Preserve the direct answer and keep it aligned with the approved market fact.",
+      "owner_skill": "seo-content",
+      "confidence": "high",
+      "verification_method": "Recapture the page and compare the visible answer with the pinned fact."
+    }
+  ],
+  "experiments": [],
+  "declined_claims": [
+    {
+      "claim": "The direct answer guarantees AI retrieval or citation.",
+      "reason": "The supplied evidence establishes visible-content completeness only."
+    }
+  ],
+  "limitations": [
+    "This brief audits one page, question, locale, engine, and surface."
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.1.0",
+  "brief_id": "example-geo-brief",
+  "created_at": "2026-08-09T12:05:00Z",
+  "research_id": "example-ai-search-research",
+  "optimization_domain": "geo",
+  "producer_skill": "seo-geo",
+  "targets": [
+    {
+      "target_id": "availability-page",
+      "target_type": "web_page",
+      "locale": "en-US",
+      "source_url": "https://example.com/docs/availability",
+      "capture_ref": "raw/targets/availability.html",
+      "capture_sha256": "9d93be4f7a34d2db5ba2878475455c7d24c06988ec71ecf5b982a841171e1975",
+      "captured_at": "2026-08-09T11:00:00Z",
+      "metadata_ref": "raw/targets/availability-metadata.json",
+      "metadata_sha256": "812c94fec754368768fd1038929ea90c0f53ac83b7bbd732ea918668328929a3"
+    }
+  ],
+  "audit_evidence": [
+    {
+      "claim_id": "availability-source-trace-observation",
+      "target_id": "availability-page",
+      "claim": "The supplied page states the bounded availability fact consistently with the first-party research source.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "google",
+      "surface": "ai-overview",
+      "locale": "en-US",
+      "source_title": "Sanitized availability page capture",
+      "source_url": "https://example.com/docs/availability",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-08-09T11:00:00Z",
+      "raw_evidence_ref": "raw/targets/availability.html",
+      "raw_evidence_sha256": "9d93be4f7a34d2db5ba2878475455c7d24c06988ec71ecf5b982a841171e1975",
+      "observation_method": "Compared the immutable page capture with the pinned first-party evidence record.",
+      "limitations": [
+        "Source consistency does not predict retrieval, citation, or ranking."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "availability-source-consistent",
+      "target_id": "availability-page",
+      "query_ids": [
+        "example-turkey-availability-query"
+      ],
+      "observation": "The page claim is consistent with the exact first-party source and declared market scope.",
+      "severity": "minor",
+      "evidence_refs": [
+        {
+          "artifact_type": "optimization-brief",
+          "artifact_id": "example-geo-brief",
+          "schema_version": "1.1.0",
+          "artifact_sha256": "SELF",
+          "collection": "audit_evidence",
+          "record_id": "availability-source-trace-observation"
+        },
+        {
+          "artifact_type": "research-pack",
+          "artifact_id": "example-ai-search-research",
+          "schema_version": "1.1.0",
+          "artifact_sha256": "3d00529ee971dc82fa21af0b3e028f930effa9166d0fe988db71556ac01ff703",
+          "collection": "evidence",
+          "record_id": "example-turkey-availability"
+        }
+      ],
+      "classification": "confirmed",
+      "engines": [
+        "google"
+      ],
+      "surfaces": [
+        "ai-overview"
+      ],
+      "locales": [
+        "en-US"
+      ],
+      "dimension": "evidence_traceability"
+    }
+  ],
+  "recommendations": [
+    {
+      "recommendation_id": "maintain-source-consistency",
+      "finding_ids": [
+        "availability-source-consistent"
+      ],
+      "evidence_refs": [
+        {
+          "artifact_type": "optimization-brief",
+          "artifact_id": "example-geo-brief",
+          "schema_version": "1.1.0",
+          "artifact_sha256": "SELF",
+          "collection": "audit_evidence",
+          "record_id": "availability-source-trace-observation"
+        },
+        {
+          "artifact_type": "research-pack",
+          "artifact_id": "example-ai-search-research",
+          "schema_version": "1.1.0",
+          "artifact_sha256": "3d00529ee971dc82fa21af0b3e028f930effa9166d0fe988db71556ac01ff703",
+          "collection": "evidence",
+          "record_id": "example-turkey-availability"
+        }
+      ],
+      "desired_outcome": "Keep the visible market claim consistent with its first-party system of record.",
+      "owner_skill": "seo-content",
+      "confidence": "high",
+      "verification_method": "Revalidate the source and page captures together after availability changes."
+    }
+  ],
+  "experiments": [],
+  "declined_claims": [
+    {
+      "claim": "Source consistency guarantees citation.",
+      "reason": "The evidence supports traceability, not a future engine outcome."
+    }
+  ],
+  "limitations": [
+    "This brief evaluates one bounded claim and one supplied source."
+  ]
+}

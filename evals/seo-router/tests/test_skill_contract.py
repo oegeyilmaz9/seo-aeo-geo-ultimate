@@ -58,15 +58,22 @@ class SeoRouterSkillContractTests(unittest.TestCase):
         self.assertIn("audits to `seo-aeo`", text)
         self.assertIn("citation, and documented engine-control audits to `seo-geo`", text)
 
-    def test_contract_lock_binds_research_pack_only(self):
+    def test_contract_lock_binds_router_handoff_artifacts(self):
         lock = json.loads((SKILL / "references" / "contracts" / "contracts-lock.json").read_text(encoding="utf-8"))
-        self.assertEqual(len(lock["contracts"]), 1)
-        row = lock["contracts"][0]
-        self.assertTrue(row["generated_path"].endswith("research-pack.schema.json"))
-        canonical = ROOT / row["canonical_path"]
-        generated = SKILL / row["generated_path"]
-        self.assertEqual(canonical.read_bytes(), generated.read_bytes())
-        self.assertEqual(hashlib.sha256(canonical.read_bytes()).hexdigest(), row["canonical_sha256"])
+        expected = {
+            "research-pack.schema.json",
+            "query-corpus.schema.json",
+            "visibility-run.schema.json",
+            "seo-performance-run.schema.json",
+            "site-graph.schema.json",
+            "platform-controls.schema.json",
+        }
+        self.assertEqual({Path(row["generated_path"]).name for row in lock["contracts"]}, expected)
+        for row in lock["contracts"]:
+            canonical = ROOT / row["canonical_path"]
+            generated = SKILL / row["generated_path"]
+            self.assertEqual(canonical.read_bytes(), generated.read_bytes())
+            self.assertEqual(hashlib.sha256(canonical.read_bytes()).hexdigest(), row["canonical_sha256"])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "claim_id": "availability-citation-claim",
+  "citation_url": "https://example.com/docs/availability",
+  "claim": "Example is available in Turkey.",
+  "cited_text": "The availability documentation directly states the supported market fact.",
+  "verdict": "supported",
+  "rationale": "The cited first-party source directly supports the bounded availability claim.",
+  "reviewer": "example-reviewer",
+  "reviewed_at": "2026-08-09T13:00:00Z"
+}

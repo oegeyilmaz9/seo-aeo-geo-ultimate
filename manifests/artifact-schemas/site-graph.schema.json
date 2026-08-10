@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/site-graph/1.0.0",
+  "title": "Site Graph",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "graph_id", "created_at", "scope", "nodes", "edges", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "graph_id": {"$ref": "#/$defs/id"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "scope": {"$ref": "#/$defs/scope"},
+    "nodes": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/node"}},
+    "edges": {"type": "array", "items": {"$ref": "#/$defs/edge"}},
+    "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "relativePath": {"type": "string", "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domains", "seed_node_ids", "excluded_patterns", "collection_method", "capture_mode", "max_urls", "completeness"],
+      "properties": {
+        "domains": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9.-]+$"}},
+        "seed_node_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "excluded_patterns": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "collection_method": {"type": "string", "minLength": 1},
+        "capture_mode": {"enum": ["raw", "rendered"]},
+        "max_urls": {"type": ["integer", "null"]},
+        "completeness": {"enum": ["bounded", "complete"]}
+      }
+    },
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["node_id", "url", "target_type", "locale", "http_status", "index_intent", "canonical_url", "title", "business_role", "captured_at", "capture_ref", "capture_sha256", "metadata_ref", "metadata_sha256"],
+      "properties": {
+        "node_id": {"$ref": "#/$defs/id"},
+        "url": {"type": "string", "pattern": "^https://"},
+        "target_type": {"enum": ["site", "web_page", "template", "content_set", "media_set", "sitemap", "locale_cluster", "feed", "business_profile", "video", "news_property", "task_flow", "protocol_capability"]},
+        "locale": {"type": "string", "pattern": "^(not_applicable|[a-z]{2}-[A-Z]{2})$"},
+        "http_status": {"type": "integer"},
+        "index_intent": {"enum": ["index", "exclude", "unknown"]},
+        "canonical_url": {"type": ["string", "null"], "pattern": "^https://"},
+        "title": {"type": ["string", "null"]},
+        "business_role": {"type": "string", "minLength": 1},
+        "captured_at": {"type": "string", "format": "date-time"},
+        "capture_ref": {"$ref": "#/$defs/relativePath"},
+        "capture_sha256": {"$ref": "#/$defs/sha"},
+        "metadata_ref": {"$ref": "#/$defs/relativePath"},
+        "metadata_sha256": {"$ref": "#/$defs/sha"}
+      }
+    },
+    "edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edge_id", "source_node_id", "target_node_id", "raw_href", "location", "anchor_text", "accessible_name", "follow_state", "discovery", "edge_type", "captured_at", "capture_ref", "capture_sha256", "metadata_ref", "metadata_sha256"],
+      "properties": {
+        "edge_id": {"$ref": "#/$defs/id"},
+        "source_node_id": {"$ref": "#/$defs/id"},
+        "target_node_id": {"$ref": "#/$defs/id"},
+        "raw_href": {"type": "string", "minLength": 1},
+        "location": {"enum": ["primary-navigation", "secondary-navigation", "breadcrumb", "body", "pagination", "facet", "footer", "other"]},
+        "anchor_text": {"type": ["string", "null"]},
+        "accessible_name": {"type": ["string", "null"]},
+        "follow_state": {"enum": ["follow", "nofollow", "unknown"]},
+        "discovery": {"enum": ["raw", "rendered"]},
+        "edge_type": {"enum": ["contextual", "template"]},
+        "captured_at": {"type": "string", "format": "date-time"},
+        "capture_ref": {"$ref": "#/$defs/relativePath"},
+        "capture_sha256": {"$ref": "#/$defs/sha"},
+        "metadata_ref": {"$ref": "#/$defs/relativePath"},
+        "metadata_sha256": {"$ref": "#/$defs/sha"}
+      }
+    }
+  }
+}

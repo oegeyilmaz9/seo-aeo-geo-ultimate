@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Authority"
+  short_description: "Audit backlinks, mentions, sources, and link risk"
+  default_prompt: "Use $seo-authority to audit the supplied backlink, mention, and source-landscape evidence."

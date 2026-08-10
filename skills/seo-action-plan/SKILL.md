@@ -26,25 +26,27 @@ Read `references/action-plan-protocol.md` before creating `action-plan.json`.
 
 1. **Check the input gate.** Require an immutable, validated upstream bundle. An AEO/GEO input contains `optimization-brief.json`, `research-pack.json`, and its referenced raw evidence. A conventional SEO input contains `seo-findings.json` and the raw evidence it names. Run:
 
-   From a checked-out suite repository, run:
+   Let `<suite-root>` mean `${CLAUDE_PLUGIN_ROOT}` in Claude Code. In Codex, read `.seo-suite-runtime.json` beside this `SKILL.md` when present and use its `suite_root` value; otherwise use the absolute repository checkout, then run:
 
    ```powershell
-   python scripts/validate_seo_action_plan.py validate-plan <plan>/action-plan.json --bundle <plan>
+   python "<suite-root>/scripts/validate_seo_action_plan.py" validate-plan <plan>/action-plan.json --bundle <plan>
    ```
 
    Validate a conventional input directly before packaging it when possible:
 
    ```powershell
-   python scripts/validate_seo_findings.py validate-findings <findings>/seo-findings.json --bundle <findings>
+   python "<suite-root>/scripts/validate_seo_findings.py" validate-findings <findings>/seo-findings.json --bundle <findings>
    ```
 
-   The runtime skill install contains the instructions; the repository checkout contains the suite-level validators and contracts.
+   The runtime skill locator resolves the installed support package containing the suite-level validators and contracts; a retained repository checkout is optional.
 
-   The plan bundle must preserve each upstream bundle below `inputs/`; do not edit its artifacts after validation. Use action-plan schema `1.1.0` when it contains `input_findings`; `1.0.0` remains valid for optimization-brief-only plans.
+   The plan bundle must preserve each upstream bundle below `inputs/`; do not edit its artifacts after validation. Use Action Plan `1.2.0` when it contains SEO Findings `1.1.0`, Optimization Brief `1.1.0`, or expanded action/verification types. Action Plan `1.1.0` remains valid for legacy SEO Findings `1.0.0`, and `1.0.0` remains valid for legacy Optimization Brief `1.0.0`-only plans.
 
 2. **Map the evidence.** For every proposed action, link at least one finding and at least one resolving evidence record. Keep locale, engine, surface, target, and claim scope intact. An action may combine findings only when their scopes are compatible.
 
 3. **Choose a real owner and a reversible path.** Assign the responsible team/role, required approver, effort, risk, dependencies, acceptance criteria, verification method, guardrail, and rollback method. `seo-action-plan` itself cannot be the implementation owner.
+
+   Action Plan `1.2.0` requires `risk_flags`. Declare every applicable policy, crawler/indexing, legal/privacy, accessibility, experiment-wide, or irreversible risk. Any declared flag is high risk and requires the matching approval and rollback; do not hide sensitive work behind a generic technical or content label.
 
 4. **Use confidence honestly.** `high` needs confirmed evidence; `medium` cannot rest on experimental evidence; `low` is an explicitly monitored hypothesis. Decline changes that lack sufficient evidence, conflict with platform documentation, or would create legal/accessibility risk.
 
@@ -58,7 +60,10 @@ Read `references/action-plan-protocol.md` before creating `action-plan.json`.
 - **Technical implementation:** send approved actions to `seo-technical`; include rollback and platform-specific crawler/control evidence.
 - **Structured data:** send approved actions to `seo-schema`; require visible-content alignment and rich-result eligibility checks, never a rich-result promise.
 - **International targeting:** send approved actions to `seo-hreflang` or `seo-sitemap` when the action’s locale or discovery scope requires it.
-- **Measurement:** send approved measurement work to `ai-visibility-monitor`; use repeated, comparable observations and keep bot activity separate from citations/referrals.
+- **Commerce and local:** send product/feed actions to `seo-commerce` and location/profile/NAP actions to `seo-local`.
+- **Media and publishing:** send video actions to `seo-video` and publisher/news/Discover actions to `seo-news-discover`.
+- **Agent, architecture, and authority:** send task-flow/protocol actions to `seo-agentic`, taxonomy/internal-link/site-graph actions to `seo-architecture`, and backlink/mention/source-landscape actions to `seo-authority`.
+- **Measurement:** send conventional search/site performance work to `seo-performance` and AI-answer observations to `ai-visibility-monitor`; keep their metric families separate.
 - **Prioritization and coordination:** send cross-team approved work to `optimise-seo` or `seo-plan`.
 
 ## Provisional action list

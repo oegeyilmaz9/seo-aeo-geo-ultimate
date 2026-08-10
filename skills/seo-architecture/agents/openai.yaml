@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Architecture"
+  short_description: "Audit site graphs, navigation, links, and coverage"
+  default_prompt: "Use $seo-architecture to build or audit the supplied site and internal-link graph."

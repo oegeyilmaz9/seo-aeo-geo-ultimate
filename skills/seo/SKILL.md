@@ -24,7 +24,7 @@ Read [routing-matrix.md](references/routing-matrix.md) before routing a request 
 - Missing queries, sources, observations, ground truth, or engine/surface evidence -> `ai-search-research`.
 - Direct-answer completeness, clarity, extractability, intent coverage, or answer structure -> `seo-aeo`.
 - Entity consistency, evidence traceability, citation suitability, cited-source alignment, or documented engine controls -> `seo-geo`.
-- Repeatable mention, citation, accuracy, referral, access, baseline, comparison, or drift measurement -> `ai-visibility-monitor`.
+- Repeatable mention, citation, accuracy, referral, retrieval trace, consulted-source, citation-claim, access, uncertainty, baseline, comparison, or drift measurement -> `ai-visibility-monitor`.
 - Approval-ready sequencing, ownership, risk, rollback, verification, or a cross-team implementation handoff -> `seo-action-plan`.
 
 Do not treat AEO and GEO as synonyms. Do not send live research to an audit skill, implementation to the monitor, or measurement to an optimization audit.
@@ -43,7 +43,18 @@ Do not treat AEO and GEO as synonyms. Do not send live research to an audit skil
 - Template-driven or large-scale landing-page systems -> `seo-programmatic`.
 - Competitor comparison or alternative pages -> `seo-competitor-pages`.
 - Long-form query and evidence discovery -> `seo-research` when AI-search Research Pack provenance is not required.
-- Optional `llms.txt` suitability, source ownership, publishing, or maintenance -> `seo-technical`; treat it as a maintained publisher guide, not a universal crawler or visibility control.
+- Search Console, Bing Webmaster Tools, analytics, indexation, Core Web Vitals/RUM, conventional baseline, or comparison measurement -> `seo-performance`.
+- Import or normalize an authorized Search Console, Bing, organic GA4, crawler CSV, or server log -> the matching `seo-performance`, `seo-architecture`, or `seo-technical` owner using the suite data-import adapter; import is evidence preparation, not a validated finding or outcome.
+- Product/category pages, Product/MerchantListing data, merchant feeds, price/availability parity, shopping discovery, commerce protocols, or IndexNow catalog freshness -> `seo-commerce`.
+- Business profiles, NAP/hours/categories, service areas, location pages, local schema, reviews, or location-aware queries -> `seo-local`.
+- Watch pages, video players, VideoObject, video sitemaps, thumbnails, transcripts/captions, Key Moments, livestreams, or video indexing -> `seo-video`.
+- News/Discover publisher policy, articles, dates/bylines/corrections, NewsArticle, news sitemaps/feeds, large images, paywalls, or freshness reporting -> `seo-news-discover`.
+- Agent perception and task completion through DOM/accessibility/UI state, safe forms, auth/consent, or documented UCP/ACP/MCP/A2A capabilities -> `seo-agentic`.
+- Site graphs, navigation, hubs, crawl paths, orphan evidence, facets, taxonomy, pagination, internal links, or query-to-page architecture -> `seo-architecture`.
+- Backlinks, referring domains, source citations, brand/unlinked mentions, linkable evidence, digital PR, or link-scheme risk -> `seo-authority`.
+- Optional `llms.txt` suitability, generation, validation, publishing, or maintenance -> `seo-technical`; offer it as a low-cost maintained publisher guide when public sources and a refresh owner exist, not as a universal crawler or visibility control.
+- Site migration/replatforming, sudden traffic/indexation incident, manual action, or hacked-site search recovery -> `seo-technical`; involve the security incident owner for any suspected compromise.
+- Controlled SEO experiment design, baseline, or evaluation -> `seo-performance`; require `seo-action-plan` before exposure and `seo-technical` when variant delivery, redirects, canonicals, or directives are involved.
 - Broad implementation optimization after a validated, approved action plan -> `optimise-seo`.
 
 ## Compound-work rules
@@ -51,11 +62,12 @@ Do not treat AEO and GEO as synonyms. Do not send live research to an audit skil
 - If the request lacks current evidence, run `ai-search-research` before `seo-aeo`, `seo-geo`, or `ai-visibility-monitor`.
 - AEO and GEO may run in parallel only after both receive the same validated Research Pack and immutable target captures.
 - Convert validated findings into an action plan before implementation. Use a validated `optimization-brief.json` for AEO/GEO findings or a validated `seo-findings.json` bundle for conventional SEO findings. Run implementation only from an approved action with an explicit owner, acceptance criteria, verification, and rollback. Keep experiments separate from required changes.
-- Establish a baseline before implementation when the user wants change tracking. A later comparison is observational drift, not causal proof.
+- Establish a formal Query Corpus and the correct baseline before implementation when the user wants change tracking. Use `seo-performance` for conventional first-party search/site metrics and `ai-visibility-monitor` for observed AI answers; never merge them into one score. A later comparison is observational drift, not causal proof.
+- Use the current validated platform-controls registry before feature, crawler, change-notification, or protocol recommendations. Route expired or unknown controls back to research instead of copying a stale rule.
 - If access is blocked or unavailable, record the gap; never bypass authentication, paywalls, bot controls, or rate limits.
 
 ## Guardrails
 
-Do not create a universal SEO score or blend technical, content, AEO, GEO, and visibility metrics into a false precision number. Decline mandatory `llms.txt`, fixed passage or word-count formulas, blanket crawler instructions, invented ranking factors, unsupported source percentages, guaranteed rankings, guaranteed mentions, guaranteed citations, or any guarantee of AI placement. Treat `llms.txt` as an optional, evidence-scoped technical decision only when there is a documented consuming system, a trustworthy source of truth, a defined content scope, and a maintenance owner. A bot request is not evidence of retrieval, citation, referral, or conversion.
+Do not create a universal SEO score or blend technical, content, AEO, GEO, and visibility metrics into a false precision number. Decline mandatory `llms.txt`, fixed passage or word-count formulas, blanket crawler instructions, invented ranking factors, unsupported source percentages, guaranteed rankings, guaranteed mentions, guaranteed citations, or any guarantee of AI placement. Offer `llms.txt` as an optional, evidence-scoped publisher guide when trustworthy public sources, a defined scope, and a maintenance owner make it cheap to keep correct; a documented consumer is useful but not required. A bot request is not evidence of retrieval, citation, referral, or conversion.
 
 When an existing specialist owns the next step, route to it without duplicating its instructions. Directly invoking that specialist remains available, but `seo` is the recommended entry point when the user wants the suite to choose the right path.

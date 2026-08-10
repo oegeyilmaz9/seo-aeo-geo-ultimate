@@ -10,6 +10,9 @@ GEO_DIMENSIONS = {
     "entity_consistency",
     "evidence_traceability",
     "citation_suitability",
+    "source_credibility",
+    "claim_source_entailment",
+    "conflict_resolution",
     "cited_source_alignment",
     "documented_engine_control",
 }

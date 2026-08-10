@@ -22,6 +22,9 @@ Produce an evidence-linked GEO Optimization Brief from immutable inputs. Audit g
    - `entity_consistency`: names, aliases, attributes, disambiguation, and target/source agreement;
    - `evidence_traceability`: material assertions resolve to current, scope-compatible evidence;
    - `citation_suitability`: supplied sources clearly support the relevant entity/fact without claiming an engine will select them;
+   - `source_credibility`: supplied source identity, ownership, expertise, independence, update state, and primary/secondary role are explicit without relying on a proprietary authority score;
+   - `claim_source_entailment`: cited or candidate text actually supports the bounded answer claim, with partial, conflicting, and unverifiable support preserved;
+   - `conflict_resolution`: conflicting current sources remain visible and the applicable system of record, scope, and resolution owner are named;
    - `cited_source_alignment`: a metadata-bound `content_set` target under `raw/observations/` contains the exact raw-observation fields defined in the protocol, and its dated engine/surface/locale answer plus cited URLs agree with referenced Research Pack sources;
    - `documented_engine_control`: a current vendor document or applicable standard supports the scoped control.
 4. Bind every finding to resolved Research Pack query IDs, one target, that target's locale, and engine/surface pairs within query applicability.
@@ -37,7 +40,8 @@ Produce an evidence-linked GEO Optimization Brief from immutable inputs. Audit g
 - Route direct-answer completeness, clarity, intent coverage, and extractability to `seo-aeo`.
 - Route live AI-search research and missing source collection to `ai-search-research`.
 - Route longitudinal mention, citation, accuracy, referral, or drift measurement to `ai-visibility-monitor`.
-- Route a validated Brief to `seo-action-plan` before implementation, then to `seo-content`, `seo-schema`, `seo-technical`, `seo-hreflang`, or `optimise-seo` according to the approved action.
+- Route backlink/source-landscape discovery to `seo-authority` and site-owned source structure to `seo-architecture`.
+- Route a validated Brief to `seo-action-plan` before implementation, then to the exact approved content, schema, technical, locale, commerce, local, video, news, agentic, architecture, authority, performance, or broad implementation owner.
 
 Do not create a universal GEO score, treat a correlation as a control, recommend off-page manipulation, or claim a change will cause mentions or citations.
 

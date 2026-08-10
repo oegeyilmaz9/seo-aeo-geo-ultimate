@@ -1,0 +1,22 @@
+{
+  "lock_version": "1.0.0",
+  "generation_tool_version": "1.0.0",
+  "contracts": [
+    {
+      "canonical_path": "manifests/artifact-schemas/query-corpus.schema.json",
+      "generated_path": "references/contracts/query-corpus.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/query-corpus/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "6df22f3f8ad497f20be1ddbd76a8e0bfecebd51330529ded432873471fe33ab9",
+      "generated_sha256": "6df22f3f8ad497f20be1ddbd76a8e0bfecebd51330529ded432873471fe33ab9"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/seo-performance-run.schema.json",
+      "generated_path": "references/contracts/seo-performance-run.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/seo-performance-run/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "8c4b06f86b9c5f8278a2e0df6d1b0ef3075356969618c11d1c578e843c66a89b",
+      "generated_sha256": "8c4b06f86b9c5f8278a2e0df6d1b0ef3075356969618c11d1c578e843c66a89b"
+    }
+  ]
+}

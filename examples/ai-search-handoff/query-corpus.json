@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "corpus_id": "example-ai-query-corpus",
+  "research_id": "example-ai-search-research",
+  "research_sha256": "3d00529ee971dc82fa21af0b3e028f930effa9166d0fe988db71556ac01ff703",
+  "created_at": "2026-08-09T11:20:00Z",
+  "frozen_at": "2026-08-09T11:15:00Z",
+  "scope": "One evidence-linked AI prompt frozen for a reproducible observational baseline.",
+  "queries": [
+    {
+      "query_id": "example-turkey-availability-query",
+      "need_id": "example-availability-need",
+      "query_type": "ai_prompt",
+      "text": "Is Example available in Turkey?",
+      "locale": "en-US",
+      "country": "TR",
+      "location": "Istanbul",
+      "device": "desktop",
+      "engine": "google",
+      "surface": "ai-overview",
+      "parent_query_id": null,
+      "conversation_id": "example-baseline-conversation",
+      "turn_index": 0,
+      "intent": "Verify product availability in a declared market.",
+      "audience": "buyer",
+      "journey_stage": "trust",
+      "target_entities": [
+        "example-platform"
+      ],
+      "fact_ids": [
+        "example-turkey-availability-fact"
+      ],
+      "applicability": [
+        {
+          "engine": "google",
+          "surface": "ai-overview"
+        }
+      ],
+      "source": {
+        "source_kind": "research_pack",
+        "source_url": "https://example.com/docs/availability",
+        "source_ref": "raw/research-source.json",
+        "source_sha256": "6846a8a0f8a200904e56d254d9bd0d68a2e90ec894c9a22d5503a5e14b6de8c8",
+        "observed_at": "2026-08-09T09:00:00Z",
+        "methodology": "Copied exactly from the validated Research Pack query.",
+        "limitations": [
+          "No independent demand estimate is attached."
+        ]
+      },
+      "demand": {
+        "status": "unavailable",
+        "monthly_volume": null,
+        "trend_index": null,
+        "difficulty": null,
+        "provider": null,
+        "observed_at": null,
+        "source_url": null,
+        "source_ref": null,
+        "source_sha256": null,
+        "limitations": [
+          "The research input is not a keyword-volume source."
+        ]
+      },
+      "coverage": {
+        "state": "covered",
+        "current_urls": [
+          "https://example.com/docs/availability"
+        ],
+        "target_url": "https://example.com/docs/availability",
+        "competing_urls": [],
+        "evidence_ref": "raw/targets/availability.html",
+        "evidence_sha256": "9d93be4f7a34d2db5ba2878475455c7d24c06988ec71ecf5b982a841171e1975"
+      },
+      "confidence": "high",
+      "limitations": [
+        "The corpus covers one declared engine, surface, locale, device, and location cell."
+      ]
+    }
+  ],
+  "limitations": [
+    "The frozen corpus is intentionally small and cannot represent broader market demand."
+  ]
+}

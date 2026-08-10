@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -14,10 +15,21 @@ from validate_ai_search_research import validate_schema_instance
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_ROOT = ROOT / "manifests" / "artifact-schemas"
 CLASSIFICATION_RANK = {"speculative": 0, "experimental": 1, "vendor-recommended": 2, "confirmed": 3}
+LEGACY_PRODUCERS = {"seo-audit", "seo-competitor-pages", "seo-content", "seo-hreflang", "seo-images", "seo-page", "seo-programmatic", "seo-research", "seo-schema", "seo-sitemap", "seo-technical"}
+LEGACY_TARGET_TYPES = {"site", "web_page", "template", "content_set", "media_set", "sitemap", "locale_cluster"}
+LEGACY_CATEGORIES = {"content", "technical", "structured-data", "international", "sitemap", "media", "programmatic", "comparison", "measurement", "accessibility", "policy"}
+LEGACY_OWNERS = {"seo-content", "seo-technical", "seo-schema", "seo-hreflang", "seo-sitemap", "seo-images", "seo-programmatic", "seo-competitor-pages", "optimise-seo"}
+TARGET_ENVELOPE_FIELDS = {
+    "schema_version", "target_id", "target_type", "locale", "source_url", "capture_ref", "capture_sha256",
+}
 
 
 def load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def fail(errors: list[str]) -> None:
@@ -60,6 +72,37 @@ def reject_duplicates(items: object, field: str, label: str, errors: list[str]) 
             seen.add(value)
 
 
+def validate_url_less_target_envelope(
+    record: dict[str, Any], target: dict[str, Any], raw: Path | None, bundle: Path, label: str, errors: list[str]
+) -> bool:
+    if raw is None or not raw.is_file():
+        return False
+    try:
+        envelope = load(raw)
+    except (OSError, json.JSONDecodeError):
+        errors.append(f"{label} URL-less target evidence must be a hash-pinned JSON target envelope")
+        return False
+    if not isinstance(envelope, dict) or set(envelope) != TARGET_ENVELOPE_FIELDS:
+        errors.append(f"{label} URL-less target envelope must contain exactly the target capture fields")
+        return False
+    expected = {
+        "schema_version": "1.0.0",
+        "target_id": target.get("target_id"),
+        "target_type": target.get("target_type"),
+        "locale": target.get("locale"),
+        "source_url": None,
+    }
+    if any(envelope.get(field) != value for field, value in expected.items()):
+        errors.append(f"{label} URL-less target envelope does not match its declared scope target")
+        return False
+    capture_ref, capture_sha = envelope.get("capture_ref"), envelope.get("capture_sha256")
+    capture = resolve_relative(bundle, capture_ref, f"{label}.target_envelope.capture_ref", errors)
+    if capture is None or not capture.is_file() or digest(capture) != capture_sha:
+        errors.append(f"{label} URL-less target envelope capture hash mismatch")
+        return False
+    return True
+
+
 def validate_findings(path: Path, bundle: Path) -> None:
     errors: list[str] = []
     artifact = resolve_artifact_in_bundle(path, bundle, errors)
@@ -73,6 +116,9 @@ def validate_findings(path: Path, bundle: Path) -> None:
     validate_schema_instance(payload, schema, registry, "$", errors)
     if not isinstance(payload, dict):
         fail(errors or ["seo-findings.json must contain an object"])
+    legacy = payload.get("schema_version") == "1.0.0"
+    if legacy and payload.get("producer_skill") not in LEGACY_PRODUCERS:
+        errors.append("schema_version 1.1.0 is required for a new specialist producer")
 
     created_at = parse_utc(payload.get("created_at"), "$.created_at", errors)
     scope = payload.get("scope", {})
@@ -82,6 +128,8 @@ def validate_findings(path: Path, bundle: Path) -> None:
         target.get("target_id"): target
         for target in targets if isinstance(target, dict) and isinstance(target.get("target_id"), str)
     }
+    if legacy and any(isinstance(target, dict) and target.get("target_type") not in LEGACY_TARGET_TYPES for target in targets):
+        errors.append("schema_version 1.1.0 is required for expanded target types")
 
     evidence = payload.get("evidence", [])
     reject_duplicates(evidence, "claim_id", "evidence", errors)
@@ -95,6 +143,22 @@ def validate_findings(path: Path, bundle: Path) -> None:
         raw = resolve_relative(bundle, record.get("raw_evidence_ref"), f"evidence[{index}].raw_evidence_ref", errors)
         if raw is not None and not raw.is_file():
             errors.append(f"evidence[{index}] raw evidence does not exist")
+        raw_sha = record.get("raw_evidence_sha256")
+        if not legacy and raw_sha is None:
+            errors.append(f"evidence[{index}].raw_evidence_sha256 is required by SEO Findings 1.1.0")
+        elif raw_sha is not None and raw is not None and raw.is_file() and digest(raw) != raw_sha:
+            errors.append(f"evidence[{index}] raw evidence hash mismatch")
+        if not legacy and record.get("target_id") not in target_by_id:
+            errors.append(f"evidence[{index}].target_id must resolve to a scope target in SEO Findings 1.1.0")
+        target = target_by_id.get(record.get("target_id"))
+        if not legacy and record.get("source_kind") == "direct_observation" and isinstance(target, dict):
+            if record.get("locale") != target.get("locale"):
+                errors.append(f"evidence[{index}].locale must match its scope target locale")
+            if target.get("source_url") is not None:
+                if record.get("source_url") != target.get("source_url"):
+                    errors.append(f"evidence[{index}].source_url must match its scope target URL")
+            else:
+                validate_url_less_target_envelope(record, target, raw, bundle, f"evidence[{index}]", errors)
         accessed = parse_utc(record.get("accessed_at"), f"evidence[{index}].accessed_at", errors)
         if created_at is not None and accessed is not None and accessed > created_at:
             errors.append(f"evidence[{index}] chronology: accessed_at is after finding set created_at")
@@ -119,7 +183,17 @@ def validate_findings(path: Path, bundle: Path) -> None:
         if target is not None:
             has_target_observation = any(
                 record.get("source_kind") == "direct_observation"
-                and (target.get("source_url") is None or record.get("source_url") == target.get("source_url"))
+                and (
+                    record.get("target_id") == finding.get("target_id")
+                    and record.get("locale") == target.get("locale")
+                    and (
+                        record.get("source_url") == target.get("source_url")
+                        if target.get("source_url") is not None
+                        else True
+                    )
+                    if not legacy
+                    else target.get("source_url") is not None and record.get("source_url") == target.get("source_url")
+                )
                 for record in records
             )
             if not has_target_observation:
@@ -130,6 +204,8 @@ def validate_findings(path: Path, bundle: Path) -> None:
             errors.append(f"findings[{index}].classification exceeds its weakest evidence premise")
         if finding.get("category") == "policy" and finding.get("severity") != "critical":
             errors.append(f"findings[{index}] policy findings must be severity=critical")
+        if legacy and (finding.get("category") not in LEGACY_CATEGORIES or finding.get("candidate_owner") not in LEGACY_OWNERS):
+            errors.append(f"findings[{index}] expanded category or owner requires schema_version 1.1.0")
 
     if not findings and not payload.get("declined_claims"):
         errors.append("an empty finding set must include at least one declined claim")

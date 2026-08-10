@@ -3,7 +3,7 @@
 
 This validator intentionally checks the package shape that Claude Code's
 ``claude plugin validate`` command will inspect later, while also ensuring the
-same 19 skill trees remain valid Codex runtime sources. It does not execute a
+same 27 skill trees remain valid Codex runtime sources. It does not execute a
 model, invoke a network service, or require Claude credentials.
 """
 
@@ -25,8 +25,8 @@ PLUGIN_NAME = "seo-aeo-geo-ultimate"
 MARKETPLACE_NAME = "oegeyilmaz9-skills"
 REPOSITORY_URL = "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate"
 REPOSITORY_SLUG = "oegeyilmaz9/seo-aeo-geo-ultimate"
-EXPECTED_SKILL_COUNT = 19
-REQUIRED_KEYWORDS = {"seo", "aeo", "geo", "ai-search", "agent-skills", "codex", "claude-code"}
+EXPECTED_SKILL_COUNT = 27
+REQUIRED_KEYWORDS = {"seo", "aeo", "geo", "ai-search", "agent-skills", "codex", "claude-code", "llms-txt"}
 FRONTMATTER_RE = re.compile(r"^---\r?\n(.*?)\r?\n---\r?\n", re.S)
 DIRECT_CODEX_SKILL_RE = re.compile(r"\$[a-z][a-z0-9-]*\b")
 

@@ -31,6 +31,11 @@ SCHEMA_NAMES = (
 LOCK_VERSION = "1.0.0"
 TOOL_VERSION = "1.0.0"
 ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]{2,63}$")
+LEGACY_CHANGE_TYPES = {
+    "content", "technical", "structured-data", "international", "sitemap", "media",
+    "programmatic", "comparison", "measurement", "analytics", "accessibility", "policy",
+}
+LEGACY_VERIFICATION_METRICS = {"recrawl", "manual-review", "search-console", "analytics", "visibility-run"}
 
 
 def load(path: Path) -> Any:
@@ -305,8 +310,14 @@ def validate_plan(path: Path, bundle: Path) -> None:
         findings_descriptors = []
     if not brief_descriptors and not findings_descriptors:
         errors.append("an action plan requires at least one input brief or finding set")
-    if findings_descriptors and plan.get("schema_version") != "1.1.0":
-        errors.append("schema_version must equal '1.1.0' when input_findings are present")
+    if any(isinstance(item, dict) and item.get("schema_version") == "1.1.0" for item in brief_descriptors) and plan.get("schema_version") != "1.2.0":
+        errors.append("schema_version must equal '1.2.0' when version 1.1.0 input_briefs are present")
+    if findings_descriptors:
+        required_version = "1.2.0" if any(isinstance(item, dict) and item.get("schema_version") == "1.1.0" for item in findings_descriptors) else None
+        if required_version is not None and plan.get("schema_version") != required_version:
+            errors.append("schema_version must equal '1.2.0' when version 1.1.0 input_findings are present")
+        elif required_version is None and plan.get("schema_version") not in {"1.1.0", "1.2.0"}:
+            errors.append("schema_version must equal '1.1.0' or '1.2.0' when input_findings are present")
     reject_duplicate_ids(brief_descriptors, "brief_id", "input_briefs", errors)
     reject_duplicate_ids(findings_descriptors, "finding_set_id", "input_findings", errors)
 
@@ -362,7 +373,11 @@ def validate_plan(path: Path, bundle: Path) -> None:
         add_targets(targets, f"finding set {item_id}")
 
     scope = plan.get("scope")
+    plan_target_ids: set[str] = set()
+    plan_locales: set[str] = set()
     if isinstance(scope, dict):
+        plan_target_ids = {value for value in scope.get("target_ids", []) if isinstance(value, str)}
+        plan_locales = {value for value in scope.get("locales", []) if isinstance(value, str)}
         for index, target_id in enumerate(scope.get("target_ids", [])):
             if target_id not in all_target_ids:
                 errors.append(f"scope.target_ids[{index}] does not resolve in an input artifact")
@@ -385,6 +400,14 @@ def validate_plan(path: Path, bundle: Path) -> None:
     for index, action in enumerate(actions):
         if not isinstance(action, dict):
             continue
+        is_v12 = plan.get("schema_version") == "1.2.0"
+        if plan.get("schema_version") != "1.2.0" and action.get("change_type") not in LEGACY_CHANGE_TYPES:
+            errors.append(f"actions[{index}] expanded change_type requires schema_version 1.2.0")
+        if not is_v12 and "risk_flags" in action:
+            errors.append(f"actions[{index}].risk_flags requires schema_version 1.2.0")
+        verification = action.get("verification", {})
+        if plan.get("schema_version") != "1.2.0" and isinstance(verification, dict) and verification.get("metric_type") not in LEGACY_VERIFICATION_METRICS:
+            errors.append(f"actions[{index}] expanded verification metric requires schema_version 1.2.0")
         action_id = action.get("action_id")
         linked_findings: list[dict[str, Any]] = []
         linked_evidence_keys: set[tuple[str, str, str, str]] = set()
@@ -399,10 +422,18 @@ def validate_plan(path: Path, bundle: Path) -> None:
                 errors.append(f"actions[{index}].finding_refs[{ref_index}] must name exactly one input artifact")
                 continue
             finding: dict[str, Any] | None = None
+            finding_target: dict[str, Any] | None = None
             if isinstance(brief_id, str):
                 input_item = brief_inputs.get(brief_id)
                 finding = finding_map(input_item["brief"]).get(finding_id) if input_item and isinstance(finding_id, str) else None
                 if finding is not None:
+                    finding_target = next(
+                        (
+                            target for target in input_item["brief"].get("targets", [])
+                            if isinstance(target, dict) and target.get("target_id") == finding.get("target_id")
+                        ),
+                        None,
+                    )
                     for source_ref in finding.get("evidence_refs", []):
                         key = evidence_key(brief_id, source_ref)
                         if key is not None:
@@ -411,6 +442,16 @@ def validate_plan(path: Path, bundle: Path) -> None:
                 input_item = findings_inputs.get(finding_set_id)
                 finding = seo_finding_map(input_item).get(finding_id) if input_item and isinstance(finding_id, str) else None
                 if finding is not None:
+                    finding_scope = input_item["findings"].get("scope", {})
+                    finding_target = next(
+                        (
+                            target for target in finding_scope.get("targets", [])
+                            if isinstance(finding_scope, dict)
+                            and isinstance(target, dict)
+                            and target.get("target_id") == finding.get("target_id")
+                        ),
+                        None,
+                    )
                     for evidence_id in finding.get("evidence_ids", []):
                         if isinstance(evidence_id, str):
                             linked_evidence_keys.add((finding_set_id, "seo-findings", "evidence", evidence_id))
@@ -418,6 +459,10 @@ def validate_plan(path: Path, bundle: Path) -> None:
                 errors.append(f"actions[{index}].finding_refs[{ref_index}] does not resolve")
                 continue
             linked_findings.append(finding)
+            if finding.get("target_id") not in plan_target_ids:
+                errors.append(f"actions[{index}].finding_refs[{ref_index}] target is outside plan scope.target_ids")
+            if isinstance(finding_target, dict) and finding_target.get("locale") not in plan_locales:
+                errors.append(f"actions[{index}].finding_refs[{ref_index}] locale is outside plan scope.locales")
             classification = finding.get("classification")
             if isinstance(classification, str):
                 classifications.append(classification)
@@ -480,8 +525,30 @@ def validate_plan(path: Path, bundle: Path) -> None:
         rollback = action.get("rollback")
         if isinstance(rollback, dict) and action.get("risk") == "high" and rollback.get("required") is not True:
             errors.append(f"actions[{index}] high-risk changes require rollback.required=true")
-        if action.get("change_type") == "policy" and action.get("risk") != "high":
-            errors.append(f"actions[{index}] policy changes must be high risk")
+        linked_policy = any(finding.get("category") == "policy" for finding in linked_findings)
+        linked_accessibility = any(finding.get("category") == "accessibility" for finding in linked_findings)
+        linked_crawler_control = any(
+            finding.get("dimension") == "documented_engine_control" for finding in linked_findings
+        )
+        sensitive_linked = linked_policy or linked_accessibility or linked_crawler_control
+        risk_flags = (
+            {value for value in action.get("risk_flags", []) if isinstance(value, str)}
+            if isinstance(action.get("risk_flags"), list)
+            else set()
+        )
+        if risk_flags and action.get("risk") != "high":
+            errors.append(f"actions[{index}] declared risk_flags require risk=high")
+        if is_v12:
+            if (action.get("change_type") == "policy" or linked_policy) and "policy" not in risk_flags:
+                errors.append(f"actions[{index}] policy work must declare the policy risk flag")
+            if (action.get("change_type") == "accessibility" or linked_accessibility) and "accessibility" not in risk_flags:
+                errors.append(f"actions[{index}] accessibility work must declare the accessibility risk flag")
+            if linked_crawler_control and "crawler-policy" not in risk_flags:
+                errors.append(f"actions[{index}] documented crawler-control work must declare the crawler-policy risk flag")
+        if (action.get("change_type") in {"policy", "accessibility"} or sensitive_linked) and action.get("risk") != "high":
+            errors.append(
+                f"actions[{index}] policy, accessibility, crawler-control, and linked sensitive findings must be high risk"
+            )
 
         action_dependencies = action.get("dependencies", [])
         if isinstance(action_id, str):

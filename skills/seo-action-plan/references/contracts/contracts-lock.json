@@ -7,40 +7,40 @@
       "generated_path": "references/contracts/evidence-record.schema.json",
       "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/evidence-record/1.0.0",
       "schema_version": "1.0.0",
-      "canonical_sha256": "420d8a7b4cb24b8613f4ffa6e4b4d308bd7763fa7369a56f496a2d5b7f9d118a",
-      "generated_sha256": "420d8a7b4cb24b8613f4ffa6e4b4d308bd7763fa7369a56f496a2d5b7f9d118a"
+      "canonical_sha256": "aaeaca48537665cbbf5029d8bd35847b8d75a97f48c05fbf1ef041e72e077d54",
+      "generated_sha256": "aaeaca48537665cbbf5029d8bd35847b8d75a97f48c05fbf1ef041e72e077d54"
     },
     {
       "canonical_path": "manifests/artifact-schemas/research-pack.schema.json",
       "generated_path": "references/contracts/research-pack.schema.json",
-      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/research-pack/1.0.0",
-      "schema_version": "1.0.0",
-      "canonical_sha256": "629577be6e4a8881679abd32cbc611aeb68d1c3c1007529d0dad94f40e007674",
-      "generated_sha256": "629577be6e4a8881679abd32cbc611aeb68d1c3c1007529d0dad94f40e007674"
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/research-pack/1.1.0",
+      "schema_version": "1.1.0",
+      "canonical_sha256": "ad63b51d5068871821723b6f9187189507c8936e33d3b86fa1fa28d4d2ff1e84",
+      "generated_sha256": "ad63b51d5068871821723b6f9187189507c8936e33d3b86fa1fa28d4d2ff1e84"
     },
     {
       "canonical_path": "manifests/artifact-schemas/optimization-brief.schema.json",
       "generated_path": "references/contracts/optimization-brief.schema.json",
-      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/optimization-brief/1.0.0",
-      "schema_version": "1.0.0",
-      "canonical_sha256": "6ec106ad52a62f129521a771ec355792b55e55add53aa6c3a3afbeaed43e2397",
-      "generated_sha256": "6ec106ad52a62f129521a771ec355792b55e55add53aa6c3a3afbeaed43e2397"
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/optimization-brief/1.1.0",
+      "schema_version": "1.1.0",
+      "canonical_sha256": "e8ed31a527efc26a2d4911bd5004b25b2ddff2f4a765b95fbcc003f41a3b7a2d",
+      "generated_sha256": "e8ed31a527efc26a2d4911bd5004b25b2ddff2f4a765b95fbcc003f41a3b7a2d"
     },
     {
       "canonical_path": "manifests/artifact-schemas/seo-findings.schema.json",
       "generated_path": "references/contracts/seo-findings.schema.json",
-      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/seo-findings/1.0.0",
-      "schema_version": "1.0.0",
-      "canonical_sha256": "dffd42dd0e599cbb7616543e79d0475fa23e2728f578c55889d7db1eb21cd5ab",
-      "generated_sha256": "dffd42dd0e599cbb7616543e79d0475fa23e2728f578c55889d7db1eb21cd5ab"
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/seo-findings/1.1.0",
+      "schema_version": "1.1.0",
+      "canonical_sha256": "170e528f320cf935161986a54e05144fceb234d9af562ecb4514e09431c1bff2",
+      "generated_sha256": "170e528f320cf935161986a54e05144fceb234d9af562ecb4514e09431c1bff2"
     },
     {
       "canonical_path": "manifests/artifact-schemas/action-plan.schema.json",
       "generated_path": "references/contracts/action-plan.schema.json",
-      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/action-plan/1.1.0",
-      "schema_version": "1.1.0",
-      "canonical_sha256": "0933fb68d5f8ef9a1fd570112d33e4cdacd20718a344593a5185420818c497ef",
-      "generated_sha256": "0933fb68d5f8ef9a1fd570112d33e4cdacd20718a344593a5185420818c497ef"
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/action-plan/1.2.0",
+      "schema_version": "1.2.0",
+      "canonical_sha256": "36e6254f70ef170a2e17fbd4f9453dfe6388fd44a6369cfb4bfef312ae209267",
+      "generated_sha256": "36e6254f70ef170a2e17fbd4f9453dfe6388fd44a6369cfb4bfef312ae209267"
     }
   ]
 }

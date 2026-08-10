@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "research_id": "example-ai-search-research",
   "created_at": "2026-07-10T00:00:00Z",
   "scope": "Bilingual AI-search research fixture for Example",
@@ -90,6 +90,7 @@
       "source_published_or_updated_at": "2026-07-10T00:00:00Z",
       "accessed_at": "2026-07-10T00:00:00Z",
       "raw_evidence_ref": "raw/evidence.json",
+      "raw_evidence_sha256": "dc679944c909e2d3f99ac7c8cf9143fd69b6c06ef304bf083637bef42c8696bd",
       "observation_method": "Reviewed current first-party platform documentation",
       "limitations": []
     }
@@ -98,6 +99,7 @@
     {
       "observation_id": "example-google-ai-mode",
       "raw_observation_ref": "raw/observation.json",
+      "raw_observation_sha256": "07ea330d7efa32ff445eed1e94bfad52c359829946886a7aeb994774825005e2",
       "engine": "google",
       "surface": "ai-mode",
       "locale": "en-US",
@@ -115,6 +117,7 @@
       "fact_id": "example-turkey-availability",
       "accepted_value": "Example is available in Turkey",
       "provenance_ref": "raw/ground-truth.json",
+      "provenance_sha256": "316122c665afa494df664842688792e15a3aff5cccb75856b7a563385ccf6029",
       "valid_from": "2026-07-10T00:00:00Z",
       "valid_until": null
     }

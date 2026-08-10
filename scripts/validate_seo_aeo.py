@@ -15,7 +15,13 @@ from validate_ai_search_research import validate_schema_instance
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_ROOT = ROOT / "manifests" / "artifact-schemas"
-ALLOWED_OWNERS = {"seo-technical", "seo-content", "seo-schema", "seo-hreflang", "optimise-seo"}
+ALLOWED_OWNERS = {
+    "seo-technical", "seo-content", "seo-schema", "seo-hreflang", "seo-commerce", "seo-local",
+    "seo-video", "seo-news-discover", "seo-agentic", "seo-architecture", "seo-authority",
+    "seo-performance", "optimise-seo",
+}
+LEGACY_OWNERS = {"seo-technical", "seo-content", "seo-schema", "seo-hreflang", "optimise-seo"}
+LEGACY_TARGET_TYPES = {"web_page", "document", "content_set"}
 CLASSIFICATION_RANK = {"speculative": 0, "experimental": 1, "vendor-recommended": 2, "confirmed": 3}
 
 
@@ -216,6 +222,8 @@ def validate_brief(
         if isinstance(target_id, str):
             target_ids.add(target_id)
             targets_by_id[target_id] = target
+        if brief.get("schema_version") == "1.0.0" and target.get("target_type") not in LEGACY_TARGET_TYPES:
+            errors.append(f"targets[{index}] expanded target type requires schema_version 1.1.0")
         capture = resolve_relative(bundle, target.get("capture_ref"), f"targets[{index}].capture_ref", errors)
         metadata_path = resolve_relative(bundle, target.get("metadata_ref"), f"targets[{index}].metadata_ref", errors)
         if metadata_path is None or not metadata_path.is_file():
@@ -383,6 +391,8 @@ def validate_brief(
             errors.append(f"recommendations[{index}] experimental-only evidence belongs in experiments")
         if recommendation.get("owner_skill") not in ALLOWED_OWNERS:
             errors.append(f"recommendations[{index}] owner_skill is not an approved implementation owner")
+        if brief.get("schema_version") == "1.0.0" and recommendation.get("owner_skill") not in LEGACY_OWNERS:
+            errors.append(f"recommendations[{index}] expanded owner requires schema_version 1.1.0")
         for finding_id in recommendation.get("finding_ids", []):
             if finding_id not in finding_ids:
                 errors.append(f"recommendations[{index}].finding_ids contains an unresolved finding")

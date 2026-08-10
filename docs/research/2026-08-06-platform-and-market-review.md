@@ -29,6 +29,10 @@ Suite effect:
   first-party measurement source where a verified property has access.
 - Do not output an AI-ready score, a Google citation promise, a mandatory
   llms.txt, or a word-count/chunking prescription.
+- Google also states that publishing `llms.txt` for another service neither
+  helps nor harms Google Search visibility because Google ignores it. The suite
+  therefore supports a validated, maintained file as a low-cost future-readiness
+  option when canonical public sources and a refresh owner exist.
 
 ### 2. Engine controls are purpose-specific and approval-sensitive
 

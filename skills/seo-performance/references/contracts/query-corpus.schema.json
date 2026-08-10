@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/query-corpus/1.0.0",
+  "title": "Query Corpus",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "corpus_id", "research_id", "research_sha256", "created_at", "frozen_at", "scope", "queries", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "corpus_id": {"$ref": "#/$defs/id"},
+    "research_id": {"type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "research_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "frozen_at": {"type": "string", "format": "date-time"},
+    "scope": {"type": "string", "minLength": 1},
+    "queries": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/query"}},
+    "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "relativePath": {"type": ["string", "null"], "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+    "locale": {"type": "string", "pattern": "^[a-z]{2}-[A-Z]{2}$"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_kind", "source_url", "source_ref", "source_sha256", "observed_at", "methodology", "limitations"],
+      "properties": {
+        "source_kind": {"enum": ["first_party", "vendor_tool", "third_party_estimate", "direct_observation", "research_pack", "editorial_hypothesis"]},
+        "source_url": {"type": ["string", "null"], "pattern": "^https://"},
+        "source_ref": {"$ref": "#/$defs/relativePath"},
+        "source_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "methodology": {"type": "string", "minLength": 1},
+        "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "demand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "monthly_volume", "trend_index", "difficulty", "provider", "observed_at", "source_url", "source_ref", "source_sha256", "limitations"],
+      "properties": {
+        "status": {"enum": ["unavailable", "observed", "estimated"]},
+        "monthly_volume": {"type": ["number", "null"]},
+        "trend_index": {"type": ["number", "null"]},
+        "difficulty": {"type": ["number", "null"]},
+        "provider": {"type": ["string", "null"]},
+        "observed_at": {"type": ["string", "null"], "format": "date-time"},
+        "source_url": {"type": ["string", "null"], "pattern": "^https://"},
+        "source_ref": {"$ref": "#/$defs/relativePath"},
+        "source_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "current_urls", "target_url", "competing_urls", "evidence_ref", "evidence_sha256"],
+      "properties": {
+        "state": {"enum": ["covered", "gap", "cannibalized", "unknown"]},
+        "current_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^https://"}},
+        "target_url": {"type": ["string", "null"], "pattern": "^https://"},
+        "competing_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^https://"}},
+        "evidence_ref": {"$ref": "#/$defs/relativePath"},
+        "evidence_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["engine", "surface"],
+      "properties": {
+        "engine": {"type": "string", "minLength": 1},
+        "surface": {"type": "string", "minLength": 1}
+      }
+    },
+    "query": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["query_id", "need_id", "query_type", "text", "locale", "country", "location", "device", "engine", "surface", "parent_query_id", "conversation_id", "turn_index", "intent", "audience", "journey_stage", "target_entities", "fact_ids", "applicability", "source", "demand", "coverage", "confidence", "limitations"],
+      "properties": {
+        "query_id": {"$ref": "#/$defs/id"},
+        "need_id": {"$ref": "#/$defs/id"},
+        "query_type": {"enum": ["user_need", "observed_search_query", "ai_prompt", "executed_subquery"]},
+        "text": {"type": "string", "minLength": 1},
+        "locale": {"$ref": "#/$defs/locale"},
+        "country": {"type": ["string", "null"], "pattern": "^[A-Z]{2}$"},
+        "location": {"type": ["string", "null"]},
+        "device": {"enum": ["desktop", "mobile", "tablet", "unspecified"]},
+        "engine": {"type": ["string", "null"]},
+        "surface": {"type": ["string", "null"]},
+        "parent_query_id": {"type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+        "conversation_id": {"type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+        "turn_index": {"type": ["integer", "null"]},
+        "intent": {"type": "string", "minLength": 1},
+        "audience": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"},
+        "journey_stage": {"enum": ["awareness", "consideration", "decision", "trust", "support"]},
+        "target_entities": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "fact_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "applicability": {"type": "array", "items": {"$ref": "#/$defs/applicability"}},
+        "source": {"$ref": "#/$defs/source"},
+        "demand": {"$ref": "#/$defs/demand"},
+        "coverage": {"$ref": "#/$defs/coverage"},
+        "confidence": {"enum": ["high", "medium", "low", "unknown"]},
+        "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}

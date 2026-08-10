@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video SEO"
+  short_description: "Audit video pages, players, markup, and sitemaps"
+  default_prompt: "Use $seo-video to audit the supplied watch pages, video metadata, and indexing evidence."

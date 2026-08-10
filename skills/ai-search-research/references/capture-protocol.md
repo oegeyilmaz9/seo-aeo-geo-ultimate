@@ -8,7 +8,7 @@ Non-engine channels such as analytics, logs, or cross-engine entity resolution a
 
 For each query run, preserve a raw answer or result capture inside the bundle. Record observed UTC time, engine, surface, locale, access/authentication state, collection method, visible citations, and limitations. Use a new conversation/search for each prompt when the surface supports it. Do not bypass authentication, access controls, robots, rate limits, or terms.
 
-For evidence claims, store one raw reference per claim in `raw_evidence_ref`, always under `raw/`. Preserve only the minimum excerpt needed to support the claim, respect copyright limits, and redact secrets, account IDs, personal data, and sensitive prompt content before saving the raw file.
+For evidence claims, store one raw reference per claim in `raw_evidence_ref`, always under `raw/`, and bind it with `raw_evidence_sha256`. Bind competitor captures with `raw_observation_sha256` and ground-truth sources with `provenance_sha256`. Preserve only the minimum excerpt needed to support the claim, respect copyright limits, and redact secrets, account IDs, personal data, and sensitive prompt content before saving the raw file.
 
 Treat `gap_type` values as stable identifiers, not prose labels. Choose the first matching state:
 

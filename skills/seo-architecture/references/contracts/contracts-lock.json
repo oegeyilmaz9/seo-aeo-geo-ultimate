@@ -1,0 +1,38 @@
+{
+  "lock_version": "1.0.0",
+  "generation_tool_version": "1.0.0",
+  "contracts": [
+    {
+      "canonical_path": "manifests/artifact-schemas/evidence-record.schema.json",
+      "generated_path": "references/contracts/evidence-record.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/evidence-record/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "aaeaca48537665cbbf5029d8bd35847b8d75a97f48c05fbf1ef041e72e077d54",
+      "generated_sha256": "aaeaca48537665cbbf5029d8bd35847b8d75a97f48c05fbf1ef041e72e077d54"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/query-corpus.schema.json",
+      "generated_path": "references/contracts/query-corpus.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/query-corpus/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "6df22f3f8ad497f20be1ddbd76a8e0bfecebd51330529ded432873471fe33ab9",
+      "generated_sha256": "6df22f3f8ad497f20be1ddbd76a8e0bfecebd51330529ded432873471fe33ab9"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/site-graph.schema.json",
+      "generated_path": "references/contracts/site-graph.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/site-graph/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "91adbd450df37657f22b6fd39d2b053d27cfbd401e0511c38c0a3bb57e339fa8",
+      "generated_sha256": "91adbd450df37657f22b6fd39d2b053d27cfbd401e0511c38c0a3bb57e339fa8"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/seo-findings.schema.json",
+      "generated_path": "references/contracts/seo-findings.schema.json",
+      "schema_id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/seo-findings/1.1.0",
+      "schema_version": "1.1.0",
+      "canonical_sha256": "170e528f320cf935161986a54e05144fceb234d9af562ecb4514e09431c1bff2",
+      "generated_sha256": "170e528f320cf935161986a54e05144fceb234d9af562ecb4514e09431c1bff2"
+    }
+  ]
+}

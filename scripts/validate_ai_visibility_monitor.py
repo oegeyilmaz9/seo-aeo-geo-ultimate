@@ -8,6 +8,7 @@ import os
 import re
 import subprocess
 import sys
+from statistics import NormalDist
 from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
@@ -73,6 +74,22 @@ def duplicate_ids(items: object, field: str, label: str, errors: list[str]) -> N
             seen.add(value)
 
 
+def wilson_interval(numerator: int, denominator: int, level: float) -> tuple[float, float] | None:
+    if denominator <= 0:
+        return None
+    probability = numerator / denominator
+    z = NormalDist().inv_cdf(0.5 + level / 2)
+    z_squared = z * z
+    denominator_adjusted = 1 + z_squared / denominator
+    center = (probability + z_squared / (2 * denominator)) / denominator_adjusted
+    margin = (
+        z
+        * math.sqrt((probability * (1 - probability) + z_squared / (4 * denominator)) / denominator)
+        / denominator_adjusted
+    )
+    return max(0.0, center - margin), min(1.0, center + margin)
+
+
 def all_strings(value: object):
     if isinstance(value, str):
         yield value
@@ -126,6 +143,7 @@ def validate_run(path: Path, bundle: Path) -> None:
         fail(errors or ["visibility run must be an object"])
     if errors:
         fail(errors)
+    is_v2 = data.get("schema_version") == "2.0.0"
 
     research_path = resolve(bundle, data.get("research_ref"), "research_ref", errors)
     if research_path is None or not research_path.is_file():
@@ -153,18 +171,40 @@ def validate_run(path: Path, bundle: Path) -> None:
         errors.append("query corpus hash mismatch")
     else:
         corpus = load(corpus_path)
-        if set(corpus) != {"schema_version", "corpus_id", "research_id", "frozen_at", "queries"} or corpus.get("schema_version") != "1.0.0" or corpus.get("research_id") != data.get("research_id"):
+        if is_v2:
+            semantic = subprocess.run(
+                [sys.executable, str(ROOT / "scripts" / "validate_query_corpus.py"), "validate-corpus", str(corpus_path), "--bundle", str(bundle)],
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            if semantic.returncode != 0:
+                errors.append(f"query-corpus semantic validation failed: {(semantic.stderr or semantic.stdout).strip()}")
+            if corpus.get("research_id") != data.get("research_id") or corpus.get("research_sha256") != data.get("research_sha256"):
+                errors.append("query corpus Research Pack identity/hash mismatch")
+        elif set(corpus) != {"schema_version", "corpus_id", "research_id", "frozen_at", "queries"} or corpus.get("schema_version") != "1.0.0" or corpus.get("research_id") != data.get("research_id"):
             errors.append("query corpus metadata is invalid")
 
     research_queries = {item.get("query_id"): item for item in research.get("queries", []) if isinstance(item, dict)}
     corpus_queries: dict[str, dict[str, Any]] = {}
+    all_corpus_queries: dict[str, dict[str, Any]] = {}
     for index, query in enumerate(corpus.get("queries", []) if isinstance(corpus, dict) else []):
-        if not isinstance(query, dict) or set(query) != {"query_id", "text", "engine", "surface", "locale", "fact_ids"}:
+        if not isinstance(query, dict):
+            errors.append(f"corpus.queries[{index}] has invalid fields")
+            continue
+        if is_v2:
+            if query.get("query_type") not in {"ai_prompt", "observed_search_query", "executed_subquery"} or not all(isinstance(query.get(key), str) and query.get(key) for key in ("query_id", "text", "engine", "surface", "locale")):
+                errors.append(f"corpus.queries[{index}] must be an engine-bound AI prompt, observed query, or executed subquery")
+                continue
+        elif set(query) != {"query_id", "text", "engine", "surface", "locale", "fact_ids"}:
             errors.append(f"corpus.queries[{index}] has invalid fields")
             continue
         query_id = query.get("query_id")
-        if query_id in corpus_queries:
+        if query_id in all_corpus_queries:
             errors.append(f"corpus.queries[{index}].query_id is duplicated")
+        all_corpus_queries[query_id] = query
+        if is_v2 and query.get("query_type") == "executed_subquery":
+            continue
         corpus_queries[query_id] = query
         source = research_queries.get(query_id)
         applicability = {(row.get("engine"), row.get("surface")) for row in source.get("applicability", [])} if isinstance(source, dict) else set()
@@ -174,8 +214,26 @@ def validate_run(path: Path, bundle: Path) -> None:
         research_fact_ids = {row.get("fact_id") for row in research.get("ground_truth", []) if isinstance(row, dict)}
         if not isinstance(fact_ids, list) or not fact_ids or len(fact_ids) != len(set(fact_ids)) or any(value not in research_fact_ids for value in fact_ids):
             errors.append(f"corpus.queries[{index}].fact_ids must be a non-empty unique Research Pack fact set")
+    trace_queries: dict[str, set[str]] = {query_id: set() for query_id in corpus_queries}
+    if is_v2:
+        for query_id, query in all_corpus_queries.items():
+            if query.get("query_type") != "executed_subquery":
+                continue
+            parent_id = query.get("parent_query_id")
+            seen = {query_id}
+            while isinstance(parent_id, str) and parent_id in all_corpus_queries and all_corpus_queries[parent_id].get("query_type") == "executed_subquery" and parent_id not in seen:
+                seen.add(parent_id)
+                parent_id = all_corpus_queries[parent_id].get("parent_query_id")
+            root_query = corpus_queries.get(parent_id)
+            if root_query is None:
+                errors.append(f"corpus executed subquery {query_id!r} does not resolve to a measurement root")
+                continue
+            if any(query.get(field) != root_query.get(field) for field in ("engine", "surface", "locale")):
+                errors.append(f"corpus executed subquery {query_id!r} does not match its root engine/surface/locale")
+                continue
+            trace_queries[parent_id].add(query["text"])
     corpus_frozen_at = parse_time(corpus.get("frozen_at")) if isinstance(corpus, dict) else None
-    if not isinstance(corpus, dict) or set(corpus) != {"schema_version", "corpus_id", "research_id", "frozen_at", "queries"} or corpus_frozen_at is None:
+    if not isinstance(corpus, dict) or corpus_frozen_at is None or (not is_v2 and set(corpus) != {"schema_version", "corpus_id", "research_id", "frozen_at", "queries"}):
         errors.append("query corpus frozen metadata is invalid")
     if not corpus_queries:
         errors.append("query corpus must contain at least one frozen cell")
@@ -184,10 +242,33 @@ def validate_run(path: Path, bundle: Path) -> None:
         duplicate_ids(data.get(collection), field, collection, errors)
 
     created_at = parse_time(data.get("created_at"))
+    repeats = 1
+    confidence_method = "none"
+    confidence_level: float | None = None
+    if is_v2:
+        profile = data.get("collection_profile", {})
+        if isinstance(profile, dict):
+            planned, completed = profile.get("planned_repeats"), profile.get("completed_repeats")
+            if not isinstance(planned, int) or isinstance(planned, bool) or planned <= 0:
+                errors.append("collection_profile.planned_repeats must be a positive integer")
+            if not isinstance(completed, int) or isinstance(completed, bool) or completed <= 0:
+                errors.append("collection_profile.completed_repeats must be a positive integer")
+            elif isinstance(planned, int) and completed > planned:
+                errors.append("collection_profile.completed_repeats cannot exceed planned_repeats")
+            else:
+                repeats = completed
+            confidence_method = profile.get("confidence_method")
+            confidence_level = profile.get("confidence_level")
+            if confidence_method == "none" and confidence_level is not None:
+                errors.append("confidence_level must be null when confidence_method is none")
+            if confidence_method != "none" and (not isinstance(confidence_level, (int, float)) or isinstance(confidence_level, bool) or not 0 < confidence_level < 1):
+                errors.append("estimated confidence requires a confidence_level between zero and one")
     entities = {item.get("entity_id"): item for item in research.get("entities", []) if isinstance(item, dict)}
     observations: dict[str, dict[str, Any]] = {}
     raw_answers: dict[str, str] = {}
     observation_counts = {query_id: 0 for query_id in corpus_queries}
+    repeat_keys: set[tuple[str, int]] = set()
+    fresh_conversations: dict[str, set[str]] = {query_id: set() for query_id in corpus_queries}
     for index, observation in enumerate(data.get("observations", [])):
         if not isinstance(observation, dict):
             continue
@@ -199,11 +280,47 @@ def validate_run(path: Path, bundle: Path) -> None:
             errors.append(f"observations[{index}] does not match frozen corpus cell")
         elif observation.get("query_id") in observation_counts:
             observation_counts[observation["query_id"]] += 1
+        if is_v2:
+            repeat_index = observation.get("repeat_index")
+            if not isinstance(repeat_index, int) or isinstance(repeat_index, bool) or not 0 <= repeat_index < repeats:
+                errors.append(f"observations[{index}].repeat_index is outside the completed repeat range")
+            elif isinstance(observation.get("query_id"), str):
+                repeat_key = (observation["query_id"], repeat_index)
+                if repeat_key in repeat_keys:
+                    errors.append(f"observations[{index}] duplicates a query/repeat cell")
+                repeat_keys.add(repeat_key)
+            conversation_id, turn_index = observation.get("conversation_id"), observation.get("turn_index")
+            if (conversation_id is None) != (turn_index is None):
+                errors.append(f"observations[{index}] conversation_id and turn_index must both be present or both be null")
+            if isinstance(turn_index, int) and not isinstance(turn_index, bool) and turn_index < 0:
+                errors.append(f"observations[{index}].turn_index cannot be negative")
+            if isinstance(query, dict):
+                if query.get("device") != "unspecified" and observation.get("device") != query.get("device"):
+                    errors.append(f"observations[{index}].device does not match the frozen corpus")
+                location = observation.get("user_location", {})
+                if query.get("country") is not None and (not isinstance(location, dict) or location.get("country") != query.get("country")):
+                    errors.append(f"observations[{index}].user_location country does not match the frozen corpus")
+                if query.get("location") is not None and (not isinstance(location, dict) or query.get("location") not in {location.get("region"), location.get("city")}):
+                    errors.append(f"observations[{index}].user_location does not match the frozen corpus")
+                if query.get("turn_index") is not None and observation.get("turn_index") != query.get("turn_index"):
+                    errors.append(f"observations[{index}].turn_index does not match the frozen corpus")
+                if repeats == 1 and query.get("conversation_id") is not None and observation.get("conversation_id") != query.get("conversation_id"):
+                    errors.append(f"observations[{index}].conversation_id does not match the frozen corpus")
+            if isinstance(profile, dict) and profile.get("fresh_session_per_repeat") is True and isinstance(observation.get("query_id"), str):
+                conversation = observation.get("conversation_id")
+                prior_conversations = fresh_conversations.setdefault(observation["query_id"], set())
+                if not isinstance(conversation, str) or not conversation:
+                    errors.append(f"observations[{index}] fresh-session collection requires conversation_id")
+                elif conversation in prior_conversations:
+                    errors.append(f"observations[{index}] fresh-session repeats must use distinct conversation IDs")
+                else:
+                    prior_conversations.add(conversation)
         observed_at = parse_time(observation.get("observed_at"))
         if observed_at is None or (created_at is not None and observed_at > created_at):
             errors.append(f"observations[{index}] chronology is invalid")
         if observation.get("access_status") != "observed":
-            if observation.get("raw_answer_ref") is not None or observation.get("raw_answer_sha256") is not None or observation.get("mentioned_entities") or observation.get("raw_cited_urls") or observation.get("canonical_cited_urls"):
+            trace_values = observation.get("executed_queries", []) or observation.get("consulted_sources", []) or observation.get("citation_claims", []) if is_v2 else []
+            if observation.get("raw_answer_ref") is not None or observation.get("raw_answer_sha256") is not None or observation.get("mentioned_entities") or observation.get("raw_cited_urls") or observation.get("canonical_cited_urls") or trace_values:
                 errors.append(f"observations[{index}] unobserved access must preserve null answer state")
             attempt_path = resolve(bundle, observation.get("access_attempt_ref"), f"observations[{index}].access_attempt_ref", errors)
             attempt: dict[str, Any] | None = None
@@ -212,10 +329,12 @@ def validate_run(path: Path, bundle: Path) -> None:
             else:
                 candidate = load(attempt_path)
                 keys = {"query_id", "engine", "surface", "locale", "observed_at", "access_status", "collection_method", "reason"}
+                if is_v2:
+                    keys |= {"repeat_index", "conversation_id", "turn_index", "user_location", "device", "authenticated", "personalization"}
                 attempt = candidate if isinstance(candidate, dict) and set(candidate) == keys else None
             if attempt is None or not isinstance(attempt.get("reason"), str) or not attempt.get("reason", "").strip() or any(
                 attempt.get(key) != observation.get(key)
-                for key in ("query_id", "engine", "surface", "locale", "observed_at", "access_status", "collection_method")
+                for key in (("query_id", "engine", "surface", "locale", "observed_at", "access_status", "collection_method", "repeat_index", "conversation_id", "turn_index", "user_location", "device", "authenticated", "personalization") if is_v2 else ("query_id", "engine", "surface", "locale", "observed_at", "access_status", "collection_method"))
             ):
                 errors.append(f"observations[{index}] access-attempt envelope does not match observation")
             continue
@@ -232,19 +351,75 @@ def validate_run(path: Path, bundle: Path) -> None:
                     "query_id", "engine", "surface", "locale", "observed_at", "access_status",
                     "disclosed_model", "collection_method", "answer", "citations",
                 }
+                if is_v2:
+                    expected_keys |= {
+                        "repeat_index", "conversation_id", "turn_index", "user_location", "device", "authenticated",
+                        "personalization", "retrieval_mode", "executed_queries", "consulted_sources", "citation_claims",
+                    }
                 raw = candidate if isinstance(candidate, dict) and set(candidate) == expected_keys else None
             except (OSError, json.JSONDecodeError):
                 raw = None
             if raw is None or not isinstance(raw.get("answer"), str) or not isinstance(raw.get("citations"), list) or raw.get("citations") != observation.get("raw_cited_urls"):
                 errors.append(f"observations[{index}] raw answer content does not match observation")
-            elif any(raw.get(key) != observation.get(key) for key in (
-                "query_id", "engine", "surface", "locale", "observed_at", "access_status",
-                "disclosed_model", "collection_method",
-            )):
+            elif any(raw.get(key) != observation.get(key) for key in ((
+                "query_id", "engine", "surface", "locale", "observed_at", "access_status", "disclosed_model",
+                "collection_method", "repeat_index", "conversation_id", "turn_index", "user_location", "device",
+                "authenticated", "personalization", "retrieval_mode", "executed_queries", "consulted_sources", "citation_claims",
+            ) if is_v2 else (
+                "query_id", "engine", "surface", "locale", "observed_at", "access_status", "disclosed_model", "collection_method",
+            ))):
                 errors.append(f"observations[{index}] raw answer envelope does not match observation")
         expected_canonical = list(dict.fromkeys(canonical_url(url) for url in observation.get("raw_cited_urls", [])))
         if observation.get("canonical_cited_urls") != expected_canonical:
             errors.append(f"observations[{index}] canonical cited URL does not derive from raw URL")
+        if is_v2:
+            executed_queries = observation.get("executed_queries", [])
+            consulted_sources = observation.get("consulted_sources", [])
+            citation_claims = observation.get("citation_claims", [])
+            if observation.get("retrieval_mode") == "no-web" and (executed_queries or consulted_sources or observation.get("raw_cited_urls") or citation_claims):
+                errors.append(f"observations[{index}] no-web retrieval cannot contain queries, sources, or citations")
+            declared_trace = trace_queries.get(observation.get("query_id"), set())
+            if declared_trace and any(value not in declared_trace for value in executed_queries):
+                errors.append(f"observations[{index}].executed_queries does not match declared Query Corpus subquery lineage")
+            source_urls: list[str] = []
+            cited_source_urls: set[str] = set()
+            for source_index, source in enumerate(consulted_sources if isinstance(consulted_sources, list) else []):
+                if not isinstance(source, dict):
+                    continue
+                url = source.get("url")
+                if isinstance(url, str):
+                    if url in source_urls:
+                        errors.append(f"observations[{index}].consulted_sources[{source_index}].url is duplicated")
+                    source_urls.append(url)
+                    if source.get("cited") is True:
+                        cited_source_urls.add(url)
+            if any(url not in cited_source_urls for url in observation.get("raw_cited_urls", [])):
+                errors.append(f"observations[{index}] every visible citation must be a cited consulted source")
+            claim_ids: set[str] = set()
+            for claim_index, claim in enumerate(citation_claims if isinstance(citation_claims, list) else []):
+                if not isinstance(claim, dict):
+                    continue
+                claim_id = claim.get("claim_id")
+                if isinstance(claim_id, str) and claim_id in claim_ids:
+                    errors.append(f"observations[{index}].citation_claims[{claim_index}].claim_id is duplicated")
+                elif isinstance(claim_id, str):
+                    claim_ids.add(claim_id)
+                if claim.get("citation_url") not in observation.get("raw_cited_urls", []):
+                    errors.append(f"observations[{index}].citation_claims[{claim_index}] citation_url is not a visible citation")
+                if raw is not None and claim.get("claim", "").casefold() not in raw.get("answer", "").casefold():
+                    errors.append(f"observations[{index}].citation_claims[{claim_index}] claim is not present in the raw answer")
+                review_path = resolve(bundle, claim.get("review_ref"), f"observations[{index}].citation_claims[{claim_index}].review_ref", errors)
+                if review_path is None or not review_path.is_file() or digest(review_path) != claim.get("review_sha256"):
+                    errors.append(f"observations[{index}].citation_claims[{claim_index}] requires a hash-pinned review")
+                else:
+                    candidate = load(review_path)
+                    expected_keys = {"schema_version", "claim_id", "citation_url", "claim", "cited_text", "verdict", "rationale", "reviewer", "reviewed_at"}
+                    if not isinstance(candidate, dict) or set(candidate) != expected_keys or candidate.get("schema_version") != "1.0.0" or any(candidate.get(key) != claim.get(key) for key in ("claim_id", "citation_url", "claim", "cited_text", "verdict")) or not isinstance(candidate.get("rationale"), str) or not candidate.get("rationale", "").strip() or not isinstance(candidate.get("reviewer"), str) or not candidate.get("reviewer", "").strip():
+                        errors.append(f"observations[{index}].citation_claims[{claim_index}] review envelope does not match")
+                    else:
+                        reviewed_at = parse_time(candidate.get("reviewed_at"))
+                        if reviewed_at is None or observed_at is None or created_at is None or not (observed_at <= reviewed_at <= created_at):
+                            errors.append(f"observations[{index}].citation_claims[{claim_index}] review chronology is invalid")
         if raw is not None:
             matched_entities: set[str] = set()
             for entity_id, entity in entities.items():
@@ -256,8 +431,8 @@ def validate_run(path: Path, bundle: Path) -> None:
             if isinstance(observation_id, str):
                 raw_answers[observation_id] = raw.get("answer", "")
 
-    if any(count != 1 for count in observation_counts.values()) or len(data.get("observations", [])) != len(corpus_queries):
-        errors.append("run must contain exactly one observation per frozen corpus cell")
+    if any(count != repeats for count in observation_counts.values()) or len(data.get("observations", [])) != len(corpus_queries) * repeats:
+        errors.append(f"run must contain exactly {repeats} observation(s) per frozen corpus cell")
     observation_times = [parse_time(row.get("observed_at")) for row in data.get("observations", []) if isinstance(row, dict)]
     if corpus_frozen_at is not None and any(value is not None and corpus_frozen_at > value for value in observation_times):
         errors.append("query corpus must be frozen no later than the first observation")
@@ -276,6 +451,38 @@ def validate_run(path: Path, bundle: Path) -> None:
                 errors.append(f"scores[{index}] zero denominator requires null result")
             if denominator > 0 and (not isinstance(result, (int, float)) or not math.isclose(result, numerator / denominator, rel_tol=1e-12, abs_tol=1e-12)):
                 errors.append(f"scores[{index}] result does not equal numerator/denominator")
+        if is_v2:
+            if score.get("sample_size") != denominator:
+                errors.append(f"scores[{index}].sample_size must equal denominator")
+            if score.get("repeat_count") != repeats:
+                errors.append(f"scores[{index}].repeat_count must match collection profile")
+            interval = score.get("confidence_interval", {})
+            if isinstance(interval, dict):
+                method, level = interval.get("method"), interval.get("level")
+                lower, upper = interval.get("lower"), interval.get("upper")
+                if confidence_method == "none":
+                    if method != "not-estimated" or any(value is not None for value in (level, lower, upper)):
+                        errors.append(f"scores[{index}] disabled confidence estimation requires a null not-estimated interval")
+                else:
+                    if method != confidence_method or level != confidence_level:
+                        errors.append(f"scores[{index}] confidence interval does not match collection profile")
+                    expected_interval = (
+                        wilson_interval(numerator, denominator, float(level))
+                        if method == "wilson"
+                        and isinstance(numerator, int)
+                        and isinstance(denominator, int)
+                        and isinstance(level, (int, float))
+                        and not isinstance(level, bool)
+                        else None
+                    )
+                    if expected_interval is None:
+                        if lower is not None or upper is not None:
+                            errors.append(f"scores[{index}] zero-denominator Wilson interval requires null bounds")
+                    elif not all(isinstance(value, (int, float)) and not isinstance(value, bool) for value in (lower, upper)) or not all(
+                        math.isclose(float(actual), expected, rel_tol=1e-9, abs_tol=1e-12)
+                        for actual, expected in zip((lower, upper), expected_interval)
+                    ):
+                        errors.append(f"scores[{index}] Wilson bounds do not derive from numerator, denominator, and confidence level")
         excluded = score.get("excluded_observation_ids", [])
         if any(value not in observations for value in excluded):
             errors.append(f"scores[{index}] excluded observation does not resolve")
@@ -459,7 +666,7 @@ def validate_run(path: Path, bundle: Path) -> None:
                 errors.append("prior run hash mismatch")
             else:
                 prior = load(prior_path)
-                if prior.get("run_id") != data.get("prior_run_id") or prior.get("schema_version") != "1.0.0":
+                if prior.get("run_id") != data.get("prior_run_id") or prior.get("schema_version") != data.get("schema_version"):
                     errors.append("prior run identity/version mismatch")
                 if prior.get("run_id") == data.get("run_id") or prior.get("research_id") != data.get("research_id"):
                     errors.append("prior run must have a different identity and the same Research Pack")
@@ -482,9 +689,26 @@ def validate_run(path: Path, bundle: Path) -> None:
                         errors.append(f"prior run semantic validation failed: {(semantic.stderr or semantic.stdout).strip()}")
                 corpus_changed = prior.get("corpus_sha256") != data.get("corpus_sha256")
                 research_changed = prior.get("research_sha256") != data.get("research_sha256")
-                current_access = {row.get("query_id"): row.get("access_status") for row in data.get("observations", []) if isinstance(row, dict)}
-                prior_access = {row.get("query_id"): row.get("access_status") for row in prior.get("observations", []) if isinstance(row, dict)}
-                access_changed = current_access != prior_access
+                profile_changed = is_v2 and prior.get("collection_profile") != data.get("collection_profile")
+                current_context = {
+                    (row.get("query_id"), row.get("repeat_index") if is_v2 else 0): (
+                        row.get("access_status"), row.get("user_location") if is_v2 else None,
+                        row.get("device") if is_v2 else None, row.get("authenticated") if is_v2 else None,
+                        row.get("personalization") if is_v2 else None, row.get("retrieval_mode") if is_v2 else None,
+                        row.get("disclosed_model"), row.get("collection_method"), row.get("turn_index") if is_v2 else None,
+                    )
+                    for row in data.get("observations", []) if isinstance(row, dict)
+                }
+                prior_context = {
+                    (row.get("query_id"), row.get("repeat_index") if is_v2 else 0): (
+                        row.get("access_status"), row.get("user_location") if is_v2 else None,
+                        row.get("device") if is_v2 else None, row.get("authenticated") if is_v2 else None,
+                        row.get("personalization") if is_v2 else None, row.get("retrieval_mode") if is_v2 else None,
+                        row.get("disclosed_model"), row.get("collection_method"), row.get("turn_index") if is_v2 else None,
+                    )
+                    for row in prior.get("observations", []) if isinstance(row, dict)
+                }
+                collection_context_changed = current_context != prior_context
                 prior_scores = {row.get("score_id"): row for row in prior.get("scores", []) if isinstance(row, dict)}
                 prior_referral_data: dict[str, Any] | None = None
                 if prior.get("referral_data_ref") is not None:
@@ -526,11 +750,11 @@ def validate_run(path: Path, bundle: Path) -> None:
                             current_duration = current_end - current_start if current_start is not None and current_end is not None else None
                             prior_duration = prior_end - prior_start if prior_start is not None and prior_end is not None else None
                             referral_changed = any(referral_data.get(key) != prior_referral_data.get(key) for key in ("schema_version", "source", "measurement_method")) or current_duration != prior_duration
-                    non_comparable = corpus_changed or research_changed or definitions_changed or access_changed or null_value or referral_changed
+                    non_comparable = corpus_changed or research_changed or profile_changed or definitions_changed or collection_context_changed or null_value or referral_changed
                     if (non_comparable or drift.get("comparable") is False) and not drift.get("comparability_warning"):
                         errors.append(f"drift[{index}] non-comparable drift requires warning")
                     if non_comparable and drift.get("comparable") is True:
-                        errors.append(f"drift[{index}] changed research, cohort, access profile, referral method, definition, or null value cannot be comparable")
+                        errors.append(f"drift[{index}] changed research, corpus, repeat profile, collection context, referral method, definition, or null value cannot be comparable")
                     prior_value, current_value, delta = drift.get("prior_value"), drift.get("current_value"), drift.get("delta")
                     if all(isinstance(value, (int, float)) for value in (prior_value, current_value, delta)) and not math.isclose(delta, current_value - prior_value, rel_tol=1e-12, abs_tol=1e-12):
                         errors.append(f"drift[{index}] delta arithmetic mismatch")

@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/optimization-brief/1.0.0",
+  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/optimization-brief/1.1.0",
   "title": "Optimization Brief",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "brief_id", "created_at", "research_id", "optimization_domain", "producer_skill", "targets", "audit_evidence", "findings", "recommendations", "experiments", "declined_claims", "limitations"],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
+    "schema_version": {"enum": ["1.0.0", "1.1.0"]},
     "brief_id": {"$ref": "#/$defs/id"},
     "created_at": {"type": "string", "format": "date-time"},
     "research_id": {"$ref": "#/$defs/id"},
@@ -33,7 +33,7 @@
       "required": ["target_id", "target_type", "locale", "source_url", "capture_ref", "capture_sha256", "captured_at", "metadata_ref", "metadata_sha256"],
       "properties": {
         "target_id": {"$ref": "#/$defs/id"},
-        "target_type": {"enum": ["web_page", "document", "content_set"]},
+        "target_type": {"enum": ["web_page", "document", "content_set", "feed", "business_profile", "video", "site_graph", "task_flow", "protocol_capability"]},
         "locale": {"type": "string", "pattern": "^[a-z]{2}-[A-Z]{2}$"},
         "source_url": {"type": ["string", "null"], "pattern": "^https://"},
         "capture_ref": {"$ref": "#/$defs/relativePath"},
@@ -79,7 +79,7 @@
         "finding_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/id"}},
         "evidence_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidenceRef"}},
         "desired_outcome": {"type": "string", "minLength": 1},
-        "owner_skill": {"enum": ["seo-technical", "seo-content", "seo-schema", "seo-hreflang", "optimise-seo"]},
+        "owner_skill": {"enum": ["seo-technical", "seo-content", "seo-schema", "seo-hreflang", "seo-commerce", "seo-local", "seo-video", "seo-news-discover", "seo-agentic", "seo-architecture", "seo-authority", "seo-performance", "optimise-seo"]},
         "confidence": {"enum": ["high", "medium", "low"]},
         "verification_method": {"type": "string", "minLength": 1}
       }

@@ -17,10 +17,12 @@ NOW = "2026-07-11T12:00:00Z"
 
 
 class AiSearchResearchValidatorTests(unittest.TestCase):
-    def run_pack(self, mutator=None) -> subprocess.CompletedProcess[str]:
+    def run_pack(self, mutator=None, bundle_mutator=None) -> subprocess.CompletedProcess[str]:
         with tempfile.TemporaryDirectory() as temporary:
             bundle = Path(temporary) / "bundle"
             shutil.copytree(FIXTURE, bundle)
+            if bundle_mutator:
+                bundle_mutator(bundle)
             artifact = bundle / "research-pack.json"
             if mutator:
                 payload = json.loads(artifact.read_text(encoding="utf-8"))
@@ -69,6 +71,35 @@ class AiSearchResearchValidatorTests(unittest.TestCase):
         self.assertNotEqual(completed.returncode, 0)
         self.assertIn("research-pack.json is not valid JSON", completed.stderr)
         self.assertNotIn("Traceback", completed.stderr)
+
+    def test_v1_1_raw_evidence_hash_drift_fails(self) -> None:
+        completed = self.run_pack(
+            bundle_mutator=lambda bundle: (bundle / "raw" / "evidence.json").write_text(
+                '{"unrelated": true}', encoding="utf-8"
+            )
+        )
+        self.assertNotEqual(completed.returncode, 0)
+        self.assertIn("raw_evidence_ref hash mismatch", completed.stderr)
+
+    def test_v1_1_requires_raw_evidence_hashes(self) -> None:
+        completed = self.run_pack(
+            lambda payload: payload["evidence"][0].pop("raw_evidence_sha256")
+        )
+        self.assertNotEqual(completed.returncode, 0)
+        self.assertIn("raw_evidence_sha256 is required", completed.stderr)
+
+    def test_legacy_v1_0_without_raw_hashes_remains_supported(self) -> None:
+        def mutate(payload: dict) -> None:
+            payload["schema_version"] = "1.0.0"
+            for record in payload["evidence"]:
+                record.pop("raw_evidence_sha256", None)
+            for observation in payload["competitor_observations"]:
+                observation.pop("raw_observation_sha256", None)
+            for fact in payload["ground_truth"]:
+                fact.pop("provenance_sha256", None)
+
+        completed = self.run_pack(mutate)
+        self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)
 
 
 if __name__ == "__main__":

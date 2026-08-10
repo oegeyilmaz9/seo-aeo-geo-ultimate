@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/action-plan/1.1.0",
+  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/action-plan/1.2.0",
   "title": "SEO Action Plan",
   "type": "object",
   "additionalProperties": false,
@@ -15,7 +15,7 @@
     "limitations"
   ],
   "properties": {
-    "schema_version": {"enum": ["1.0.0", "1.1.0"]},
+    "schema_version": {"enum": ["1.0.0", "1.1.0", "1.2.0"]},
     "plan_id": {"$ref": "#/$defs/id"},
     "created_at": {"type": "string", "format": "date-time"},
     "producer_skill": {"const": "seo-action-plan"},
@@ -52,7 +52,25 @@
     },
     {
       "if": {"required": ["input_findings"]},
-      "then": {"properties": {"schema_version": {"const": "1.1.0"}}}
+      "then": {"properties": {"schema_version": {"enum": ["1.1.0", "1.2.0"]}}}
+    },
+    {
+      "if": {
+        "required": ["schema_version"],
+        "properties": {"schema_version": {"const": "1.2.0"}}
+      },
+      "then": {
+        "properties": {
+          "actions": {
+            "items": {
+              "allOf": [
+                {"$ref": "#/$defs/action"},
+                {"required": ["risk_flags"]}
+              ]
+            }
+          }
+        }
+      }
     }
   ],
   "$defs": {
@@ -77,7 +95,7 @@
       ],
       "properties": {
         "brief_id": {"$ref": "#/$defs/id"},
-        "schema_version": {"const": "1.0.0"},
+        "schema_version": {"enum": ["1.0.0", "1.1.0"]},
         "producer_skill": {"enum": ["seo-aeo", "seo-geo"]},
         "optimization_domain": {"enum": ["aeo", "geo"]},
         "bundle_ref": {"$ref": "#/$defs/relativePath"},
@@ -98,20 +116,27 @@
       ],
       "properties": {
         "finding_set_id": {"$ref": "#/$defs/id"},
-        "schema_version": {"const": "1.0.0"},
+        "schema_version": {"enum": ["1.0.0", "1.1.0"]},
         "producer_skill": {
           "enum": [
             "seo-audit",
+            "seo-agentic",
+            "seo-architecture",
+            "seo-authority",
+            "seo-commerce",
             "seo-competitor-pages",
             "seo-content",
             "seo-hreflang",
             "seo-images",
+            "seo-local",
+            "seo-news-discover",
             "seo-page",
             "seo-programmatic",
             "seo-research",
             "seo-schema",
             "seo-sitemap",
-            "seo-technical"
+            "seo-technical",
+            "seo-video"
           ]
         },
         "bundle_ref": {"$ref": "#/$defs/relativePath"},
@@ -195,7 +220,7 @@
       "properties": {
         "method": {"type": "string", "minLength": 1},
         "metric_type": {
-          "enum": ["recrawl", "manual-review", "search-console", "analytics", "visibility-run", "log-review"]
+          "enum": ["recrawl", "manual-review", "search-console", "analytics", "visibility-run", "seo-performance-run", "log-review", "merchant-feed", "business-profile", "video-indexing", "task-flow", "site-graph"]
         },
         "success_condition": {"type": "string", "minLength": 1},
         "guardrail": {"type": "string", "minLength": 1}
@@ -258,7 +283,14 @@
           "items": {"$ref": "#/$defs/evidenceRef"}
         },
         "change_type": {
-          "enum": ["content", "technical", "structured-data", "international", "sitemap", "media", "programmatic", "comparison", "measurement", "analytics", "accessibility", "policy"]
+          "enum": ["content", "technical", "structured-data", "international", "sitemap", "media", "programmatic", "comparison", "measurement", "analytics", "accessibility", "policy", "commerce", "local", "video", "news-discover", "agentic", "architecture", "authority", "entity", "freshness"]
+        },
+        "risk_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": ["policy", "crawler-policy", "indexing", "legal", "privacy", "accessibility", "experiment-wide", "irreversible"]
+          }
         },
         "owner": {"$ref": "#/$defs/owner"},
         "approval": {"$ref": "#/$defs/approval"},

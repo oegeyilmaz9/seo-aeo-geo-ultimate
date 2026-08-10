@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.1.0",
+  "finding_set_id": "example-homepage-findings",
+  "created_at": "2026-08-08T12:00:00Z",
+  "producer_skill": "seo-technical",
+  "scope": {
+    "objective": "Record a reviewable title-delivery observation for the example homepage.",
+    "targets": [
+      {
+        "target_id": "example-homepage",
+        "target_type": "web_page",
+        "locale": "en-US",
+        "source_url": "https://example.com/"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "claim_id": "homepage-title-observation",
+      "target_id": "example-homepage",
+      "claim": "The supplied homepage capture contains no title element.",
+      "classification": "confirmed",
+      "source_kind": "direct_observation",
+      "engine": "not_applicable",
+      "surface": "rendered-page",
+      "locale": "en-US",
+      "source_title": "Sanitized example homepage capture",
+      "source_url": "https://example.com/",
+      "source_published_or_updated_at": null,
+      "accessed_at": "2026-08-08T11:30:00Z",
+      "raw_evidence_ref": "raw/homepage.html",
+      "raw_evidence_sha256": "66b64f180c7ed4068d2e6b308a0ac38531647935b488649faeef5c1e35c573ac",
+      "observation_method": "Reviewed the immutable supplied HTML capture.",
+      "limitations": [
+        "This point-in-time capture does not establish indexation, ranking, or traffic impact."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "homepage-title-missing",
+      "target_id": "example-homepage",
+      "title": "The supplied homepage has no title element",
+      "observation": "The immutable HTML capture contains no title element in its head.",
+      "category": "technical",
+      "classification": "confirmed",
+      "severity": "important",
+      "evidence_ids": [
+        "homepage-title-observation"
+      ],
+      "candidate_owner": "seo-technical",
+      "desired_outcome": "Deliver one accurate, descriptive title in the rendered document.",
+      "verification_method": "Recapture the rendered page and verify one approved title element is present.",
+      "limitations": [
+        "A title correction does not guarantee indexation, ranking, clicks, or conversion."
+      ]
+    }
+  ],
+  "declined_claims": [
+    {
+      "claim": "Adding the title will improve rankings.",
+      "reason": "The supplied capture supports a delivery defect, not a guaranteed search outcome."
+    }
+  ],
+  "limitations": [
+    "The finding is limited to the supplied sanitized capture."
+  ]
+}

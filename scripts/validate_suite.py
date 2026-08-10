@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from datetime import date
 from pathlib import Path
@@ -15,6 +16,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
 MANIFEST = ROOT / "manifests" / "suite.json"
 SOURCE_REGISTRY = ROOT / "docs" / "research" / "2026-08-06-source-registry.json"
+PLATFORM_CONTROLS = ROOT / "manifests" / "platform-controls.json"
+LLMS_TXT = ROOT / "llms.txt"
+CITATION = ROOT / "CITATION.cff"
+CHANGELOG = ROOT / "CHANGELOG.md"
 LOCAL_LINK_RE = re.compile(r"\[[^\]]+\]\((?!https?://|#|mailto:)([^)]+)\)")
 
 
@@ -57,8 +62,11 @@ def validate_interface(path: Path, skill: str, errors: list[str]) -> None:
     required = {"display_name", "short_description", "default_prompt"}
     if set(values) != required:
         errors.append(f"{skill}: openai.yaml must contain exactly {sorted(required)}")
-    elif f"${skill}" not in values["default_prompt"]:
-        errors.append(f"{skill}: default_prompt must invoke ${skill}")
+    else:
+        if not 25 <= len(values["short_description"]) <= 64:
+            errors.append(f"{skill}: short_description must contain 25-64 characters")
+        if f"${skill}" not in values["default_prompt"]:
+            errors.append(f"{skill}: default_prompt must invoke ${skill}")
 
 
 def validate_skill(path: Path, errors: list[str]) -> None:
@@ -110,6 +118,48 @@ def validate_manifest(skill_names: set[str], errors: list[str]) -> None:
         if not (ROOT / "manifests" / "artifact-schemas" / filename).is_file():
             errors.append(f"suite manifest schema missing: {filename}")
     artifact_names = set(schemas)
+    tools = manifest.get("tools")
+    if not isinstance(tools, dict) or not tools:
+        errors.append("suite manifest tools must be a non-empty object")
+    else:
+        seen_tool_paths: set[str] = set()
+        for label, entry in tools.items():
+            if not isinstance(label, str) or not isinstance(entry, dict):
+                errors.append("suite manifest tools entries must be named objects")
+                continue
+            if set(entry) != {"path", "purpose"}:
+                errors.append(f"suite manifest tool {label} must contain exactly path and purpose")
+                continue
+            path = entry["path"]
+            purpose = entry["purpose"]
+            if not isinstance(path, str) or not path.startswith("scripts/") or not (ROOT / path).is_file():
+                errors.append(f"suite manifest tool {label} has a missing or invalid path")
+            elif path in seen_tool_paths:
+                errors.append(f"suite manifest tool {label} reuses path {path}")
+            else:
+                seen_tool_paths.add(path)
+            if not isinstance(purpose, str) or len(purpose.strip()) < 20:
+                errors.append(f"suite manifest tool {label} purpose must be descriptive")
+    file_outputs = manifest.get("file_outputs", {})
+    if not isinstance(file_outputs, dict):
+        errors.append("suite manifest file_outputs must be an object")
+        file_outputs = {}
+    for label, entry in file_outputs.items():
+        if not isinstance(label, str) or not isinstance(entry, dict):
+            errors.append("suite manifest file_outputs entries must be named objects")
+            continue
+        required = {"filename", "producer_skill", "validator", "template"}
+        if set(entry) != required:
+            errors.append(f"suite manifest file output {label} must contain exactly {sorted(required)}")
+            continue
+        if entry["producer_skill"] not in entries:
+            errors.append(f"suite manifest file output {label} references an unknown producer skill")
+        for field in ("validator", "template"):
+            value = entry[field]
+            if not isinstance(value, str) or not (ROOT / value).is_file():
+                errors.append(f"suite manifest file output {label} has a missing {field}")
+        if entry["filename"] != "llms.txt" or label != "llms-txt":
+            errors.append("suite manifest llms-txt file output must use filename llms.txt")
     for skill, entry in entries.items():
         if not isinstance(entry, dict):
             errors.append(f"suite manifest {skill} entry must be an object")
@@ -125,6 +175,34 @@ def validate_manifest(skill_names: set[str], errors: list[str]) -> None:
             unknown = sorted(set(values) - artifact_names)
             if unknown:
                 errors.append(f"suite manifest {skill} {field} references unknown artifacts: {unknown}")
+        produced_files = entry.get("produces_files", [])
+        if not isinstance(produced_files, list) or any(not isinstance(value, str) for value in produced_files):
+            errors.append(f"suite manifest {skill} produces_files must be a string array when present")
+        else:
+            unknown_files = sorted(set(produced_files) - set(file_outputs))
+            if unknown_files:
+                errors.append(f"suite manifest {skill} produces_files references unknown file outputs: {unknown_files}")
+
+
+def validate_release_metadata(errors: list[str]) -> None:
+    manifest = load_json(MANIFEST, errors)
+    version = manifest.get("suite_version") if isinstance(manifest, dict) else None
+    if not isinstance(version, str) or not re.fullmatch(r"\d+\.\d+\.\d+", version):
+        errors.append("suite manifest suite_version must be semantic")
+        return
+    try:
+        citation = CITATION.read_text(encoding="utf-8")
+        changelog = CHANGELOG.read_text(encoding="utf-8")
+        llms = LLMS_TXT.read_text(encoding="utf-8")
+    except OSError as exc:
+        errors.append(f"release metadata cannot be read: {exc}")
+        return
+    if re.search(rf'^version:\s*["\']?{re.escape(version)}["\']?\s*$', citation, re.M) is None:
+        errors.append("CITATION.cff version must match suite_version")
+    if re.search(rf"^## \[{re.escape(version)}\](?:\s+-|$)", changelog, re.M) is None:
+        errors.append("CHANGELOG.md must contain the suite_version release heading")
+    if f"Version {version}." not in llms:
+        errors.append("llms.txt version must match suite_version")
 
 
 def validate_sources(as_of: date, allow_stale: bool, errors: list[str]) -> None:
@@ -133,6 +211,44 @@ def validate_sources(as_of: date, allow_stale: bool, errors: list[str]) -> None:
         return
     result = validate_registry(payload, as_of, allow_stale)
     errors.extend(f"source registry: {error}" for error in result.errors)
+
+
+def validate_platform_controls(as_of: date, errors: list[str]) -> None:
+    completed = subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "scripts" / "validate_platform_controls.py"),
+            "validate-registry",
+            str(PLATFORM_CONTROLS),
+            "--bundle",
+            str(ROOT / "manifests"),
+            "--as-of",
+            f"{as_of.isoformat()}T23:59:59Z",
+        ],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if completed.returncode != 0:
+        detail = completed.stderr.strip() or completed.stdout.strip() or f"exit {completed.returncode}"
+        errors.append(f"platform controls: {detail}")
+
+
+def validate_llms_txt(errors: list[str]) -> None:
+    completed = subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "scripts" / "validate_llms_txt.py"),
+            "validate-file",
+            str(LLMS_TXT),
+        ],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if completed.returncode != 0:
+        detail = completed.stderr.strip() or completed.stdout.strip() or f"exit {completed.returncode}"
+        errors.append(f"llms.txt: {detail}")
 
 
 def main() -> int:
@@ -152,7 +268,10 @@ def main() -> int:
     for path in skill_paths:
         validate_skill(path, errors)
     validate_manifest({path.name for path in skill_paths}, errors)
+    validate_release_metadata(errors)
     validate_sources(parsed_as_of, args.allow_stale_sources, errors)
+    validate_platform_controls(parsed_as_of, errors)
+    validate_llms_txt(errors)
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)

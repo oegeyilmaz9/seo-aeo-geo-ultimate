@@ -1,6 +1,6 @@
 ---
 name: seo-research
-description: Use when researching conventional search intent, audience questions, content gaps, site coverage, or competitor/page evidence for a bounded SEO decision; retain source dates and uncertainty, and route formal multi-engine AI-search provenance to ai-search-research.
+description: Use when researching conventional search intent, audience questions, query families, content gaps, site coverage, cannibalization, or competitor/page evidence for a bounded SEO decision; produce a provenance-aware query corpus when the work will drive measurement or implementation, retain source dates and uncertainty, and route formal multi-engine AI-search evidence to ai-search-research.
 ---
 
 # SEO Research
@@ -21,11 +21,12 @@ Clarify audience, market/locale, decision to be made, known site/entity URLs, ti
 ## Workflow
 
 1. **Define the decision.** State the audience task, market/locale, entity/page scope, non-goals, and evidence required to decide.
-2. **Build a query/question corpus.** Group language by reader task and stage, not just lexical similarity. Preserve query source, date, locale/device/context, and limitations. Treat volume/difficulty/vendor metrics as dated third-party estimates, never ground truth.
+2. **Build a query/question corpus.** Separate user needs, observed search queries, AI prompts, and engine-executed subqueries. Group language by task and stage, not just lexical similarity. Preserve parent families, source, date, locale, country/location, device, engine/surface, conversation turn, coverage, confidence, and limitations. Hash-pin local source and coverage evidence. Treat volume/difficulty/vendor metrics as dated estimates, never ground truth.
 3. **Inspect existing coverage.** Map actual pages/assets to the questions they serve, cite rendered/captured evidence, and identify gaps, cannibalization risk, stale claims, or unclear ownership without assuming a missing keyword requires a new page.
 4. **Research external evidence responsibly.** Use primary docs, authoritative sources, and accessible pages. Capture title, URL, access date, source type, claim, and limitations. Respect robots, terms, rate limits, paywalls, authentication, and copyright.
 5. **Synthesize choices.** Recommend research-backed content, technical, measurement, or no-action paths. Separate observed facts, inferred opportunities, experiments, and unknowns.
-6. **Hand off.** Send content work to `seo-content`, competitor pages to `seo-competitor-pages`, implementation sequencing to `seo-action-plan`, and AI-specific formal work to `ai-search-research`.
+6. **Freeze formal query work.** Let `<suite-root>` mean `${CLAUDE_PLUGIN_ROOT}` in Claude Code. In Codex, read `.seo-suite-runtime.json` beside this `SKILL.md` when present and use its `suite_root` value; otherwise use the absolute repository checkout. When the corpus will drive a baseline, audit, page map, or implementation decision, create `query-corpus.json` using the checked-out suite contract and validate it with `python "<suite-root>/scripts/validate_query_corpus.py" validate-corpus <bundle>/query-corpus.json --bundle <bundle>`.
+7. **Hand off.** Send conventional performance measurement to `seo-performance`, content work to `seo-content`, competitor pages to `seo-competitor-pages`, implementation sequencing to `seo-action-plan`, and AI-specific formal work to `ai-search-research`.
 
 ## Guardrails
 
@@ -36,8 +37,8 @@ Clarify audience, market/locale, decision to be made, known site/entity URLs, ti
 
 ## Formal evidence handoff
 
-When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python scripts/validate_seo_findings.py validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
+When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python "<suite-root>/scripts/validate_seo_findings.py" validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
 
 ## Output
 
-Return a decision statement, query/question corpus, source register, existing-coverage map, observation/inference split, opportunities or declined ideas, owners, and evidence gaps. Include collection dates and a refresh trigger for volatile sources.
+Return a decision statement, validated query corpus when required, source register, existing-coverage map, observation/inference split, opportunities or declined ideas, owners, and evidence gaps. Include collection dates and a refresh trigger for volatile sources.

@@ -27,7 +27,7 @@ class AiVisibilityMonitorSkillContractTests(unittest.TestCase):
 
     def test_contract_lock_matches_canonical_and_generated_bytes(self):
         lock = json.loads((SKILL / "references" / "contracts" / "contracts-lock.json").read_text(encoding="utf-8"))
-        self.assertEqual(len(lock["contracts"]), 2)
+        self.assertEqual(len(lock["contracts"]), 3)
         for row in lock["contracts"]:
             canonical = ROOT / row["canonical_path"]
             generated = SKILL / row["generated_path"]

@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate/contracts/seo-performance-run/1.0.0",
+  "title": "SEO Performance Run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "created_at", "mode", "interpretation_type", "causal_claim", "source_type", "property", "search_type", "filters", "export_method", "window", "raw_source_ref", "raw_source_sha256", "query_corpus_id", "query_corpus_ref", "query_corpus_sha256", "prior_run_id", "prior_run_ref", "prior_run_sha256", "dimensions", "rows", "indexation", "web_vitals", "data_quality", "drift", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "run_id": {"$ref": "#/$defs/id"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "mode": {"enum": ["baseline", "comparison"]},
+    "interpretation_type": {"const": "observational_association"},
+    "causal_claim": {"const": false},
+    "source_type": {"enum": ["google-search-console", "bing-webmaster-tools", "analytics", "server-logs", "cwv-rum", "manual-export", "combined"]},
+    "property": {"type": "string", "minLength": 1},
+    "search_type": {"enum": ["web", "image", "video", "news", "discover", "google-news", "not-applicable", "other"]},
+    "filters": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/filter"}},
+    "export_method": {"type": "string", "minLength": 1},
+    "window": {"$ref": "#/$defs/window"},
+    "raw_source_ref": {"$ref": "#/$defs/relativePath"},
+    "raw_source_sha256": {"$ref": "#/$defs/sha"},
+    "query_corpus_id": {"type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "query_corpus_ref": {"type": ["string", "null"], "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+    "query_corpus_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "prior_run_id": {"type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "prior_run_ref": {"type": ["string", "null"], "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+    "prior_run_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "dimensions": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["query", "page", "country", "device", "search_appearance", "date"]}},
+    "rows": {"type": "array", "items": {"$ref": "#/$defs/row"}},
+    "indexation": {"type": "array", "items": {"$ref": "#/$defs/indexation"}},
+    "web_vitals": {"type": "array", "items": {"$ref": "#/$defs/webVital"}},
+    "data_quality": {"$ref": "#/$defs/dataQuality"},
+    "drift": {"type": "array", "items": {"$ref": "#/$defs/drift"}},
+    "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "relativePath": {"type": "string", "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+"},
+    "filter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "operator", "value"],
+      "properties": {
+        "dimension": {"type": "string", "minLength": 1},
+        "operator": {"enum": ["equals", "not-equals", "contains", "not-contains", "regex", "not-regex", "other"]},
+        "value": {"type": "string", "minLength": 1}
+      }
+    },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end", "timezone"],
+      "properties": {
+        "start": {"type": "string", "format": "date-time"},
+        "end": {"type": "string", "format": "date-time"},
+        "timezone": {"type": "string", "minLength": 1}
+      }
+    },
+    "row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["row_id", "date", "query", "page", "country", "device", "search_appearance", "clicks", "impressions", "ctr", "average_position", "organic_sessions", "conversions", "revenue"],
+      "properties": {
+        "row_id": {"$ref": "#/$defs/id"},
+        "date": {"type": ["string", "null"], "format": "date-time"},
+        "query": {"type": ["string", "null"]},
+        "page": {"type": ["string", "null"], "pattern": "^https://"},
+        "country": {"type": ["string", "null"], "pattern": "^[A-Z]{2}$"},
+        "device": {"type": ["string", "null"], "enum": ["desktop", "mobile", "tablet", "other", null]},
+        "search_appearance": {"type": ["string", "null"]},
+        "clicks": {"type": ["integer", "null"]},
+        "impressions": {"type": ["integer", "null"]},
+        "ctr": {"type": ["number", "null"]},
+        "average_position": {"type": ["number", "null"]},
+        "organic_sessions": {"type": ["integer", "null"]},
+        "conversions": {"type": ["number", "null"]},
+        "revenue": {"type": ["number", "null"]}
+      }
+    },
+    "indexation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target_url", "canonical_url", "status", "observed_at", "source"],
+      "properties": {
+        "target_url": {"type": "string", "pattern": "^https://"},
+        "canonical_url": {"type": ["string", "null"], "pattern": "^https://"},
+        "status": {"enum": ["indexed", "not-indexed", "excluded", "unknown"]},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "source": {"type": "string", "minLength": 1}
+      }
+    },
+    "webVital": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "form_factor", "metric", "value", "rating", "source", "observed_at"],
+      "properties": {
+        "target": {"type": "string", "pattern": "^https://"},
+        "form_factor": {"enum": ["desktop", "mobile"]},
+        "metric": {"enum": ["lcp", "inp", "cls"]},
+        "value": {"type": "number"},
+        "rating": {"enum": ["good", "needs-improvement", "poor", "unknown"]},
+        "source": {"type": "string", "minLength": 1},
+        "observed_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "dataQuality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sampling_status", "anonymized_queries", "row_limit", "canonical_aggregation", "notes"],
+      "properties": {
+        "sampling_status": {"enum": ["none", "sampled", "unknown"]},
+        "anonymized_queries": {"enum": ["included", "excluded", "not-applicable", "unknown"]},
+        "row_limit": {"type": ["integer", "null"]},
+        "canonical_aggregation": {"enum": ["canonical", "property-specific", "mixed", "not-applicable", "unknown"]},
+        "notes": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "drift": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["drift_id", "metric", "cohort", "prior_record_ids", "current_record_ids", "prior_value", "current_value", "delta", "comparable", "warning"],
+      "properties": {
+        "drift_id": {"$ref": "#/$defs/id"},
+        "metric": {"enum": ["clicks", "impressions", "ctr", "average_position", "organic_sessions", "conversions", "revenue", "indexed_urls", "lcp", "inp", "cls"]},
+        "cohort": {"type": "string", "minLength": 1},
+        "prior_record_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "current_record_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "prior_value": {"type": ["number", "null"]},
+        "current_value": {"type": ["number", "null"]},
+        "delta": {"type": ["number", "null"]},
+        "comparable": {"type": "boolean"},
+        "warning": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

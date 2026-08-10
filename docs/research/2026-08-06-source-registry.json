@@ -1,6 +1,6 @@
 {
   "registry_version": "1.0.0",
-  "observed_on": "2026-08-06",
+  "observed_on": "2026-08-10",
   "purpose": "Primary-source and clearly labeled market-source registry used to design the SEO, AEO, GEO, content-recommendation, crawler-control, measurement, and agent-runtime distribution capabilities of this suite.",
   "freshness_policy": {
     "vendor_documentation_days": 30,
@@ -19,7 +19,18 @@
       "updated_at": "2026-07-10",
       "observed_at": "2026-08-06",
       "scopes": ["google", "ai-overview", "ai-mode", "seo", "aeo", "geo"],
-      "design_effect": "Treat foundational SEO, original people-first content, crawlability, and page experience as Google-specific prerequisites. Reject llms.txt, fixed chunking, special AI schema, synthetic mentions, and generic AI-only rewrites as mandatory Google requirements. Use Search Console's Generative AI report when available."
+      "design_effect": "Treat foundational SEO, original people-first content, crawlability, and page experience as Google-specific prerequisites. Google explicitly says llms.txt neither helps nor harms Google Search visibility because Search ignores it; keep it optional for other consumers. Reject fixed chunking, special AI schema, synthetic mentions, and generic AI-only rewrites as mandatory Google requirements."
+    },
+    {
+      "id": "llms-txt-community-proposal",
+      "title": "The /llms.txt file",
+      "publisher": "llms.txt community proposal",
+      "url": "https://llmstxt.org/",
+      "source_kind": "standard",
+      "updated_at": "2026-08-10",
+      "observed_at": "2026-08-10",
+      "scopes": ["llms-txt", "publisher-guide", "machine-readable", "inference", "documentation"],
+      "design_effect": "Support a concise Markdown publisher guide with H1, summary, H2 file lists, descriptions, and an Optional section. Treat it as an open community proposal whose processing is client-specific, not as robots policy or a universal visibility standard."
     },
     {
       "id": "google-ai-features-website",
@@ -317,6 +328,204 @@
       "observed_at": "2026-08-06",
       "scopes": ["market-pattern", "citations", "recommendations"],
       "design_effect": "Use page- and domain-level cited-source analysis as an actionable content-gap input, but preserve raw cited URLs, canonicalization rules, and engine-specific contexts."
+    },
+    {
+      "id": "google-search-console-query-data",
+      "title": "Query data in Search Console",
+      "publisher": "Google Search Console Help",
+      "url": "https://support.google.com/webmasters/answer/17011259?hl=en",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "search-console", "queries", "measurement"],
+      "design_effect": "The SEO performance contract records anonymized-query omissions, export truncation, and canonical URL aggregation instead of treating visible query rows as complete demand."
+    },
+    {
+      "id": "google-search-console-query-analysis",
+      "title": "Analyze your traffic with query filters",
+      "publisher": "Google Search Console Help",
+      "url": "https://support.google.com/webmasters/answer/17010961?hl=en",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "search-console", "query-families", "measurement"],
+      "design_effect": "Support exact-query, regex-family, branded/non-branded, and query-to-page analysis while preserving property and export limitations."
+    },
+    {
+      "id": "google-crawlable-links",
+      "title": "Make your links crawlable",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "architecture", "internal-links", "technical-seo"],
+      "design_effect": "Add a captured site-graph lane for crawlable navigation and contextual links without inventing a universal link count or depth threshold."
+    },
+    {
+      "id": "google-search-documentation-updates",
+      "title": "Google Search documentation updates",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/updates",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "feature-lifecycle", "schema", "commerce"],
+      "design_effect": "Maintain current, preview, deprecated, and removed feature states; retain the May 2026 FAQ rich-result removal and revalidate changed merchant properties."
+    },
+    {
+      "id": "google-product-structured-data",
+      "title": "Product structured data",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/product",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "commerce", "product", "merchant-center", "schema"],
+      "design_effect": "Audit visible product pages, Product or merchant listing data, and Merchant Center feeds together while treating eligibility and acceptance as separate evidence."
+    },
+    {
+      "id": "google-ecommerce-site-structure",
+      "title": "Help Google understand your ecommerce site structure",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/specialty/ecommerce/help-google-understand-your-ecommerce-site-structure?hl=en",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "commerce", "architecture", "navigation", "feeds"],
+      "design_effect": "Connect crawlable product navigation, sitemaps, feeds, variants, and site-graph evidence instead of assuming a feed replaces discoverable pages."
+    },
+    {
+      "id": "google-local-business-structured-data",
+      "title": "LocalBusiness structured data",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "local", "business-profile", "schema"],
+      "design_effect": "Add a local lane that reconciles authorized business facts, location pages, profiles, and LocalBusiness data without promising map placement."
+    },
+    {
+      "id": "google-video-structured-data",
+      "title": "Video structured data",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/video",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "video", "structured-data", "key-moments"],
+      "design_effect": "Add a video lane for watch pages, VideoObject, player availability, thumbnails, livestreams, and Key Moments with visible-content parity."
+    },
+    {
+      "id": "google-video-sitemaps",
+      "title": "Video sitemaps and alternatives",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/video-sitemaps",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "video", "sitemap", "freshness"],
+      "design_effect": "Validate video sitemap discovery and update state while keeping video indexing and result eligibility separate from submission."
+    },
+    {
+      "id": "google-news-sitemaps",
+      "title": "Create a Google News sitemap",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "news", "discover", "sitemap", "freshness"],
+      "design_effect": "Add a publisher lane for article transparency, dates, corrections, media, news sitemap freshness, and policy evidence without inclusion promises."
+    },
+    {
+      "id": "webdev-agent-site-ux",
+      "title": "Designing websites for AI agents",
+      "publisher": "web.dev",
+      "url": "https://web.dev/articles/ai-agent-site-ux",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["agentic", "accessibility", "dom", "task-flow"],
+      "design_effect": "Audit screenshot, DOM, accessibility tree, semantic controls, state, and safe task completion as agent readiness rather than ranking leverage."
+    },
+    {
+      "id": "ucp-specification-overview",
+      "title": "Universal Commerce Protocol specification overview",
+      "publisher": "UCP",
+      "url": "https://ucp.dev/2026-04-08/specification/overview/",
+      "source_kind": "standard",
+      "updated_at": "2026-04-08",
+      "observed_at": "2026-08-10",
+      "scopes": ["commerce", "agentic", "protocol", "capability-discovery"],
+      "design_effect": "Treat UCP as an emerging optional capability with discovery, operations, authentication, owner, and fallback—not as an SEO or AI-visibility requirement."
+    },
+    {
+      "id": "openai-web-search-tool",
+      "title": "Web search tool",
+      "publisher": "OpenAI Developers",
+      "url": "https://developers.openai.com/api/docs/guides/tools-web-search",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["openai", "web-search", "queries", "sources", "citations", "location"],
+      "design_effect": "Visibility Run 2.0 separates user prompts, disclosed executed queries, all consulted sources, visible citations, user location, and live versus cached retrieval."
+    },
+    {
+      "id": "openai-product-discovery",
+      "title": "Powering product discovery in ChatGPT",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/powering-product-discovery-in-chatgpt/",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2026-03-24",
+      "observed_at": "2026-08-10",
+      "scopes": ["openai", "commerce", "products", "merchant-data", "acp"],
+      "design_effect": "Add OpenAI product and merchant data to commerce parity/capability review without assuming a recommendation, checkout, or sales outcome."
+    },
+    {
+      "id": "anthropic-web-search-tool",
+      "title": "Web search tool",
+      "publisher": "Anthropic Platform",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["anthropic", "web-search", "multi-search", "citations", "location", "multi-turn"],
+      "design_effect": "Preserve repeated searches, location, citation evidence, and multi-turn context when disclosed; do not generalize an API contract to every consumer surface."
+    },
+    {
+      "id": "indexnow-documentation",
+      "title": "IndexNow protocol documentation",
+      "publisher": "IndexNow",
+      "url": "https://www.indexnow.org/documentation",
+      "source_kind": "standard",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["indexnow", "discovery", "freshness", "commerce", "news"],
+      "design_effect": "Add a bounded change-notification workflow for added, updated, and deleted URLs with key/endpoint verification, receipts, logs, and no indexing guarantee."
+    },
+    {
+      "id": "google-generative-ai-performance-blog",
+      "title": "Generative AI performance reports in Search Console",
+      "publisher": "Google Search Central Blog",
+      "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["google", "search-console", "generative-ai", "measurement", "preview"],
+      "design_effect": "Track preview availability and supported dimensions as a feature lifecycle entry; do not assume a query dimension or universal property access."
+    },
+    {
+      "id": "cross-engine-generative-search-study",
+      "title": "Generative Search Engine Optimization: A Cross-Engine Study",
+      "publisher": "ACL Anthology",
+      "url": "https://aclanthology.org/2026.findings-acl.526/",
+      "source_kind": "original_research",
+      "updated_at": null,
+      "observed_at": "2026-08-10",
+      "scopes": ["geo", "retrieval", "source-diversity", "synthesis", "stability"],
+      "design_effect": "Keep retrieval, source selection, synthesis, and stability as separate experimental measurement dimensions; do not turn cross-engine findings into universal platform rules."
     }
   ]
 }

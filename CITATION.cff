@@ -4,8 +4,8 @@ title: "SEO-AEO-GEO Ultimate"
 abstract: "Evidence-first SEO, AEO, GEO, and AI-search workflows for Codex and Claude Code."
 authors:
   - name: "Oegeyilmaz9"
-version: "2.3.0"
-date-released: "2026-08-09"
+version: "3.0.0"
+date-released: "2026-08-10"
 license: "Apache-2.0"
 repository-code: "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate"
 keywords:
@@ -16,4 +16,5 @@ keywords:
   - "Codex"
   - "Claude Code"
   - "agent skills"
+  - "llms.txt"
 type: software

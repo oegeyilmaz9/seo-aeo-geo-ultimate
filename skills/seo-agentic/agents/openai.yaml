@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agentic Web Readiness"
+  short_description: "Audit safe agent perception and task completion"
+  default_prompt: "Use $seo-agentic to audit whether the supplied web task is safely understandable and completable."

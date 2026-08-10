@@ -1,0 +1,4 @@
+interface:
+  display_name: "News and Discover SEO"
+  short_description: "Audit publisher policy, articles, freshness, and feeds"
+  default_prompt: "Use $seo-news-discover to audit the supplied publisher, article, and freshness evidence."

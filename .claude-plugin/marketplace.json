@@ -11,8 +11,8 @@
         "source": "github",
         "repo": "oegeyilmaz9/seo-aeo-geo-ultimate"
       },
-      "description": "Evidence-first SEO, AEO, GEO, and AI-search workflows for Codex and Claude Code, with one router and 19 specialist skills.",
-      "version": "2.3.0",
+      "description": "Evidence-first SEO, AEO, GEO, AI-search, commerce, local, video, agentic, architecture, authority, and measurement workflows with one router and 27 focused skills.",
+      "version": "3.0.0",
       "author": {
         "name": "Oegeyilmaz9"
       },
@@ -25,7 +25,8 @@
         "agent-skills",
         "codex",
         "claude-code",
-        "technical-seo"
+        "technical-seo",
+        "llms-txt"
       ]
     }
   ]

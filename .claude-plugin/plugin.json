@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "seo-aeo-geo-ultimate",
   "displayName": "SEO-AEO-GEO Ultimate",
-  "version": "2.3.0",
-  "description": "Evidence-first SEO, AEO, GEO, and AI-search workflows for Codex and Claude Code, with one router and 19 specialist skills.",
+  "version": "3.0.0",
+  "description": "Evidence-first SEO, AEO, GEO, AI-search, commerce, local, video, agentic, architecture, authority, and measurement workflows with one router and 27 focused skills.",
   "author": {
     "name": "Oegeyilmaz9",
     "url": "https://github.com/oegeyilmaz9"
@@ -19,7 +19,8 @@
     "agent-skills",
     "codex",
     "claude-code",
-    "technical-seo"
+    "technical-seo",
+    "llms-txt"
   ],
   "skills": "./skills"
 }

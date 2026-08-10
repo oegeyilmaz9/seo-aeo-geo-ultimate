@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commerce SEO"
+  short_description: "Audit product pages, feeds, parity, and discovery"
+  default_prompt: "Use $seo-commerce to audit the supplied product-discovery pages, feeds, and commerce evidence."

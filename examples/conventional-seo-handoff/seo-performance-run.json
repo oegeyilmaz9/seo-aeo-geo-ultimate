@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "example-performance-baseline",
+  "created_at": "2026-08-08T12:00:00Z",
+  "mode": "baseline",
+  "interpretation_type": "observational_association",
+  "causal_claim": false,
+  "source_type": "google-search-console",
+  "property": "sc-domain:example.com",
+  "search_type": "web",
+  "filters": [],
+  "export_method": "Sanitized Search Console API export",
+  "window": {
+    "start": "2026-08-01T00:00:00Z",
+    "end": "2026-08-08T00:00:00Z",
+    "timezone": "UTC"
+  },
+  "raw_source_ref": "raw/gsc-export.json",
+  "raw_source_sha256": "1f1842e333ce15acfe470efa3c37b4a399abf50e1a6b2f7503c12ebc31408272",
+  "query_corpus_id": null,
+  "query_corpus_ref": null,
+  "query_corpus_sha256": null,
+  "prior_run_id": null,
+  "prior_run_ref": null,
+  "prior_run_sha256": null,
+  "dimensions": [
+    "date",
+    "query",
+    "page"
+  ],
+  "rows": [
+    {
+      "row_id": "homepage-search-row",
+      "date": "2026-08-02T00:00:00Z",
+      "query": "example store documentation",
+      "page": "https://example.com/",
+      "country": null,
+      "device": null,
+      "search_appearance": null,
+      "clicks": 8,
+      "impressions": 100,
+      "ctr": 0.08,
+      "average_position": 5.2,
+      "organic_sessions": null,
+      "conversions": null,
+      "revenue": null
+    }
+  ],
+  "indexation": [],
+  "web_vitals": [],
+  "data_quality": {
+    "sampling_status": "none",
+    "anonymized_queries": "excluded",
+    "row_limit": 25000,
+    "canonical_aggregation": "canonical",
+    "notes": [
+      "This is sanitized example data; Search Console may omit anonymized queries."
+    ]
+  },
+  "drift": [],
+  "limitations": [
+    "The export is observational, sanitized, and does not establish causation."
+  ]
+}

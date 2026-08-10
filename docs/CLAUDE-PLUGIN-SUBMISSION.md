@@ -1,15 +1,15 @@
 # Claude Plugin Submission
 
-This repository is already the public source package for the Claude Code plugin. It contains no hooks, MCP servers, background monitors, credentials, telemetry, or automatic network actions. It ships 19 shared instruction skills, their evidence contracts, and local validation helpers.
+This repository is already the public source package for the Claude Code plugin. It contains no hooks, MCP servers, background monitors, credentials, telemetry, or automatic network actions. It ships 27 shared instruction skills, their evidence contracts, and local validation helpers.
 
 ## Your only submission steps
 
-1. Create or open a [Claude Console](https://platform.claude.com/) organization with your own account. A personal Claude.ai Free account is not enough for the Claude.ai organization form, but individual authors can submit through Console.
-2. Open the [Console plugin submission form](https://platform.claude.com/plugins/submit).
+1. Sign in with the account that will own the listing.
+2. Open either the [Claude.ai plugin submission form](https://claude.ai/settings/plugins/submit) or the [Claude Console submission form](https://platform.claude.com/plugins/submit).
 3. Submit this public repository: `https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate`.
 4. Accept the directory terms and submit.
 
-Anthropic asks for a public GitHub source and a passing `claude plugin validate` check. The repository CI runs an offline structural preflight, while Anthropic runs its own validation during submission. If you later install Claude Code, `claude plugin validate . --strict` is the matching local command; it is not a separate requirement for preparing this repository.
+Anthropic asks for a public GitHub source and a passing `claude plugin validate` check. The repository CI runs an offline structural preflight, while Anthropic runs its own validation during submission. If you later install Claude Code, `claude plugin validate .` is the matching local command; it is not a separate requirement for preparing this repository.
 
 ## Ready-to-paste listing copy
 
@@ -22,13 +22,13 @@ SEO-AEO-GEO Ultimate
 **Short description**
 
 ```text
-Evidence-first SEO, AEO, GEO, and AI-search workflows for Codex and Claude Code, with one router and 19 specialist skills.
+Evidence-first SEO, AEO, GEO, and AI-search workflows for Codex and Claude Code, with one router and 27 focused skills.
 ```
 
 **Long description**
 
 ```text
-SEO-AEO-GEO Ultimate turns an ambiguous search or AI-visibility question into the next right research, audit, measurement, plan, or approved implementation step. Start with one router, then use focused specialist skills for technical SEO, content, schema, international targeting, answer readiness, entity and citation evidence, visibility monitoring, and action planning. The suite keeps evidence, ownership, approval, verification, and rollback connected without promising rankings, citations, traffic, or revenue.
+SEO-AEO-GEO Ultimate turns an ambiguous search or AI-visibility question into the next useful research, audit, measurement, plan, or approved implementation step. Start with one router, then use 27 focused skills for technical SEO, content, architecture, commerce, local, video, news, agentic journeys, answer readiness, entity and authority evidence, search performance, AI visibility, optional llms.txt publisher guides, and action planning. Shared contracts keep evidence, ownership, approval, verification, and rollback connected while every specialist remains usable on its own.
 ```
 
 **Security and data-access note**
@@ -40,11 +40,48 @@ This is a skills-only plugin. It declares no MCP servers, hooks, background moni
 **Keywords**
 
 ```text
-SEO, AEO, GEO, AI search, agent skills, Claude Code, Codex, technical SEO
+SEO, AEO, GEO, AI search, agent skills, Claude Code, Codex, technical SEO, llms.txt
+```
+
+**Supported platforms**
+
+```text
+Claude Code
+```
+
+Select Claude Code only for this submission. Claude Cowork is not declared or tested by this package.
+
+**License type**
+
+```text
+Apache 2.0
+```
+
+**Privacy policy URL**
+
+Leave blank. It is optional, and this skills-only plugin does not collect or transmit data by itself.
+
+**Contact email**
+
+```text
+o.egeyilmaz@gmail.com
 ```
 
 ## After approval
 
-The community marketplace may take time to reflect an approved submission. Once listed, users add the Anthropic community marketplace and install the plugin with its namespaced command. New commits pushed to this public repository are screened and picked up automatically; do not create a second submission for ordinary updates.
+The plugin directory is community-contributed, but Claude Code exposes approved listings through Anthropic's official, automatically available `claude-plugins-official` marketplace. Once listed, users install this plugin with:
 
-See the [official submission guidance](https://claude.com/docs/plugins/submit) and [Claude Code plugin documentation](https://code.claude.com/docs/en/plugins) for current platform rules.
+```text
+/plugin install seo-aeo-geo-ultimate@claude-plugins-official
+```
+
+If Claude Code cannot find the listing, refresh the catalog with `/plugin marketplace update claude-plugins-official`; only a client missing the built-in marketplace needs `/plugin marketplace add anthropics/claude-plugins-official`. New commits pushed to this public repository are screened and picked up automatically, so ordinary updates do not require a second submission.
+
+The repository's own marketplace remains a separate direct-distribution path:
+
+```text
+/plugin marketplace add oegeyilmaz9/seo-aeo-geo-ultimate
+/plugin install seo-aeo-geo-ultimate@oegeyilmaz9-skills
+```
+
+See the [official submission guidance](https://claude.com/docs/plugins/submit), [plugin discovery and installation guide](https://code.claude.com/docs/en/discover-plugins), and [Claude Code plugin documentation](https://code.claude.com/docs/en/plugins) for current platform rules.

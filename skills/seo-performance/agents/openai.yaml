@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Performance"
+  short_description: "Measure SEO performance and controlled tests"
+  default_prompt: "Use $seo-performance to build or compare an evidence-bound performance run or design a controlled SEO experiment."

@@ -9,7 +9,7 @@
 
 Create one record per externally testable claim. Include every contract field and classify its provenance with `source_kind`: `vendor_documentation`, `standard`, `direct_observation`, `original_research`, or `secondary_context`. Use `null` for an unknown source publication/update date; never infer it. Use explicit `engine`, `surface`, and `locale`, or `not_applicable` when genuinely outside those dimensions. Keep conflicting sources as separate records and prefer the current primary source only for present-tense guidance. Phrase every conclusion no more strongly than its weakest necessary premise.
 
-Every claim must have one raw reference per claim in `raw_evidence_ref`, resolving to a regular file under `raw/`. Preserve the minimum excerpt needed for audit, comply with copyright limits, and redact secrets, personal data, account identifiers, and sensitive prompt content.
+Every Research Pack `1.1.0` claim must have one raw reference per claim in `raw_evidence_ref` plus its exact `raw_evidence_sha256`, resolving to a regular file under `raw/`. Competitor observations and ground-truth provenance receive the same hash binding. Preserve the minimum excerpt needed for audit, comply with copyright limits, and redact secrets, personal data, account identifiers, and sensitive prompt content.
 
 `related_claim_ids` must contain only `claim_id` values from existing `evidence[]` records. Use it to link a `stale_input` gap to the stale evidence record. For a missing or unsupported claim with no evidence record, leave `related_claim_ids` empty and describe the gap; never invent a claim ID.
 

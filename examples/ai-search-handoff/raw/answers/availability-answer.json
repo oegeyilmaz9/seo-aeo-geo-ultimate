@@ -1,0 +1,47 @@
+{
+  "query_id": "example-turkey-availability-query",
+  "engine": "google",
+  "surface": "ai-overview",
+  "locale": "en-US",
+  "observed_at": "2026-08-09T12:30:00Z",
+  "access_status": "observed",
+  "disclosed_model": null,
+  "collection_method": "Manual fresh-session collection with retrieval details recorded where disclosed.",
+  "answer": "Example is available in Turkey.",
+  "citations": [
+    "https://example.com/docs/availability"
+  ],
+  "repeat_index": 0,
+  "conversation_id": "example-baseline-conversation",
+  "turn_index": 0,
+  "user_location": {
+    "country": "TR",
+    "region": "Istanbul",
+    "city": "Istanbul"
+  },
+  "device": "desktop",
+  "authenticated": null,
+  "personalization": "unknown",
+  "retrieval_mode": "live-web",
+  "executed_queries": [
+    "Is Example available in Turkey?"
+  ],
+  "consulted_sources": [
+    {
+      "url": "https://example.com/docs/availability",
+      "title": "Example availability documentation",
+      "cited": true
+    }
+  ],
+  "citation_claims": [
+    {
+      "claim_id": "availability-citation-claim",
+      "citation_url": "https://example.com/docs/availability",
+      "claim": "Example is available in Turkey.",
+      "cited_text": "The availability documentation directly states the supported market fact.",
+      "verdict": "supported",
+      "review_ref": "raw/reviews/citation-claim.json",
+      "review_sha256": "efdfb7c6797c5905df17008ec7f88e77ba529b6e8bebd2d4487d1a91ce32e854"
+    }
+  ]
+}

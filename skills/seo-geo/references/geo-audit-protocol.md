@@ -20,6 +20,18 @@ Resolve material claims to source records compatible with the finding's engine, 
 
 Assess whether a supplied source directly and clearly supports the in-scope entity or fact. This is source-quality analysis, not a prediction that an engine will cite it. Avoid passage-length formulas and universal source hierarchies.
 
+### Source credibility
+
+Record the publisher/entity, ownership, author or accountable reviewer when supplied, primary versus secondary role, expertise or first-party system-of-record relationship, publication/update date, independence/conflicts, locale/scope, correction/version history, and limitations. A backlink count or proprietary authority metric cannot replace this evidence.
+
+### Claim-source entailment
+
+Bind one bounded answer claim to the exact supplied cited/candidate text and classify support as direct, partial, unsupported, conflicting, or unverifiable. Citation presence, retrieval, or topical similarity alone is insufficient. When a Visibility Run `2.0.0` citation-claim review exists, reuse its immutable review evidence rather than silently changing the verdict.
+
+### Conflict resolution
+
+Keep conflicting sources as separate records. Name the applicable system of record, market/locale/time scope, decision owner, and unresolved facts. Do not resolve a conflict by choosing the most convenient or highest-scored domain.
+
 ### Cited-source alignment
 
 Use a metadata-bound `content_set` target whose JSON capture lives under `raw/observations/`. Require exactly: `observed_at`, `engine`, `surface`, `locale`, `access_status`, `answer`, `mentioned_entities`, `cited_urls`, and `collection_method`. Require a timezone-aware `observed_at` no later than the metadata `captured_at`, and `captured_at` no later than Brief creation. Also require `access_status=observed`, a non-empty answer, matching finding scope, and at least one HTTPS cited URL that equals a source URL in the finding's referenced Research Pack evidence. A normal page, arbitrary file, brand mention, empty citation list, unrelated URL, or impossible chronology cannot be relabeled as cited-source alignment evidence.

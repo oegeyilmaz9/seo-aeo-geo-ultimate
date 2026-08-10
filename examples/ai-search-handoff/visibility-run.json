@@ -1,0 +1,104 @@
+{
+  "schema_version": "2.0.0",
+  "run_id": "example-visibility-baseline",
+  "research_id": "example-ai-search-research",
+  "research_ref": "research-pack.json",
+  "research_sha256": "3d00529ee971dc82fa21af0b3e028f930effa9166d0fe988db71556ac01ff703",
+  "created_at": "2026-08-09T14:00:00Z",
+  "mode": "baseline",
+  "interpretation_type": "observational_association",
+  "causal_claim": false,
+  "corpus_ref": "query-corpus.json",
+  "corpus_sha256": "770a04269b2f09f388bb2dd046000b00103369216a2c8669e0e3353de3bd98cf",
+  "collection_profile": {
+    "planned_repeats": 1,
+    "completed_repeats": 1,
+    "confidence_method": "none",
+    "confidence_level": null,
+    "fresh_session_per_repeat": true
+  },
+  "prior_run_id": null,
+  "prior_run_ref": null,
+  "prior_run_sha256": null,
+  "referral_data_ref": null,
+  "referral_data_sha256": null,
+  "observations": [
+    {
+      "observation_id": "example-availability-observation",
+      "query_id": "example-turkey-availability-query",
+      "repeat_index": 0,
+      "engine": "google",
+      "surface": "ai-overview",
+      "locale": "en-US",
+      "observed_at": "2026-08-09T12:30:00Z",
+      "access_status": "observed",
+      "raw_answer_ref": "raw/answers/availability-answer.json",
+      "raw_answer_sha256": "dce2ae103fd0cd036eecc580e4f96871296598d2fea841d2d8e4c9a5ecfb0289",
+      "access_attempt_ref": null,
+      "access_attempt_sha256": null,
+      "mentioned_entities": [
+        "example-platform"
+      ],
+      "raw_cited_urls": [
+        "https://example.com/docs/availability"
+      ],
+      "canonical_cited_urls": [
+        "https://example.com/docs/availability"
+      ],
+      "disclosed_model": null,
+      "collection_method": "Manual fresh-session collection with retrieval details recorded where disclosed.",
+      "conversation_id": "example-baseline-conversation",
+      "turn_index": 0,
+      "user_location": {
+        "country": "TR",
+        "region": "Istanbul",
+        "city": "Istanbul"
+      },
+      "device": "desktop",
+      "authenticated": null,
+      "personalization": "unknown",
+      "retrieval_mode": "live-web",
+      "executed_queries": [
+        "Is Example available in Turkey?"
+      ],
+      "consulted_sources": [
+        {
+          "url": "https://example.com/docs/availability",
+          "title": "Example availability documentation",
+          "cited": true
+        }
+      ],
+      "citation_claims": [
+        {
+          "claim_id": "availability-citation-claim",
+          "citation_url": "https://example.com/docs/availability",
+          "claim": "Example is available in Turkey.",
+          "cited_text": "The availability documentation directly states the supported market fact.",
+          "verdict": "supported",
+          "review_ref": "raw/reviews/citation-claim.json",
+          "review_sha256": "efdfb7c6797c5905df17008ec7f88e77ba529b6e8bebd2d4487d1a91ce32e854"
+        }
+      ]
+    }
+  ],
+  "scores": [],
+  "accuracy_checks": [
+    {
+      "check_id": "example-availability-accuracy-check",
+      "fact_id": "example-turkey-availability-fact",
+      "observation_id": "example-availability-observation",
+      "observed_claim": "Example is available in Turkey.",
+      "verdict": "correct",
+      "review_method": "Exact comparison with the pinned Research Pack fact.",
+      "evidence": [
+        "research-pack.json#example-turkey-availability-fact"
+      ],
+      "review_ref": null,
+      "review_sha256": null
+    }
+  ],
+  "drift": [],
+  "limitations": [
+    "This single observational collection is not a causal result or a visibility guarantee."
+  ]
+}

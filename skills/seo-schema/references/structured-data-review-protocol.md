@@ -12,6 +12,10 @@ For every emitted property record the schema path, value, source location or app
 
 Report each result separately. “Valid JSON-LD” is not synonymous with “eligible,” and “eligible” is not a display guarantee.
 
+## Feature lifecycle
+
+Require a current passing Platform Controls registry or refresh primary documentation. Record `current`, `preview`, `deprecated`, or `removed`, effective date when applicable, market/locale, and affected templates. A removed enhancement must not be presented as active even when truthful Schema.org vocabulary remains useful to another consumer.
+
 ## Release safety
 
 Use an approved template/data owner, deployment scope, test URL, rendering check, monitoring window, and rollback. Treat reviews, prices, availability, identity, regulated data, and personalization as high-scrutiny fields.

@@ -1,0 +1,9 @@
+{
+  "target_id": "availability-page",
+  "target_type": "web_page",
+  "locale": "en-US",
+  "source_url": "https://example.com/docs/availability",
+  "capture_ref": "raw/targets/availability.html",
+  "capture_sha256": "9d93be4f7a34d2db5ba2878475455c7d24c06988ec71ecf5b982a841171e1975",
+  "captured_at": "2026-08-09T11:00:00Z"
+}

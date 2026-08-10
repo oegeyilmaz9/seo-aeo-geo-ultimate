@@ -4,6 +4,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import math
 import re
 import shutil
 import sys
@@ -18,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "ai-search-research"
 CANON = ROOT / "manifests" / "artifact-schemas"
 CONTRACTS = SKILL / "references" / "contracts"
-SCHEMAS = ("evidence-record.schema.json", "research-pack.schema.json")
+SCHEMAS = ("evidence-record.schema.json", "research-pack.schema.json", "query-corpus.schema.json")
 LOCK_VERSION = "1.0.0"
 TOOL_VERSION = "1.0.0"
 ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]{2,63}$")
@@ -105,6 +106,12 @@ def json_equal(left: object, right: object) -> bool:
     return left == right
 
 
+def finite_number(value: object) -> bool:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return False
+    return not isinstance(value, float) or math.isfinite(value)
+
+
 def type_matches(value: object, expected: str) -> bool:
     checks = {
         "null": lambda: value is None,
@@ -113,7 +120,7 @@ def type_matches(value: object, expected: str) -> bool:
         "array": lambda: isinstance(value, list),
         "string": lambda: isinstance(value, str),
         "integer": lambda: isinstance(value, int) and not isinstance(value, bool),
-        "number": lambda: isinstance(value, (int, float)) and not isinstance(value, bool),
+        "number": lambda: finite_number(value),
     }
     return expected in checks and checks[expected]()
 
@@ -285,6 +292,30 @@ def validate_bundle_reference(value: object, field: str, bundle: Path, errors: l
         errors.append(f"{field} does not resolve")
     elif not candidate.is_file():
         errors.append(f"{field} must resolve to a regular file")
+
+
+def validate_hash_bound_reference(
+    reference: object,
+    sha256: object,
+    reference_field: str,
+    sha_field: str,
+    bundle: Path,
+    required: bool,
+    errors: list[str],
+) -> None:
+    candidate = resolve_relative(bundle, reference, reference_field, errors)
+    if candidate is None:
+        return
+    if not candidate.exists():
+        errors.append(f"{reference_field} does not resolve")
+        return
+    if not candidate.is_file():
+        errors.append(f"{reference_field} must resolve to a regular file")
+        return
+    if required and not isinstance(sha256, str):
+        errors.append(f"{sha_field} is required by Research Pack 1.1.0")
+    elif sha256 is not None and digest(candidate) != sha256:
+        errors.append(f"{reference_field} hash mismatch")
 
 
 def contract_payloads() -> dict[str, bytes]:
@@ -511,6 +542,7 @@ def validate_skill() -> None:
         "references/capture-protocol.md",
         "references/contracts/evidence-record.schema.json",
         "references/contracts/research-pack.schema.json",
+        "references/contracts/query-corpus.schema.json",
         "references/contracts/contracts-lock.json",
     }
     actual = {path.relative_to(SKILL).as_posix() for path in SKILL.rglob("*") if path.is_file()}
@@ -589,6 +621,7 @@ def validate_pack(path: Path, bundle: Path, now: dt.datetime) -> None:
         die(schema_errors)
 
     utc(data["created_at"], "$.created_at", errors)
+    legacy = data.get("schema_version") == "1.0.0"
     locales = data["locales"]
     if any(not LOCALE_RE.fullmatch(locale) for locale in locales):
         errors.append("$.locales must contain explicit locale codes")
@@ -639,7 +672,10 @@ def validate_pack(path: Path, bundle: Path, now: dt.datetime) -> None:
     }
     for index, item in enumerate(data["evidence"]):
         where = f"$.evidence[{index}]"
-        validate_bundle_reference(item["raw_evidence_ref"], f"{where}.raw_evidence_ref", bundle, errors)
+        validate_hash_bound_reference(
+            item["raw_evidence_ref"], item.get("raw_evidence_sha256"), f"{where}.raw_evidence_ref",
+            f"{where}.raw_evidence_sha256", bundle, not legacy, errors,
+        )
         accessed = utc(item["accessed_at"], f"{where}.accessed_at", errors)
         if item["source_published_or_updated_at"] is not None:
             utc(
@@ -663,7 +699,10 @@ def validate_pack(path: Path, bundle: Path, now: dt.datetime) -> None:
 
     for index, item in enumerate(data["competitor_observations"]):
         where = f"$.competitor_observations[{index}]"
-        validate_bundle_reference(item["raw_observation_ref"], f"{where}.raw_observation_ref", bundle, errors)
+        validate_hash_bound_reference(
+            item["raw_observation_ref"], item.get("raw_observation_sha256"), f"{where}.raw_observation_ref",
+            f"{where}.raw_observation_sha256", bundle, not legacy, errors,
+        )
         observed = utc(item["observed_at"], f"{where}.observed_at", errors)
         if observed is None:
             continue
@@ -684,7 +723,10 @@ def validate_pack(path: Path, bundle: Path, now: dt.datetime) -> None:
 
     for index, item in enumerate(data["ground_truth"]):
         where = f"$.ground_truth[{index}]"
-        validate_bundle_reference(item["provenance_ref"], f"{where}.provenance_ref", bundle, errors)
+        validate_hash_bound_reference(
+            item["provenance_ref"], item.get("provenance_sha256"), f"{where}.provenance_ref",
+            f"{where}.provenance_sha256", bundle, not legacy, errors,
+        )
         utc(item["valid_from"], f"{where}.valid_from", errors)
         if item["valid_until"] is not None:
             utc(item["valid_until"], f"{where}.valid_until", errors)

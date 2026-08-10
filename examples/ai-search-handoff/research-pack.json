@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.1.0",
+  "research_id": "example-ai-search-research",
+  "created_at": "2026-08-09T10:30:00Z",
+  "scope": "Sanitized evidence for one availability question on one declared AI-search surface.",
+  "locales": [
+    "en-US"
+  ],
+  "engines": [
+    {
+      "engine": "google",
+      "surfaces": [
+        "ai-overview"
+      ],
+      "locales": [
+        "en-US"
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "example-platform",
+      "name": "Example",
+      "entity_type": "software_platform",
+      "aliases": [
+        "Example Platform"
+      ],
+      "ambiguities": []
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "example-turkey-availability-query",
+      "text": "Is Example available in Turkey?",
+      "locale": "en-US",
+      "intent": "Verify product availability in a declared market.",
+      "audience": "buyer",
+      "journey_stage": "trust",
+      "target_entities": [
+        "example-platform"
+      ],
+      "applicability": [
+        {
+          "engine": "google",
+          "surface": "ai-overview"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "example-turkey-availability",
+      "claim": "Example is available in Turkey.",
+      "classification": "confirmed",
+      "source_kind": "vendor_documentation",
+      "engine": "google",
+      "surface": "ai-overview",
+      "locale": "en-US",
+      "source_title": "Example availability documentation",
+      "source_url": "https://example.com/docs/availability",
+      "source_published_or_updated_at": "2026-08-09T09:00:00Z",
+      "accessed_at": "2026-08-09T09:00:00Z",
+      "raw_evidence_ref": "raw/research-source.json",
+      "raw_evidence_sha256": "6846a8a0f8a200904e56d254d9bd0d68a2e90ec894c9a22d5503a5e14b6de8c8",
+      "observation_method": "Reviewed the supplied sanitized first-party source capture.",
+      "limitations": [
+        "The source supports availability only for the declared market and observation date."
+      ]
+    }
+  ],
+  "competitor_observations": [
+    {
+      "observation_id": "example-ai-overview-observation",
+      "raw_observation_ref": "raw/engine-observation.json",
+      "raw_observation_sha256": "ec533c2c8482acf029b670fe6066788960f8ae45c18418674754a44a5beabeaa",
+      "engine": "google",
+      "surface": "ai-overview",
+      "locale": "en-US",
+      "observed_at": "2026-08-09T10:00:00Z",
+      "mentioned_entities": [
+        "example-platform"
+      ],
+      "cited_urls": [
+        "https://example.com/docs/availability"
+      ]
+    }
+  ],
+  "ground_truth": [
+    {
+      "fact_id": "example-turkey-availability-fact",
+      "accepted_value": "Example is available in Turkey.",
+      "provenance_ref": "raw/ground-truth.json",
+      "provenance_sha256": "010ed472aaa676d5bd3b778056d9d8ce62e91e4af0ef0e66cf60eda28b85520c",
+      "valid_from": "2026-08-09T09:00:00Z",
+      "valid_until": null
+    }
+  ],
+  "gaps": []
+}
