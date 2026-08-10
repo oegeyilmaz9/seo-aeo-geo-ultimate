@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  schedule:
+    # Re-run source and platform-control freshness checks even when the repository is quiet.
+    - cron: '17 6 * * 1'
 
 permissions:
   contents: read
@@ -14,6 +17,8 @@ jobs:
     name: Python 3.11
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -34,3 +39,77 @@ jobs:
 
       - name: Run isolated evaluation suite
         run: python scripts/run_tests.py
+
+  freshness-alert:
+    name: Scheduled freshness alert
+    if: ${{ always() && github.event_name == 'schedule' }}
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Open, update, or close the deduplicated review issue
+        uses: actions/github-script@v7
+        env:
+          VALIDATION_RESULT: ${{ needs.validate.result }}
+        with:
+          script: |
+            const title = '[automation] Source and platform review required';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const candidates = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              per_page: 100,
+            });
+            const existing = candidates.find((item) => !item.pull_request && item.title === title);
+            const failed = process.env.VALIDATION_RESULT !== 'success';
+
+            if (failed) {
+              const body = [
+                'The scheduled suite validation did not pass.',
+                '',
+                `Result: **${process.env.VALIDATION_RESULT}**`,
+                `Run: ${runUrl}`,
+                '',
+                'Review dated source evidence and platform-control freshness first, then inspect any other failed gate in the run.',
+              ].join('\n');
+              if (!existing) {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  body,
+                });
+              } else if (existing.state === 'closed') {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existing.number,
+                  state: 'open',
+                  body,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existing.number,
+                  body: `Scheduled validation still requires review: ${runUrl}`,
+                });
+              }
+            } else if (existing?.state === 'open') {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `Scheduled validation passed; closing this automation issue. ${runUrl}`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                state: 'closed',
+              });
+            }
