@@ -26,6 +26,7 @@ IDENTITY_FIELDS = (
     "registry_id",
     "finding_set_id",
     "plan_id",
+    "receipt_id",
 )
 COLLECTIONS = (
     "entities",
@@ -55,6 +56,7 @@ COLLECTIONS = (
     "actions",
     "declined_claims",
     "declined_actions",
+    "outcomes",
 )
 
 
@@ -91,6 +93,8 @@ def infer_type(payload: dict[str, Any]) -> str:
         return "seo-performance-run"
     if "run_id" in payload and "research_ref" in payload:
         return "visibility-run"
+    if "receipt_id" in payload and "provider" in payload and "operation" in payload:
+        return "provider-operation-receipt"
     raise RenderError("cannot infer artifact type; pass --type explicitly")
 
 
@@ -147,6 +151,8 @@ def validator_command(
         script, verb = "validate_seo_findings.py", "validate-findings"
     elif artifact_type == "action-plan":
         script, verb = "validate_seo_action_plan.py", "validate-plan"
+    elif artifact_type == "provider-operation-receipt":
+        script, verb = "validate_provider_operation.py", "validate-receipt"
     else:
         raise RenderError(f"{artifact_type} has no standalone semantic validator and cannot be labelled validated")
     return command + [str(ROOT / "scripts" / script), verb, str(artifact), "--bundle", str(bundle)]
@@ -225,6 +231,7 @@ def item_title(item: dict[str, Any], index: int) -> str:
         "change_id",
         "capability_id",
         "declined_id",
+        "kind",
     ):
         value = item.get(field)
         if isinstance(value, str) and value:
@@ -337,7 +344,7 @@ def render_report(
         f"| Artifact type | `{artifact_type}` |",
         f"| Artifact ID | `{markdown(identifier)}` |",
         f"| Schema version | `{markdown(payload.get('schema_version', 'not-versioned'))}` |",
-        f"| Created at | {markdown(payload.get('created_at'))} |",
+        f"| Created at | {markdown(payload.get('created_at', payload.get('recorded_at')))} |",
         f"| Producer | {markdown(payload.get('producer_skill'))} |",
         f"| Mode | {markdown(payload.get('mode'))} |",
         f"| SHA-256 | `{checksum}` |",
@@ -419,6 +426,7 @@ def main() -> int:
             "platform-controls",
             "seo-findings",
             "action-plan",
+            "provider-operation-receipt",
         ),
         dest="artifact_type",
     )

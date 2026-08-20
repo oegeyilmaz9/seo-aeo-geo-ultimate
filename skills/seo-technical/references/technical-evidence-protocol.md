@@ -2,11 +2,11 @@
 
 ## Capture set
 
-For a URL-level finding, retain the requested URL, final URL, time, HTTP status, relevant headers, raw body or immutable capture reference, rendered capture when relevant, canonical/robots values, sitemap/internal-link evidence, device/locale, and collection limitations.
+For a URL-level finding, retain the requested URL, final URL, time, HTTP status, relevant headers, raw body or immutable capture reference, rendered capture when relevant, hosting/CDN identity, canonical/robots values, sitemap/internal-link evidence, device/locale, and collection limitations. For hostname identity, also retain the home-page icon declaration, resolved favicon response/content type/dimensions, approved asset identity, and crawl-control evidence. Name the layer each observation proves.
 
 ## Recommendation format
 
-Write: observation; expected state; affected scope; evidence; risk; owner; exact target state; validation capture; rollback; and any approval/dependency. A recommendation is incomplete when it cannot distinguish a confirmed implementation defect from an untested hypothesis.
+Write: observation; expected state; affected scope and verification universe; evidence and layer; adjudication status; risk; owner; exact target state; validation capture; rollback; and any approval/dependency. A recommendation is incomplete when it cannot distinguish a confirmed implementation defect from a layer mismatch, supported opportunity, false positive, or untested hypothesis.
 
 ## Cautions
 

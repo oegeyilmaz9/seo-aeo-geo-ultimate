@@ -17,6 +17,14 @@
       "schema_version": "1.0.0",
       "canonical_sha256": "8c4b06f86b9c5f8278a2e0df6d1b0ef3075356969618c11d1c578e843c66a89b",
       "generated_sha256": "8c4b06f86b9c5f8278a2e0df6d1b0ef3075356969618c11d1c578e843c66a89b"
+    },
+    {
+      "canonical_path": "manifests/artifact-schemas/provider-operation-receipt.schema.json",
+      "generated_path": "references/contracts/provider-operation-receipt.schema.json",
+      "schema_id": "https://oegeyilmaz9.github.io/seo-aeo-geo-ultimate/schemas/provider-operation-receipt/1.0.0",
+      "schema_version": "1.0.0",
+      "canonical_sha256": "308ff06145ca7018883d6528660fb308e6d42aaaf142ea7015d9b299057f0c79",
+      "generated_sha256": "308ff06145ca7018883d6528660fb308e6d42aaaf142ea7015d9b299057f0c79"
     }
   ]
 }

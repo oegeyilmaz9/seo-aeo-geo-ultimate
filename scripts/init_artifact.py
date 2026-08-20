@@ -32,6 +32,7 @@ BUNDLE_PROFILES: dict[str, tuple[str, ...]] = {
     "ai-search": ("research-pack", "query-corpus", "optimization-brief", "visibility-run", "action-plan"),
     "architecture": ("query-corpus", "site-graph", "seo-findings", "action-plan"),
     "technical": ("platform-controls", "seo-findings", "action-plan"),
+    "provider-operation": ("provider-operation-receipt",),
 }
 
 

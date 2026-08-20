@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO Router"
-  short_description: "Your front door for SEO, AEO, GEO, and AI-search work"
-  default_prompt: "Use $seo as the default entry point for this SEO, AEO, GEO, or AI-search request. Identify the outcome and scope, route it to the smallest correct specialist workflow, phase optimize-and-track work as research -> audit -> baseline measurement -> action planning -> approved implementation -> comparison measurement, and preserve evidence and ownership boundaries."
+  short_description: "One request, full SEO and AI-search orchestration"
+  default_prompt: "Use $seo to own this request end to end: infer the required SEO, AEO, GEO, and AI-search work from my plain-language goal, screen all 27 skills, execute every applicable specialist workflow, carry evidence and handoffs internally, and return one consolidated result to the authorized boundary."

@@ -14,7 +14,7 @@ VALIDATOR = ROOT / "scripts" / "validate_suite.py"
 class SuiteValidatorTests(unittest.TestCase):
     def test_suite_passes_on_review_date(self) -> None:
         completed = subprocess.run(
-            [sys.executable, str(VALIDATOR), "--as-of", "2026-08-10"],
+            [sys.executable, str(VALIDATOR), "--as-of", "2026-08-20"],
             check=False,
             capture_output=True,
             text=True,
@@ -26,7 +26,16 @@ class SuiteValidatorTests(unittest.TestCase):
         manifest = json.loads((ROOT / "manifests" / "suite.json").read_text(encoding="utf-8"))
         self.assertEqual(
             set(manifest["tools"]),
-            {"artifact-scaffold", "artifact-migrate", "artifact-report", "data-import", "runtime-install"},
+            {
+                "artifact-scaffold",
+                "artifact-migrate",
+                "artifact-report",
+                "data-import",
+                "runtime-install",
+                "provider-operation-validate",
+                "live-release-verify",
+                "orchestration-ledger",
+            },
         )
         for entry in manifest["tools"].values():
             self.assertTrue((ROOT / entry["path"]).is_file())

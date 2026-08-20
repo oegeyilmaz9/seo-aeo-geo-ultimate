@@ -1,13 +1,14 @@
 # SEO-AEO-GEO Ultimate
 
-> An evidence-first SEO, AEO, GEO, AI-search, commerce, local, video, architecture, authority, and measurement skill suite for Codex and Claude Code.
+> An autonomous, evidence-first SEO, AEO, GEO, and AI-search orchestration suite for Codex and Claude Code.
 
-Version 3.0.0. Start with the SEO router. The repository is licensed under Apache-2.0, and formal validators require Python 3.11 or later.
+Version 3.1.0. Start with the SEO router. The repository is licensed under Apache-2.0, and formal validators require Python 3.11 or later.
 
 ## Start here
 
 - [Project README](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/README.md): Installation, router usage, capability map, artifacts, validation, and license.
-- [SEO router](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo/SKILL.md): Default routing workflow for the complete suite.
+- [SEO router](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo/SKILL.md): Autonomous core that screens all 27 skills, executes applicable specialist workflows, and consolidates the result.
+- [Autonomous orchestration](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/AUTONOMOUS-ORCHESTRATION.md): Manifest-derived coverage ledger, terminal-state checks, runtime paths, and user-burden boundary.
 - [Technical SEO](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-technical/SKILL.md): Crawl, rendering, indexation, crawler-control, and maintained llms.txt workflows.
 
 ## Evidence protocols
@@ -15,6 +16,8 @@ Version 3.0.0. Start with the SEO router. The repository is licensed under Apach
 - [SEO Findings](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/SEO-FINDINGS-PROTOCOL.md): Evidence-bound conventional and specialist SEO handoff.
 - [Query Corpus](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/QUERY-CORPUS-PROTOCOL.md): User-need, observed-query, AI-prompt, and executed-subquery contract.
 - [SEO Performance](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/SEO-PERFORMANCE-PROTOCOL.md): Conventional search measurement and comparison contract.
+- [Provider Operations](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/PROVIDER-OPERATIONS.md): Mutation-time authorization, property identity, receipt, and delayed outcome boundaries.
+- [Live Release Verification](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/LIVE-RELEASE-VERIFICATION.md): Exact-candidate sitemap, document, redirect, shared-surface, retry, and failure checks.
 - [Platform Controls](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/PLATFORM-CONTROLS.md): Dated platform, crawler, notification, and protocol decisions.
 - [llms.txt publisher guide](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-technical/references/llms-txt-protocol.md): Optional generation, validation, publication, and maintenance profile.
 

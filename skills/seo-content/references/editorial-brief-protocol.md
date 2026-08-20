@@ -2,7 +2,7 @@
 
 ## Minimum brief fields
 
-Record the page/asset, target locale, reader task, page purpose, proposed decision or answer, source-backed claim ledger, required original evidence, structure, internal destinations, media/accessibility needs, CTA, owner, reviewers, and acceptance criteria.
+Record the page/asset, target locale, reader task, page purpose, primary need/query family, natural supporting language, proposed decision or answer, source-backed claim ledger, required original evidence, structure, internal destinations, media/accessibility needs, title/meta candidates when in scope, CTA, owner, reviewers, and acceptance criteria.
 
 ## Claim ledger
 
@@ -16,6 +16,7 @@ For each claim, label it `verified fact`, `approved positioning`, `customer proo
 - Links resolve to useful pages and have meaningful purpose.
 - Headings, tables, images, captions, and controls remain understandable in a rendered mobile view and to assistive technology.
 - The draft does not make ranking, citation, availability, legal, medical, financial, or performance promises that the source does not support.
+- Any title/meta candidate is page-specific, fact-supported, semantically complete for the searcher's decision, and checked against the affected page set for duplication; no fixed character count substitutes for this review.
 
 ## Measurement note
 

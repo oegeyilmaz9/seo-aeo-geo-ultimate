@@ -1,11 +1,11 @@
 cff-version: 1.2.0
 message: "If you use SEO-AEO-GEO Ultimate in your work, please cite it using this metadata."
 title: "SEO-AEO-GEO Ultimate"
-abstract: "Evidence-first SEO, AEO, GEO, and AI-search workflows for Codex and Claude Code."
+abstract: "An autonomous, evidence-first SEO, AEO, GEO, and AI-search orchestration suite for Codex and Claude Code."
 authors:
   - name: "Oegeyilmaz9"
-version: "3.0.0"
-date-released: "2026-08-10"
+version: "3.1.0"
+date-released: "2026-08-20"
 license: "Apache-2.0"
 repository-code: "https://github.com/oegeyilmaz9/seo-aeo-geo-ultimate"
 keywords:

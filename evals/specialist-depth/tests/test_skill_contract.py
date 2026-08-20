@@ -100,8 +100,8 @@ class SpecialistDepthContractTests(unittest.TestCase):
             (
                 "data dictionary and provenance",
                 "normal, sparse-data, conflicting-data, locale, outlier, and deprecation cases",
-                "noindex/withhold conditions",
-                "owned, reversible cohort",
+                "explicit index/noindex/redirect/withhold conditions",
+                "owned reversible cohort",
                 "Do not use word counts",
             ),
         )

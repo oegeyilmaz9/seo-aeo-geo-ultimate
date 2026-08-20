@@ -1,5 +1,5 @@
 {
-  "suite_version": "3.0.0",
+  "suite_version": "3.1.0",
   "contract_generation_tool_version": "1.0.0",
   "canonical_schema_root": "manifests/artifact-schemas",
   "schemas": {
@@ -12,7 +12,8 @@
     "site-graph": "site-graph.schema.json",
     "platform-controls": "platform-controls.schema.json",
     "seo-findings": "seo-findings.schema.json",
-    "action-plan": "action-plan.schema.json"
+    "action-plan": "action-plan.schema.json",
+    "provider-operation-receipt": "provider-operation-receipt.schema.json"
   },
   "file_outputs": {
     "llms-txt": {
@@ -42,6 +43,18 @@
     "runtime-install": {
       "path": "scripts/install_runtime.py",
       "purpose": "Install and verify the shared skills plus their immutable validator support package for Codex."
+    },
+    "provider-operation-validate": {
+      "path": "scripts/validate_provider_operation.py",
+      "purpose": "Validate property identity, mutation authorization, target scope, provider response, and delayed outcome boundaries."
+    },
+    "live-release-verify": {
+      "path": "scripts/verify_live_release.py",
+      "purpose": "Compare an exact released candidate with its expected live sitemap, document, redirect, and shared-surface contract."
+    },
+    "orchestration-ledger": {
+      "path": "scripts/manage_orchestration_ledger.py",
+      "purpose": "Create and validate a manifest-derived coverage ledger proving that the autonomous router screened every current suite skill."
     }
   },
   "skills": {
@@ -67,7 +80,7 @@
     },
     "seo": {
       "produces": [],
-      "consumes": ["research-pack", "query-corpus", "visibility-run", "seo-performance-run", "site-graph", "platform-controls"],
+      "consumes": ["evidence-record", "research-pack", "query-corpus", "optimization-brief", "visibility-run", "seo-performance-run", "site-graph", "platform-controls", "seo-findings", "action-plan", "provider-operation-receipt"],
       "generated_contract_root": "skills/seo/references/contracts"
     },
     "seo-action-plan": {
@@ -138,7 +151,7 @@
       "generated_contract_root": "skills/seo-research/references/contracts"
     },
     "seo-performance": {
-      "produces": ["seo-performance-run"],
+      "produces": ["seo-performance-run", "provider-operation-receipt"],
       "consumes": ["query-corpus"],
       "generated_contract_root": "skills/seo-performance/references/contracts"
     },

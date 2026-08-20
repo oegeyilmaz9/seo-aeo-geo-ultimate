@@ -6,7 +6,7 @@
     <td valign="middle">
       <h1>SEO-AEO-GEO Ultimate</h1>
       <p><strong>A complete, evidence-first SEO, AEO, GEO, and AI-search skill suite for Codex and Claude Code.</strong></p>
-      <p>Start with one router. Move from a real question to focused research, a reviewable finding, a measurable plan, and an approved change.</p>
+      <p>Start with one router. Move from a real question to evidence, an owned decision, an accepted candidate, verified delivery, and separately observed search outcomes.</p>
     </td>
   </tr>
 </table>
@@ -19,13 +19,13 @@
 
 ## One request. The right workflow.
 
-SEO work rarely arrives neatly labelled. “Why are we absent from AI answers?” may need source research, a prompt corpus, or repeated surface observations. “Improve this site” may need content, architecture, technical, commerce, local, video, or authority work. SEO-AEO-GEO Ultimate starts from one router, finds the smallest useful lane, and keeps evidence, ownership, approval, and follow-up connected.
+SEO work rarely arrives neatly labelled. “Why are we absent from AI answers?” may need source research, a prompt corpus, or repeated surface observations. “Improve this site” may need content, architecture, technical, commerce, local, video, or authority work. SEO-AEO-GEO Ultimate starts from one autonomous router, screens all 27 skills, runs every applicable specialist workflow, and keeps evidence, ownership, approval, and follow-up connected without making the user coordinate the system.
 
 | Instead of | You get |
 | --- | --- |
-| Choosing a specialist before you know what the job really is | One router that sends the request to the smallest useful workflow |
+| Choosing specialists or learning SEO/AEO/GEO terminology before you can ask for help | One router that translates a plain-language goal into a complete 27-skill coverage screen and executes the applicable workflow |
 | Treating technical SEO, answer readiness, entity evidence, commerce, local, and measurement as one vague task | A clear scope, evidence standard, owner, and next handoff for each lane |
-| Shipping a tactic because it sounds current | A decision trail with verification and rollback when risk calls for it |
+| Shipping a tactic because it sounds current | A product-owned decision trail with independent implementation, release, provider-operation, verification, and rollback boundaries |
 | Calling a later mention, citation, or traffic shift proof | A comparable observation with its limits stated clearly |
 
 The result is a practical operating system for search and AI visibility: broad enough for a serious site, structured enough for a team to review, and modular enough to use one skill at a time.
@@ -34,7 +34,7 @@ The result is a practical operating system for search and AI visibility: broad e
 
 ## Start with the router
 
-You do not need to memorize the internal map. Start with the `seo` router and name the outcome you want.
+You do not need to memorize the internal map, know whether the problem is SEO/AEO/GEO, invoke another skill, or move artifacts between agents. Start with the `seo` router and name the outcome you want. The router owns specialist selection, sequencing, evidence handoffs, reconciliation, and the final consolidated answer.
 
 | Runtime | Router invocation |
 | --- | --- |
@@ -43,17 +43,21 @@ You do not need to memorize the internal map. Start with the `seo` router and na
 
 ```text
 Audit our Turkish pricing page and tell us what to fix first.
+Find the strongest evidence-backed keyword opportunities, map each to one page, and complete title, meta description, and favicon delivery.
+Build a two-track organic-growth plan: capture near-term wins and pursue leading positions for our highest-relevant-volume category terms without quietly deferring the hard targets.
 Make our documentation ready for AI search.
 Create and validate a maintained llms.txt from our public documentation.
 Find out why our brand is absent from a specific AI-search surface.
 Turn these validated findings into an approval-ready implementation plan.
+Deploy this accepted candidate, verify the full affected route class, and keep provider submission separate from indexing outcome.
 ```
 
-The router is not a generic audit that tries to do everything itself. It reads the request, picks the right specialist, and keeps the handoff clear. Direct specialist calls remain available when you already know the exact lane.
+The router is not a menu and does not stop after naming the next specialist. It screens all 27 suite skills, loads and executes every applicable specialist workflow, continues through safe and authorized phases, and returns one result. Direct specialist calls remain available for expert users who deliberately want one exact lane.
 
 | You ask for | The router starts with |
 | --- | --- |
 | Search intent, competitors, or audience questions | `seo-research` |
+| The best query opportunities, high-volume category leadership, near wins, CTR/snippet gaps, or query-to-page ownership | `seo-research`, then the required page/content/authority/architecture owners |
 | Engine or surface-specific AI-search evidence | `ai-search-research` |
 | Direct-answer clarity and extractability | `seo-aeo` |
 | Entity, source, citation, or documented engine controls | `seo-geo` |
@@ -63,7 +67,10 @@ The router is not a generic audit that tries to do everything itself. It reads t
 | Products, merchants, local presence, video, news, or Discover | The matching vertical specialist |
 | Agent-readable journeys, delegated actions, or commerce protocols | `seo-agentic` |
 | Crawlability, rendering, schema, sitemaps, images, hreflang, or a maintained `llms.txt` | The matching technical specialist |
+| Missing/wrong search-result favicon or incomplete hostname identity | `seo-technical` with live `site_identity` verification |
 | A multi-owner plan or scoped authorized change | `seo-action-plan`, then the exact implementation owner |
+| An authorized release and scope-matched live closeout | `optimise-seo` with `seo-technical` verification |
+| An authorized Search Console, Bing, or IndexNow mutation | `seo-performance` provider-operations mode with a separate receipt |
 
 ## Install on Codex
 
@@ -154,14 +161,19 @@ flowchart LR
   Q["SEO or AI-search question"] --> R["seo routes the work"]
   R --> RS["Research or focused audit"]
   RS --> M["Optional baseline measurement"]
-  RS --> P["Owned action plan"]
+  RS --> D["Product-owner decision"]
   M --> P
+  D --> P["Owned action plan"]
   P --> A["Explicit approval"]
   A --> I["Scoped implementation"]
-  I --> C["Comparable follow-up"]
+  I --> L["Local acceptance"]
+  L --> RLS["Separately authorized release"]
+  RLS --> V["Scope-matched live verification"]
+  V --> OP["Separately authorized provider operation"]
+  OP --> C["Delayed outcome follow-up"]
 ```
 
-Not every request needs every phase. The suite prevents a research task from silently becoming a production change and prevents a metric from being dressed up as a causal promise.
+Not every request needs every phase. The suite prevents a research task from silently becoming a production change, a deployment from silently becoming a provider mutation, and an accepted submission from being reported as an indexing result.
 
 ## What is inside
 
@@ -169,7 +181,7 @@ SEO-AEO-GEO Ultimate contains 27 focused agent skills. They share contracts wher
 
 | Area | Skills | What they help you do |
 | --- | --- | --- |
-| Route and coordinate | `seo` (the router), `seo-audit`, `seo-page`, `seo-plan`, `seo-action-plan`, `optimise-seo` | Start anywhere, scope the work, create an owned plan, and prepare an authorized change. |
+| Route and coordinate | `seo` (the autonomous core), `seo-audit`, `seo-page`, `seo-plan`, `seo-action-plan`, `optimise-seo` | Start with one plain-language outcome; screen all 27 skills, execute applicable lanes, create an owned plan, and continue to the authorized boundary. |
 | Research and measurement | `seo-research`, `ai-search-research`, `seo-performance`, `ai-visibility-monitor` | Build a formal query corpus and measure conventional search and AI surfaces with distinct, comparable runs. |
 | Answer and entity readiness | `seo-aeo`, `seo-geo`, `seo-authority` | Improve answer clarity, entity evidence, claim support, source quality, and authority signals. |
 | Technical and architecture | `seo-technical`, `seo-architecture`, `seo-schema`, `seo-hreflang`, `seo-sitemap`, `seo-images` | Review crawl, rendering, site graph, structured data, international, sitemap, image systems, and optional `llms.txt` publisher guides. |
@@ -190,8 +202,12 @@ SEO-AEO-GEO Ultimate contains 27 focused agent skills. They share contracts wher
 | `platform-controls.json` | `seo-technical` | Dated feature lifecycle, crawler-purpose, notification, and protocol decisions. |
 | `llms.txt` | `seo-technical` | An optional, validated map of canonical public resources for clients that choose to consume it. |
 | `action-plan.json` | `seo-action-plan` | Approval-ready scope, ownership, verification, and rollback for a proposed change; formal status starts as pending. |
+| `provider-operation-receipt.json` | `seo-performance` provider-operations mode | Hash-bound authorization, exact property/targets, provider response, pre/post state, and delayed outcome states. |
+| `live-release-report.json` | `seo-technical` live verifier | Sitemap equality plus distinct document, redirect, surface, retry, and failure counts for the exact candidate. |
 
-Read the [SEO Findings](docs/SEO-FINDINGS-PROTOCOL.md), [Query Corpus](docs/QUERY-CORPUS-PROTOCOL.md), [SEO Performance](docs/SEO-PERFORMANCE-PROTOCOL.md), [Site Graph](docs/SITE-GRAPH-PROTOCOL.md), [Platform Controls](docs/PLATFORM-CONTROLS.md), and [`llms.txt` publisher-guide](skills/seo-technical/references/llms-txt-protocol.md) protocols. AEO and GEO retain their own audit contract because answer readiness and entity/citation readiness are different jobs.
+Read the [SEO Findings](docs/SEO-FINDINGS-PROTOCOL.md), [Query Corpus](docs/QUERY-CORPUS-PROTOCOL.md), [SEO Performance](docs/SEO-PERFORMANCE-PROTOCOL.md), [Provider Operations](docs/PROVIDER-OPERATIONS.md), [Live Release Verification](docs/LIVE-RELEASE-VERIFICATION.md), [Site Graph](docs/SITE-GRAPH-PROTOCOL.md), [Platform Controls](docs/PLATFORM-CONTROLS.md), and [`llms.txt` publisher-guide](skills/seo-technical/references/llms-txt-protocol.md) protocols. AEO and GEO retain their own audit contract because answer readiness and entity/citation readiness are different jobs.
+
+The router's complete-screen behavior is documented in [Autonomous Orchestration](docs/AUTONOMOUS-ORCHESTRATION.md). Broad work can produce a manifest-derived coverage ledger, so the 27-skill screen is a testable closeout invariant rather than a checklist claim.
 
 ## Practical artifact and data tools
 
@@ -210,13 +226,23 @@ python scripts/render_artifact_report.py examples/conventional-seo-handoff/seo-f
 
 # Normalize an authorized Search Console export without inventing metrics.
 python scripts/import_seo_exports.py gsc-csv exports/gsc.csv --output work/gsc-source.json --property sc-domain:example.com --window-start 2026-07-01T00:00:00Z --window-end 2026-08-01T00:00:00Z
+
+# Verify an exact released candidate against its expected live URL contract.
+python scripts/verify_live_release.py verify --plan work/release/plan.json --output work/release/live-release-report.json
+
+# Validate a separately authorized provider-operation receipt.
+python scripts/validate_provider_operation.py validate-receipt work/provider-operation/provider-operation-receipt.json --bundle work/provider-operation
+
+# Prove that a broad router run assessed every current suite skill.
+python scripts/manage_orchestration_ledger.py init --output work/seo/orchestration-ledger.json --request "Improve organic and AI-search visibility" --mode broad --authorized-boundary "Research, audit, plan, and local implementation"
+python scripts/manage_orchestration_ledger.py validate work/seo/orchestration-ledger.json
 ```
 
 Import adapters also cover Bing Webmaster Tools CSV, organic GA4 CSV, crawler CSV, and Apache/Nginx access logs. Read [Data Import Adapters](docs/DATA-IMPORT-ADAPTERS.md) for accepted fields, provenance, privacy boundaries, and exact commands. The [validated example bundles](examples/README.md) show conventional SEO and AI-search handoffs end to end.
 
 ## Built for useful, defensible work
 
-The suite helps teams make stronger decisions and learn from what happens after a change. Recommendations carry an evidence class. Important changes can include approval, verification, monitoring, and rollback. Search performance and AI visibility are measured separately, so each result keeps the context needed for a meaningful comparison.
+The suite helps teams make stronger decisions and learn from what happens after a change. Broad organic-growth work now has a baseline completeness gate: query-to-page ownership, useful title and meta copy, canonical/indexability, and hostname favicon identity cannot disappear behind more advanced recommendations. Approved per-page title, description, and H1 copy can be bound into live verification, so presence-only checks do not bless stale or truncated output. Broad growth also carries two required tracks: nearer-term gains and high-volume head-term/category leadership. Difficult terms stay visible with a canonical owner, leading-result gap, supporting content/authority/architecture work, staged top-20/top-10/top-3 measurement goals, and position 1 as an explicit stretch objective; difficulty changes the investment path rather than silently converting ambition into `Defer`. Query decisions still preserve authorized first-party performance, dated locale/device result-set evidence, business and intent fit, coverage, authority, effort, and risk without pretending that one keyword score predicts rank. Recommendations carry an evidence class. Important changes can include product-owner intent, independent implementation/release/provider authorization, candidate identity, scope-matched verification, monitoring, and rollback. Search performance and AI visibility are measured separately, so each result keeps the context needed for a meaningful comparison.
 
 The workflows support ambitious search and AI-discovery programs while keeping claims grounded in observable evidence. The suite can create `/llms.txt` as a low-cost future-readiness layer when canonical public sources and a maintenance owner exist; it validates the file without presenting it as a ranking requirement. Primary-source discipline and safety checks are built in; see the [source registry](docs/research/2026-08-06-source-registry.json), [platform and market review](docs/research/2026-08-06-platform-and-market-review.md), and [release checklist](docs/RELEASE-CHECKLIST.md). As with any search program, platforms decide ranking, indexing, retrieval, and presentation outcomes.
 
@@ -241,7 +267,7 @@ Every push and pull request runs the checks below. A weekly scheduled run repeat
 4. Isolated regression tests on Python 3.11
 ```
 
-The evaluation suite covers contracts, source validation, query provenance, measurement arithmetic, repeat-aware AI observations, site graphs, platform-control freshness, operational recovery and experiment recipes, specialist behavior boundaries, artifact boundaries, action-plan evidence disconnection, installer safety, and Claude package metadata. Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing the suite.
+The evaluation suite covers contracts, source validation, query provenance and opportunity discipline, snippet/page completeness, favicon/site-identity delivery, measurement arithmetic, repeat-aware AI observations, site graphs, platform-control freshness, operational recovery and experiment recipes, provider receipts, live sitemap/document/redirect verification, dirty-candidate and authorization boundaries, specialist behavior, artifact boundaries, action-plan evidence disconnection, installer safety, and Claude package metadata. Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing the suite.
 
 ## License
 

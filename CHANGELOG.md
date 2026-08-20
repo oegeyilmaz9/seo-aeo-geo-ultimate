@@ -2,6 +2,33 @@
 
 All notable changes to SEO-AEO-GEO Ultimate are documented here.
 
+## [3.1.0] - 2026-08-20
+
+### Added
+
+- A decision-and-release contract that keeps product intent, implementation, deployment, provider mutation, and delayed provider outcomes as independent phases.
+- Provider operations mode for Search Console, Bing Webmaster Tools, and IndexNow with a hash-bound `provider-operation-receipt.json` schema and semantic validator.
+- A generic read-only live-release verifier for sitemap equality, indexable documents, redirects, shared surfaces, transient recovery, and machine-readable closeout counts.
+- Programmatic SEO contracts that separate editorial readiness from indexability and propagate canonical/search decisions across the full affected corpus and discovery surfaces.
+- Scope-matched live verification, external audit-claim adjudication, dirty/generated candidate identity, external closeout, and per-action/batch-final/production-comparison verification protocols.
+- A broad organic-growth completeness gate for query-to-page ownership, title/meta copy, canonical/indexability, and hostname favicon identity; plus evidence-layered query-opportunity and snippet-copy protocols.
+- A mandatory two-track keyword ambition contract: nearer-term gains run alongside high-volume head-term/category leadership, with difficult strategic targets retained through staged content, authority, architecture, and visibility milestones.
+- A manifest-derived orchestration ledger initializer and validator that turns the router's complete 27-skill screen into executable closeout evidence.
+
+### Changed
+
+- Promoted `seo` from a specialist dispatcher to the autonomous suite core: every request receives a 27-skill applicability screen, required specialist instructions and artifacts are carried internally, and the user receives one consolidated result without coordinating SEO/AEO/GEO terminology or handoffs.
+- Kept specialist loading progressive: the router screens every capability, then loads only applicable full workflows while the ledger validator prevents silent omissions at broad closeout.
+- Extended the router through product-owner decision, local acceptance, separately authorized release, live delivery verification, separately authorized provider operations, and delayed outcome follow-up.
+- Preserved explicit product-owner end states ahead of the implementation preference for the smallest reversible change.
+- Refreshed primary-source capability boundaries for Google AI search, Search Console, the Google Indexing API, Bing submission, OpenAI search crawling, and Anthropic search/user/training crawlers.
+
+### Guardrails
+
+- A local pass is not a production release; a deployment is not a provider operation; an accepted sitemap or URL notification is not a crawl, indexing, ranking, retrieval, citation, referral, traffic, or conversion result.
+- Shared template, resolver, sitemap, canonical, redirect, hreflang, and corpus changes must be verified over their affected universe rather than closed from a small illustrative sample.
+- Keyword opportunity selection must preserve first-party query/page context, dated result-set intent, business/page fit, authority and risk; it cannot be reduced to volume, density, or a universal keyword score. Relevant high-volume owner targets cannot be deferred solely because they are difficult, expensive, currently absent, or authority-constrained.
+
 ## [3.0.0] - 2026-08-10
 
 ### Added

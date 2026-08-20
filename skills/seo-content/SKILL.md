@@ -10,6 +10,7 @@ description: Use when auditing, briefing, rewriting, or reviewing site content f
 Create evidence-led content audits, briefs, and draft improvements that help a real reader complete a task. Use this after an approved `seo-action-plan` when the request stems from AEO/GEO findings; use it directly for a bounded editorial review with supplied content and facts.
 
 Read `references/editorial-brief-protocol.md` before preparing a formal brief or draft.
+Read [snippet-copy-protocol.md](references/snippet-copy-protocol.md) when title or meta-description copy is part of the deliverable.
 
 ## Input gate
 
@@ -22,9 +23,10 @@ For regulated, health, legal, financial, safety, pricing, availability, or compa
 1. **Frame the job.** Identify the reader’s task, search/referral context if known, page type, conversion or information goal, language/region, and what the page must not claim.
 2. **Build a claim ledger.** Separate verified facts, interpretation, customer proof, quotations, and unknowns. Pin each factual claim to a supplied source or flag it for verification.
 3. **Diagnose usefulness.** Review whether the page answers the actual task, makes ownership and scope clear, offers original evidence or experience where relevant, explains limitations, and is navigable on a small screen. Describe observations; do not assign an E-E-A-T, readability, word-count, or “AI readiness” score.
-4. **Create the brief.** Define the answer/decision the reader needs, the evidence to show, proposed hierarchy, necessary comparison/steps, entities, internal destinations that are known to exist, media/accessibility needs, locale constraints, CTA, and review owner. Choose headings and metadata for clarity, not fixed character, keyword-density, or passage-length formulas.
-5. **Draft only within approved scope.** Supply rewrite options or an implementation-ready draft only from the claim ledger. Keep placeholders unmistakable. Preserve meaningful nuance; do not pad, paraphrase sources mechanically, or manufacture first-hand experience, reviews, citations, author credentials, data, or quotes.
-6. **Set acceptance and verification.** Specify a human fact/brand/legal review, rendered-page review, link check, accessibility check, and a source-appropriate measurement plan. A visible answer or structured layout may improve clarity; it does not guarantee ranking, retrieval, citation, traffic, or conversion.
+4. **Create the brief and query contract.** Define the answer/decision the reader needs, primary need/query family, natural supporting language, evidence to show, proposed hierarchy, necessary comparison/steps, entities, internal destinations that are known to exist, media/accessibility needs, locale constraints, CTA, and review owner. Choose headings and metadata for clarity, not fixed character, keyword-density, or passage-length formulas.
+5. **Write complete search-result copy when requested.** Produce the actual unique title and meta-description candidate, not “improve metadata” as a placeholder. The description must identify the page, communicate the useful outcome, include a truthful differentiator or concrete page-specific detail, and retain any material qualifier. Rewrite descriptions that are generic, duplicated, fragmentary, or too short to explain why this result fits the query; do not pad them to hit a character count.
+6. **Draft only within approved scope.** Supply rewrite options or an implementation-ready draft only from the claim ledger. Keep placeholders unmistakable. Preserve meaningful nuance; do not pad, paraphrase sources mechanically, or manufacture first-hand experience, reviews, citations, author credentials, data, or quotes.
+7. **Set acceptance and verification.** Specify a human fact/brand/legal review, rendered-page review, title/meta uniqueness and source-data check, link check, accessibility check, and a source-appropriate measurement plan. A visible answer or structured layout may improve clarity; it does not guarantee ranking, retrieval, citation, traffic, or conversion.
 
 ## Content choices that need care
 
@@ -49,7 +51,7 @@ Return only the artifacts the evidence supports:
 
 - **Editorial audit:** observations, evidence/limitations, prioritized opportunities, and unanswered questions.
 - **Content brief:** reader task, claim ledger, outline, required evidence, locale/accessibility/CTA requirements, review gates, and acceptance criteria.
-- **Draft/rewrite options:** clearly marked copy with source notes and placeholders; never publish or represent it as approved.
+- **Draft/rewrite options:** clearly marked page copy plus complete title/meta candidates when in scope, with source notes and placeholders; never publish or represent it as approved.
 - **Action handoff:** owner, dependencies, verification, rollback for potentially harmful edits, and the matching `seo-action-plan` action ID when one exists.
 
 Do not output a universal content score, minimum word-count mandate, keyword-density target, rigid readability target, or guaranteed AI-citation result.

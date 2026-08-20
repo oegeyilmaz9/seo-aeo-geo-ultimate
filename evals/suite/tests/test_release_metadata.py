@@ -22,7 +22,7 @@ class ReleaseMetadataTests(unittest.TestCase):
             citation = root / "CITATION.cff"
             changelog = root / "CHANGELOG.md"
             llms = root / "llms.txt"
-            manifest.write_text(json.dumps({"suite_version": "3.0.0"}), encoding="utf-8")
+            manifest.write_text(json.dumps({"suite_version": "3.1.0"}), encoding="utf-8")
             citation.write_text(f'version: "{citation_version}"\n', encoding="utf-8")
             changelog.write_text(f"## [{changelog_version}] - 2026-08-10\n", encoding="utf-8")
             llms.write_text(f"Version {llms_version}.\n", encoding="utf-8")
@@ -37,7 +37,7 @@ class ReleaseMetadataTests(unittest.TestCase):
             return errors
 
     def test_release_metadata_versions_match(self) -> None:
-        self.assertEqual(self.run_case("3.0.0", "3.0.0", "3.0.0"), [])
+        self.assertEqual(self.run_case("3.1.0", "3.1.0", "3.1.0"), [])
 
     def test_release_metadata_drift_is_reported(self) -> None:
         errors = self.run_case("2.2.0", "2.2.0", "2.2.0")

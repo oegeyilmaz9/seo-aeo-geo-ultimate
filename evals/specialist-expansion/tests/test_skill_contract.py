@@ -51,7 +51,11 @@ class SpecialistExpansionContractTests(unittest.TestCase):
         manifest = json.loads((ROOT / "manifests" / "suite.json").read_text(encoding="utf-8"))
         self.assertIn("never merge the two reports into one score", performance)
         self.assertIn("Use `seo-performance` for conventional first-party search/site metrics", router)
-        self.assertEqual(manifest["skills"]["seo-performance"]["produces"], ["seo-performance-run"])
+        self.assertEqual(
+            manifest["skills"]["seo-performance"]["produces"],
+            ["seo-performance-run", "provider-operation-receipt"],
+        )
+        self.assertNotIn("visibility-run", manifest["skills"]["seo-performance"]["produces"])
         self.assertEqual(manifest["skills"]["ai-visibility-monitor"]["produces"], ["visibility-run"])
 
     def test_skill_validator_commands_are_not_cwd_relative(self) -> None:

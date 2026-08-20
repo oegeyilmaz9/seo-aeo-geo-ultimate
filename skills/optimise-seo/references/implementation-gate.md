@@ -1,5 +1,9 @@
 # Implementation gate
 
-Before a write, record: authorized action/request, upstream evidence, target repository/system, exact file/URL scope, intended behavior, owner/reviewer, acceptance criteria, verification, risk, and rollback. Preserve unrelated work and stop when the requested change would need new authority.
+Before a write, record: authorized action/request, upstream evidence or equivalent decision record, explicit product-owner end state, target repository/system, exact file/URL scope, intended behavior, owner/reviewer, acceptance criteria, verification mode and universe, risk, rollback, and separate implementation/release/provider authorization states. Preserve unrelated work and stop when the requested change would need new authority.
 
-After a write, record the changed paths, tests/captures run, observed result, unverified external behavior, and a practical rollback. Local validation is not a production, crawler, indexing, citation, or business-outcome claim.
+For a broad organic-growth or rank-higher action, the acceptance set must explicitly include or consciously exclude: query-to-page ownership, title, semantically complete meta description, H1/page promise, canonical/indexability, hostname favicon/site identity, and measurement baseline. It must also preserve the approved high-volume head-term/category leadership target, canonical owner, foundational implementation, supporting work, and staged measurement milestones alongside nearer-term opportunities. Difficulty or an authority gap cannot silently remove that strategic target. A missing basic surface or ambitious target cannot disappear from closeout merely because the plan emphasizes easier work.
+
+Before editing generated output, identify its source/generator. In a dirty worktree preserve unrelated changes and record the initial state, expected sources, generated outputs, build/candidate identity, corpus summary, and `gitDirty=1`; never reset or substitute a clean copy without an explicit request.
+
+After a write, record the changed paths, candidate manifest, every test/capture attempt, observed result, unverified external behavior, and a practical rollback. Local validation is not production delivery. A deployment receipt is not a provider outcome, and a provider submission receipt is not crawling, indexing, citation, or a business outcome.

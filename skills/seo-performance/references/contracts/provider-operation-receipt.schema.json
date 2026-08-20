@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oegeyilmaz9.github.io/seo-aeo-geo-ultimate/schemas/provider-operation-receipt/1.0.0",
+  "title": "Provider Operation Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "receipt_id",
+    "recorded_at",
+    "provider",
+    "authorization",
+    "pre_state",
+    "operation",
+    "result",
+    "post_state",
+    "outcomes",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "receipt_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider_id", "property", "property_verified_at", "capability_documentation_url", "capability_verified_at"],
+      "properties": {
+        "provider_id": {
+          "enum": ["google-search-console", "google-indexing-api", "bing-webmaster-tools", "indexnow", "other-documented"]
+        },
+        "property": {"type": "string", "minLength": 1},
+        "property_verified_at": {"type": "string", "format": "date-time"},
+        "capability_documentation_url": {"type": "string", "pattern": "^https://"},
+        "capability_verified_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorized_by",
+        "authorized_at",
+        "mutation_allowed",
+        "operation_types",
+        "target_ids",
+        "evidence_ref",
+        "evidence_sha256"
+      ],
+      "properties": {
+        "authorized_by": {"type": "string", "minLength": 1},
+        "authorized_at": {"type": "string", "format": "date-time"},
+        "mutation_allowed": {"const": true},
+        "operation_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "target_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"}
+        },
+        "evidence_ref": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)[.][.](?:/|$))(?![A-Za-z]:)[^/]+(?:/[^/]+)*$"},
+        "evidence_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "pre_state": {"$ref": "#/$defs/capture"},
+    "operation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operation_id", "operation_type", "access_path", "endpoint_or_surface", "mutation", "started_at", "targets"],
+      "properties": {
+        "operation_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+        "operation_type": {
+          "enum": ["submit-sitemap", "submit-url", "request-indexing", "validate-fix", "indexnow-notify", "other-documented-mutation"]
+        },
+        "access_path": {"enum": ["api", "cli", "mcp", "isolated-browser-ui", "named-user-browser-ui"]},
+        "endpoint_or_surface": {"type": "string", "minLength": 1},
+        "mutation": {"const": true},
+        "started_at": {"type": "string", "format": "date-time"},
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["target_id", "target_type", "value", "eligibility"],
+            "properties": {
+              "target_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+              "target_type": {"enum": ["sitemap", "url", "issue-cohort", "changed-url-set", "other"]},
+              "value": {"type": "string", "minLength": 1},
+              "eligibility": {
+                "enum": ["not-applicable", "job-posting", "livestream-broadcast-event", "documented-other"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["completed_at", "status", "provider_receipt", "succeeded_target_ids", "failed_target_ids", "evidence_ref", "evidence_sha256", "errors"],
+      "properties": {
+        "completed_at": {"type": "string", "format": "date-time"},
+        "status": {"enum": ["accepted", "partial", "rejected", "failed"]},
+        "provider_receipt": {"type": ["string", "null"], "minLength": 1},
+        "succeeded_target_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"}
+        },
+        "failed_target_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"}
+        },
+        "evidence_ref": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)[.][.](?:/|$))(?![A-Za-z]:)[^/]+(?:/[^/]+)*$"},
+        "evidence_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "errors": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "post_state": {"$ref": "#/$defs/capture"},
+    "outcomes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "state", "observed_at", "evidence_ref", "evidence_sha256", "note"],
+        "properties": {
+          "kind": {"enum": ["discovery", "crawl", "indexing", "serving", "citation", "referral", "traffic", "conversion"]},
+          "state": {"enum": ["pending", "observed", "not-observed", "not-applicable", "unknown"]},
+          "observed_at": {"type": ["string", "null"], "format": "date-time"},
+          "evidence_ref": {"type": ["string", "null"], "pattern": "^(?!/)(?!.*(?:^|/)[.][.](?:/|$))(?![A-Za-z]:)[^/]+(?:/[^/]+)*$"},
+          "evidence_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+          "note": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["captured_at", "evidence_ref", "evidence_sha256", "summary"],
+      "properties": {
+        "captured_at": {"type": "string", "format": "date-time"},
+        "evidence_ref": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)[.][.](?:/|$))(?![A-Za-z]:)[^/]+(?:/[^/]+)*$"},
+        "evidence_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "summary": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

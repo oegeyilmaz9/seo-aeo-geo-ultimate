@@ -22,13 +22,13 @@ SEO-AEO-GEO Ultimate
 **Short description**
 
 ```text
-Evidence-first SEO, AEO, GEO, and AI-search workflows for Codex and Claude Code, with one router and 27 focused skills.
+One autonomous SEO, AEO, GEO, and AI-search router that screens and coordinates 27 evidence-first specialist skills.
 ```
 
 **Long description**
 
 ```text
-SEO-AEO-GEO Ultimate turns an ambiguous search or AI-visibility question into the next useful research, audit, measurement, plan, or approved implementation step. Start with one router, then use 27 focused skills for technical SEO, content, architecture, commerce, local, video, news, agentic journeys, answer readiness, entity and authority evidence, search performance, AI visibility, optional llms.txt publisher guides, and action planning. Shared contracts keep evidence, ownership, approval, verification, and rollback connected while every specialist remains usable on its own.
+SEO-AEO-GEO Ultimate lets a user describe the desired outcome without knowing SEO, AEO, GEO, specialist names, artifacts, or handoff order. Its autonomous router screens all 27 skills, executes every applicable workflow, carries evidence and intermediate results internally, and returns one consolidated outcome to the authorized boundary. The specialist system covers technical SEO, content, architecture, commerce, local, video, news, agentic journeys, answer readiness, entity and authority evidence, search performance, AI visibility, optional llms.txt publisher guides, action planning, implementation, and live verification. Shared contracts preserve evidence, ownership, approval, verification, and rollback while every specialist remains directly usable by experts.
 ```
 
 **Security and data-access note**

@@ -12,6 +12,9 @@ Diagnose concrete technical behavior from headers, raw and rendered pages, robot
 For an optional `llms.txt` request, create a maintained publisher guide—not a crawler directive or promised visibility control. Recommend it as a reasonable low-cost future-readiness layer when it can stay aligned with truthful public sources and has a maintenance owner; a documented consumer strengthens the case but is not mandatory.
 
 Read `references/technical-evidence-protocol.md` before a formal technical audit.
+Read [external-claim-adjudication.md](references/external-claim-adjudication.md) when evaluating third-party audit or scanner claims.
+Read [live-verification-matrix.md](references/live-verification-matrix.md) before closing a released technical, template, redirect, sitemap, canonical, hreflang, or indexability change.
+Read [favicon-search-protocol.md](references/favicon-search-protocol.md) when a site lacks a search-result icon, has the wrong icon, or a broad site optimization includes hostname identity.
 For feature lifecycle, crawler, IndexNow/change notification, or protocol-capability work, also read [platform-control-protocol.md](references/platform-control-protocol.md) and validate the current registry before recommending a control.
 For `llms.txt` suitability, generation, validation, or publishing, read [llms-txt-protocol.md](references/llms-txt-protocol.md) and use its bundled template and validator.
 For a migration/replatforming, sudden traffic or indexation incident, manual action, or hacked-site recovery, read [migration-and-recovery-protocol.md](references/migration-and-recovery-protocol.md) before recommending or approving a response.
@@ -27,11 +30,11 @@ If evidence is unavailable, give a safe collection plan—not a guessed fix. Nev
 ## Workflow
 
 1. **State the expected behavior.** Is the URL intended to be indexable, canonical, localized, discoverable, rendered, fast enough for users, or excluded? Identify the owner/system that can change it.
-2. **Capture the actual behavior.** Record raw response, directives, canonical, rendered content, redirect chain, linked/sitemap evidence, and relevant device/locale. Keep transient tool errors separate from confirmed defects.
+2. **Capture the actual behavior.** Record raw response, directives, canonical, rendered content, redirect chain, linked/sitemap evidence, hosting/CDN behavior, and relevant device/locale. Keep transient tool errors separate from confirmed defects and identify the layer each claim measures.
 3. **Find the smallest cause.** Test conflict pairs such as `noindex` vs canonical, raw vs JavaScript-injected metadata, redirect target vs sitemap URL, or locale target vs hreflang cluster. Do not infer a cause from a single score or generic audit rule.
-4. **Classify the change.** Mark each item as confirmed issue, supported implementation opportunity, monitored experiment, or unresolved. Link platform-specific controls to current primary documentation.
+4. **Classify the change or external claim.** Use confirmed defect, layer mismatch, supported opportunity, false positive, or unverified. Only a confirmed defect is automatically required. Link platform-specific controls to current primary documentation.
 5. **Plan the implementation.** For every recommendation state the affected URLs/templates, owner, precondition, exact desired state, verification capture, risk, approval, and rollback. Route cross-team work through `seo-action-plan`.
-6. **Verify after change.** Re-capture the relevant response/render, test the intended state, and use the appropriate reporting surface. Discovery, crawling, indexing, performance, and AI visibility are separate outcomes.
+6. **Verify after change.** Match the verification universe to the change universe: one page for a page-only edit, the affected route class for a shared template/resolver, and the full corpus or justified closed population for sitemap/index contracts. Re-capture raw, hydrated, hosting/CDN, and provider layers in scope. Verify redirects by status, `Location`, sitemap exclusion, and target state rather than by document-only metadata. Discovery, crawling, indexing, performance, and AI visibility are separate outcomes.
 
 For migrations and incidents, preserve a last-known-good state, exact change timeline, affected cohorts, launch/rollback criteria, and unresolved competing hypotheses. For a compromise, security containment and root-cause remediation own the response; SEO verification follows rather than replacing them.
 
@@ -40,6 +43,7 @@ For migrations and incidents, preserve a last-known-good state, exact change tim
 - **Crawl/discovery:** robots handling, internal discovery, server health, sitemap inclusion, redirects, and crawl-access failures.
 - **Index/canonical:** canonical/noindex conflicts, duplicate URL handling, status codes, redirects, and content availability.
 - **Rendering:** raw versus rendered title, robots, canonical, meaningful content, and structured data; use actual captures rather than framework assumptions.
+- **Search-result identity:** hostname home-page favicon declaration, icon response/format/dimensions, stable URL, crawl access, and representative brand asset. Do not mark favicon work complete from a file existing somewhere in the repository.
 - **Experience:** responsive layout, interaction and rendering diagnostics, and field data where available. Core Web Vitals and tests guide improvement; they do not guarantee a ranking result.
 - **International:** send locale clusters and annotations to `seo-hreflang`; do not repair language targeting from a single URL.
 - **Structured data:** send truthful markup changes to `seo-schema`; validate the visible page and eligible documentation first.
@@ -69,6 +73,10 @@ For IndexNow or another notification path, submit only added, updated, or delete
 ## Formal evidence handoff
 
 When this work needs a cross-team, approval-ready plan, package evidence-bound findings as an immutable `seo-findings.json` bundle using the checked-out suite contract. Keep every referenced capture/source below `raw/`, retain declined claims and limitations, and run `python "<suite-root>/scripts/validate_seo_findings.py" validate-findings <bundle>/seo-findings.json --bundle <bundle>`. Send only a passing bundle to `seo-action-plan`; otherwise label the handoff `provisional`.
+
+## Live release verification
+
+After a separately authorized release, verify the exact candidate/deployment identity using [live-verification-matrix.md](references/live-verification-matrix.md). For the raw HTTP and sitemap layer, run `python "<suite-root>/scripts/verify_live_release.py" verify --plan <release-plan.json> --output <live-release-report.json>`. Bind approved per-page copy with `expected_title`, `expected_description`, and `expected_h1` overrides so a stale, generic, or truncated live value cannot pass merely because the element exists. When hostname identity is in scope, declare `site_identity` in the plan so the verifier checks the home-page icon link, exact favicon response, content type, square dimensions, and configured quality floor. A passing report proves only the declared live delivery checks; it does not prove crawl, index, rank, retrieval, citation, referral, or conversion.
 
 ## Output
 
