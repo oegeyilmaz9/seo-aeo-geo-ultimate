@@ -5,6 +5,13 @@ description: Use when explicitly authorized to implement a bounded, approved SEO
 
 # SEO Implementation Coordinator
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `implementation.md; local-acceptance.md; release-verification.md` (combine small related steps with stable section links). Implement the approved Markdown corpus plus conventional SEO changes to the exact requested scope, maintaining source parity, indexing policy, generated maps and rollback. Validate local projection and all affected live resources after authorized release. No completion from files alone.
+
+
 ## Purpose
 
 Apply or prepare a specific, user-authorized SEO change after its evidence, product decision, owner, scope, acceptance criteria, verification, and rollback are known. This skill coordinates the chain from an approved action to local acceptance and, only when separately authorized, exact-candidate release and live closeout. It is not an audit, an auto-publisher, or implied deployment authority.

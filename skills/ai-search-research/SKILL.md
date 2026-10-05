@@ -5,6 +5,13 @@ description: Use when a request concerns AEO/GEO demand research, AI-answer or g
 
 # AI Search Research
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `ai-search-research.md; source-register.md; question-map.md` (combine small related steps with stable section links). Document observed vs hypothesized prompts and sources. Resolve every supported question to its answer-bearing document, canonical URL and claim evidence. Missing engine observations remain gaps; publishing Markdown is an owner convention, not an engine mandate.
+
+
 Produce Research Pack `1.1.0` and a hash-bound `query-corpus.json` before any human summary. Research Pack `1.1.0` SHA-256-pins evidence, competitor observations, and ground-truth provenance; legacy `1.0.0` remains readable. Treat the Research Pack as authoritative for evidence and ground truth; treat the Query Corpus as authoritative for user needs, prompts, observed queries, executed subqueries, demand provenance, and page coverage.
 
 ## Procedure
@@ -17,7 +24,7 @@ Produce Research Pack `1.1.0` and a hash-bound `query-corpus.json` before any hu
 6. Record a competitor observation only when a dated, SHA-256-pinned raw answer or result capture resolves locally and identifies engine, surface, locale, mentioned entities, and raw cited URLs. Treat source-landscape pages as evidence, not as competitor observations.
 7. Record ground truth with stable fact IDs, SHA-256-pinned bundle-relative provenance, and validity windows.
 8. Add one explicit gap for every inaccessible engine/surface/locale cell, ambiguity, missing evidence item, or stale input. Choose exactly one stable `gap_type` with the decision rules in the capture protocol; do not substitute prose synonyms. Use `null` only where the contract permits it and explain the limitation.
-9. Reject guarantees, universal passage lengths, mandatory `llms.txt`, blanket crawler access, mass FAQ schema, and causal citation-lift claims unless current primary evidence supports that exact scoped statement. Retain an unproven tactic as `experimental` or `speculative` only when a valid evidence record supports that classification. When no evidence exists, do not retain a hypothesis; record only a `missing_evidence` gap with empty `related_claim_ids`.
+9. Reject guarantees, universal passage lengths, universal engine-mandatory `llms.txt`, blanket crawler access, mass FAQ schema, and causal citation-lift claims unless current primary evidence supports that exact scoped statement. Retain an unproven tactic as `experimental` or `speculative` only when a valid evidence record supports that classification. When no evidence exists, do not retain a hypothesis; record only a `missing_evidence` gap with empty `related_claim_ids`.
 10. Validate the Research Pack against `references/contracts/research-pack.schema.json`. Let `<suite-root>` mean `${CLAUDE_PLUGIN_ROOT}` in Claude Code. In Codex, read `.seo-suite-runtime.json` beside this `SKILL.md` when present and use its `suite_root` value; otherwise use the absolute repository checkout, then validate `query-corpus.json` with `python "<suite-root>/scripts/validate_query_corpus.py" validate-corpus <bundle>/query-corpus.json --bundle <bundle>`. Stop on missing fields, hash drift, absolute paths, unresolved raw references, stale current claims, or lock drift.
 11. Hand direct-answer completeness, clarity, intent coverage, and extractability audits to `seo-aeo`; hand entity, evidence, source, citation, and documented engine-control audits to `seo-geo`. Route conventional performance to `seo-performance`, technical controls to `seo-technical`, content changes to `seo-content`, structured data to `seo-schema`, locale implementation to `seo-hreflang`, evidence-linked implementation planning to `seo-action-plan`, explicitly authorized implementation to `optimise-seo`, and AI trend measurement to `ai-visibility-monitor`.
 

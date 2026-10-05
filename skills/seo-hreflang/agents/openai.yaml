@@ -1,4 +1,4 @@
 interface:
   display_name: "International SEO"
   short_description: "Plan safe multilingual and hreflang improvements"
-  default_prompt: "Use $seo-hreflang to assess the supplied SEO evidence and propose safe next actions."
+  default_prompt: "Use $seo-hreflang to assess the supplied SEO evidence and propose safe next actions. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

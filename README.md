@@ -17,6 +17,18 @@
 [![Codex](https://img.shields.io/badge/runtime-Codex-10a37f?style=flat-square)](#install-on-codex)
 [![Claude Code](https://img.shields.io/badge/runtime-Claude_Code-d97757?style=flat-square)](#install-on-claude-code)
 
+## Markdown discovery and keyword ownership
+
+The suite's default publisher profile delivers `llms.txt -> sitemap.md -> topic maps -> substantive page.md` across the entire verified eligible inventory. Every material work step also has a private Markdown document linked from `index.md`. robots.txt, XML sitemaps, schema, feeds and validated immutable artifacts retain their native formats.
+
+Read [the Markdown delivery contract](docs/MARKDOWN-DISCOVERY.md) and [keyword research protocol](skills/seo-research/references/keyword-research-protocol.md). The export helper uses already reviewed source Markdown, checks complete scoped mappings and source hashes, and verifies every generated live resource after authorized release. It does not promise external engine adoption. Version 3.3.0 also ships a complete repository content map and enforced source-to-navigation coverage.
+
+## Find the exact document
+
+[Complete content map](sitemap.md) · [Turkish guide](docs/REHBER-TR.md) · [Runnable Markdown quickstart](docs/MARKDOWN-QUICKSTART.md) · [Work-note template](docs/WORK-NOTE-TEMPLATE.md) · [Keyword decision template](docs/KEYWORD-DECISION-TEMPLATE.md)
+
+The repository applies its own discovery pattern: `llms.txt → sitemap.md → topic maps → exact existing Markdown documents/native resources`. All 27 skill trees, workflow contracts, tools, examples, schemas, tests and public project files are enumerated. `python scripts/manage_repository_map.py --write` refreshes them; `--check` and CI reject missing, stale or orphan navigation files. Site-owned robots/XML hint placement remains part of actual site implementation; publishing this repository does not change GitHub's crawler policy.
+
 ## One request. The right workflow.
 
 SEO work rarely arrives neatly labelled. “Why are we absent from AI answers?” may need source research, a prompt corpus, or repeated surface observations. “Improve this site” may need content, architecture, technical, commerce, local, video, or authority work. SEO-AEO-GEO Ultimate starts from one autonomous router, screens all 27 skills, runs every applicable specialist workflow, and keeps evidence, ownership, approval, and follow-up connected without making the user coordinate the system.
@@ -200,7 +212,7 @@ SEO-AEO-GEO Ultimate contains 27 focused agent skills. They share contracts wher
 | `visibility-run.json` | `ai-visibility-monitor` | A repeat-aware AI-surface observation run with access state, consulted sources, visible citations, and confidence. |
 | `site-graph.json` | `seo-architecture` | A bounded map of pages and links with capture evidence and completeness limits. |
 | `platform-controls.json` | `seo-technical` | Dated feature lifecycle, crawler-purpose, notification, and protocol decisions. |
-| `llms.txt` | `seo-technical` | An optional, validated map of canonical public resources for clients that choose to consume it. |
+| `llms.txt` | `seo-technical` | A validated public-resource guide, required in the owner-defined Markdown profile and independently optional as a standalone publisher guide. |
 | `action-plan.json` | `seo-action-plan` | Approval-ready scope, ownership, verification, and rollback for a proposed change; formal status starts as pending. |
 | `provider-operation-receipt.json` | `seo-performance` provider-operations mode | Hash-bound authorization, exact property/targets, provider response, pre/post state, and delayed outcome states. |
 | `live-release-report.json` | `seo-technical` live verifier | Sitemap equality plus distinct document, redirect, surface, retry, and failure counts for the exact candidate. |
@@ -244,7 +256,7 @@ Import adapters also cover Bing Webmaster Tools CSV, organic GA4 CSV, crawler CS
 
 The suite helps teams make stronger decisions and learn from what happens after a change. Broad organic-growth work now has a baseline completeness gate: query-to-page ownership, useful title and meta copy, canonical/indexability, and hostname favicon identity cannot disappear behind more advanced recommendations. Approved per-page title, description, and H1 copy can be bound into live verification, so presence-only checks do not bless stale or truncated output. Broad growth also carries two required tracks: nearer-term gains and high-volume head-term/category leadership. Difficult terms stay visible with a canonical owner, leading-result gap, supporting content/authority/architecture work, staged top-20/top-10/top-3 measurement goals, and position 1 as an explicit stretch objective; difficulty changes the investment path rather than silently converting ambition into `Defer`. Query decisions still preserve authorized first-party performance, dated locale/device result-set evidence, business and intent fit, coverage, authority, effort, and risk without pretending that one keyword score predicts rank. Recommendations carry an evidence class. Important changes can include product-owner intent, independent implementation/release/provider authorization, candidate identity, scope-matched verification, monitoring, and rollback. Search performance and AI visibility are measured separately, so each result keeps the context needed for a meaningful comparison.
 
-The workflows support ambitious search and AI-discovery programs while keeping claims grounded in observable evidence. The suite can create `/llms.txt` as a low-cost future-readiness layer when canonical public sources and a maintenance owner exist; it validates the file without presenting it as a ranking requirement. Primary-source discipline and safety checks are built in; see the [source registry](docs/research/2026-08-06-source-registry.json), [platform and market review](docs/research/2026-08-06-platform-and-market-review.md), and [release checklist](docs/RELEASE-CHECKLIST.md). As with any search program, platforms decide ranking, indexing, retrieval, and presentation outcomes.
+The workflows support ambitious search and AI-discovery programs while keeping claims grounded in observable evidence. The suite can create `/llms.txt` as a low-cost future-readiness layer when canonical public sources and a maintenance owner exist; it validates the file without presenting it as a ranking requirement. Primary-source discipline and safety checks are built in; see the [active source registry](docs/research/2026-10-03-source-registry.json), [dated source review](docs/research/2026-10-03-source-review.md), and [release checklist](docs/RELEASE-CHECKLIST.md). The [original market review](docs/research/2026-08-06-platform-and-market-review.md) remains historical evidence. As with any search program, platforms decide ranking, indexing, retrieval, and presentation outcomes.
 
 ## Claude directory submission
 

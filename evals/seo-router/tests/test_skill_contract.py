@@ -36,7 +36,8 @@ class SeoRouterSkillContractTests(unittest.TestCase):
         self.assertIn("Directly invoking that specialist remains available", text)
         self.assertIn("screen all 27 skills", interface)
         self.assertIn("recommended first call and user-facing owner for any SEO, AEO, GEO, or AI-search request", matrix)
-        self.assertIn("Optional `llms.txt` suitability", matrix)
+        self.assertIn("Owner-required Markdown discovery profile", matrix)
+        self.assertIn("optional standalone `llms.txt` suitability", matrix)
 
     def test_router_owns_complete_coverage_without_user_coordination(self):
         text = (SKILL / "SKILL.md").read_text(encoding="utf-8")

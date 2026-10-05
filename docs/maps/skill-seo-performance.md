@@ -1,0 +1,16 @@
+# skill-seo-performance resource map
+
+Public source files in this topic: 10. Native resources keep their existing format.
+
+[Full content map](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/sitemap.md) · [LLM entry point](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/llms.txt)
+
+- [Entrypoint and responsibilities: seo-performance](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-performance/SKILL.md): `skills/seo-performance/SKILL.md`; readable Markdown document.
+- [Native workflow or agent configuration: openai](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-performance/agents/openai.yaml): `skills/seo-performance/agents/openai.yaml`; native source/evidence resource.
+- [Native JSON contract, fixture or dated evidence: contracts-lock](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-performance/references/contracts/contracts-lock.json): `skills/seo-performance/references/contracts/contracts-lock.json`; native source/evidence resource.
+- [Native JSON contract, fixture or dated evidence: provider-operation-receipt.schema](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-performance/references/contracts/provider-operation-receipt.schema.json): `skills/seo-performance/references/contracts/provider-operation-receipt.schema.json`; native source/evidence resource.
+- [Native JSON contract, fixture or dated evidence: query-corpus.schema](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-performance/references/contracts/query-corpus.schema.json): `skills/seo-performance/references/contracts/query-corpus.schema.json`; native source/evidence resource.
+- [Native JSON contract, fixture or dated evidence: seo-performance-run.schema](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-performance/references/contracts/seo-performance-run.schema.json): `skills/seo-performance/references/contracts/seo-performance-run.schema.json`; native source/evidence resource.
+- [Controlled SEO experiment protocol](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-performance/references/controlled-seo-experiment-protocol.md): `skills/seo-performance/references/controlled-seo-experiment-protocol.md`; readable Markdown document.
+- [Markdown delivery: seo-performance](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-performance/references/markdown-delivery-contract.md): `skills/seo-performance/references/markdown-delivery-contract.md`; readable Markdown document.
+- [SEO performance measurement protocol](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-performance/references/performance-measurement-protocol.md): `skills/seo-performance/references/performance-measurement-protocol.md`; readable Markdown document.
+- [Provider operations protocol](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-performance/references/provider-operations-protocol.md): `skills/seo-performance/references/provider-operations-protocol.md`; readable Markdown document.

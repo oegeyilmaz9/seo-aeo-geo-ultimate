@@ -1,4 +1,4 @@
 interface:
   display_name: "Video SEO"
   short_description: "Audit video pages, players, markup, and sitemaps"
-  default_prompt: "Use $seo-video to audit the supplied watch pages, video metadata, and indexing evidence."
+  default_prompt: "Use $seo-video to audit the supplied watch pages, video metadata, and indexing evidence. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

@@ -5,6 +5,13 @@ description: Use when auditing, briefing, rewriting, or reviewing site content f
 
 # SEO Content
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `content-review.md; content-decisions.md` (combine small related steps with stable section links). Create substantive public .md bodies from the same approved source as HTML. Preserve evidence, entity facts, prices/limits, locale, media meaning and freshness. Add natural query language and direct answer sections; do not create AI-only facts or hidden keyword text.
+
+
 ## Purpose
 
 Create evidence-led content audits, briefs, and draft improvements that help a real reader complete a task. Use this after an approved `seo-action-plan` when the request stems from AEO/GEO findings; use it directly for a bounded editorial review with supplied content and facts.
@@ -39,7 +46,7 @@ For regulated, health, legal, financial, safety, pricing, availability, or compa
 
 ## AI-search and platform boundaries
 
-Google’s current AI guidance treats standard, crawlable, people-first content as the foundation and does not require special AI markup, chunking, or `llms.txt`. Never add those as defaults. Do not claim that an answer-first section, FAQ, schema, or bot access will make a system cite a page. Route platform-specific research to `ai-search-research`, direct-answer audits to `seo-aeo`, citation/entity evidence to `seo-geo`, and repeatable observations to `ai-visibility-monitor`.
+Google’s current AI guidance treats standard, crawlable, people-first content as the foundation and does not require special AI markup, chunking, or `llms.txt`. The owner-defined Markdown discovery profile is the suite delivery default; do not describe it as a Google inclusion requirement. Do not claim that an answer-first section, FAQ, schema, or bot access will make a system cite a page. Route platform-specific research to `ai-search-research`, direct-answer audits to `seo-aeo`, citation/entity evidence to `seo-geo`, and repeatable observations to `ai-visibility-monitor`.
 
 ## Formal evidence handoff
 

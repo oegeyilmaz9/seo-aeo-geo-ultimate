@@ -5,6 +5,13 @@ description: Use when researching, briefing, or drafting fair comparison, versus
 
 # Comparison and Alternative Pages
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `comparison-research.md; comparison-decisions.md` (combine small related steps with stable section links). Keep comparison Markdown and HTML claims identical, source-dated, attributable and fair. Map comparison intent to a substantive owner; do not copy competitors or invent relative product capabilities.
+
+
 ## Purpose
 
 Create useful comparison-page plans and reviewable drafts for a reader making a real choice. The page should make its evidence, scope, and trade-offs clear; it is not a vehicle for unverified claims or competitor disparagement.

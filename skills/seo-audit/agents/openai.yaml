@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO Audit"
   short_description: "Run bounded multi-lane SEO audits with evidence"
-  default_prompt: "Use $seo-audit to assess the supplied SEO evidence and propose safe next actions."
+  default_prompt: "Use $seo-audit to assess the supplied SEO evidence and propose safe next actions. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

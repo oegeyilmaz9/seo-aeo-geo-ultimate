@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO Router"
   short_description: "One request, full SEO and AI-search orchestration"
-  default_prompt: "Use $seo to own this request end to end: infer the required SEO, AEO, GEO, and AI-search work from my plain-language goal, screen all 27 skills, execute every applicable specialist workflow, carry evidence and handoffs internally, and return one consolidated result to the authorized boundary."
+  default_prompt: "Use $seo to own this request end to end: infer the required SEO, AEO, GEO, and AI-search work from my plain-language goal, screen all 27 skills, execute every applicable specialist workflow, carry evidence and handoffs internally, and return one consolidated result to the authorized boundary. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

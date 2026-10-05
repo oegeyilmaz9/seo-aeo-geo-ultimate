@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO Authority"
   short_description: "Audit backlinks, mentions, sources, and link risk"
-  default_prompt: "Use $seo-authority to audit the supplied backlink, mention, and source-landscape evidence."
+  default_prompt: "Use $seo-authority to audit the supplied backlink, mention, and source-landscape evidence. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

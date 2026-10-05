@@ -5,6 +5,13 @@ description: Use when auditing or planning video discovery and indexing across w
 
 # Video SEO
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `video-review.md; transcript-map.md` (combine small related steps with stable section links). Map watch pages to substantive public transcripts/captions/summaries and timestamp destinations when rights permit. Preserve speakers/context and source evidence; Markdown does not replace VideoObject, players or video sitemaps.
+
+
 Audit whether a video and its watch page are understandable, accessible, discoverable, indexable where eligible, and supported by truthful metadata.
 
 Read [video-evidence-protocol.md](references/video-evidence-protocol.md) before a formal audit.

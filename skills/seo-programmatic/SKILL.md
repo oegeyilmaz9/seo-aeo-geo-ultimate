@@ -5,6 +5,13 @@ description: Use when designing, auditing, or improving scaled/template-driven S
 
 # Programmatic SEO
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `corpus-contract.md; corpus-verification.md` (combine small related steps with stable section links). Generate HTML and Markdown from one qualified data/source contract, propagate changes/deletions to maps and locales, and verify the whole affected population. Preserve quality gates and avoid mass thin pages or per-keyword mirrors.
+
+
 ## Purpose
 
 Assess or plan scalable page systems without creating index bloat, misleading content, or unmaintainable templates. The unit of review is the page system: input data, template logic, user task, content differentiation, URL/canonical rules, quality controls, and rollout behavior.

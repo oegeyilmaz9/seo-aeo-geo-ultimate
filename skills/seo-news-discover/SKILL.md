@@ -5,6 +5,13 @@ description: Use when auditing or planning publisher visibility for Google News,
 
 # News and Discover SEO
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `publisher-review.md; article-provenance.md` (combine small related steps with stable section links). Keep article Markdown aligned with byline, publication/update dates, corrections, original reporting and rights. Preserve paywall/access policy and news feeds/sitemaps; never expose subscriber-only text through a public mirror.
+
+
 Audit the publisher system behind freshness-sensitive discovery: editorial transparency, article pages, dates and corrections, media, structured data, sitemaps/feeds, access state, and reporting.
 
 Read [news-discover-protocol.md](references/news-discover-protocol.md) before a formal audit.

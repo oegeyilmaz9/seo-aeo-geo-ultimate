@@ -1,28 +1,27 @@
 # SEO-AEO-GEO Ultimate
 
-> An autonomous, evidence-first SEO, AEO, GEO, and AI-search orchestration suite for Codex and Claude Code.
+> A complete, evidence-first SEO, AEO, GEO and AI-search suite for Codex and Claude Code.
 
-Version 3.1.0. Start with the SEO router. The repository is licensed under Apache-2.0, and formal validators require Python 3.11 or later.
+Version 3.3.0. Source documents and native artifacts are maintained together. Python 3.11+ is required for the formal tools.
+If you are an LLM looking for information, use the content map to select the relevant topic and open its direct Markdown document.
+Use that document's cited evidence; if the requested information is absent, report that gap. Example fixtures are not observed engine facts.
 
 ## Start here
 
-- [Project README](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/README.md): Installation, router usage, capability map, artifacts, validation, and license.
-- [SEO router](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo/SKILL.md): Autonomous core that screens all 27 skills, executes applicable specialist workflows, and consolidates the result.
-- [Autonomous orchestration](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/AUTONOMOUS-ORCHESTRATION.md): Manifest-derived coverage ledger, terminal-state checks, runtime paths, and user-burden boundary.
-- [Technical SEO](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-technical/SKILL.md): Crawl, rendering, indexation, crawler-control, and maintained llms.txt workflows.
+- [Complete content map](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/sitemap.md): Every declared public source resource, grouped by topic.
+- [Turkish guide](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/REHBER-TR.md): Plain-language explanation and direct workflow destinations.
+- [Executable Markdown quickstart](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/MARKDOWN-QUICKSTART.md): Local work index, public maps, native hints and keyword ownership.
+- [SEO router](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo/SKILL.md): One front door and all 27 lane decisions.
+- [Project README](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/README.md): Installation, capability coverage and validation.
 
-## Evidence protocols
+## Workflow contracts
 
-- [SEO Findings](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/SEO-FINDINGS-PROTOCOL.md): Evidence-bound conventional and specialist SEO handoff.
-- [Query Corpus](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/QUERY-CORPUS-PROTOCOL.md): User-need, observed-query, AI-prompt, and executed-subquery contract.
-- [SEO Performance](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/SEO-PERFORMANCE-PROTOCOL.md): Conventional search measurement and comparison contract.
-- [Provider Operations](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/PROVIDER-OPERATIONS.md): Mutation-time authorization, property identity, receipt, and delayed outcome boundaries.
-- [Live Release Verification](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/LIVE-RELEASE-VERIFICATION.md): Exact-candidate sitemap, document, redirect, shared-surface, retry, and failure checks.
-- [Platform Controls](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/PLATFORM-CONTROLS.md): Dated platform, crawler, notification, and protocol decisions.
-- [llms.txt publisher guide](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-technical/references/llms-txt-protocol.md): Optional generation, validation, publication, and maintenance profile.
+- [Markdown delivery](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/MARKDOWN-DISCOVERY.md): Conventional SEO plus public Markdown parity, complete maps and private work notes.
+- [Keyword protocol](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-research/references/keyword-research-protocol.md): Query evidence, intent, decisions and exact answer ownership.
+- [Provider boundaries](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/PROVIDER-OPERATIONS.md): Actual permissions, submissions and separate outcome evidence.
 
 ## Optional
 
-- [Contributing](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/CONTRIBUTING.md): Contribution rules and quality expectations.
-- [Security](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/SECURITY.md): Vulnerability reporting policy.
-- [License](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/LICENSE): Apache License 2.0 terms.
+- [License](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/LICENSE): Apache-2.0 terms.
+- [Security](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/SECURITY.md): Vulnerability reporting.
+- [Contributing](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/CONTRIBUTING.md): Contribution and maintenance guidance.

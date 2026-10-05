@@ -40,7 +40,8 @@ Use `seo` as the recommended first call and user-facing owner for any SEO, AEO, 
 | International SEO | `seo-hreflang` | Locale/URL map | Technical implementation |
 | Strategy/roadmap | `seo-plan` | Validated findings | Sequenced execution |
 | Large-scale page systems | `seo-programmatic` | Template/data rules | Implementation + QA |
-| Optional `llms.txt` suitability, generation, validation, publishing, or maintenance | `seo-technical` | Canonical public sources, content scope, refresh path, and maintenance owner | Validated `/llms.txt` or a documented decision not to publish |
+| Owner-required Markdown discovery profile | `seo-sitemap` + `seo-architecture` + `seo-content` + `seo-technical`; `seo-research` for keyword ownership | Verified complete scoped inventory, reviewed public sources, exact Markdown routes, privacy/indexing policy and maintenance owner | `/llms.txt`, `/sitemap.md`, topic maps, substantive `.md` corpus, private step documents and full-scope acceptance |
+| optional standalone `llms.txt` suitability, generation, validation, publishing, or maintenance | `seo-technical` | Canonical public sources, content scope, refresh path, and maintenance owner | Validated `/llms.txt` or a documented decision not to publish |
 
 ## Ambiguity resolution
 

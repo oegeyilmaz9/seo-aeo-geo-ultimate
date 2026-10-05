@@ -5,6 +5,13 @@ description: Use when turning validated SEO, AEO, GEO, technical, or measurement
 
 # SEO Action Plan
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `action-plan.md; acceptance-map.md` (combine small related steps with stable section links). Carry owner-required Markdown discovery as a publisher requirement with evidence-linked content/transport acceptance, not a claimed engine requirement. Bind every approved action ID to a substantive .md document, owner, exact affected routes, verification and rollback.
+
+
 ## Purpose
 
 Turn evidence-backed findings into a sequenced implementation plan that a content, engineering, analytics, product, or legal owner can approve and execute. This skill plans work; it does not change a site, publish content, modify crawler controls, deploy code, or approve its own recommendations.
@@ -14,7 +21,7 @@ Use it after `seo-aeo` or `seo-geo` has produced a validated `optimization-brief
 ## Non-negotiable boundaries
 
 - Do not promise inclusion, ranking, citation, referral, traffic, revenue, or conversion lift.
-- Do not invent a platform requirement. In particular, do not prescribe `llms.txt`, special “AI schema”, chunk sizes, bot access, or a crawler-control change unless the supplied evidence and the applicable platform documentation support it.
+- Do not invent a platform requirement. The owner-defined Markdown discovery profile, including `llms.txt`, is an accepted publisher requirement. Special “AI schema”, fixed chunk sizes, bot access or crawler-control claims still require scoped current evidence; publisher preferences never prove engine adoption.
 - Separate an observed issue from its likely cause and from the proposed change.
 - Never treat a crawler request or bot log as evidence of retrieval, grounding, citation, referral, or conversion.
 - Do not turn a speculative or experimental finding into a normal implementation action. Keep it as a monitored experiment or decline it.

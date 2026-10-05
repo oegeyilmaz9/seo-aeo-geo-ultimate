@@ -5,6 +5,13 @@ description: Audit supplied pages, entity records, source captures, and citation
 
 # SEO GEO
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `geo-findings.md; claim-source-map.md` (combine small related steps with stable section links). Bind entities and claims to exact Markdown passages, primary supporting sources and canonical HTML owners. Audit revision/locale consistency and contradictions. A direct source link is citation readiness evidence, not proof of engine citation.
+
+
 Produce an evidence-linked GEO Optimization Brief from immutable inputs. Audit generative-engine entity, source, and citation readiness; do not implement remedies or predict placement.
 
 ## Required inputs
@@ -30,7 +37,7 @@ Produce an evidence-linked GEO Optimization Brief from immutable inputs. Audit g
 4. Bind every finding to resolved Research Pack query IDs, one target, that target's locale, and engine/surface pairs within query applicability.
 5. Create capture-tied `direct_observation` audit evidence. Never copy Research Pack evidence or invent a URL, answer, citation, mention, crawler behavior, control, or engine result.
 6. Classify evidence as `confirmed`, `vendor-recommended`, `experimental`, or `speculative`. A recommendation also inherits the weakest classification of every linked finding; it cannot hide a weak finding by repeating only stronger references. Speculative or experimental findings never support implementation; experimental-only support belongs in `experiments`.
-7. Decline fixed scores, universal ranking factors, fixed passage formulas, mandatory `llms.txt`, blanket crawler directives, platform guarantees, and correlation presented as causation.
+7. Decline fixed scores, universal ranking factors, fixed passage formulas, universal engine-mandatory `llms.txt`, blanket crawler directives, platform guarantees, and correlation presented as causation.
 8. Create `optimization-brief.json` with `optimization_domain: "geo"` and `producer_skill: "seo-geo"`. Keep stable IDs unique, external artifacts hash-pinned, and audit evidence metadata-bound.
 9. Give every recommendation resolved evidence overlapping each linked finding, a desired outcome, confidence, verification method, and exactly one candidate implementation owner. A Brief does not approve a change.
 10. Validate the Research Pack, metadata/capture provenance, evidence resolution and scope, GEO dimension ownership, documented-control evidence, chronology, and canonical Optimization Brief contract.

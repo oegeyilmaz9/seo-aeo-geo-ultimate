@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO Action Plan"
   short_description: "Turn findings into safe action plans"
-  default_prompt: "Use $seo-action-plan to turn validated SEO findings into an actionable plan."
+  default_prompt: "Use $seo-action-plan to turn validated SEO findings into an actionable plan. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

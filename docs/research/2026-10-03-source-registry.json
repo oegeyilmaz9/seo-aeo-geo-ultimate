@@ -1,0 +1,411 @@
+{
+  "registry_version": "1.0.0",
+  "observed_on": "2026-10-03",
+  "purpose": "Current primary references for Markdown discovery, keyword evidence and documented platform controls. Historical market/vendor research remains in the August registry and must be independently refreshed before use.",
+  "freshness_policy": {
+    "vendor_documentation_days": 30,
+    "standards_days": 90,
+    "original_research_days": 365,
+    "direct_observation_days": 14,
+    "collection_or_access_policy": "Verify on the day an automated collection or authenticated integration is proposed."
+  },
+  "sources": [
+    {
+      "id": "google-ai-optimization-guide-2026",
+      "title": "Optimizing your website for generative AI features on Google Search",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2026-07-10",
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "google",
+        "ai-overview",
+        "ai-mode",
+        "seo",
+        "aeo",
+        "geo"
+      ],
+      "design_effect": "Treat foundational SEO, original people-first content, crawlability, and page experience as Google-specific prerequisites. Google explicitly says llms.txt neither helps nor harms Google Search visibility because Search ignores it; keep it optional for other consumers. Reject fixed chunking, special AI schema, synthetic mentions, and generic AI-only rewrites as mandatory Google requirements."
+    },
+    {
+      "id": "llms-txt-community-proposal",
+      "title": "The /llms.txt file",
+      "publisher": "llms.txt community proposal",
+      "url": "https://llmstxt.org/",
+      "source_kind": "standard",
+      "updated_at": "2026-08-10",
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "llms-txt",
+        "publisher-guide",
+        "machine-readable",
+        "inference",
+        "documentation"
+      ],
+      "design_effect": "Implement the owner-required publisher map and clean Markdown destinations with maintained direct links. Client-specific adoption and engine outcomes must be measured separately."
+    },
+    {
+      "id": "google-ai-features-website",
+      "title": "AI features and your website",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2025-12-10",
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "google",
+        "ai-overview",
+        "ai-mode",
+        "crawler-controls"
+      ],
+      "design_effect": "Keep AI Overviews and AI Mode as separate surfaces. Require an indexed, snippet-eligible page for Google AI-feature eligibility, while never promise serving. Model Googlebot search access and Google-Extended separately."
+    },
+    {
+      "id": "google-search-console-generative-ai-report",
+      "title": "Generative AI performance report (Search)",
+      "publisher": "Google Search Console Help",
+      "url": "https://support.google.com/webmasters/answer/16984139",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "google",
+        "measurement",
+        "first-party"
+      ],
+      "design_effect": "Report impressions and supported page/country/date/device dimensions as provider observations. Do not invent query rows; preserve aggregation, reporting timezone, export limitations and unavailable-to-zero export ambiguity."
+    },
+    {
+      "id": "bing-ai-performance-preview",
+      "title": "Introducing AI Performance in Bing Webmaster Tools Public Preview",
+      "publisher": "Bing Webmaster Blog",
+      "url": "https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2026-02-10",
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "bing",
+        "copilot",
+        "measurement",
+        "first-party"
+      ],
+      "design_effect": "Add a separately labeled, optional Bing first-party citation input. Preserve preview and property-access limitations instead of treating it as universally available."
+    },
+    {
+      "id": "openai-publisher-faq",
+      "title": "Publishers and Developers - FAQ",
+      "publisher": "OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "openai",
+        "chatgpt-search",
+        "crawler-controls",
+        "referrals",
+        "agentic"
+      ],
+      "design_effect": "Separate OAI-SearchBot access from GPTBot training preferences. Treat ChatGPT referral tracking as a reported UTM convention, not a complete attribution system. Use accessibility as an agent-compatibility consideration, not a ranking claim."
+    },
+    {
+      "id": "anthropic-crawlers",
+      "title": "Does Anthropic crawl data from the web, and how can site owners block the crawler?",
+      "publisher": "Anthropic Help Center",
+      "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2026-04-07",
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "anthropic",
+        "claude",
+        "crawler-controls"
+      ],
+      "design_effect": "Keep training, search and user-directed fetch policies separate; use the published Anthropic IP JSON source for identity verification. Access does not prove citation."
+    },
+    {
+      "id": "perplexity-crawlers",
+      "title": "Perplexity Crawlers",
+      "publisher": "Perplexity",
+      "url": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "perplexity",
+        "crawler-controls",
+        "security"
+      ],
+      "design_effect": "Use separate bot/user-fetch policies and published identity endpoints. Perplexity-User generally ignores robots.txt on user-requested fetches; robots is not an access security boundary."
+    },
+    {
+      "id": "ietf-rfc-9309",
+      "title": "RFC 9309: Robots Exclusion Protocol",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc9309.html",
+      "source_kind": "standard",
+      "updated_at": "2022-09-01",
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "robots",
+        "crawler-controls",
+        "technical-seo"
+      ],
+      "design_effect": "Describe robots.txt as crawler access guidance rather than access authorization. Validate standard syntax separately from vendor-specific support and behavior."
+    },
+    {
+      "id": "google-search-documentation-updates",
+      "title": "Google Search documentation updates",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/updates",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "google",
+        "feature-lifecycle",
+        "schema",
+        "commerce"
+      ],
+      "design_effect": "Maintain current, preview, deprecated, and removed feature states; retain the May 2026 FAQ rich-result removal and revalidate changed merchant properties."
+    },
+    {
+      "id": "google-product-structured-data",
+      "title": "Product structured data",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/product",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "google",
+        "commerce",
+        "product",
+        "merchant-center",
+        "schema"
+      ],
+      "design_effect": "Audit visible product pages, Product or merchant listing data, and Merchant Center feeds together while treating eligibility and acceptance as separate evidence."
+    },
+    {
+      "id": "google-video-sitemaps",
+      "title": "Video sitemaps and alternatives",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/video-sitemaps",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "google",
+        "video",
+        "sitemap",
+        "freshness"
+      ],
+      "design_effect": "Validate video sitemap discovery and update state while keeping video indexing and result eligibility separate from submission."
+    },
+    {
+      "id": "google-news-sitemaps",
+      "title": "Create a Google News sitemap",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "google",
+        "news",
+        "discover",
+        "sitemap",
+        "freshness"
+      ],
+      "design_effect": "Add a publisher lane for article transparency, dates, corrections, media, news sitemap freshness, and policy evidence without inclusion promises."
+    },
+    {
+      "id": "ucp-specification-overview",
+      "title": "Universal Commerce Protocol specification overview",
+      "publisher": "UCP",
+      "url": "https://ucp.dev/2026-04-08/specification/overview/",
+      "source_kind": "standard",
+      "updated_at": "2026-04-08",
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "commerce",
+        "agentic",
+        "protocol",
+        "capability-discovery"
+      ],
+      "design_effect": "Treat UCP as an emerging optional capability with discovery, operations, authentication, owner, and fallback—not as an SEO or AI-visibility requirement."
+    },
+    {
+      "id": "openai-product-discovery",
+      "title": "Powering product discovery in ChatGPT",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/powering-product-discovery-in-chatgpt/",
+      "source_kind": "vendor_documentation",
+      "updated_at": "2026-03-24",
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "openai",
+        "commerce",
+        "products",
+        "merchant-data",
+        "acp"
+      ],
+      "design_effect": "Add OpenAI product and merchant data to commerce parity/capability review without assuming a recommendation, checkout, or sales outcome."
+    },
+    {
+      "id": "indexnow-documentation",
+      "title": "IndexNow protocol documentation",
+      "publisher": "IndexNow",
+      "url": "https://www.indexnow.org/documentation",
+      "source_kind": "standard",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "indexnow",
+        "discovery",
+        "freshness",
+        "commerce",
+        "news"
+      ],
+      "design_effect": "Add a bounded change-notification workflow for added, updated, and deleted URLs with key/endpoint verification, receipts, logs, and no indexing guarantee."
+    },
+    {
+      "id": "google-generative-ai-performance-blog",
+      "title": "Generative AI performance reports in Search Console",
+      "publisher": "Google Search Central Blog",
+      "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "google",
+        "search-console",
+        "generative-ai",
+        "measurement",
+        "preview"
+      ],
+      "design_effect": "The announcement now records worldwide rollout on August 31, 2026. Retain only property-exposed dimensions and distinguish impression reporting from observed answers and citations."
+    },
+    {
+      "id": "google-canonical-methods",
+      "title": "Canonical URL methods",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "markdown-discovery",
+        "keyword-evidence",
+        "platform-controls"
+      ],
+      "design_effect": "Evaluate HTTP canonical headers for non-HTML duplicate content; do not replace canonical decisions with Markdown metadata."
+    },
+    {
+      "id": "google-robots-guide",
+      "title": "Robots.txt introduction",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "markdown-discovery",
+        "keyword-evidence",
+        "platform-controls"
+      ],
+      "design_effect": "Preserve robots.txt separately from Markdown discovery and authentication."
+    },
+    {
+      "id": "google-sitemap-overview",
+      "title": "Sitemap overview",
+      "publisher": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "markdown-discovery",
+        "keyword-evidence",
+        "platform-controls"
+      ],
+      "design_effect": "Maintain native sitemap protocol and discovery/outcome boundaries."
+    },
+    {
+      "id": "google-keyword-planner-definitions",
+      "title": "Keyword Planner forecasts and historical metrics",
+      "publisher": "Google Ads Help",
+      "url": "https://support.google.com/google-ads/answer/3022575",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "markdown-discovery",
+        "keyword-evidence",
+        "platform-controls"
+      ],
+      "design_effect": "Retain geography/network/window, close-variant aggregation and rounded volume; advertiser competition and forecasts are not organic difficulty or ranking evidence."
+    },
+    {
+      "id": "google-trends-data",
+      "title": "Google Trends data FAQ",
+      "publisher": "Google Trends Help",
+      "url": "https://support.google.com/trends/answer/4365533?hl=en",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "markdown-discovery",
+        "keyword-evidence",
+        "platform-controls"
+      ],
+      "design_effect": "Relative normalized sampled interest is not monthly search volume; low-volume zeros and statistical noise require limitations."
+    },
+    {
+      "id": "google-search-performance-overview",
+      "title": "Search performance overview",
+      "publisher": "Google Search Console Help",
+      "url": "https://support.google.com/webmasters/answer/7576553?hl=en",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "markdown-discovery",
+        "keyword-evidence",
+        "platform-controls"
+      ],
+      "design_effect": "Use authorized property query/page metrics with their filters/windows; exposure is not total market demand."
+    },
+    {
+      "id": "google-common-crawlers-current",
+      "title": "Common crawlers and Google-Extended",
+      "publisher": "Google Crawling Infrastructure",
+      "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "markdown-discovery",
+        "keyword-evidence",
+        "platform-controls"
+      ],
+      "design_effect": "Google-Extended is a product token covering specified training and grounding, with no separate request user agent and no Google Search ranking effect."
+    },
+    {
+      "id": "anthropic-crawler-ip-source",
+      "title": "Anthropic crawler IP source",
+      "publisher": "Anthropic",
+      "url": "https://claude.com/crawling/bots.json",
+      "source_kind": "vendor_documentation",
+      "updated_at": null,
+      "observed_at": "2026-10-03",
+      "scopes": [
+        "markdown-discovery",
+        "keyword-evidence",
+        "platform-controls"
+      ],
+      "design_effect": "Use current published IP data for verification instead of an outdated no-published-ranges assumption."
+    }
+  ]
+}

@@ -4,16 +4,20 @@
 
 - [ ] Refresh the source registry against the release date and resolve every stale entry.
 - [ ] Re-read all platform-specific statements changed in this release against primary sources.
-- [ ] Confirm no new universal score, forced `llms.txt`, blanket crawler instruction, or outcome guarantee was introduced.
+- [ ] Confirm no new universal score, claimed universal engine requirement for `llms.txt`, blanket crawler permission, or outcome guarantee was introduced. The owner's public Markdown profile requires maintained llms.txt as a publisher convention.
 - [ ] Confirm content/implementation proposals remain evidence-, owner-, approval-, verification-, and rollback-aware.
 - [ ] Confirm implementation, release, and provider-mutation authorization remain independent; accepted submissions are not reported as provider outcomes.
 - [ ] Validate any changed `seo-findings.json` and `action-plan.json` fixtures; confirm conventional findings retain raw evidence and AEO/GEO brief-only plans remain compatible.
 - [ ] Review `manifests/platform-controls.json` against current primary documentation and resolve expired review windows, changed feature states, and undocumented crawler assumptions.
 - [ ] Confirm Query Corpus demand values have dated provenance and that executed subqueries are observations, not inferred engine behavior.
+- [ ] Confirm ordinary HTML SEO and native protocols remain intact, every applicable work step has a substantive indexed .md note, and keyword decisions map to exact reviewed answer owners with unavailable values preserved.
 
 ## Validation
 
 - [ ] Run `python scripts/sync_contracts.py --check` and resolve all generated-contract drift.
+- [ ] Run `python scripts/manage_repository_map.py --check`; verify the inventory accounts for all published source files and every map resolves to an actual document/native resource.
+- [ ] Exercise the installed Markdown build/validate/hints and keyword-map tools against the fictional fixtures; keep local checks separate from real-site editorial/live acceptance.
+- [ ] Confirm native hint comments preserve robots active records and XML elements; validate a real changed sitemap's native schema and delivered raw comment retention when publishing a site.
 - [ ] Run `python scripts/validate_suite.py --as-of YYYY-MM-DD`.
 - [ ] Run `python scripts/validate_llms_txt.py validate-file llms.txt`; after publication, also run it with `--check-live` and confirm every linked public resource still exists and remains appropriate.
 - [ ] Run `python scripts/validate_claude_plugin.py`; when Claude Code is available, also run `claude plugin validate .`.

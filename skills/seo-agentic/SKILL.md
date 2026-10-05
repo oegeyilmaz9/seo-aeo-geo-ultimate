@@ -5,6 +5,13 @@ description: Use when auditing whether an AI agent can safely understand and com
 
 # Agentic Web Readiness
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `agent-journey.md; task-verification.md` (combine small related steps with stable section links). Test read-only knowledge tasks starting from llms.txt and their direct Markdown destinations. Keep UI state, forms, consent and transaction authorization in their existing surfaces; a knowledge export does not authorize actions.
+
+
 Audit whether a permitted agent can perceive, understand, and safely complete a bounded task using the same truthful interface and controls available to users.
 
 Read [agent-task-protocol.md](references/agent-task-protocol.md) before a formal audit.

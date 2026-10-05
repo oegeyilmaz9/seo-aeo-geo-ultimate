@@ -5,6 +5,13 @@ description: Use when auditing or planning language-region targeting, hreflang c
 
 # International SEO and hreflang
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `locale-map.md; locale-verification.md` (combine small related steps with stable section links). Map every HTML locale owner to its language-correct Markdown document and localized topic map. Preserve valid HTML/HTTP/XML hreflang where applicable. Markdown locale metadata is explanatory and does not replace hreflang.
+
+
 ## Purpose
 
 Validate reciprocal locale clusters and plan language/region targeting that reflects actual localized pages. This skill does not translate content, create markets, change canonicals, or deploy annotations.

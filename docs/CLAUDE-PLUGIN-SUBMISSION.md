@@ -40,7 +40,7 @@ This is a skills-only plugin. It declares no MCP servers, hooks, background moni
 **Keywords**
 
 ```text
-SEO, AEO, GEO, AI search, agent skills, Claude Code, Codex, technical SEO, llms.txt
+SEO, AEO, GEO, AI search, agent skills, Claude Code, Codex, technical SEO, llms.txt, Markdown discovery, keyword ownership
 ```
 
 **Supported platforms**

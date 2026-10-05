@@ -5,6 +5,13 @@ description: Use when auditing or designing site architecture, internal-link gra
 
 # SEO Architecture
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats. Include concise robots/XML-sitemap discovery comments and llms.txt navigation sentences pointing to actual Markdown answers; preserve the native protocols and verify delivery as described in the local contract.
+
+Lane outputs: `site-architecture.md; navigation-map.md` (combine small related steps with stable section links). Build llms.txt -> sitemap.md -> topic map -> substantive page.md paths with descriptive direct destinations. Audit orphans, cycles, collisions, dead links and question-to-answer task completion. Avoid forced traversal through irrelevant HTML navigation.
+
+
 Create and audit a bounded `site-graph.json` that explains how users and permitted crawlers discover important pages, how templates connect, and where query/entity coverage lives.
 
 Read [site-graph-protocol.md](references/site-graph-protocol.md) before a formal architecture audit.

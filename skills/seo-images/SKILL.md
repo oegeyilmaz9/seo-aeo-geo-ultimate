@@ -5,6 +5,13 @@ description: Use when reviewing image accessibility, discoverability, metadata, 
 
 # SEO Images
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `image-review.md; media-map.md` (combine small related steps with stable section links). Preserve relevant captions, alt meaning, source/licensing facts and media destinations in Markdown. Keep actual image files and responsive delivery contracts; do not pretend a text export reproduces visual evidence.
+
+
 ## Purpose
 
 Improve the way meaningful visual assets are understood and delivered to people and crawlers. This skill separates accessibility, rendering/performance, asset rights, and image-search discoverability instead of treating them as one score.

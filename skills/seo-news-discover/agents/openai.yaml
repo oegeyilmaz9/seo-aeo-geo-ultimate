@@ -1,4 +1,4 @@
 interface:
   display_name: "News and Discover SEO"
   short_description: "Audit publisher policy, articles, freshness, and feeds"
-  default_prompt: "Use $seo-news-discover to audit the supplied publisher, article, and freshness evidence."
+  default_prompt: "Use $seo-news-discover to audit the supplied publisher, article, and freshness evidence. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

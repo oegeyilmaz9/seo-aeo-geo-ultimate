@@ -1,0 +1,16 @@
+# skill-seo-action-plan resource map
+
+Public source files in this topic: 10. Native resources keep their existing format.
+
+[Full content map](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/sitemap.md) · [LLM entry point](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/llms.txt)
+
+- [Entrypoint and responsibilities: seo-action-plan](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-action-plan/SKILL.md): `skills/seo-action-plan/SKILL.md`; readable Markdown document.
+- [Native workflow or agent configuration: openai](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-action-plan/agents/openai.yaml): `skills/seo-action-plan/agents/openai.yaml`; native source/evidence resource.
+- [Action-plan protocol](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-action-plan/references/action-plan-protocol.md): `skills/seo-action-plan/references/action-plan-protocol.md`; readable Markdown document.
+- [Native JSON contract, fixture or dated evidence: action-plan.schema](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-action-plan/references/contracts/action-plan.schema.json): `skills/seo-action-plan/references/contracts/action-plan.schema.json`; native source/evidence resource.
+- [Native JSON contract, fixture or dated evidence: contracts-lock](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-action-plan/references/contracts/contracts-lock.json): `skills/seo-action-plan/references/contracts/contracts-lock.json`; native source/evidence resource.
+- [Native JSON contract, fixture or dated evidence: evidence-record.schema](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-action-plan/references/contracts/evidence-record.schema.json): `skills/seo-action-plan/references/contracts/evidence-record.schema.json`; native source/evidence resource.
+- [Native JSON contract, fixture or dated evidence: optimization-brief.schema](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-action-plan/references/contracts/optimization-brief.schema.json): `skills/seo-action-plan/references/contracts/optimization-brief.schema.json`; native source/evidence resource.
+- [Native JSON contract, fixture or dated evidence: research-pack.schema](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-action-plan/references/contracts/research-pack.schema.json): `skills/seo-action-plan/references/contracts/research-pack.schema.json`; native source/evidence resource.
+- [Native JSON contract, fixture or dated evidence: seo-findings.schema](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-action-plan/references/contracts/seo-findings.schema.json): `skills/seo-action-plan/references/contracts/seo-findings.schema.json`; native source/evidence resource.
+- [Markdown delivery: seo-action-plan](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/skills/seo-action-plan/references/markdown-delivery-contract.md): `skills/seo-action-plan/references/markdown-delivery-contract.md`; readable Markdown document.

@@ -1,4 +1,4 @@
 interface:
   display_name: "AI Visibility Monitor"
   short_description: "Measure repeatable AI mention and citation visibility"
-  default_prompt: "Use $ai-visibility-monitor to run or compare a frozen AI-search query corpus and produce a hash-pinned Visibility Run with explicit access gaps, denominators, uncertainty, and non-causal drift."
+  default_prompt: "Use $ai-visibility-monitor to run or compare a frozen AI-search query corpus and produce a hash-pinned Visibility Run with explicit access gaps, denominators, uncertainty, and non-causal drift. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO Architecture"
   short_description: "Audit site graphs, navigation, links, and coverage"
-  default_prompt: "Use $seo-architecture to build or audit the supplied site and internal-link graph."
+  default_prompt: "Use $seo-architecture to build or audit the supplied site and internal-link graph. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

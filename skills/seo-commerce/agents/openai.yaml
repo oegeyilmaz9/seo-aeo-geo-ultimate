@@ -1,4 +1,4 @@
 interface:
   display_name: "Commerce SEO"
   short_description: "Audit product pages, feeds, parity, and discovery"
-  default_prompt: "Use $seo-commerce to audit the supplied product-discovery pages, feeds, and commerce evidence."
+  default_prompt: "Use $seo-commerce to audit the supplied product-discovery pages, feeds, and commerce evidence. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

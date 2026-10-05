@@ -25,6 +25,8 @@ Start from [the bundled template](../assets/llms.txt.template) and produce UTF-8
 5. Use the special `## Optional` section for secondary material a client may omit.
 6. Add concise descriptions that explain what each resource contains.
 
+For the owner-defined Markdown discovery profile, keep two short navigation sentences before the first H2 file-list section: direct an interested LLM to the real sitemap.md/topic/answer links, then to the answer's sources and canonical page; ask it to report an absent answer. Preserve native robots and XML sitemap functionality while adding the comment-only cross-references described in the shared Markdown contract. Verify the delivered comment bytes as well as the destination URLs; ordinary parsers may ignore or strip comments.
+
 Do not copy the whole site into the file, invent facts, add AI-only claims, list every sitemap URL, include ephemeral query URLs, or expose internal/admin endpoints. Do not use `llms.txt` to allow or block crawlers; keep those decisions in `robots.txt`, platform controls, and security policy.
 
 ## Validate and release
@@ -45,4 +47,4 @@ The live option accepts only public HTTPS targets, follows at most five redirect
 
 Then verify the deployed URL returns the reviewed UTF-8 content at `/llms.txt` and matches the current canonical sources. Add the file to the same review/release path as those sources, assign an owner, and revalidate it after content, URL, locale, version, product, price, or policy changes.
 
-Google currently documents that it ignores `llms.txt` for Search visibility and that publishing one neither helps nor harms Google rankings. Other clients may choose to use the community proposal. Measure any downstream behavior separately; never infer it from the file's existence.
+Google documents no special AI text-file requirement for AI Search eligibility. Other clients may choose to consume the community proposal; adoption is client-specific. Measure any downstream behavior separately; never infer it from the file's existence.

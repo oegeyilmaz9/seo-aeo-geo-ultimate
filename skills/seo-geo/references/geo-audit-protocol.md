@@ -42,7 +42,7 @@ Require current vendor documentation or an applicable standard. Record vendor ad
 
 ## Myth-resistance gate
 
-Decline universal GEO scores, fixed word counts, mandatory `llms.txt`, blanket crawler allow/block instructions, unsupported platform source percentages, guaranteed citation uplift, and correlation presented as causation. A documented feature is not automatically a visibility control.
+Decline universal GEO scores, fixed word counts, universal engine-mandatory `llms.txt`, blanket crawler allow/block instructions, unsupported platform source percentages, guaranteed citation uplift, and correlation presented as causation. A documented feature is not automatically a visibility control.
 
 ## Recommendation gate
 

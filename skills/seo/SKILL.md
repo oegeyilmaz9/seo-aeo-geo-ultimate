@@ -1,9 +1,16 @@
 ---
 name: seo
-description: The autonomous front door and end-to-end orchestrator for any SEO, AEO, GEO, or AI-search request. Translate ordinary user goals into a complete 27-skill coverage screen, execute every applicable specialist workflow, carry evidence and handoffs internally, and return one consolidated result to the authorized boundary; direct specialist invocation remains optional. Do not create a universal score, unsupported control, causal uplift claim, or placement guarantee.
+description: The autonomous front door and end-to-end orchestrator for SEO, AEO, GEO, AI search, keyword research and LLM-friendly Markdown discovery. Screen all 27 skills, execute applicable workflows, maintain public content maps and private Markdown work documents, and deliver one evidence-linked result to the authorized boundary without ranking or citation guarantees.
 ---
 
 # SEO Router
+
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats. Include concise robots/XML-sitemap discovery comments and llms.txt navigation sentences pointing to actual Markdown answers; preserve the native protocols and verify delivery as described in the local contract.
+
+Lane outputs: `index.md; delivery-summary.md` (combine small related steps with stable section links). Own the public Markdown inventory, the work index, exact direct destinations and all lane handoffs. Require seo-sitemap, seo-architecture, seo-content and seo-technical for a public Markdown corpus; run seo-research for keyword ownership. Screen all 27 skills; do not run irrelevant verticals. Close only after applicable documents and checks resolve.
+
 
 Use `seo` as the default front door and user-facing owner for every request in this suite: a narrow technical question, a content review, an AI-search investigation, a multi-team plan, or an end-to-end authorized change. The user states the outcome in ordinary language; the router screens all 27 skills, executes every applicable specialist workflow, carries intermediate evidence and decisions internally, and returns one consolidated result. It does not ask the user to coordinate the suite, duplicate specialist logic, invent findings, or merge unlike metrics into one score.
 
@@ -51,7 +58,7 @@ Do not treat AEO and GEO as synonyms. Do not send live research to an audit skil
 - Content quality, helpfulness, E-E-A-T, topical coverage, or editorial remediation -> `seo-content`.
 - Structured data detection, validation, or generation -> `seo-schema`.
 - Image discovery, formats, dimensions, alt text, or media performance -> `seo-images`.
-- XML sitemap analysis or generation -> `seo-sitemap`.
+- XML sitemap plus complete Markdown content inventory/maps -> `seo-sitemap`, coordinated with `seo-architecture`, `seo-content`, and `seo-technical`.
 - International targeting and language-region annotations -> `seo-hreflang`.
 - Strategic roadmap and prioritization -> `seo-plan`.
 - Template-driven or large-scale landing-page systems -> `seo-programmatic`.
@@ -68,7 +75,7 @@ Do not treat AEO and GEO as synonyms. Do not send live research to an audit skil
 - Agent perception and task completion through DOM/accessibility/UI state, safe forms, auth/consent, or documented UCP/ACP/MCP/A2A capabilities -> `seo-agentic`.
 - Site graphs, navigation, hubs, crawl paths, orphan evidence, facets, taxonomy, pagination, internal links, or query-to-page architecture -> `seo-architecture`.
 - Backlinks, referring domains, source citations, brand/unlinked mentions, linkable evidence, digital PR, or link-scheme risk -> `seo-authority`.
-- Optional `llms.txt` suitability, generation, validation, publishing, or maintenance -> `seo-technical`; offer it as a low-cost maintained publisher guide when public sources and a refresh owner exist, not as a universal crawler or visibility control.
+- Owner-required Markdown discovery profile or optional standalone `llms.txt` suitability, generation, validation, publishing, or maintenance -> `seo-technical`; offer it as a low-cost maintained publisher guide when public sources and a refresh owner exist, not as a universal crawler or visibility control.
 - Site migration/replatforming, sudden traffic/indexation incident, manual action, or hacked-site search recovery -> `seo-technical`; involve the security incident owner for any suspected compromise.
 - Controlled SEO experiment design, baseline, or evaluation -> `seo-performance`; require `seo-action-plan` before exposure and `seo-technical` when variant delivery, redirects, canonicals, or directives are involved.
 - Broad implementation optimization after a validated, approved action plan -> `optimise-seo`.
@@ -87,6 +94,6 @@ Do not treat AEO and GEO as synonyms. Do not send live research to an audit skil
 
 ## Guardrails
 
-Do not create a universal SEO score or blend technical, content, AEO, GEO, and visibility metrics into a false precision number. Decline mandatory `llms.txt`, fixed passage or word-count formulas, blanket crawler instructions, invented ranking factors, unsupported source percentages, guaranteed rankings, guaranteed mentions, guaranteed citations, or any guarantee of AI placement. Offer `llms.txt` as an optional, evidence-scoped publisher guide when trustworthy public sources, a defined scope, and a maintenance owner make it cheap to keep correct; a documented consumer is useful but not required. A bot request is not evidence of retrieval, citation, referral, or conversion.
+Do not create a universal SEO score or blend technical, content, AEO, GEO, and visibility metrics into a false precision number. Decline universal engine-mandatory `llms.txt`, fixed passage or word-count formulas, blanket crawler instructions, invented ranking factors, unsupported source percentages, guaranteed rankings, guaranteed mentions, guaranteed citations, or any guarantee of AI placement. Offer `llms.txt` as an evidence-scoped publisher guide required by the owner-defined Markdown profile when trustworthy public sources, a defined scope, and a maintenance owner make it cheap to keep correct; a documented consumer is useful but not required. A bot request is not evidence of retrieval, citation, referral, or conversion.
 
 When an existing specialist owns the next step, the router loads and executes that specialist workflow without duplicating its instructions or asking the user to make the handoff. Directly invoking that specialist remains available, but `seo` is the complete default entry point when the user wants one request handled through the full applicable system.

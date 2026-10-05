@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "site_name": "Example Knowledge Site",
+  "summary": "Fictitious fixture for Markdown export and navigation tests.",
+  "origin": "https://example.com",
+  "inventory_scope": "complete",
+  "inventory_evidence": "Fictitious three-route fixture, not a real site inventory.",
+  "owner": "Example documentation owner",
+  "refresh_trigger": "Regenerate from the same reviewed source revision on every content release.",
+  "index_policy": "canonical-to-html",
+  "pages": [
+    {
+      "id": "overview",
+      "url": "https://example.com/overview",
+      "disposition": "publish",
+      "reviewed_public": true,
+      "title": "Site overview",
+      "purpose": "Project scope and where to find supported answers",
+      "locale": "en-US",
+      "topic": "documentation",
+      "updated_at": "2026-10-03",
+      "source_revision": "fictitious-fixture-v1",
+      "body_ref": "source/overview.md",
+      "md_path": "llm/pages/overview.md"
+    },
+    {
+      "id": "support",
+      "url": "https://example.com/support",
+      "disposition": "publish",
+      "reviewed_public": true,
+      "title": "Support scope",
+      "purpose": "Supported questions and response limitations",
+      "locale": "en-US",
+      "topic": "documentation",
+      "updated_at": "2026-10-03",
+      "source_revision": "fictitious-fixture-v1",
+      "body_ref": "source/support.md",
+      "md_path": "llm/pages/support.md"
+    },
+    {
+      "id": "private-account",
+      "url": "https://example.com/private-account",
+      "disposition": "exclude",
+      "reason": "Private authenticated account route; never publish this inventory or its excluded paths."
+    }
+  ]
+}

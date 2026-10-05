@@ -1,4 +1,4 @@
 interface:
   display_name: "Local SEO"
   short_description: "Audit locations, profiles, pages, and local evidence"
-  default_prompt: "Use $seo-local to audit the supplied location, profile, and local-search evidence."
+  default_prompt: "Use $seo-local to audit the supplied location, profile, and local-search evidence. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

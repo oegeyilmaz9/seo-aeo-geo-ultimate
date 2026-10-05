@@ -540,6 +540,7 @@ def validate_skill() -> None:
         "agents/openai.yaml",
         "references/evidence-policy.md",
         "references/capture-protocol.md",
+        "references/markdown-delivery-contract.md",
         "references/contracts/evidence-record.schema.json",
         "references/contracts/research-pack.schema.json",
         "references/contracts/query-corpus.schema.json",

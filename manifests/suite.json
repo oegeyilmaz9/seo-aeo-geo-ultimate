@@ -1,5 +1,5 @@
 {
-  "suite_version": "3.1.0",
+  "suite_version": "3.3.0",
   "contract_generation_tool_version": "1.0.0",
   "canonical_schema_root": "manifests/artifact-schemas",
   "schemas": {
@@ -55,127 +55,276 @@
     "orchestration-ledger": {
       "path": "scripts/manage_orchestration_ledger.py",
       "purpose": "Create and validate a manifest-derived coverage ledger proving that the autonomous router screened every current suite skill."
+    },
+    "markdown-site": {
+      "path": "scripts/manage_markdown_site.py",
+      "purpose": "Generate and validate complete scoped public Markdown discovery maps and exact source/live delivery."
+    },
+    "markdown-work": {
+      "path": "scripts/manage_markdown_work.py",
+      "purpose": "Maintain and verify direct Markdown work-step destinations, hashes, status and closeout coverage."
+    },
+    "keyword-map": {
+      "path": "scripts/render_keyword_map.py",
+      "purpose": "Render a validated Query Corpus with exact public Markdown destinations, demand provenance and explicit coverage gaps."
+    },
+    "repository-map": {
+      "path": "scripts/manage_repository_map.py",
+      "purpose": "Generate and verify the complete public repository Markdown inventory, task entry points and topic maps."
     }
   },
   "skills": {
     "ai-search-research": {
-      "produces": ["research-pack", "query-corpus"],
-      "consumes": ["evidence-record"],
+      "produces": [
+        "research-pack",
+        "query-corpus"
+      ],
+      "consumes": [
+        "evidence-record"
+      ],
       "generated_contract_root": "skills/ai-search-research/references/contracts"
     },
     "seo-aeo": {
-      "produces": ["optimization-brief"],
-      "consumes": ["research-pack", "evidence-record"],
+      "produces": [
+        "optimization-brief"
+      ],
+      "consumes": [
+        "research-pack",
+        "evidence-record"
+      ],
       "generated_contract_root": "skills/seo-aeo/references/contracts"
     },
     "seo-geo": {
-      "produces": ["optimization-brief"],
-      "consumes": ["research-pack", "evidence-record"],
+      "produces": [
+        "optimization-brief"
+      ],
+      "consumes": [
+        "research-pack",
+        "evidence-record"
+      ],
       "generated_contract_root": "skills/seo-geo/references/contracts"
     },
     "ai-visibility-monitor": {
-      "produces": ["visibility-run"],
-      "consumes": ["research-pack", "query-corpus"],
+      "produces": [
+        "visibility-run"
+      ],
+      "consumes": [
+        "research-pack",
+        "query-corpus"
+      ],
       "generated_contract_root": "skills/ai-visibility-monitor/references/contracts"
     },
     "seo": {
       "produces": [],
-      "consumes": ["evidence-record", "research-pack", "query-corpus", "optimization-brief", "visibility-run", "seo-performance-run", "site-graph", "platform-controls", "seo-findings", "action-plan", "provider-operation-receipt"],
+      "consumes": [
+        "evidence-record",
+        "research-pack",
+        "query-corpus",
+        "optimization-brief",
+        "visibility-run",
+        "seo-performance-run",
+        "site-graph",
+        "platform-controls",
+        "seo-findings",
+        "action-plan",
+        "provider-operation-receipt"
+      ],
       "generated_contract_root": "skills/seo/references/contracts"
     },
     "seo-action-plan": {
-      "produces": ["action-plan"],
-      "consumes": ["optimization-brief", "research-pack", "evidence-record", "seo-findings"],
+      "produces": [
+        "action-plan"
+      ],
+      "consumes": [
+        "optimization-brief",
+        "research-pack",
+        "evidence-record",
+        "seo-findings"
+      ],
       "generated_contract_root": "skills/seo-action-plan/references/contracts"
     },
     "seo-agentic": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record", "query-corpus", "platform-controls"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record",
+        "query-corpus",
+        "platform-controls"
+      ]
     },
     "seo-architecture": {
-      "produces": ["seo-findings", "site-graph"],
-      "consumes": ["evidence-record", "query-corpus"],
+      "produces": [
+        "seo-findings",
+        "site-graph"
+      ],
+      "consumes": [
+        "evidence-record",
+        "query-corpus"
+      ],
       "generated_contract_root": "skills/seo-architecture/references/contracts"
     },
     "seo-authority": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record", "query-corpus"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record",
+        "query-corpus"
+      ]
     },
     "seo-audit": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record"
+      ]
     },
     "seo-commerce": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record", "query-corpus", "platform-controls"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record",
+        "query-corpus",
+        "platform-controls"
+      ]
     },
     "seo-competitor-pages": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record"
+      ]
     },
     "seo-content": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record"
+      ]
     },
     "seo-hreflang": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record"
+      ]
     },
     "seo-images": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record"
+      ]
     },
     "seo-local": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record", "query-corpus"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record",
+        "query-corpus"
+      ]
     },
     "seo-news-discover": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record", "query-corpus", "platform-controls"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record",
+        "query-corpus",
+        "platform-controls"
+      ]
     },
     "seo-page": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record"
+      ]
     },
     "seo-plan": {
       "produces": [],
       "consumes": []
     },
     "seo-programmatic": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record"
+      ]
     },
     "seo-research": {
-      "produces": ["seo-findings", "query-corpus"],
-      "consumes": ["evidence-record"],
+      "produces": [
+        "seo-findings",
+        "query-corpus"
+      ],
+      "consumes": [
+        "evidence-record"
+      ],
       "generated_contract_root": "skills/seo-research/references/contracts"
     },
     "seo-performance": {
-      "produces": ["seo-performance-run", "provider-operation-receipt"],
-      "consumes": ["query-corpus"],
+      "produces": [
+        "seo-performance-run",
+        "provider-operation-receipt"
+      ],
+      "consumes": [
+        "query-corpus"
+      ],
       "generated_contract_root": "skills/seo-performance/references/contracts"
     },
     "seo-schema": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record"
+      ]
     },
     "seo-sitemap": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record"
+      ]
     },
     "seo-technical": {
-      "produces": ["seo-findings", "platform-controls"],
-      "consumes": ["evidence-record"],
-      "produces_files": ["llms-txt"],
+      "produces": [
+        "seo-findings",
+        "platform-controls"
+      ],
+      "consumes": [
+        "evidence-record"
+      ],
+      "produces_files": [
+        "llms-txt"
+      ],
       "generated_contract_root": "skills/seo-technical/references/contracts"
     },
     "seo-video": {
-      "produces": ["seo-findings"],
-      "consumes": ["evidence-record", "query-corpus", "platform-controls"]
+      "produces": [
+        "seo-findings"
+      ],
+      "consumes": [
+        "evidence-record",
+        "query-corpus",
+        "platform-controls"
+      ]
     },
     "optimise-seo": {
       "produces": [],
       "consumes": []
     }
-  }
+  },
+  "source_registry": "docs/research/2026-10-03-source-registry.json"
 }

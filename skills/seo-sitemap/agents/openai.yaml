@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO Sitemaps"
-  short_description: "Review XML sitemap coverage and safe sitemap changes"
-  default_prompt: "Use $seo-sitemap to assess the supplied SEO evidence and propose safe next actions."
+  short_description: "Map XML and Markdown discovery across the public inventory"
+  default_prompt: "Use $seo-sitemap to assess the supplied SEO evidence and propose safe next actions. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

@@ -2,6 +2,26 @@
 
 All notable changes to SEO-AEO-GEO Ultimate are documented here.
 
+## [3.3.0] - 2026-10-05
+
+- Publish the complete Markdown discovery revision with all 27 skill contracts, conventional SEO preservation and evidence-qualified keyword ownership.
+- Apply the navigation pattern to this repository through a generated full sitemap.md, task guide, topic maps and direct raw resource destinations.
+- Add executable Markdown quickstart, Turkish guide and substantive work/keyword decision templates.
+- Enforce repository navigation coverage in the suite validator and CI; retain the complete documented source bundle in installed support packages.
+
+## [3.2.1] - 2026-10-05
+
+- Add concise reader navigation hints to the existing robots/XML-sitemap entry points without changing their protocol records.
+- Generate two navigation sentences in llms.txt and private reviewed hint snippets from validated Markdown destinations.
+- Cover comment-preserving semantics, XML double-hyphen hostnames, source/privacy boundaries and delivery limitations with behavioral tests.
+
+## [3.2.0] - 2026-10-03
+
+- Apply the owner-defined public Markdown discovery and private work-document contract across all 27 skills.
+- Add source-pinned Markdown export, complete scoped content/topic maps, exact live delivery checks and work-index closeout tooling.
+- Expand keyword discovery, intent clustering, demand provenance, canonical/Markdown ownership, gap and cannibalization decisions.
+- Keep protocol formats, immutable JSON contracts, publisher requirements and engine outcomes distinct.
+
 ## [3.1.0] - 2026-08-20
 
 ### Added

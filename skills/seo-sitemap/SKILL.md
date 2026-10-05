@@ -1,9 +1,16 @@
 ---
 name: seo-sitemap
-description: Use when auditing, generating, or planning XML sitemap changes from a verified canonical URL inventory, discovery evidence, and current protocol guidance; do not promise crawling or indexing from sitemap inclusion.
+description: Use when auditing, generating, or planning XML and Markdown sitemap changes from a verified canonical URL inventory, discovery evidence, and current protocol guidance; do not promise crawling or indexing from sitemap inclusion.
 ---
 
-# XML Sitemaps
+# XML and Markdown Sitemaps
+
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats. Include concise robots/XML-sitemap discovery comments and llms.txt navigation sentences pointing to actual Markdown answers; preserve the native protocols and verify delivery as described in the local contract.
+
+Lane outputs: `sitemap-inventory.md; sitemap-dispositions.md; markdown-coverage.md` (combine small related steps with stable section links). Own reconciliation of CMS/routes, XML, internal discovery and every inventory URL disposition. Produce sitemap.md, topic maps and exact canonical-to-.md mappings for the entire eligible scope. Preserve XML protocol and truthful lastmod; keep excluded sensitive URLs in private records.
+
 
 ## Purpose
 

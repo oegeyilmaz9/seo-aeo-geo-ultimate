@@ -5,6 +5,13 @@ description: Use when sequencing validated SEO findings and approved action-plan
 
 # SEO Strategy and Delivery Plan
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `roadmap.md; dependencies.md` (combine small related steps with stable section links). Sequence query decisions, source content, inventory/maps, routing, parity review, local acceptance, authorized release and full delivery checks. Preserve both keyword ambition tracks, maintenance owners and direct document links.
+
+
 ## Purpose
 
 Turn validated evidence and approved actions into a delivery roadmap that a team can execute and review. This skill coordinates scope, sequencing, and measurement; it does not create technical/content facts, approve releases, or promise business outcomes.

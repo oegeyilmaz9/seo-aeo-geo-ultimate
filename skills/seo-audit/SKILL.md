@@ -5,6 +5,13 @@ description: Use when a site needs a bounded multi-lane SEO assessment with expl
 
 # Multi-lane SEO Audit
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `site-audit.md; markdown-coverage.md` (combine small related steps with stable section links). Audit full eligible HTML-to-Markdown coverage, direct discovery, source parity and ownership alongside conventional SEO lanes. Do not declare full-site coverage from only llms.txt or an XML sample.
+
+
 ## Purpose
 
 Plan and synthesize a site assessment across the lanes that matter for the stated goal. This skill does not assume that every site needs every check, crawl a site without authorization, fabricate a complete inventory, or implement the findings.
@@ -27,7 +34,7 @@ If an authorized crawler, analytics property, Search Console property, log sourc
 
 ## Guardrails
 
-- No universal SEO score, mandatory `llms.txt`, generic crawler policy, or ranking/citation guarantee.
+- No universal SEO score, universal engine-mandatory `llms.txt`, generic crawler policy, or ranking/citation guarantee.
 - Do not count pages, links, words, or tests as proof of quality.
 - Do not say a crawl, bot request, report row, or tool health check proves indexation, AI retrieval, citation, referral, or conversion.
 - Keep security, privacy, accessibility, and legal risks visible even when they are not search-ranking claims.

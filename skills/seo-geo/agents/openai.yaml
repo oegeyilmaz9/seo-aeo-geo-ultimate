@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO GEO"
   short_description: "Audit evidence-bound entity and citation readiness"
-  default_prompt: "Use $seo-geo to audit supplied targets and observations against a pinned AI-search Research Pack and produce an evidence-linked GEO Optimization Brief with implementation-owner handoffs."
+  default_prompt: "Use $seo-geo to audit supplied targets and observations against a pinned AI-search Research Pack and produce an evidence-linked GEO Optimization Brief with implementation-owner handoffs. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

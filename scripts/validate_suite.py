@@ -15,7 +15,7 @@ from validate_source_registry import parse_day, validate_registry
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
 MANIFEST = ROOT / "manifests" / "suite.json"
-SOURCE_REGISTRY = ROOT / "docs" / "research" / "2026-08-06-source-registry.json"
+SOURCE_REGISTRY = ROOT / "docs" / "research" / "2026-10-03-source-registry.json"
 PLATFORM_CONTROLS = ROOT / "manifests" / "platform-controls.json"
 LLMS_TXT = ROOT / "llms.txt"
 CITATION = ROOT / "CITATION.cff"
@@ -206,7 +206,15 @@ def validate_release_metadata(errors: list[str]) -> None:
 
 
 def validate_sources(as_of: date, allow_stale: bool, errors: list[str]) -> None:
-    payload = load_json(SOURCE_REGISTRY, errors)
+    manifest = load_json(MANIFEST, errors)
+    declared = manifest.get("source_registry") if isinstance(manifest, dict) else None
+    source_path = ROOT / declared if isinstance(declared, str) else SOURCE_REGISTRY
+    try:
+        source_path.resolve().relative_to(ROOT.resolve())
+    except ValueError:
+        errors.append("active source registry escapes suite root")
+        return
+    payload = load_json(source_path, errors)
     if payload is None:
         return
     result = validate_registry(payload, as_of, allow_stale)
@@ -251,6 +259,15 @@ def validate_llms_txt(errors: list[str]) -> None:
         errors.append(f"llms.txt: {detail}")
 
 
+def validate_repository_navigation(errors: list[str]) -> None:
+    completed = subprocess.run(
+        [sys.executable, str(ROOT / 'scripts/manage_repository_map.py'), '--check'],
+        text=True, capture_output=True, check=False,
+    )
+    if completed.returncode:
+        errors.append('repository navigation: ' + (completed.stderr.strip() or completed.stdout.strip()))
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate the local SEO skill suite's structural and source-registry invariants.")
     parser.add_argument("--as-of", default=date.today().isoformat(), help="ISO date used to evaluate source freshness")
@@ -272,6 +289,7 @@ def main() -> int:
     validate_sources(parsed_as_of, args.allow_stale_sources, errors)
     validate_platform_controls(parsed_as_of, errors)
     validate_llms_txt(errors)
+    validate_repository_navigation(errors)
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)

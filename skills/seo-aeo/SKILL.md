@@ -5,6 +5,13 @@ description: Audit supplied pages, documents, or content sets for direct-answer 
 
 # SEO AEO
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `aeo-findings.md; answer-map.md` (combine small related steps with stable section links). Audit substantive Markdown answers alongside their pinned HTML/source captures: self-contained meaning, question-to-section access, completeness, dates, limitations and HTML parity. Keep formal Research Pack requirements for engine-scoped claims. Route publisher navigation/parity defects to technical/content owners without inventing engine evidence.
+
+
 Produce an evidence-linked AEO Optimization Brief from immutable inputs. Audit answer readiness; do not implement the remedies.
 
 ## Required inputs
@@ -28,7 +35,7 @@ Produce an evidence-linked AEO Optimization Brief from immutable inputs. Audit a
 4. Verify every Brief target field against the hash-pinned metadata file. Record target observations as intra-brief `direct_observation` evidence pinned to the target capture and metadata-supplied source URL. Do not invent a URL or republish Research Pack source records as audit evidence. A target finding must cite that observation; research-dependent conclusions must also cite scope-matched Research Pack evidence.
 5. Bind each finding to resolved Research Pack query IDs. Keep the finding locale equal to its target locale and keep engine/surface scope within those queries' applicability.
 6. Classify each observation as `confirmed`, `vendor-recommended`, `experimental`, or `speculative`. A finding or confidence level cannot exceed its weakest necessary premise. Speculative evidence never supports an implementation recommendation. Experimental-only support belongs in `experiments`; route unsupported premises to limitations, declined claims, or research backlog.
-7. Reject unsupported formulas, word-count thresholds, guaranteed placements, universal crawler claims, and mandatory `llms.txt` claims into `declined_claims`.
+7. Reject unsupported formulas, word-count thresholds, guaranteed placements, universal crawler claims, and universal engine-mandatory `llms.txt` claims into `declined_claims`.
 8. Create an `optimization-brief.json` with `optimization_domain: "aeo"` and `producer_skill: "seo-aeo"`. Pin every external evidence reference to the immutable Research Pack hash. Use `SELF` only for an intra-brief `audit_evidence` reference. Keep stable IDs unique and never copy Research Pack evidence into `audit_evidence`.
 9. Give every recommendation its own evidence references, desired outcome, confidence, verification method, and exactly one candidate implementation owner. Its evidence must overlap every linked finding and remain scope-compatible. A Brief does not approve a change.
 10. Set `created_at` after all target captures and audit observations. Validate Research Pack uniqueness, chronology, capture hashes, query applicability, evidence resolution and scope, and the Optimization Brief contract before delivery.

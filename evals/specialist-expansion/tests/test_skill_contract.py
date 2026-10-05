@@ -80,7 +80,8 @@ class SpecialistExpansionContractTests(unittest.TestCase):
         self.assertIn("llms.txt.template", technical)
         self.assertIn("documented consumer strengthens the case but is not mandatory", protocol)
         self.assertTrue(template.is_file())
-        self.assertIn("Optional `llms.txt` suitability, generation, validation", router)
+        self.assertIn("Owner-required Markdown discovery profile", router)
+        self.assertIn("optional standalone `llms.txt` suitability, generation, validation", router)
         self.assertEqual(manifest["skills"]["seo-technical"]["produces_files"], ["llms-txt"])
         self.assertEqual(manifest["file_outputs"]["llms-txt"]["validator"], "scripts/validate_llms_txt.py")
 

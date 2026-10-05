@@ -5,6 +5,13 @@ description: Use when establishing or comparing conventional SEO performance fro
 
 # SEO Performance
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `performance-baseline.md; performance-comparison.md; provider-receipt.md` (combine small related steps with stable section links). Keep query-to-canonical ownership, conventional search metrics and public Markdown delivery metrics distinct. Render validated receipts/runs as readable Markdown while retaining immutable originals and privacy. Provider acceptance is not indexing or AI consumption.
+
+
 Build a hash-pinned `seo-performance-run.json` from authorized first-party exports. Measure conventional search behavior, indexation, user experience, and organic outcomes without blending them into AI visibility metrics or implying that an intervention caused movement.
 
 Read [performance-measurement-protocol.md](references/performance-measurement-protocol.md) before normalizing, comparing, or interpreting data.

@@ -14,7 +14,7 @@ REGISTRY = ROOT / "manifests" / "platform-controls.json"
 
 
 class PlatformControlsValidatorTests(unittest.TestCase):
-    def run_case(self, mutate=None, as_of: str = "2026-08-10T18:00:00Z") -> subprocess.CompletedProcess[str]:
+    def run_case(self, mutate=None, as_of: str = "2026-10-03T23:59:59Z") -> subprocess.CompletedProcess[str]:
         with tempfile.TemporaryDirectory() as temporary:
             bundle = Path(temporary)
             payload = json.loads(REGISTRY.read_text(encoding="utf-8"))
@@ -65,7 +65,7 @@ class PlatformControlsValidatorTests(unittest.TestCase):
         self.assertIn("wildcard", completed.stderr)
 
     def test_expired_registry_fails(self) -> None:
-        completed = self.run_case(as_of="2026-10-10T18:00:00Z")
+        completed = self.run_case(as_of="2026-12-10T18:00:00Z")
         self.assertNotEqual(completed.returncode, 0)
         self.assertIn("past review_due_at", completed.stderr)
 

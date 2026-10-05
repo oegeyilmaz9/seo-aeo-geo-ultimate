@@ -34,7 +34,7 @@ When a structured-data capture is supplied, compare its claims with visible cont
 
 ## Myth-resistance gate
 
-Decline any requested mandatory rule that lacks evidence scoped to the engine, surface, locale, and observation window. Common examples include fixed passage lengths, fixed first-sentence limits, a universal AEO score, guaranteed citation uplift, mandatory `llms.txt`, blanket crawler directives, and correlation presented as causation.
+Decline any requested mandatory rule that lacks evidence scoped to the engine, surface, locale, and observation window. Common examples include fixed passage lengths, fixed first-sentence limits, a universal AEO score, guaranteed citation uplift, universal engine-mandatory `llms.txt`, blanket crawler directives, and correlation presented as causation.
 
 ## Recommendation gate
 

@@ -5,6 +5,13 @@ description: Measure repeatable AI-search mention, citation, answer accuracy, ci
 
 # AI Visibility Monitor
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `visibility-baseline.md; visibility-comparison.md` (combine small related steps with stable section links). Keep Markdown route fetch logs, local task completion, external retrieval traces, mentions, citations and referrals as distinct observations. Pin the same question corpus and snapshot versions for comparisons. No citation uplift inferred from deployment.
+
+
 Produce a hash-pinned Visibility Run from immutable research, a formal frozen Query Corpus, repeated raw answer captures, retrieval traces where the surface exposes them, and citation reviews. This skill measures what was observed; it does not prescribe changes or claim why a metric moved. Legacy `1.0.0` runs remain readable; create new work with schema `2.0.0`.
 
 ## Required inputs

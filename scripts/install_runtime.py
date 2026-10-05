@@ -27,8 +27,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_SKILLS = ROOT / "skills"
 SUITE_MANIFEST = ROOT / "manifests" / "suite.json"
 RUNTIME_LOCATOR = ".seo-suite-runtime.json"
-SUPPORT_DIRECTORIES = ("scripts", "manifests", "docs", "skills", "examples")
-SUPPORT_FILES = ("README.md", "CHANGELOG.md", "LICENSE", "NOTICE", "CITATION.cff", "llms.txt")
+SUPPORT_DIRECTORIES = ("scripts", "manifests", "docs", "skills", "examples", "assets", "evals", ".claude-plugin", ".github")
+SUPPORT_FILES = ("README.md", "CHANGELOG.md", "LICENSE", "NOTICE", "CITATION.cff", "llms.txt", "sitemap.md", "SECURITY.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "SUPPORT.md", ".gitignore", ".gitattributes")
 SKILL_NAME_RE = re.compile(r"^[a-z0-9][a-z0-9-]{2,63}$")
 
 

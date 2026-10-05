@@ -5,6 +5,13 @@ description: Use when one URL needs a bounded mixed SEO review across reader tas
 
 # One-page SEO Review
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `page-review.md; query-answer-map.md` (combine small related steps with stable section links). Review the canonical HTML page and its substantive Markdown representation as one page owner. Preserve title/meta/H1 and user experience work, query intent, direct answers, entity facts, locale and source consistency.
+
+
 ## Purpose
 
 Assess a single page in its actual context and turn confirmed observations into specialist-owned next steps. This is a coordination/audit skill, not a generic rewrite, site crawl, implementation tool, or universal score.

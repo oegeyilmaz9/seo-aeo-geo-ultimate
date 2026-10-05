@@ -31,6 +31,9 @@ jobs:
       - name: Verify generated contracts
         run: python scripts/sync_contracts.py --check
 
+      - name: Verify complete Markdown repository navigation
+        run: python scripts/manage_repository_map.py --check
+
       - name: Validate suite and source freshness
         run: python scripts/validate_suite.py --as-of "$(date -u +%F)"
 

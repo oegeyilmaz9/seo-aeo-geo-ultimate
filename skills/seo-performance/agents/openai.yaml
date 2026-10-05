@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO Performance"
   short_description: "Measure SEO performance and controlled tests"
-  default_prompt: "Use $seo-performance to build or compare an evidence-bound performance run or design a controlled SEO experiment."
+  default_prompt: "Use $seo-performance to build or compare an evidence-bound performance run or design a controlled SEO experiment. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

@@ -1,4 +1,4 @@
 interface:
   display_name: "Competitor Pages"
   short_description: "Plan fair evidence-led comparison and alternative pages"
-  default_prompt: "Use $seo-competitor-pages to assess the supplied SEO evidence and propose safe next actions."
+  default_prompt: "Use $seo-competitor-pages to assess the supplied SEO evidence and propose safe next actions. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

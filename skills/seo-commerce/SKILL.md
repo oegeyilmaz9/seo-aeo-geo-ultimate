@@ -5,6 +5,13 @@ description: Use when auditing or planning ecommerce search visibility across pr
 
 # Commerce SEO
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `commerce-review.md; catalog-parity.md` (combine small related steps with stable section links). Project approved product, price, currency, availability, variants, limits and freshness to Markdown from the same catalog revision as HTML/feeds. Exclude private checkout/session data. Dynamic claims need a reliable refresh owner; feeds/protocols keep native formats.
+
+
 Audit the complete product-discovery system: visible product/category pages, structured data, merchant feeds, change notification, policy fields, and documented AI commerce integrations. Keep every platform-specific control scoped to current primary documentation.
 
 Read [commerce-evidence-protocol.md](references/commerce-evidence-protocol.md) before a formal audit.

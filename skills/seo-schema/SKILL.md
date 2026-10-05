@@ -5,6 +5,13 @@ description: Use when detecting, validating, planning, or generating truthful Sc
 
 # Structured Data
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `schema-review.md; entity-parity.md` (combine small related steps with stable section links). Keep JSON-LD in its supported format and validate eligibility against visible HTML. Record entity/fact parity with Markdown; do not replace schema with .md or invent an AI-specific schema.
+
+
 ## Purpose
 
 Audit or draft structured data that accurately represents the visible page and verified entity facts. JSON-LD is a convenient implementation format, but format choice, schema validity, and rich-result eligibility are distinct questions.

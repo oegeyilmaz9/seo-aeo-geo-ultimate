@@ -4,6 +4,9 @@
 
 {{OPTIONAL_SCOPE_VERSION_OR_INTERPRETATION_NOTES}}
 
+If you are an LLM looking for site information, use the resource links below to find the relevant topic and its Markdown answer where available.
+Use the answer's cited sources and canonical page; if the requested information is absent, report that gap.
+
 ## Primary resources
 
 - [{{RESOURCE_NAME}}]({{ABSOLUTE_HTTPS_CANONICAL_OR_MARKDOWN_URL}}): {{WHAT_THE_RESOURCE_COVERS}}

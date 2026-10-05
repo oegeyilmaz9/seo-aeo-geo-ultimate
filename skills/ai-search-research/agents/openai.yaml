@@ -1,4 +1,4 @@
 interface:
   display_name: "AI Search Research"
   short_description: "Build locale-declared multilingual AI-search research packs"
-  default_prompt: "Use $ai-search-research to create a source-governed multilingual AI-search Research Pack for the locales declared in the request, with explicit engine, surface, provenance, freshness, and gaps."
+  default_prompt: "Use $ai-search-research to create a source-governed multilingual AI-search Research Pack for the locales declared in the request, with explicit engine, surface, provenance, freshness, and gaps. Apply the Markdown delivery contract: write substantive private work notes with direct index links, and maintain the full eligible public Markdown discovery profile when site implementation is in scope."

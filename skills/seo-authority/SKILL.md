@@ -5,6 +5,13 @@ description: Use when auditing backlinks, referring domains, source citations, b
 
 # Authority and Source Landscape
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `authority-review.md; source-landscape.md` (combine small related steps with stable section links). Record source ownership, expertise, referring evidence and claims directly in Markdown handoffs; distinguish owned citations from independent endorsement. Keep paid/organic/affiliate relationships explicit and no fabricated authority metrics.
+
+
 Audit off-site evidence that helps users and systems verify an entity: genuine links, mentions, citations, source coverage, and risk. This skill does not manufacture authority.
 
 Read [authority-evidence-protocol.md](references/authority-evidence-protocol.md) before a formal audit.

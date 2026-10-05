@@ -5,6 +5,13 @@ description: Use when auditing or planning local search visibility for a storefr
 
 # Local SEO
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `local-review.md; location-facts.md` (combine small related steps with stable section links). Publish factual location/service-area Markdown with exact NAP, hours, dates, local audience tasks and public evidence. Preserve locale/location ownership and profile truth; avoid thin location variants or exposing private contact data.
+
+
 Audit the relationship between real-world business facts, authorized platform profiles, location pages, structured data, reviews, and location-aware query demand.
 
 Read [local-evidence-protocol.md](references/local-evidence-protocol.md) before a formal audit.

@@ -5,11 +5,18 @@ description: Use when investigating crawlability, indexability, canonicalization
 
 # Technical SEO
 
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats. Include concise robots/XML-sitemap discovery comments and llms.txt navigation sentences pointing to actual Markdown answers; preserve the native protocols and verify delivery as described in the local contract.
+
+Lane outputs: `technical-findings.md; markdown-delivery.md; live-verification.md` (combine small related steps with stable section links). Own robots.txt and llms.txt delivery, MIME/UTF-8, explicit Markdown routing, access, redirects, cache invalidation and a documented HTTP canonical/indexing policy. Verify the full declared resource set after authorized release; no SPA HTML fallback may pass.
+
+
 ## Purpose
 
 Diagnose concrete technical behavior from headers, raw and rendered pages, robots files, sitemap inventories, application configuration, field data, logs, and platform documentation. Create scoped implementation recommendations; do not deploy code, alter production directives, or claim an indexing/ranking outcome.
 
-For an optional `llms.txt` request, create a maintained publisher guide—not a crawler directive or promised visibility control. Recommend it as a reasonable low-cost future-readiness layer when it can stay aligned with truthful public sources and has a maintenance owner; a documented consumer strengthens the case but is not mandatory.
+For a standalone `llms.txt` request, create a maintained publisher guide—not a crawler directive or promised visibility control. Recommend it as a reasonable low-cost future-readiness layer when it can stay aligned with truthful public sources and has a maintenance owner; a documented consumer strengthens the case but is not mandatory.
 
 Read `references/technical-evidence-protocol.md` before a formal technical audit.
 Read [external-claim-adjudication.md](references/external-claim-adjudication.md) when evaluating third-party audit or scanner claims.
@@ -58,7 +65,7 @@ Let `<suite-root>` mean `${CLAUDE_PLUGIN_ROOT}` in Claude Code. In Codex, read `
 3. Copy `<suite-root>/skills/seo-technical/assets/llms.txt.template`, replace every placeholder from the public source of truth, and keep only useful absolute HTTPS links.
 4. Validate the candidate with `python "<suite-root>/scripts/validate_llms_txt.py" validate-file <site-root>/llms.txt`.
 5. Deliver or publish it at `/llms.txt` only within the authorized scope. Verify the live response and add the file to the ordinary documentation/content release path.
-6. Describe the file as an optional publisher guide. Google currently documents that it ignores the file for Search visibility; do not convert its existence into a ranking, retrieval, citation, or traffic claim.
+6. Describe the file as an owner-required publisher guide within the Markdown discovery profile, or an optional guide outside that profile. Google documents that special AI text files are not required for AI Search eligibility; do not convert this file into a ranking, retrieval, citation, or traffic claim.
 
 ## Crawler-control policy
 

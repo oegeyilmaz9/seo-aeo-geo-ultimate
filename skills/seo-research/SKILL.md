@@ -1,15 +1,23 @@
 ---
 name: seo-research
-description: Use when researching conventional search intent, audience questions, query families, content gaps, site coverage, cannibalization, or competitor/page evidence for a bounded SEO decision; produce a provenance-aware query corpus when the work will drive measurement or implementation, retain source dates and uncertainty, and route formal multi-engine AI-search evidence to ai-search-research.
+description: Research conventional keywords, search intent, audience questions, demand provenance, query clusters, coverage gaps, cannibalization and competitor evidence. Map each need to one canonical page and its exact Markdown answer destination; preserve source dates, uncertainty and both opportunity tracks. Route formal multi-engine AI evidence to ai-search-research.
 ---
 
 # SEO Research
+
+## Markdown delivery contract
+
+Read [markdown-delivery-contract.md](references/markdown-delivery-contract.md) for every task. Write a substantive `.md` document for every material work step and register its direct destination in the work `index.md`. For public-site work, apply the owner-required Markdown discovery profile across the full eligible inventory; preserve native standards and immutable evidence formats.
+
+Lane outputs: `keyword-research.md; keyword-map.md; content-gap.md; keyword-decisions.md` (combine small related steps with stable section links). Read keyword-research-protocol.md. Map intent clusters and query IDs to one canonical HTML owner and its actual Markdown destination/answer section, with demand provenance, dated SERPs, near-term and leadership tracks, gaps and cannibalization decisions.
+
 
 ## Purpose
 
 Build a decision-ready research note for traditional/web-search content and site decisions. This skill is for scoped discovery, not for a fabricated keyword spreadsheet, mass scraping, or a substitute for the immutable multi-engine `ai-search-research` Research Pack.
 
 Read `references/research-evidence-protocol.md` before presenting research conclusions.
+Read [keyword-research-protocol.md](references/keyword-research-protocol.md) for keyword discovery, intent clustering, demand provenance, ownership, gaps, cannibalization and Markdown answer mapping.
 Read [query-opportunity-protocol.md](references/query-opportunity-protocol.md) when the goal is to choose what the site should rank for or identify the strongest next query opportunity.
 
 ## Input gate
