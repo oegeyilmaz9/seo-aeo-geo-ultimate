@@ -2,7 +2,7 @@
 
 > A complete, evidence-first SEO, AEO, GEO and AI-search suite for Codex and Claude Code.
 
-Version 3.3.0. Source documents and native artifacts are maintained together. Python 3.11+ is required for the formal tools.
+Version 3.3.1. Source documents and native artifacts are maintained together. Python 3.11+ is required for the formal tools.
 If you are an LLM looking for information, use the content map to select the relevant topic and open its direct Markdown document.
 Use that document's cited evidence; if the requested information is absent, report that gap. Example fixtures are not observed engine facts.
 

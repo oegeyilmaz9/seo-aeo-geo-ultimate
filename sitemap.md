@@ -1,6 +1,6 @@
 # Complete repository content map
 
-Version 3.3.0. Scope: all 334 published source files in the installer's declared public roots, plus the generated navigation files listed below.
+Version 3.3.1. Scope: all 336 published source files in the installer's declared public roots, plus the generated navigation files listed below.
 
 Find the reader task in a topic map, then open its exact raw document. Existing Markdown is the answer-bearing representation; code, schemas, assets and fixtures stay native. Test fixtures are illustrative or deliberate negative cases, not current product or engine facts.
 
@@ -17,7 +17,7 @@ Find the reader task in a topic map, then open its exact raw document. Existing 
 - [contracts](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/maps/contracts.md): 13 exact source destinations.
 - [examples](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/maps/examples.md): 22 exact source destinations.
 - [governance](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/maps/governance.md): 18 exact source destinations.
-- [protocols](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/maps/protocols.md): 22 exact source destinations.
+- [protocols](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/maps/protocols.md): 24 exact source destinations.
 - [skill-ai-search-research](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/maps/skill-ai-search-research.md): 9 exact source destinations.
 - [skill-ai-visibility-monitor](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/maps/skill-ai-visibility-monitor.md): 8 exact source destinations.
 - [skill-optimise-seo](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/maps/skill-optimise-seo.md): 6 exact source destinations.

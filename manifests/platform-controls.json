@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "registry_id": "platform-controls-2026-10-03",
-  "created_at": "2026-10-03T16:05:00Z",
-  "review_due_at": "2026-11-02T16:05:00Z",
+  "registry_id": "platform-controls-2026-11-03",
+  "created_at": "2026-11-03T01:16:36Z",
+  "review_due_at": "2026-12-03T01:16:36Z",
   "features": [
     {
       "feature_id": "google-ai-overviews",
@@ -19,7 +19,7 @@
         "global"
       ],
       "documentation_url": "https://developers.google.com/search/docs/appearance/ai-features",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "effective_at": null,
       "affected_skills": [
         "ai-search-research",
@@ -30,7 +30,8 @@
       "classification": "confirmed",
       "limitations": [
         "Serving and availability vary; eligibility does not guarantee appearance.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Search Console Search generative AI inclusion is a separate property control; see google-search-generative-ai-control. Googlebot and page preview/indexing controls remain relevant.",
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -48,7 +49,7 @@
         "global"
       ],
       "documentation_url": "https://developers.google.com/search/docs/appearance/ai-features",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "effective_at": null,
       "affected_skills": [
         "ai-search-research",
@@ -59,7 +60,8 @@
       "classification": "confirmed",
       "limitations": [
         "AI Mode is a separate surface and can use different models or techniques.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Search Console Search generative AI inclusion is a separate property control; see google-search-generative-ai-control. Googlebot and page preview/indexing controls remain relevant.",
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -77,8 +79,8 @@
         "global"
       ],
       "documentation_url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
-      "last_verified_at": "2026-10-03T16:02:54Z",
-      "effective_at": null,
+      "last_verified_at": "2026-11-03T01:16:36Z",
+      "effective_at": "2026-08-31T00:00:00Z",
       "affected_skills": [
         "seo-performance",
         "ai-visibility-monitor"
@@ -86,7 +88,8 @@
       "classification": "confirmed",
       "limitations": [
         "Actual property access and exposed dimensions must be checked; no query or answer-level data is assumed.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "effective_at records the documented worldwide rollout date, not the June announcement date or a property-specific activation time.",
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -105,7 +108,7 @@
         "global"
       ],
       "documentation_url": "https://llmstxt.org/",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "effective_at": "2024-09-03T00:00:00Z",
       "affected_skills": [
         "seo-technical"
@@ -114,7 +117,7 @@
       "limitations": [
         "This is an open community proposal with client-specific processing, not a universal web or visibility standard.",
         "Google Search documents that it ignores llms.txt and that publication neither helps nor harms Google rankings.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -132,7 +135,7 @@
         "global"
       ],
       "documentation_url": "https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "effective_at": null,
       "affected_skills": [
         "seo-performance",
@@ -141,7 +144,7 @@
       "classification": "confirmed",
       "limitations": [
         "Citations and sampled grounding queries are not rank, authority, or placement metrics.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -159,7 +162,7 @@
         "global"
       ],
       "documentation_url": "https://developers.google.com/search/updates",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "effective_at": "2026-05-07T00:00:00Z",
       "affected_skills": [
         "seo-schema",
@@ -168,7 +171,7 @@
       "classification": "confirmed",
       "limitations": [
         "Do not recommend FAQ markup for a removed Google rich-result feature; truthful schema decisions remain separately scoped.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -186,7 +189,7 @@
         "global"
       ],
       "documentation_url": "https://openai.com/index/powering-product-discovery-in-chatgpt/",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "effective_at": "2026-03-24T00:00:00Z",
       "affected_skills": [
         "seo-commerce",
@@ -196,7 +199,45 @@
       "classification": "confirmed",
       "limitations": [
         "Merchant/product data availability does not guarantee recommendation or purchase.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
+      ]
+    },
+    {
+      "feature_id": "google-search-generative-ai-control",
+      "vendor": "Google",
+      "name": "Search generative AI control",
+      "status": "current",
+      "surfaces": [
+        "search-console",
+        "google-search-ai-overviews",
+        "google-search-ai-mode",
+        "google-discover-generative-ai"
+      ],
+      "markets": [
+        "worldwide-rollout-documented-2026-08-31"
+      ],
+      "locales": [
+        "global"
+      ],
+      "documentation_url": "https://support.google.com/webmasters/answer/16908024",
+      "last_verified_at": "2026-11-03T01:16:36Z",
+      "effective_at": "2026-08-31T00:00:00Z",
+      "affected_skills": [
+        "seo-technical",
+        "seo-aeo",
+        "seo-geo",
+        "seo-performance",
+        "ai-search-research",
+        "ai-visibility-monitor"
+      ],
+      "classification": "confirmed",
+      "limitations": [
+        "Property setting in Search Console Settings > Search generative AI; supports include, exclude, and inheritance from a parent property. Child owners can override inheritance; verify the actual property state before implementation.",
+        "Exclusion covers links, visible content, and response grounding in the listed generative AI surfaces. It is not a ranking or inclusion signal for other Search areas and does not override Merchant Center or Google Ads participation.",
+        "This visibility control does not affect AI training. Google-Extended is a separate product token; it has no separate HTTP user agent and is not the Search visibility control. Googlebot crawl rules, snippet controls, and noindex remain distinct.",
+        "effective_at is the documented worldwide rollout date (day precision), not the initial launch or an exact activation time. The control-what-you-share documentation update on 2026-10-21 is a separate source update, not the rollout date.",
+        "Exclusion generally takes a few days; the help page describes 1-2 days after the control goes live with possible caching and propagation delays. Verify the eventual property outcome rather than guaranteeing a deadline.",
+        "Primary documentation rechecked 2026-11-03; no authenticated property setting or real-site outcome verified."
       ]
     }
   ],
@@ -212,12 +253,12 @@
       "documentation_url": "https://developers.google.com/search/docs/appearance/ai-features",
       "business_decision": "undecided",
       "decision_owner": null,
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "log_evidence_ref": null,
       "log_evidence_sha256": null,
       "limitations": [
         "Googlebot access is distinct from Google-Extended and does not guarantee indexing or AI appearance.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -231,12 +272,12 @@
       "documentation_url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers",
       "business_decision": "undecided",
       "decision_owner": null,
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "log_evidence_ref": null,
       "log_evidence_sha256": null,
       "limitations": [
         "Product token controls specified Gemini training and grounding, not Google Search ranking/indexing; there is no separate Google-Extended HTTP request user agent.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -245,17 +286,18 @@
       "user_agent": "OAI-SearchBot",
       "purpose": "ai-search",
       "robots_support": "documented",
-      "waf_verification": "Use current OpenAI published crawler documentation and any linked IP verification source.",
-      "published_ip_source_url": null,
-      "documentation_url": "https://help.openai.com/en/articles/12627856",
+      "waf_verification": "Match the claimed crawler with its own current published IP ranges; a user-agent string alone does not authenticate a request.",
+      "published_ip_source_url": "https://openai.com/searchbot.json",
+      "documentation_url": "https://developers.openai.com/api/docs/bots",
       "business_decision": "undecided",
       "decision_owner": null,
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "log_evidence_ref": null,
       "log_evidence_sha256": null,
       "limitations": [
         "Search crawling is distinct from GPTBot training preferences and does not prove citation.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Opting out excludes content from ChatGPT search answers, but navigational links can remain; robots.txt search changes may take about 24 hours. Access does not guarantee selection or citation.",
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -264,17 +306,18 @@
       "user_agent": "GPTBot",
       "purpose": "training",
       "robots_support": "documented",
-      "waf_verification": "Use current OpenAI published crawler documentation and any linked IP verification source.",
-      "published_ip_source_url": null,
-      "documentation_url": "https://help.openai.com/en/articles/12627856",
+      "waf_verification": "Match the claimed crawler with its own current published IP ranges; a user-agent string alone does not authenticate a request.",
+      "published_ip_source_url": "https://openai.com/gptbot.json",
+      "documentation_url": "https://developers.openai.com/api/docs/bots",
       "business_decision": "undecided",
       "decision_owner": null,
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "log_evidence_ref": null,
       "log_evidence_sha256": null,
       "limitations": [
         "GPTBot training preference is not ChatGPT Search control.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Disallowing GPTBot signals that crawled content should not be used to train OpenAI generative foundation models; OAI-SearchBot is an independent choice. No claim about retrospective removal from existing models.",
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -288,12 +331,12 @@
       "documentation_url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
       "business_decision": "undecided",
       "decision_owner": null,
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "log_evidence_ref": null,
       "log_evidence_sha256": null,
       "limitations": [
         "ClaudeBot, Claude-User, and Claude-SearchBot require separate decisions.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -307,12 +350,12 @@
       "documentation_url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
       "business_decision": "undecided",
       "decision_owner": null,
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "log_evidence_ref": null,
       "log_evidence_sha256": null,
       "limitations": [
         "User-directed fetches are distinct from training and search indexing.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -326,12 +369,12 @@
       "documentation_url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
       "business_decision": "undecided",
       "decision_owner": null,
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "log_evidence_ref": null,
       "log_evidence_sha256": null,
       "limitations": [
         "Crawler access does not prove retrieval, citation, referral, or conversion.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -341,16 +384,16 @@
       "purpose": "ai-search",
       "robots_support": "documented",
       "waf_verification": "Verify against the current published Perplexity crawler and IP documentation.",
-      "published_ip_source_url": "https://www.perplexity.com/perplexitybot.json",
+      "published_ip_source_url": "https://www.perplexity.ai/perplexitybot.json",
       "documentation_url": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
       "business_decision": "undecided",
       "decision_owner": null,
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "log_evidence_ref": null,
       "log_evidence_sha256": null,
       "limitations": [
         "Published ranges can change; verify before a WAF rule.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -360,16 +403,16 @@
       "purpose": "user-initiated-fetch",
       "robots_support": "documented",
       "waf_verification": "Verify against the current published Perplexity crawler and IP documentation.",
-      "published_ip_source_url": "https://www.perplexity.com/perplexity-user.json",
+      "published_ip_source_url": "https://www.perplexity.ai/perplexity-user.json",
       "documentation_url": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
       "business_decision": "undecided",
       "decision_owner": null,
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "log_evidence_ref": null,
       "log_evidence_sha256": null,
       "limitations": [
         "Perplexity documents that this user-requested fetcher generally ignores robots.txt; use access controls for private content. This is distinct from search crawling and training.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     }
   ],
@@ -385,13 +428,13 @@
         "deleted"
       ],
       "documentation_url": "https://www.indexnow.org/documentation",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "receipt_ref": null,
       "receipt_sha256": null,
       "owner": "site technical owner",
       "limitations": [
         "Notify changed URLs only; submission does not guarantee crawling or indexing.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -407,13 +450,13 @@
         "availability"
       ],
       "documentation_url": "https://developers.google.com/search/docs/appearance/structured-data/product",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "receipt_ref": null,
       "receipt_sha256": null,
       "owner": "commerce feed owner",
       "limitations": [
         "Page and feed truth must remain aligned; feed acceptance is property-specific evidence.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -427,13 +470,13 @@
         "deleted"
       ],
       "documentation_url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "receipt_ref": null,
       "receipt_sha256": null,
       "owner": "publisher technical owner",
       "limitations": [
         "News sitemap inclusion does not guarantee news or Discover appearance.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -448,13 +491,13 @@
         "livestream"
       ],
       "documentation_url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/video-sitemaps",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "receipt_ref": null,
       "receipt_sha256": null,
       "owner": "video platform owner",
       "limitations": [
         "Video sitemap discovery does not guarantee video indexing or rich results.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     }
   ],
@@ -472,11 +515,12 @@
       "authentication": "Implementation-specific; require current capability and security documentation.",
       "fallback": "Use the accessible human-facing storefront and documented merchant feed paths.",
       "documentation_url": "https://ucp.dev/2026-04-08/specification/overview/",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "owner": "commerce platform owner",
       "limitations": [
         "Emerging protocol support is optional and does not control ranking or recommendation.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "The cited source does not establish a general public-preview lifecycle state; preview is a conservative suite integration label. Current version support, enrollment, and consumer availability remain unverified.",
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     },
     {
@@ -492,11 +536,12 @@
       "authentication": "Use current OpenAI merchant and commerce requirements.",
       "fallback": "Use truthful product pages and supported merchant/product data channels.",
       "documentation_url": "https://openai.com/index/powering-product-discovery-in-chatgpt/",
-      "last_verified_at": "2026-10-03T16:02:54Z",
+      "last_verified_at": "2026-11-03T01:16:36Z",
       "owner": "commerce platform owner",
       "limitations": [
         "Availability and program requirements can change; no recommendation or sales guarantee.",
-        "Documentation reviewed 2026-10-03; no site-specific provider configuration or outcome verified."
+        "The cited source does not establish a general public-preview lifecycle state; preview is a conservative suite integration label. Current version support, enrollment, and consumer availability remain unverified.",
+        "Primary documentation rechecked 2026-11-03; no site-specific configuration, request logs, property access, or provider outcome verified."
       ]
     }
   ],
