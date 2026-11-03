@@ -2,6 +2,14 @@
 
 All notable changes to SEO-AEO-GEO Ultimate are documented here.
 
+## [3.3.1] - 2026-11-03
+
+- Revalidate active primary sources and every platform control; preserve historical evidence and restore the expired freshness gate.
+- Replace the redirected OpenAI publisher FAQ with developer crawler documentation and crawler-specific IP sources; retain independent search/training choices and navigational-link limitations.
+- Add the Search Console Search generative AI visibility control, with property inheritance, covered surfaces, and rollout dates separated from documentation updates and Google-Extended.
+- Add regression coverage for source destinations, purpose/date distinctions, and stale evidence hidden behind an extended review deadline.
+- Preserve the existing Codex/Claude distribution and run package, behavioral, install and live-link validation before publication.
+
 ## [3.3.0] - 2026-10-05
 
 - Publish the complete Markdown discovery revision with all 27 skill contracts, conventional SEO preservation and evidence-qualified keyword ownership.

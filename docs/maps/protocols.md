@@ -1,6 +1,6 @@
 # protocols resource map
 
-Public source files in this topic: 22. Native resources keep their existing format.
+Public source files in this topic: 24. Native resources keep their existing format.
 
 [Full content map](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/sitemap.md) · [LLM entry point](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/llms.txt)
 
@@ -26,3 +26,5 @@ Public source files in this topic: 22. Native resources keep their existing form
 - [Native JSON contract, fixture or dated evidence: 2026-08-10-platform-controls-history](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/research/2026-08-10-platform-controls-history.json): `docs/research/2026-08-10-platform-controls-history.json`; native source/evidence resource.
 - [Native JSON contract, fixture or dated evidence: 2026-10-03-source-registry](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/research/2026-10-03-source-registry.json): `docs/research/2026-10-03-source-registry.json`; native source/evidence resource.
 - [Current source and control review](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/research/2026-10-03-source-review.md): `docs/research/2026-10-03-source-review.md`; readable Markdown document.
+- [Native JSON contract, fixture or dated evidence: 2026-11-03-source-registry](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/research/2026-11-03-source-registry.json): `docs/research/2026-11-03-source-registry.json`; native source/evidence resource.
+- [Source and platform control review — 2026-11-03](https://raw.githubusercontent.com/oegeyilmaz9/seo-aeo-geo-ultimate/main/docs/research/2026-11-03-source-review.md): `docs/research/2026-11-03-source-review.md`; readable Markdown document.

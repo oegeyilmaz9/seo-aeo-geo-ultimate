@@ -61,7 +61,7 @@ class RuntimeInstallerTests(unittest.TestCase):
             self.assertEqual(locator["package_hash"], result["package_hash"])
 
             validation = subprocess.run(
-                [sys.executable, str(suite_root / "scripts" / "validate_suite.py"), "--as-of", "2026-10-03"],
+                [sys.executable, str(suite_root / "scripts" / "validate_suite.py"), "--as-of", json.loads((ROOT / "manifests/platform-controls.json").read_text(encoding="utf-8"))["created_at"][:10]],
                 check=False,
                 capture_output=True,
                 text=True,
@@ -110,7 +110,7 @@ class RuntimeInstallerTests(unittest.TestCase):
             first_result = json.loads(first.stdout)
             suite_root = Path(first_result["suite_root"])
             subprocess.run(
-                [sys.executable, str(suite_root / "scripts" / "validate_suite.py"), "--as-of", "2026-10-03"],
+                [sys.executable, str(suite_root / "scripts" / "validate_suite.py"), "--as-of", json.loads((ROOT / "manifests/platform-controls.json").read_text(encoding="utf-8"))["created_at"][:10]],
                 check=True,
                 capture_output=True,
                 text=True,

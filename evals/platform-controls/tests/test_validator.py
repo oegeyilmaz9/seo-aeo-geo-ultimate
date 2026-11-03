@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import datetime as dt
 import subprocess
 import sys
 import tempfile
@@ -14,10 +15,12 @@ REGISTRY = ROOT / "manifests" / "platform-controls.json"
 
 
 class PlatformControlsValidatorTests(unittest.TestCase):
-    def run_case(self, mutate=None, as_of: str = "2026-10-03T23:59:59Z") -> subprocess.CompletedProcess[str]:
+    def run_case(self, mutate=None, as_of: str | None = None) -> subprocess.CompletedProcess[str]:
         with tempfile.TemporaryDirectory() as temporary:
             bundle = Path(temporary)
             payload = json.loads(REGISTRY.read_text(encoding="utf-8"))
+            if as_of is None:
+                as_of = payload["created_at"][:10] + "T23:59:59Z"
             if mutate is not None:
                 mutate(payload)
             artifact = bundle / "platform-controls.json"
@@ -65,9 +68,63 @@ class PlatformControlsValidatorTests(unittest.TestCase):
         self.assertIn("wildcard", completed.stderr)
 
     def test_expired_registry_fails(self) -> None:
-        completed = self.run_case(as_of="2026-12-10T18:00:00Z")
+        payload = json.loads(REGISTRY.read_text(encoding="utf-8"))
+        expired = dt.datetime.fromisoformat(payload["review_due_at"].replace("Z", "+00:00")) + dt.timedelta(days=1)
+        completed = self.run_case(as_of=expired.isoformat())
         self.assertNotEqual(completed.returncode, 0)
         self.assertIn("past review_due_at", completed.stderr)
+
+    def test_extending_review_deadline_does_not_refresh_old_entries(self) -> None:
+        payload = json.loads(REGISTRY.read_text(encoding="utf-8"))
+        future = dt.datetime.fromisoformat(payload["created_at"].replace("Z", "+00:00")) + dt.timedelta(days=46)
+        completed = self.run_case(
+            lambda row: row.update(review_due_at=(future + dt.timedelta(days=30)).isoformat()),
+            as_of=future.isoformat(),
+        )
+        self.assertNotEqual(completed.returncode, 0)
+        self.assertIn("verification is older than 45 days", completed.stderr)
+        self.assertNotIn("past review_due_at", completed.stderr)
+
+    def test_active_openai_controls_use_crawler_sources_and_independent_purposes(self) -> None:
+        payload = json.loads(REGISTRY.read_text(encoding="utf-8"))
+        controls = {row["control_id"]: row for row in payload["crawlers"]}
+        for control_id, agent, purpose, ip in (
+            ("openai-searchbot", "OAI-SearchBot", "ai-search", "searchbot"),
+            ("openai-gptbot", "GPTBot", "training", "gptbot"),
+        ):
+            with self.subTest(control_id=control_id):
+                row = controls[control_id]
+                self.assertEqual((row["user_agent"], row["purpose"]), (agent, purpose))
+                self.assertEqual(row["documentation_url"], "https://developers.openai.com/api/docs/bots")
+                self.assertEqual(row["published_ip_source_url"], f"https://openai.com/{ip}.json")
+                self.assertEqual(row["business_decision"], "undecided")
+        self.assertIn("navigational links", " ".join(controls["openai-searchbot"]["limitations"]))
+
+    def test_google_visibility_is_a_feature_with_rollout_distinct_from_source_update(self) -> None:
+        payload = json.loads(REGISTRY.read_text(encoding="utf-8"))
+        feature = next(row for row in payload["features"] if row["feature_id"] == "google-search-generative-ai-control")
+        self.assertEqual(feature["documentation_url"], "https://support.google.com/webmasters/answer/16908024")
+        self.assertEqual(feature["status"], "current")
+        self.assertEqual(feature["effective_at"][:10], "2026-08-31")
+        self.assertTrue({"search-console", "google-search-ai-overviews", "google-search-ai-mode", "google-discover-generative-ai"} <= set(feature["surfaces"]))
+        self.assertFalse(any(row["control_id"] == feature["feature_id"] for row in payload["crawlers"]))
+        manifest = json.loads((ROOT / "manifests/suite.json").read_text(encoding="utf-8"))
+        sources = json.loads((ROOT / manifest["source_registry"]).read_text(encoding="utf-8"))["sources"]
+        sharing = next(row for row in sources if row["id"] == "google-control-what-you-share")
+        self.assertEqual(sharing["updated_at"], "2026-10-21")
+        self.assertNotEqual(sharing["updated_at"], feature["effective_at"][:10])
+
+    def test_every_active_control_source_is_in_the_reviewed_source_registry(self) -> None:
+        manifest = json.loads((ROOT / "manifests/suite.json").read_text(encoding="utf-8"))
+        sources = json.loads((ROOT / manifest["source_registry"]).read_text(encoding="utf-8"))["sources"]
+        urls = {row["url"] for row in sources}
+        payload = json.loads(REGISTRY.read_text(encoding="utf-8"))
+        for group in ("features", "crawlers", "change_notifications", "protocol_capabilities"):
+            for row in payload[group]:
+                with self.subTest(group=group, url=row["documentation_url"]):
+                    self.assertIn(row["documentation_url"], urls)
+                    if row.get("published_ip_source_url"):
+                        self.assertIn(row["published_ip_source_url"], urls)
 
     def test_backdated_validation_cannot_use_future_registry_evidence(self) -> None:
         completed = self.run_case(as_of="2026-08-01T23:59:59Z")

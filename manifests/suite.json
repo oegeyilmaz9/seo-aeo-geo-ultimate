@@ -1,5 +1,5 @@
 {
-  "suite_version": "3.3.0",
+  "suite_version": "3.3.1",
   "contract_generation_tool_version": "1.0.0",
   "canonical_schema_root": "manifests/artifact-schemas",
   "schemas": {
@@ -326,5 +326,5 @@
       "consumes": []
     }
   },
-  "source_registry": "docs/research/2026-10-03-source-registry.json"
+  "source_registry": "docs/research/2026-11-03-source-registry.json"
 }

@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "seo-aeo-geo-ultimate",
   "displayName": "SEO-AEO-GEO Ultimate",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "An autonomous SEO, AEO, GEO, and AI-search router that screens 27 evidence-first skills, executes every applicable specialist workflow, and returns one consolidated result.",
   "author": {
     "name": "Oegeyilmaz9",
